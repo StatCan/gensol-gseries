@@ -1,24 +1,18 @@
-# G-Series 2.0 in SAS<sup>®</sup>
+# G-Series 1.04 in SAS<sup>®</sup>
 
-([Français](#g-s%C3%A9ries-20-en-sas))
+([Français](#g-s%C3%A9ries-104-en-sas))
 
-G-Series is the name of Statistics Canada's generalized system devoted to time series processing. G-Series is developed jointly by the Digital Processing Solutions Division (DPSD) and the Time Series and Research Analysis Centre (TSRAC) in the Economic Statistics Methods Division (ESMD). 
+G-Series is Statistics Canada's generalized system devoted to time series benchmarking and reconciliation. The methods used in G-Series essentially come from
 
-G-Series 2.0 is available in SAS<sup>®</sup> and includes two procedures and one macro:
+* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, #186.
+
+G-Series 1.04 is available in SAS<sup>®</sup> and includes two procedures:
 
 * PROC BENCHMARKING: restore coherence between time series data of the same target variable measured at different frequencies (e.g., sub-annually and annually).
 * PROC TSRAKING: restore additivity constraints (one or two dimensional aggregation tables or data cubes) in a system of time series measured at the same frequency with the optional preservation of temporal constraints.
-* Macro ***GSeriesTSBalancing***: restore general linear constraints (including inequality constraints) in a system of time series measured at the same frequency with the optional preservation of temporal constraints.
-
-The methods used in G-Series essentially come from
-
-* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture notes in Statistics, #186.
-
 
 ## Contact - Support
-
-This repository does not contain any code. It only contains the French and English G-Series 2.0 SAS<sup>®</sup> user guides in PDF format. Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information or help using G-Series 2.0. Statistics Canada employees can also visit the [G-Series](https://confluenceb.statcan.ca/pages/viewpage.action?pageId=975542632) Confluence page (StatCan intranet). 
-
+This repository does not contain any code. It only contains the French and English G-Series 1.04 SAS<sup>®</sup> user guides in PDF format. Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information or help using G-Series. GitHub account holders can also request information, ask questions or report problems through the G-Series GitHub project [Issues](https://github.com/StatCan/gensol-gseries/issues) page. Statistics Canada employees can visit the G-Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G-Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab).
 
 
 <br>
@@ -28,24 +22,18 @@ This repository does not contain any code. It only contains the French and Engli
 <br>
 
 
-# G-Séries 2.0 en SAS<sup>®</sup>
+# G-Séries 1.04 en SAS<sup>®</sup>
 
-([English](#g-series-20-in-sas))
+([English](#g-series-104-in-sas))
 
-G-Séries est le nom du système généralisé de Statistique Canada dédié au traitement des séries chronologiques. G-Séries est développé conjointement par la Division des solutions de traitement numérique (DSTN) et le Centre de recherche et d’analyse en séries chronologiques (CRASC) de la Division des méthodes de la statistique économique (DMSE). 
+G-Séries est le système généralisé de Statistique Canada consacré à l'étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G-Séries proviennent essentiellement de
 
-G-Séries 2.0 est disponible en SAS<sup>®</sup> et comprend deux procédures et une macro :
+* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, #186.
+
+G-Séries 1.04 est disponible en SAS<sup>®</sup> et comprend deux procédures :
 
 * PROC BENCHMARKING : rétablir la cohérence entre les données de séries chronologiques d'une même variable cible mesurée à différentes fréquences (ex.: infra-annuellement et annuellement).
 * PROC TSRAKING : restaurer les contraintes d'additivité (tables d'agrégation ou cubes de données à une ou deux dimensions) d'un système de séries chronologiques mesurées à la même fréquence avec la préservation optionnelle des contraintes temporelles.
-* Macro ***GSeriesTSBalancing***: restaurer les contraintes linéaires générales (y compris les contraintes d'inégalité) d'un système de séries chronologiques mesurées à la même fréquence avec la préservation optionnelle des contraintes temporelles.
-
-Les méthodes utilisées dans G-Séries proviennent essentiellement de
-
-* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture notes in Statistics, #186.
-
 
 ## Contact - Assistance
-
-Ce dépôt ne contient pas de code. Il contient uniquement les guides d'utilisation SAS<sup>®</sup> anglais et français de G-Séries 2.0 en format PDF. Envoyez-nous un courriel à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir de l'information ou de l'aide sur l'utilisation de G-Series 2.0. Les employés de Statistique Canada peuvent également visiter la page Confluence de [G-Séries](https://confluenceb.statcan.ca/pages/viewpage.action?pageId=975542632) (intranet de StatCan).
-
+Ce dépôt ne contient pas de code. Il contient uniquement les guides d'utilisation SAS<sup>®</sup> anglais et français de G-Séries 1.04 en format PDF. Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations ou de l'aide sur l'utilisation de G-Séries. Les détenteurs d'un compte GitHub peuvent également demander des informations, poser des questions ou signaler des problèmes via la page [*Issues*](https://github.com/StatCan/gensol-gseries/issues) du projet GitHub de G-Séries. Les employés de Statistique Canada peuvent visiter la page Confluence de G-Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence) ainsi que le projet de développement GitLab de G-Séries également hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab).
