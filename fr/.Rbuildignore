@@ -1,0 +1,17 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^misc$
+^tests$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.gitlab-ci\.yml$
+^seriespt-doc\.html$
+^vignettes/articles$
+^inst/pkgdown\.yml$
+^pdf$
+^data-raw$
+^index\.Rmd$
+^index\.md$

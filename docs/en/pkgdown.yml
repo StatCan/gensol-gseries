@@ -1,0 +1,12 @@
+pandoc: '3.2'
+pkgdown: 2.1.2
+pkgdown_sha: ~
+articles:
+  benchmarking-cookbook: benchmarking-cookbook.html
+  benchmarking-demo-script: benchmarking-demo-script.html
+  gseries: gseries.html
+  osqp-settings-sequence-dataframe: osqp-settings-sequence-dataframe.html
+last_built: 2025-05-14T14:22Z
+urls:
+  reference: https://StatCan.github.io/gensol-gseries/en/reference
+  article: https://StatCan.github.io/gensol-gseries/en/articles
