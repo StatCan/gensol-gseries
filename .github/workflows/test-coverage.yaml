@@ -6,8 +6,6 @@ name: Test Coverage
 on:
   push:
     branches: [github, main]
-  pull_request:
-    branches: [github, main]
   # Also allow a manual run of the workflow
   workflow_dispatch:
 
