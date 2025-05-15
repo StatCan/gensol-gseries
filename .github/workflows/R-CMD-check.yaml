@@ -4,6 +4,7 @@
 name: R-CMD-check
 
 on:
+  push:
     branches: [github, main]
   pull_request:
     branches: [github, main]

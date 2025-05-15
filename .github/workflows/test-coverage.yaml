@@ -4,6 +4,7 @@
 name: Test Coverage
 
 on:
+  push:
     branches: [github, main]
   pull_request:
     branches: [github, main]
