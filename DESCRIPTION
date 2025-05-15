@@ -1,0 +1,48 @@
+Package: gseries
+Title: (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R'
+Version: 3.0.0
+Created: April 30, 2025, at 4:57:41 PM EDT
+Authors@R: c(
+    person("Michel", "Ferland", email = "michel.ferland@statcan.gc.ca", 
+    role = c("aut", "cre")),
+    person("Statistics Canada", role = c("cph", "fnd"))
+    )
+Description: 
+    (EN) Statistics Canada's generalized system devoted to time series 
+    benchmarking and reconciliation. The methods used in 'G-Series' essentially 
+    come from Dagum and Cholette (2006) <doi:10.1007/0-387-35439-5>. / 
+    (FR) Système généralisé de Statistique Canada consacré à l'étalonnage 
+    et à la réconciliation de séries chronologiques. Les méthodes utilisées 
+    dans 'G-Séries' proviennent essentiellement de Dagum et Cholette (2006) 
+    <doi:10.1007/0-387-35439-5>.
+License: GPL (>= 3)
+URL: 
+    https://StatCan.github.io/gensol-gseries/en/,   
+    https://StatCan.github.io/gensol-gseries/fr/
+BugReports: 
+    https://github.com/StatCan/gensol-gseries/issues/
+Email: g-series@statcan.gc.ca
+Depends: 
+    R (>= 4.0)
+Imports: 
+    ggplot2,
+    ggtext,
+    graphics,
+    grDevices,
+    gridExtra,
+    lifecycle,
+    osqp,
+    rlang (>= 1.1.0),
+    stats,
+    utils,
+    xmpdf
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+LazyData: true

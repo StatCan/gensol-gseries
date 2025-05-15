@@ -1,5 +1,12 @@
+*.Rproj
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-*.Rproj
+inst/doc
+vignettes/*.html
+vignettes/*.pdf
+/*.tar.gz
+.Rprofile
+..Rcheck
+gseries.Rcheck

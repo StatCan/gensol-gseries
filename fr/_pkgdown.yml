@@ -1,0 +1,88 @@
+url: https://StatCan.github.io/gensol-gseries/fr/
+
+lang: fr
+
+# Always generate a "release" website, which allows us to exclude selected links in MD files or vignettes (e.g. French 
+# link at the top of English vignettes) by activing them only for the (never generated) "development" website).
+development:
+  mode: release
+
+destination: ../docs/fr
+
+template:
+  math-rendering: katex
+  bootstrap: 5
+  bootswatch: flatly
+  includes:
+    # Link to the French page to the right of the GitLab icon (source: StatCan RPUG website)
+    after_navbar: | 
+      <ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="#" onclick="window.location = location.href.replace('/fr/','/en/');"><span class="fa fa-language fa-lg"></span> English</a></li></ul>
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+
+repo:
+  url:
+    home: https://github.com/StatCan/gensol-gseries/
+    source: https://github.com/StatCan/gensol-gseries/tree/main/fr/
+
+home:
+  sidebar:
+    structure: [toc, links, contact, license, community, citation, authors]
+    components:
+      contact:
+        title: "Contact - Assistance"
+        text: "g-series@statcan.gc.ca"
+
+news:
+  releases:
+  - text: "G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.0)"
+    href: https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/
+  - text: "G-Séries 2.0 (version SAS®)"
+    href: https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/
+  - text: "G-Séries 1.04 (version SAS®)"
+    href: https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/
+
+reference:
+- title: "Fonctions principales (par sujet)"
+- subtitle: "Étalonnage de séries chronologiques (ordre alphabétique)"
+- contents:
+  - benchmarking
+  - stock_benchmarking
+- subtitle: "Réconciliation de séries chronologiques (ordre alphabétique)"
+- contents:
+  - tsbalancing
+  - tsraking
+  - tsraking_driver
+- title: "Fonctions utilitaires (par sujet)"
+- subtitle: "Graphiques d'étalonnage (ordre de pertinence)"
+- contents:
+  - plot_benchAdj
+  - plot_graphTable
+  - bench_graphs
+- subtitle: "Conversion de métadonnées"
+- contents:
+  - rkMeta_to_blSpecs
+- subtitle: "Manipulation de données (ordre alphabétique)"
+- contents:
+  - stack_bmkDF
+  - stack_tsDF
+  - ts_to_bmkDF
+  - ts_to_tsDF
+  - tsDF_to_ts
+  - unstack_tsDF
+- subtitle: "Divers (ordre alphabétique)"
+- contents:
+  - build_balancing_problem
+  - build_raking_problem
+  - gs.build_proc_grps
+  - gs.gInv_MP
+  - time_values_conv
+- title: "Données de la librairie"
+  contents:
+  - osqp_settings_sequence
+
+deploy:
+  install_metadata: true
