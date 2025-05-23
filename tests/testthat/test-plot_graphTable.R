@@ -20,80 +20,87 @@ test_that("additive bench, denton, all plots", {
     )$pdf_name))
 })
 
-test_that("additive bench, non-denton, no plots", {
+test_that("additive bench, non-denton, adj. plot only, bookmarks not created message", {
+  tmp <- Sys.getenv("R_GSCMD")
+  Sys.setenv(R_GSCMD = "")
   expect_false(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(ind1, bmk1,
                                               rho = 0.9, lambda = 0, biasOption = 1,
                                               quiet = TRUE)$graphTable,
                     pdf_file = pdf,
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
                     GR_table_flag = FALSE)
   )$pdf_name))
+  Sys.setenv(R_GSCMD = tmp)
 })
 
-test_that("mult bench with constant, non-denton, no plots", {
+test_that("mult bench with constant, non-denton, adj. plot only, no bookmarks", {
   expect_false(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(ind1, bmk1,
                                               rho = 0.9, lambda = 1, biasOption = 1, constant = 1,
                                               quiet = TRUE)$graphTable,
                     pdf_file = pdf,
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
-                    GR_table_flag = FALSE)
+                    GR_table_flag = FALSE,
+                    add_bookmarks = FALSE)
   )$pdf_name))
 })
 
-test_that("graphTable passed as a \"structure\", no plots", {
-  expect_false(is.na(suppressMessages(
+test_that("graphTable passed as a \"structure\", adj. plot only, no PDF created (for speed)", {
+  expect_true(is.na(suppressMessages(
     do.call("plot_graphTable",
             list(graphTable = benchmarking(ind1, bmk1,
                                            rho = 0.9, lambda = 1, biasOption = 1, constant = 1,
                                            quiet = TRUE)$graphTable,
-                 pdf_file = pdf,
+                 pdf_file = NULL,
+                 #pdf_file = pdf,  # test the rendered PDF file (manual run)
                  ori_plot_flag = FALSE,
-                 adj_plot_flag = FALSE,
+                 adj_plot_flag = TRUE,
                  GR_plot_flag = FALSE,
                  GR_table_flag = FALSE))
   )$pdf_name))
 })
 
-test_that("multiple series (`var`), no plots", {
+test_that("multiple series (`var`), adj. plot only, no PDF created (for speed)", {
   ind2 <- ind1
   ind2$value2 <- ind2$value
   bmk2 <- bmk1
   bmk2$value2 <- bmk2$value
-  expect_false(is.na(suppressMessages(
+  expect_true(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(ind2, bmk2,
                                               rho = 0.9, lambda = 0, biasOption = 1,
                                               var = c("value", "value2"),
                                               quiet = TRUE)$graphTable,
-                    pdf_file = pdf,
+                    pdf_file = NULL,
+                    #pdf_file = pdf,  # test the rendered PDF file (manual run)
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
                     GR_table_flag = FALSE)
   )$pdf_name))
 })
 
-test_that("multiple series (`by`), no plots", {
-  expect_false(is.na(suppressMessages(
+test_that("multiple series (`by`), adj. plot only, no PDF created (for speed)", {
+  expect_true(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(cbind(data.frame(grp = rep(1:2, each = 4)), ind1), 
                                               cbind(data.frame(grp = 1:2), bmk1),
                                               rho = 0.9, lambda = 0, biasOption = 1,
                                               by = "grp",
                                               quiet = TRUE)$graphTable,
-                    pdf_file = pdf,
+                    pdf_file = NULL,
+                    #pdf_file = pdf,  # test the rendered PDF file (manual run)
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
                     GR_table_flag = FALSE)
   )$pdf_name))
 })
-test_that("multiple series (`by` - 2 cols), no plots", {
-  expect_false(is.na(suppressMessages(
+test_that("multiple series (`by` - 2 cols), adj. plot only, no PDF created (for speed)", {
+  expect_true(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(cbind(data.frame(grp1 = rep(1:2, each = 8),
                                                                grp2 = rep.int(rep(1:2, each = 4), 2)), 
                                                     ind1[rep(1:4, 4), ]), 
@@ -103,22 +110,24 @@ test_that("multiple series (`by` - 2 cols), no plots", {
                                               rho = 0.9, lambda = 0, biasOption = 1,
                                               by = c("grp1", "grp2"),
                                               quiet = TRUE)$graphTable,
-                    pdf_file = pdf,
+                    pdf_file = NULL,
+                    #pdf_file = pdf,  # test the rendered PDF file (manual run)
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
                     GR_table_flag = FALSE)
   )$pdf_name))
 })
 
-test_that("extra panels for GR plot", {
+test_that("extra panels for GR plot, no PDF created (for speed)", {
   ind2 <- ind1[rep.int(1:4, 5), ]
   ind2$year <- rep(1:5, each = 4)
-  expect_false(is.na(suppressMessages(
+  expect_true(is.na(suppressMessages(
     plot_graphTable(graphTable = benchmarking(ind2, bmk1,
                                               rho = 0.9, lambda = 0, biasOption = 1,
                                               quiet = TRUE)$graphTable,
-                    pdf_file = pdf,
+                    pdf_file = NULL,
+                    #pdf_file = pdf,  # test the rendered PDF file (manual run)
                     ori_plot_flag = FALSE,
                     adj_plot_flag = FALSE,
                     GR_plot_flag = TRUE,
@@ -126,7 +135,7 @@ test_that("extra panels for GR plot", {
   )$pdf_name))
 })
 
-test_that("PDF file without an extension", {
+test_that("PDF file without an extension, adj. plot only", {
   pdf2 <- tempfile("test", fileext = "")
   #pdf2 <- "test"
   expect_false(is.na(suppressWarnings(suppressMessages(
@@ -135,24 +144,11 @@ test_that("PDF file without an extension", {
                                               quiet = TRUE)$graphTable,
                     pdf_file = pdf2,
                     ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
+                    adj_plot_flag = TRUE,
                     GR_plot_flag = FALSE,
                     GR_table_flag = FALSE)
   ))$pdf_name))
   unlink(pdf2)
-})
-
-test_that("no PDF created (`pdf_file = NULL` is specified)", {
-  expect_true(is.na(suppressMessages(
-    plot_graphTable(graphTable = benchmarking(ind1, bmk1,
-                                              rho = 1, lambda = 0, biasOption = 1,
-                                              quiet = TRUE)$graphTable,
-                    pdf_file = NULL,
-                    ori_plot_flag = FALSE,
-                    adj_plot_flag = FALSE,
-                    GR_plot_flag = FALSE,
-                    GR_table_flag = FALSE)
-  )$pdf_name))
 })
 
 test_that("no PDF created (`pdf_file` is not specified)", {
@@ -248,3 +244,18 @@ test_that("individual plot functions", {
                           quiet = TRUE)$graphTable)
   )
 })
+
+
+# To test the pipeline/workflow status (e.g., failed status)
+# test_that("test failure: `NA` is returned (no PDF created) while expecting non-`NA`", {
+#   expect_false(is.na(suppressMessages(
+#     plot_graphTable(graphTable = benchmarking(ind1, bmk1,
+#                                               rho = 1, lambda = 0, biasOption = 1,
+#                                               quiet = TRUE)$graphTable,
+#                     pdf_file = NULL,
+#                     ori_plot_flag = FALSE,
+#                     adj_plot_flag = FALSE,
+#                     GR_plot_flag = FALSE,
+#                     GR_table_flag = FALSE)
+#   )$pdf_name))
+# })

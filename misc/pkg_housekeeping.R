@@ -5,8 +5,16 @@ devtools::document(".")  # loads the package (like `devtools::load_all(".")`)
 devtools::document("fr")  # loads the French package (like `devtools::load_all("fr")`)
 lintr::lint_package()
 devtools::test(".")
-devtools::test_coverage(".")  # restart R before running (same as `covr::report(covr::package_coverage("."))`)
-covr::package_coverage(".")  # restart R before running
+
+devtools::test_coverage(".")  # displays the HTML coverage report (same as `covr::report()`; see below)
+                              # !!! restart R before running !!! 
+covr::report()  # runs `covr::package_coverage()` first and then displays the HTML report
+                # !!! restart R before running !!!
+cov <- covr::package_coverage(".")  # creates a 'covr' object
+                                    # !!! restart R before running !!!
+covr::percent_coverage(cov)  # returns the (overall) package coverage
+cov_report_file <- covr::report(cov)  # displays the HTML report
+
 devtools::check(".")
 devtools::build_rmd("misc/README.Rmd")
 devtools::build_rmd("misc/Release_Checklist.Rmd")

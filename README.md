@@ -9,7 +9,8 @@
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check
 status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml?query=branch%3Amain)
-<!-- [![Codecov report](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main) -->
+[![Codecov
+report](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main)
 
 <!-- badges: end -->
 
@@ -107,7 +108,8 @@ GitLab development project hosted on the StatCan intranet (search for
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check
 status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml?query=branch%3Amain)
-<!-- [![Codecov report](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main) -->
+[![Codecov
+report](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main)
 
 <!-- badges: end -->
 
