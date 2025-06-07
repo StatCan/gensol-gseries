@@ -3,10 +3,10 @@
 #'
 #' @description
 #'
-#' \if{html,text}{(\emph{version française: 
+#' \if{html,text}{(\emph{version française:
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/ts_to_tsDF.html}})}
-#' 
-#' Convert a "ts" (or "mts") object into a time series data frame for the benchmarking functions with three or more 
+#'
+#' Convert a "ts" (or "mts") object into a time series data frame for the benchmarking functions with three or more
 #' variables (columns):
 #' * two (2) for the data point identification (year and period)
 #' * one (1) for each time series
@@ -47,7 +47,7 @@
 #' * Data point period, type numeric (see argument `startPer_cName`)
 #' * One ("ts" object) or many ("mts" object) time series data variable(s), type numeric (see argument `val_cName`)
 #'
-#' Note: the function returns a "data.frame" object than can be explicitly coerced to another type of object 
+#' Note: the function returns a "data.frame" object than can be explicitly coerced to another type of object
 #' with the appropriate `as*()` function (e.g., `tibble::as_tibble()` would coerce it to a tibble).
 #'
 #'
@@ -62,16 +62,10 @@ ts_to_tsDF <- function(in_ts,
                        yr_cName = "year",
                        per_cName = "period",
                        val_cName = "value") {
-
-
   # validate object
-  if (!stats::is.ts(in_ts)) {
-    stop("Argument 'in_ts' is not a 'ts' object.\n\n", call. = FALSE)
-  }
   in_ts <- stats::as.ts(in_ts)
 
   if (stats::is.mts(in_ts)) {
-
     # Create the initial data frame with only the date columns (first 2 columns)
     out_df <- data.frame(
       col1 = gs.time2year(in_ts),
@@ -83,9 +77,7 @@ ts_to_tsDF <- function(in_ts,
 
     # Add the series data
     out_df <- cbind(out_df, in_ts)
-
   } else {
-
     # Create the initial data frame with generic column names
     out_df <- data.frame(
       col1 = gs.time2year(in_ts),

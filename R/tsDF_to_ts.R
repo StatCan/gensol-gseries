@@ -3,13 +3,13 @@
 #'
 #' @description
 #'
-#' \if{html,text}{(\emph{version française: 
+#' \if{html,text}{(\emph{version française:
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/tsDF_to_ts.html}})}
-#' 
+#'
 #' Convert a (non-stacked) time series data frame ([benchmarking()] and [stock_benchmarking()] data format)
 #' into a "ts" (or "mts") object.
 #'
-#' This function is useful to convert the benchmarked data frame returned by a call to [benchmarking()] or 
+#' This function is useful to convert the benchmarked data frame returned by a call to [benchmarking()] or
 #' [stock_benchmarking()] into a "ts" object, where one or several series were benchmarked in *non BY-group*
 #' processing mode. Stacked time series data frames associated to executions in *BY-group* mode must first be
 #' *unstacked* with [unstack_tsDF()].
@@ -29,7 +29,7 @@
 #' Data frame, or object to be coerced to one, to be converted.
 #'
 #' @param frequency (mandatory)
-#' 
+#'
 #' Integer specifying the frequency of the time series to be converted. The frequency of a time series corresponds
 #' to the maximum number of periods in a year (12 for a monthly data, 4 for a quarterly data, 1 for annual data).
 #'
@@ -42,7 +42,7 @@
 #'
 #'
 #' @returns
-#' The function returns a time series object ("ts" or "mts"), which can be explicitly coerced to another type 
+#' The function returns a time series object ("ts" or "mts"), which can be explicitly coerced to another type
 #' of object with the appropriate `as*()` function (e.g., `tsibble::as_tsibble()` would coerce it to a tsibble).
 #'
 #'
@@ -57,21 +57,20 @@ tsDF_to_ts <- function(ts_df,
                        frequency,
                        yr_cName = "year",
                        per_cName = "period") {
-
   # validate object
-  if (!is.data.frame(ts_df)) {
-    stop("Argument 'ts_df' is not a 'data.frame' object.\n\n", call. = FALSE)
-  }
+  ts_df <- as.data.frame(ts_df)
   if (nrow(ts_df) == 0) {
     stop("The input data frame must contain at leat one observation (row).\n\n", call. = FALSE)
-  }  
+  }
   df_cols <- names(ts_df)
   date_cols <- c(yr_cName, per_cName)
   date_args <- c("yr_cName", "per_cName")
   for (ii in seq_along(date_cols)) {
     if (!(date_cols[ii] %in% df_cols)) {
       stop("The input data frame does not contain column \"", date_cols[ii], "\" (argument '",
-           date_args[ii], "').\n\n", call. = FALSE)
+        date_args[ii], "').\n\n",
+        call. = FALSE
+      )
     }
   }
 
@@ -96,6 +95,7 @@ tsDF_to_ts <- function(ts_df,
 
   # Create the ts object
   stats::ts(series_obj,
-            start = as.integer(c(sorted_df[1, yr_cName], sorted_df[1, per_cName])),
-            frequency = as.integer(frequency))
+    start = as.integer(c(sorted_df[1, yr_cName], sorted_df[1, per_cName])),
+    frequency = as.integer(frequency)
+  )
 }

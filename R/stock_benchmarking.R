@@ -3,9 +3,9 @@
 #'
 #' @description
 #'
-#' \if{html,text}{(\emph{version française: 
+#' \if{html,text}{(\emph{version française:
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/stock_benchmarking.html}})}
-#' 
+#'
 #' Function specifically aimed at benchmarking stock series where the benchmarks are anchor points covering a
 #' single period of the indicator series. Benchmarks covering more than one period of the indicator series
 #' cannot be used with this function. Function [benchmarking()] should be used instead to benchmark
@@ -49,15 +49,15 @@
 #'
 #' @param proj_knots_rho_bd (optional)
 #'
-#' Bound that applies to the value specified with argument `rho` and determines the type of extra knots to be added at 
-#' both ends (before the first benchmark and after the last benchmark). When `rho > proj_knots_rho_bd`, *high* (indicator 
-#' series) frequency knots are used right away. Otherwise, when `rho <= proj_knots_rho_bd`, *low* frequency knots (see 
-#' arguments `low_freq_periodicity` and `n_low_freq_proj`) are first projected on either side. Note that for quarterly 
-#' stocks, the cube of the specified `proj_knots_rho_bd` value is actually used. Therefore, the value for argument 
-#' `proj_knots_rho_bd` should correspond to monthly stock indicators; it is internally adjusted for quarterly stocks. 
-#' This argument aims at reaching a compromise for the set periods outside (before or after) the provided benchmarks 
-#' (anchor points), i.e., Denton-type (straight line) adjustments as `rho` approaches 1 (when `rho > proj_knots_rho_bd`) 
-#' and a natural looking (not overly contorted) spline otherwise (when `rho <= proj_knots_rho_bd`). Section **Details** 
+#' Bound that applies to the value specified with argument `rho` and determines the type of extra knots to be added at
+#' both ends (before the first benchmark and after the last benchmark). When `rho > proj_knots_rho_bd`, *high* (indicator
+#' series) frequency knots are used right away. Otherwise, when `rho <= proj_knots_rho_bd`, *low* frequency knots (see
+#' arguments `low_freq_periodicity` and `n_low_freq_proj`) are first projected on either side. Note that for quarterly
+#' stocks, the cube of the specified `proj_knots_rho_bd` value is actually used. Therefore, the value for argument
+#' `proj_knots_rho_bd` should correspond to monthly stock indicators; it is internally adjusted for quarterly stocks.
+#' This argument aims at reaching a compromise for the set periods outside (before or after) the provided benchmarks
+#' (anchor points), i.e., Denton-type (straight line) adjustments as `rho` approaches 1 (when `rho > proj_knots_rho_bd`)
+#' and a natural looking (not overly contorted) spline otherwise (when `rho <= proj_knots_rho_bd`). Section **Details**
 #' contains more information on this subject and some illustrative cases are provided in section **Examples**.
 #'
 #' **Default value** is `proj_knots_rho_bd = 0.995` (\eqn{0.995^3} for quarterly stock indicators).
@@ -98,18 +98,18 @@
 #' extra low frequency (as defined with argument `low_freq_periodicity`) knot is added on each side (beginning
 #' and end), i.e. one extra knot is added before the first benchmark and after the last benchmark. Then, high
 #' (indicator series) frequency knots are added to cover the indicator series span to which is added an extra
-#' year worth of high frequency knots. The value of all those extra knots is based on arguments `rho`, `biasOption` 
+#' year worth of high frequency knots. The value of all those extra knots is based on arguments `rho`, `biasOption`
 #' and `bias`. This produces natural looking, smooth adjustments for periods outside of or around the first and last
 #' benchmarks that gradually converge to the bias, similarly to [benchmarking()]. The number of extra low
 #' frequency knots to be added can be modified with argument `n_low_freq_proj`. Using high frequency knots right
 #' away (`n_low_freq_proj = 0`) would produce the same projected adjustments as [benchmarking()]. However,
-#' note that this tends to produce an unnatural looking (overly contorted) spline around the first and last 
-#' benchmarks that could be substantially revised once the next benchmark is available. Using the default 
-#' `n_low_freq_proj = 1` generally works better. However, when `rho` is *close to 1* (see argument `proj_knots_rho_bd`), 
-#' high frequency knots are immediately added on each side in order to ensure Denton-type (straight line) projected 
-#' adjustments for periods outside of the first and last benchmarks. Finally, a *slope=0* cubic spline is fitted through 
-#' the (original and extra) knots. Note that in practice, the *slope=0* spline is actually approximated by 
-#' replicating the value of the end knots 100 times within the following period (at a frequency corresponding 
+#' note that this tends to produce an unnatural looking (overly contorted) spline around the first and last
+#' benchmarks that could be substantially revised once the next benchmark is available. Using the default
+#' `n_low_freq_proj = 1` generally works better. However, when `rho` is *close to 1* (see argument `proj_knots_rho_bd`),
+#' high frequency knots are immediately added on each side in order to ensure Denton-type (straight line) projected
+#' adjustments for periods outside of the first and last benchmarks. Finally, a *slope=0* cubic spline is fitted through
+#' the (original and extra) knots. Note that in practice, the *slope=0* spline is actually approximated by
+#' replicating the value of the end knots 100 times within the following period (at a frequency corresponding
 #' to 100 times the indicator series frequency).
 #'
 #' A *natural spline* at the original end knots (first and last benchmarks) can be approximated by specifying
@@ -146,27 +146,27 @@
 #' from 1 (`rho <= proj_knots_rho_bd`);
 #' * projected adjustments that are in a straight line (free of oscillations) as `rho` approaches 1 (`rho >
 #' proj_knots_rho_bd`).
-#' 
-#' Subsections *Benchmarking Multiple Series*, *Arguments `constant` and `negInput_option`* and *Treatment 
-#' of Missing (`NA`) Values* at the end of the [benchmarking()] **Details** section are also relevant for 
+#'
+#' Subsections *Benchmarking Multiple Series*, *Arguments `constant` and `negInput_option`* and *Treatment
+#' of Missing (`NA`) Values* at the end of the [benchmarking()] **Details** section are also relevant for
 #' [stock_benchmarking()]. Consult them as necessary.
-#' 
-#' Finally, note that the cubic spline associated to the [stock_benchmarking()] adjustments can be conveniently 
-#' plotted with [plot_benchAdj()]. The latter is used in the **Examples** to illustrate some of the topics discussed 
+#'
+#' Finally, note that the cubic spline associated to the [stock_benchmarking()] adjustments can be conveniently
+#' plotted with [plot_benchAdj()]. The latter is used in the **Examples** to illustrate some of the topics discussed
 #' above.
-#' 
+#'
 #'
 #' @returns
 #' The function returns is a list of four data frames:
-#' 
+#'
 #' * **series**: data frame containing the benchmarked data (primary function output). BY-group variables
 #' specified with argument `by` would be included in the data frame but not alterability coefficient variables
 #' specified with argument `var`.
-#' 
+#'
 #' * **benchmarks**: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
 #' BY-group variables specified with argument `by` would be included in the data frame but not alterability
 #' coefficient variables specified with argument `with`.
-#' 
+#'
 #' * **graphTable**: data frame containing supplementary data useful to produce analytical tables and graphs
 #' (see function [plot_graphTable()]). It contains the following variables in addition to the BY-group variables
 #' specified with argument `by`:
@@ -190,27 +190,27 @@
 #'   * `avgBenchmark`: Benchmark values divided by the number of coverage periods
 #'   * `avgSubAnnual`: Indicator series values (variable `subAnnual`) averaged over the benchmark coverage period
 #'   * `subAnnualCorrected`: Bias corrected indicator series values
-#'   * `benchmarkedSubAnnualRatio`: Difference (\eqn{\lambda = 0}) or ratio (\eqn{\lambda \ne 0}{lambda != 0}) of the values 
+#'   * `benchmarkedSubAnnualRatio`: Difference (\eqn{\lambda = 0}) or ratio (\eqn{\lambda \ne 0}{lambda != 0}) of the values
 #'   of variables `benchmarked` and `subAnnual`
-#'   * `avgBenchmarkSubAnnualRatio`: Difference (\eqn{\lambda = 0}) or ratio (\eqn{\lambda \ne 0}{lambda != 0}) of the values 
+#'   * `avgBenchmarkSubAnnualRatio`: Difference (\eqn{\lambda = 0}) or ratio (\eqn{\lambda \ne 0}{lambda != 0}) of the values
 #'   of variables `avgBenchmark` and `avgSubAnnual`
 #'   * `growthRateSubAnnual`: Period to period difference (\eqn{\lambda = 0}) or relative difference (\eqn{\lambda \ne 0}{
 #'   lambda != 0}) of the indicator series values (variable `subAnnual`)
 #'   * `growthRateBenchmarked`: Period to period difference (\eqn{\lambda = 0}) or relative difference (\eqn{\lambda \ne 0}{
 #'   lambda != 0}) of the benchmarked series values (variable `benchmarked`)
-#'   
+#'
 #' * **splineKnots**: set of `x` and `y` coordinates (knots) used to estimate the natural cubic spline with
 #' function `stats::spline()`. In addition to the original set of knots corresponding to binding benchmarks
 #' (anchor points), extra knots are also added at the beginning and end in order to deal with the *benchmarking
-#' timeliness issue* and approximate a *slope=0* spline at both ends (see section **Details**). It contains the following 
+#' timeliness issue* and approximate a *slope=0* spline at both ends (see section **Details**). It contains the following
 #' variables in addition to the BY-group variables specified with argument `by`:
 #'   * `varSeries`: Name of the indicator series variable
 #'   * `varBenchmarks`: Name of the benchmark variable
 #'   * `x`: Cubic spline `x` coordinate
 #'   * `y`: Cubic spline `y` coordinate
 #'   * `extraKnot`: Logical value identifying the extra knots added at the beginning and end
-#'   
-#'   Rows for which `extraKnot == FALSE` correspond to rows in the **graphTable** output data frame for which 
+#'
+#'   Rows for which `extraKnot == FALSE` correspond to rows in the **graphTable** output data frame for which
 #'   `m` is not missing (not `NA`), with `x = t` and `y = benchmarkedSubAnnualRatio`.
 #'
 #' Notes:
@@ -220,7 +220,7 @@
 #' * The function returns a `NULL` object if an error occurs before data processing could start. Otherwise,
 #' if execution gets far enough so that data processing could start, then an incomplete object would be
 #' returned in case of errors (e.g., output **series** data frame with `NA` values for the benchmarked data).
-#' * The function returns "data.frame" objects that can be explicitly coerced to other types of objects with 
+#' * The function returns "data.frame" objects that can be explicitly coerced to other types of objects with
 #' the appropriate `as*()` function (e.g., `tibble::as_tibble()` would coerce any of them to a tibble).
 #'
 #'
@@ -255,10 +255,6 @@ stock_benchmarking <- function(series_df,
                                negInput_option = 0,
                                allCols = FALSE,
                                quiet = FALSE) {
-
-
-
-
   ### Internal functions ###
 
 
@@ -269,14 +265,15 @@ stock_benchmarking <- function(series_df,
 
   # Binding benchmarks validation function (proportional benchmarking0)
   check_nonZero_bindingBmk <- function(s_lowFreq, a, c_a, tol = gs.tolerance) {
-
     # Elementwise comparisons are necessary here (cannot use &&)
     if (any(abs(s_lowFreq) <= tol & (abs(a) * (c_a == 0)) > tol)) {
       warning("The indicator series is zero for a nonzero binding benchmark (anchor point). ",
-              "This benchmark cannot be met with proportional benchmarking.\n", call. = FALSE, immediate. = TRUE)
+        "This benchmark cannot be met with proportional benchmarking.\n",
+        call. = FALSE, immediate. = TRUE
+      )
       bk.e$warning_flag <- TRUE
     }
-    
+
     invisible(NULL)
   }
 
@@ -291,18 +288,18 @@ stock_benchmarking <- function(series_df,
   try_error <- FALSE
   try_error_msg <- ""
   bk.e$warning_flag <- FALSE
-  
+
   # Enforce the default R "error" option (`options(error = NULL)`). E.g. this Turns off traceback
   # generated by calls to the stop() function inside internal functions in R Studio.
   ini_error_opt <- getOption("error")
   on.exit(options(error = ini_error_opt), add = TRUE)
   options(error = NULL)
-  
+
   # Validate argument `quiet` and implement the quiet setting
   quiet <- gs.validate_arg_logi(quiet)
   if (quiet) {
     quiet_msg_func <- gs.NULL_func
-    quiet_lab <- ""  # won't be displayed anyway
+    quiet_lab <- "" # won't be displayed anyway
   } else {
     quiet_msg_func <- message
     quiet_lab <- "    quiet                = FALSE (default)"
@@ -325,10 +322,6 @@ stock_benchmarking <- function(series_df,
   if (grepl("structure(", ser_df_name, fixed = TRUE)) {
     ser_df_name <- "<argument 'series_df'>"
   }
-  series_df <- series_df
-  if (!is.data.frame(series_df)) {
-    stop("Argument 'series_df' is not a 'data.frame' object.\n\n", call. = FALSE)
-  }
   series_df <- as.data.frame(series_df)
   row.names(series_df) <- NULL
   bmk_df_name <- deparse1(substitute(benchmarks_df))
@@ -340,10 +333,6 @@ stock_benchmarking <- function(series_df,
   }
   if (grepl("structure(", bmk_df_name, fixed = TRUE)) {
     bmk_df_name <- "<argument 'benchmarks_df'>"
-  }
-  benchmarks_df <- benchmarks_df
-  if (!is.data.frame(benchmarks_df)) {
-    stop("Argument 'benchmarks_df' is not a 'data.frame' object.\n\n", call. = FALSE)
   }
   benchmarks_df <- as.data.frame(benchmarks_df)
   row.names(benchmarks_df) <- NULL
@@ -387,11 +376,11 @@ stock_benchmarking <- function(series_df,
     low_freq_periodicity <- NA_integer_
   } else {
     if (!identical(low_freq_periodicity, tmp) || !is.finite(tmp) && !is.na(tmp) ||
-        is.finite(tmp) && (tmp <= 0 || tmp != as.integer(tmp))) {
+      is.finite(tmp) && (tmp <= 0 || tmp != as.integer(tmp))) {
       stop("Argument 'n_low_freq_proj' must be a positive integer or NA.\n\n", call. = FALSE)
     }
-    low_freq_periodicity <- as.integer(low_freq_periodicity)    
-  } 
+    low_freq_periodicity <- as.integer(low_freq_periodicity)
+  }
   tmp <- (unlist(n_low_freq_proj))[1]
   if (!identical(n_low_freq_proj, tmp) || is.null(tmp) || !is.finite(tmp) || tmp < 0 || tmp != as.integer(tmp)) {
     stop("Argument 'n_low_freq_proj' must be a nonnegative integer.\n\n", call. = FALSE)
@@ -448,7 +437,8 @@ stock_benchmarking <- function(series_df,
   gs.validate_cols(info_cols_bmkDF, all_cols_bmkDF, bmk_df_name)
   if (any(!is.finite(as.matrix(benchmarks_df[info_cols_bmkDF])))) {
     stop("Benchmarks date columns (\"startYear\", \"startPeriod\", \"endYear\" and \"endPeriod\") contain invalid or NA values.\n\n",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 
   # Initialize the list of "series data columns" from both input files
@@ -492,7 +482,7 @@ stock_benchmarking <- function(series_df,
       byGrp_msg_func <- gs.NULL_func
     }
 
-  # No by-groups
+    # No by-groups
   } else {
     by <- NULL
     by_lab <- "    by                   = NULL (default)"
@@ -513,7 +503,7 @@ stock_benchmarking <- function(series_df,
     n_vars <- length(var)
     alter_ser <- rep.int("", n_vars)
     default_alter_ser_id <- 1:n_vars
-    user_alter_ser_id <- integer(0)  # value returned by which() on an "all FALSE" logical vector
+    user_alter_ser_id <- integer(0) # value returned by which() on an "all FALSE" logical vector
     alter_bmk <- alter_ser
     default_alter_bmk_id <- 1:n_vars
     user_alter_bmk_id <- integer(0)
@@ -548,7 +538,9 @@ stock_benchmarking <- function(series_df,
     prob_cols <- intersect(var, by)
     if (length(prob_cols) > 0) {
       stop("The following columns are listed with arguments 'var' and 'by' (these arguments are mutually exclusive):",
-           paste0("\n  ", prob_cols, collapse = ""), "\n\n", call. = FALSE)
+        paste0("\n  ", prob_cols, collapse = ""), "\n\n",
+        call. = FALSE
+      )
     }
     gs.validate_cols(c(var, alter_ser[user_alter_ser_id]), data_cols_serDF, ser_df_name, source_str = "argument 'var'")
 
@@ -581,7 +573,9 @@ stock_benchmarking <- function(series_df,
     prob_cols <- intersect(with, by)
     if (length(prob_cols) > 0) {
       stop("The following columns are listed with arguments 'with' and 'by' (these arguments are mutually exclusive):",
-           paste0("\n  ", prob_cols, collapse = ""), "\n\n", call. = FALSE)
+        paste0("\n  ", prob_cols, collapse = ""), "\n\n",
+        call. = FALSE
+      )
     }
     gs.validate_cols(c(with, alter_bmk[user_alter_bmk_id]), data_cols_bmkDF, bmk_df_name, source_str = "argument 'with'")
     if (n_vars != length(with)) {
@@ -766,37 +760,35 @@ stock_benchmarking <- function(series_df,
   quiet_msg_func(lab)
   quiet_msg_func(allCols_lab)
   quiet_msg_func(quiet_lab, "\n")
-  
-  
+
+
   # Return the input series data frames
   if (nrow(series_df) == 0 || nrow(benchmarks_df) == 0) {
     out_series_df <- series_df[intersect(all_cols_serDF, names(series_df))]
     out_benchmarks_df <- benchmarks_df[intersect(all_cols_bmkDF, names(benchmarks_df))]
-    
+
     # Attempt to benchmark the data
   } else {
-    
     # Enforce integer period id values
     cols_vec <- setdiff(info_cols_serDF, by)
     series_df[cols_vec] <- as.integer(as.matrix(series_df[cols_vec]))
     cols_vec <- setdiff(info_cols_bmkDF, by)
     benchmarks_df[cols_vec] <- as.integer(as.matrix(benchmarks_df[cols_vec]))
-    
-    
+
+
     # Process each by-group
 
     on.exit(rlang::env_unbind(bk.e, c("ser_df_byGrp", "bmk_df_byGrp")), add = TRUE)
     for (ii in 1:n_byGrps) {
-  
       # By-group initialization/setup
       bk.e$ser_df_byGrp <- NULL
       bk.e$bmk_df_byGrp <- NULL
       byGrp_ini_func(series_df, benchmarks_df, by_grps, ii, by)
-  
+
       msg_str <- paste0("\nBenchmarking by-group ", ii, " (", by_grps$SB._expr_[ii], ")")
       byGrp_msg_func(msg_str)
       byGrp_msg_func(strrep("=", nchar(msg_str) - 1), "\n")
-  
+
       # Reject rows with invalid benchmark data (for any of the benchmarks)
       M_ini <- nrow(bk.e$bmk_df_byGrp)
       if (nrow(bk.e$bmk_df_byGrp) > 1) {
@@ -806,33 +798,33 @@ stock_benchmarking <- function(series_df,
       }
       if (length(prob_id) > 0) {
         warning("Rows from the benchmarks data frame were dropped because of invalid or NA values.\n",
-                call. = FALSE, immediate. = TRUE)
+          call. = FALSE, immediate. = TRUE
+        )
         bk.e$warning_flag <- TRUE
         bk.e$bmk_df_byGrp <- bk.e$bmk_df_byGrp[-prob_id, , drop = FALSE]
         M <- nrow(bk.e$bmk_df_byGrp)
       } else {
         M <- M_ini
       }
-  
+
       # Initialize the by-group output data frames
       out_bmk_df_byGrp <- bk.e$bmk_df_byGrp[c(info_cols_bmkDF, with)]
       out_ser_df_byGrp <- bk.e$ser_df_byGrp[c(info_cols_serDF, var)]
       out_ser_df_byGrp[var] <- NA_real_
-  
+
       nT <- nrow(bk.e$ser_df_byGrp)
       if (nT < min_nT) {
-        try_error_msg <- paste0("The minimum number of periods (", min_nT, ") for the indicator series ", 
-                                "is not met.\n\n")
+        try_error_msg <- paste0(
+          "The minimum number of periods (", min_nT, ") for the indicator series ",
+          "is not met.\n\n"
+        )
         try_stop_func(try_error_msg)
         try_error <- TRUE
-  
       } else if (M == 0) {
         try_error_msg <- "A minimum of 1 benchmark is required.\n\n"
         try_stop_func(try_error_msg)
         try_error <- TRUE
-  
       } else {
-  
         # Vectors for periods and benchmarks coverage validation
         periodicity <- max(bk.e$ser_df_byGrp$period)
         if (is.na(low_freq_periodicity)) {
@@ -841,71 +833,77 @@ stock_benchmarking <- function(series_df,
         periods <- paste(bk.e$ser_df_byGrp$year, bk.e$ser_df_byGrp$period, sep = "-")
         bmk_start <- paste(bk.e$bmk_df_byGrp$startYear, bk.e$bmk_df_byGrp$startPeriod, sep = "-")
         bmk_end <- paste(bk.e$bmk_df_byGrp$endYear, bk.e$bmk_df_byGrp$endPeriod, sep = "-")
-  
+
         # Validate indicator series periods (period-to-period gap != 1 / periodicity)
         time_val <- bk.e$ser_df_byGrp$year + (bk.e$ser_df_byGrp$period - 1) / periodicity
         if (nT > 1) {
           # `sapply()` is safe: `which()` always returns a "vector" object, even when `nT = 2`
-          prob_id <- which(c(FALSE,
-                             sapply(2:nT,
-                                    function(x) {
-                                      abs(time_val[x] - time_val[x - 1] - 1 / periodicity) > gs.tolerance
-                                    })))
+          prob_id <- which(c(
+            FALSE,
+            sapply(
+              2:nT,
+              function(x) {
+                abs(time_val[x] - time_val[x - 1] - 1 / periodicity) > gs.tolerance
+              }
+            )
+          ))
         } else {
           prob_id <- integer(0)
         }
         if (length(prob_id) > 0) {
-          try_error_msg <- paste0("Non-contiguous periods found in the indicator series: ",
-                                  paste0("\n  ", periods[prob_id - 1], " - ", periods[prob_id], collapse = ""), 
-                                  "\n\n")
+          try_error_msg <- paste0(
+            "Non-contiguous periods found in the indicator series: ",
+            paste0("\n  ", periods[prob_id - 1], " - ", periods[prob_id], collapse = ""),
+            "\n\n"
+          )
           try_stop_func(try_error_msg)
           try_error <- TRUE
-  
         } else {
-  
           # Validate the benchmark coverage: anchor points (single-period coverage)
           prob_id <- which(bk.e$bmk_df_byGrp$startYear != bk.e$bmk_df_byGrp$endYear |
-                           bk.e$bmk_df_byGrp$startPeriod != bk.e$bmk_df_byGrp$endPeriod)
+            bk.e$bmk_df_byGrp$startPeriod != bk.e$bmk_df_byGrp$endPeriod)
           if (length(prob_id) > 0) {
-            try_error_msg <- paste0("Benchmark coverage not compatible with stock benchmarking (not an anchor point): ",
-                                    paste0("\n  [", bmk_start[prob_id], ", ", bmk_end[prob_id], "]", 
-                                           collapse = ""), 
-                                    "\n\n")
+            try_error_msg <- paste0(
+              "Benchmark coverage not compatible with stock benchmarking (not an anchor point): ",
+              paste0("\n  [", bmk_start[prob_id], ", ", bmk_end[prob_id], "]",
+                collapse = ""
+              ),
+              "\n\n"
+            )
             try_stop_func(try_error_msg)
             try_error <- TRUE
-  
           } else {
-  
             # Build benchmarks to periods mapping vector of dimension M
             # (period id of each "anchor point" benchmark)
             bmk_per_id <- match(bmk_start, periods)
-  
+
             # Validate the benchmark coverage: not inside the set of indicator periods
             prob_id <- which(is.na(bmk_per_id))
             if (length(prob_id) > 0) {
-              try_error_msg <- paste0("Benchmark coverage not fully inside the indicator series span: ",
-                                      paste0("\n  [", bmk_start[prob_id], ", ", bmk_end[prob_id], "]", 
-                                             collapse = ""), 
-                                      "\n\n")
+              try_error_msg <- paste0(
+                "Benchmark coverage not fully inside the indicator series span: ",
+                paste0("\n  [", bmk_start[prob_id], ", ", bmk_end[prob_id], "]",
+                  collapse = ""
+                ),
+                "\n\n"
+              )
               try_stop_func(try_error_msg)
               try_error <- TRUE
-  
             } else {
-  
               # Display a message about the number of observations in the benchmarks and series data frames
               # Note: all indicator series observations are valid at this point, making the SERIES
               #       message not quite relevant... but that's what SAS G-Series PROC BENCHMARKING displays
               #       (there might be cases where the 2 numbers differ, but I don't see it...)
-  
+
               # Widths without commas
               width_nT <- floor(log10(nT)) + 1
               width_M_ini <- floor(log10(M_ini)) + 1
               width_M <- floor(log10(M)) + 1
-  
+
               # Adjust the widths of the benchmarks info considering the commas (for `format(..., big.mark = ",")`)
-              # => add the difference in the number of commas between the series obs. number (`nT`) and each of the 
+              # => add the difference in the number of commas between the series obs. number (`nT`) and each of the
               #    two (initial and final) benchmarks obs. numbers (`M_ini` and `M`)
-              # => it's (reasonably) assumed here that there will always be more observations in the series data 
+              # => it's (reasonably) assumed here that there will always be more observations in the series data
               #    frame than in the benchmarks data frame (i.e., `nT` >= `M_ini` >= `M`)
               if (width_M_ini < width_nT) {
                 width_M_ini <- width_nT + floor((width_nT - 1) / 3) - floor((width_M_ini - 1) / 3)
@@ -913,15 +911,23 @@ stock_benchmarking <- function(series_df,
               if (width_M < width_nT) {
                 width_M <- width_nT + floor((width_nT - 1) / 3) - floor((width_M - 1) / 3)
               }
-              quiet_msg_func("Number of observations in the BENCHMARKS data frame .............: ",
-                             format(M_ini, scientific = FALSE, big.mark = ",", width = width_M_ini, justify = "right"))
-              quiet_msg_func("Number of valid observations in the BENCHMARKS data frame .......: ",
-                             format(M, scientific = FALSE, big.mark = ",", width = width_M, justify = "right"), "\n")
-              quiet_msg_func("Number of observations in the SERIES data frame .................: ",
-                             format(nT, scientific = FALSE, big.mark = ",", width = width_nT, justify = "right"))
-              quiet_msg_func("Number of valid observations in the SERIES data frame ...........: ",
-                             format(nT, scientific = FALSE, big.mark = ",", width = width_nT, justify = "right"), "\n")
-  
+              quiet_msg_func(
+                "Number of observations in the BENCHMARKS data frame .............: ",
+                format(M_ini, scientific = FALSE, big.mark = ",", width = width_M_ini, justify = "right")
+              )
+              quiet_msg_func(
+                "Number of valid observations in the BENCHMARKS data frame .......: ",
+                format(M, scientific = FALSE, big.mark = ",", width = width_M, justify = "right"), "\n"
+              )
+              quiet_msg_func(
+                "Number of observations in the SERIES data frame .................: ",
+                format(nT, scientific = FALSE, big.mark = ",", width = width_nT, justify = "right")
+              )
+              quiet_msg_func(
+                "Number of valid observations in the SERIES data frame ...........: ",
+                format(nT, scientific = FALSE, big.mark = ",", width = width_nT, justify = "right"), "\n"
+              )
+
               # Set K1 for the BY-group...
               #   K1 = the number of low (benchmark) frequency extra knots at the start and end
               if (rho > proj_knots_rho_bd^(12 / periodicity)) {
@@ -930,100 +936,106 @@ stock_benchmarking <- function(series_df,
                 K1 <- n_low_freq_proj
               }
 
-  
+
               # Process each series
               for (jj in 1:n_vars) {
-  
                 msg_str <- paste0("\nBenchmarking indicator series [", var[jj], "] with benchmarks [", with[jj], "]")
                 var_msg_func(msg_str)
                 var_msg_func(strrep("-", nchar(msg_str) - 1), "\n")
-  
+
                 # Series/benchmarks data and alterablity coefficients validation
                 if (any(!is.finite(bk.e$ser_df_byGrp[[var[jj]]]))) {
-                  warning("The indicator series contains invalid or NA values. It will not be processed.\n", call. = FALSE,
-                          immediate. = TRUE)
+                  warning("The indicator series contains invalid or NA values. It will not be processed.\n",
+                    call. = FALSE,
+                    immediate. = TRUE
+                  )
                   bk.e$warning_flag <- TRUE
-  
                 } else if (do.call(alter_ser_check_func_str[jj], list(bk.e$ser_df_byGrp[[alter_ser[jj]]]))) {
                   try_error_msg <- "Invalid indicator series alterability coefficients (must be nonnegative numbers).\n\n"
                   try_stop_func(try_error_msg)
                   try_error <- TRUE
-  
                 } else if (do.call(alter_bmk_check_func_str[jj], list(bk.e$bmk_df_byGrp[[alter_bmk[jj]]]))) {
                   try_error_msg <- "Invalid benchmarks alterability coefficients (must be nonnegative numbers).\n\n"
                   try_stop_func(try_error_msg)
                   try_error <- TRUE
-  
+
                   # Process (benchmark) the series
                 } else {
-  
                   # Build the elementary vectors and matrices
                   #   => the temporary constant is added here
                   s <- bk.e$ser_df_byGrp[[var[jj]]] + constant
                   c_s <- bk.e$ser_df_byGrp[[alter_ser[jj]]]
                   a <- bk.e$bmk_df_byGrp[[with[jj]]] + constant
                   c_a <- bk.e$bmk_df_byGrp[[alter_bmk[jj]]]
-  
+
                   # Get the indicator series values associated to the benchmarks (anchor points)
                   s_lowFreq <- s[bmk_per_id]
-  
+
                   # Additional series/benchmarks data validation for proportional benchmarking (lambda != 0)
                   #   - nonzero binding benchmarks associated to zero indicator series values (undefined BI value)
                   #   - negative benchmark or indicator series values (according to argument `negInput_option`)
                   zeros_verif_func(s_lowFreq, a, c_a, tol = gs.tolerance)
                   if (neg_verif_func(a, tol = 0, data_str = "benchmarks")) {
-                    try_error_msg <- paste0("Negative values found in the benchmarks. This is not permitted for ", 
-                                            "proportional benchmarking.\n\n")
+                    try_error_msg <- paste0(
+                      "Negative values found in the benchmarks. This is not permitted for ",
+                      "proportional benchmarking.\n\n"
+                    )
                     try_stop_func(try_error_msg)
                     try_error <- TRUE
-  
                   } else if (neg_verif_func(s, tol = 0, data_str = "indicator series")) {
-                    try_error_msg <- paste0("Negative values found in the indicator series. This is not permitted for ", 
-                                            "proportional benchmarking.\n\n")
+                    try_error_msg <- paste0(
+                      "Negative values found in the indicator series. This is not permitted for ",
+                      "proportional benchmarking.\n\n"
+                    )
                     try_stop_func(try_error_msg)
                     try_error <- TRUE
-  
                   } else {
-  
                     # Bias correction
-                    s_b <- biasOption_func(quiet_msg_func,                                 # message function
-                                           bias_calc_func, s_lowFreq, a, M, gs.tolerance,  # bias calculation arguments
-                                           bias_apply_func, s, bias_parm,                  # bias application arguments
-                                           bias_str)
-  
-  
+                    s_b <- biasOption_func(
+                      quiet_msg_func, # message function
+                      bias_calc_func, s_lowFreq, a, M, gs.tolerance, # bias calculation arguments
+                      bias_apply_func, s, bias_parm, # bias application arguments
+                      bias_str
+                    )
+
+
                     # Calculate the initial set of knots corresponding to binding benchmarks, taking the average value
                     # for duplicated binding benchmarks (spline knot x = t, spline knot y = BI differences or ratios)
                     binding_m <- which(c_a == 0)
                     t_vec <- bmk_per_id[binding_m]
                     if (anyDuplicated(t_vec)) {
                       t_vec <- unique(t_vec)
-                      knots_ini <- data.frame(t = t_vec,
-                                              BI = ratio_func(as.vector(tapply(a[binding_m], bmk_start[binding_m], mean)),
-                                                              s[t_vec]),
-                                              extra_knot = FALSE)
+                      knots_ini <- data.frame(
+                        t = t_vec,
+                        BI = ratio_func(
+                          as.vector(tapply(a[binding_m], bmk_start[binding_m], mean)),
+                          s[t_vec]
+                        ),
+                        extra_knot = FALSE
+                      )
                     } else {
-                      knots_ini <- data.frame(t  = t_vec,
-                                              BI = ratio_func(a[binding_m], s[t_vec]),
-                                              extra_knot = FALSE)
+                      knots_ini <- data.frame(
+                        t = t_vec,
+                        BI = ratio_func(a[binding_m], s[t_vec]),
+                        extra_knot = FALSE
+                      )
                     }
-  
+
                     # Remove missing (`NA`) BI's, i.e. irrelevant spline knots (BI values) corresponding to indicator
                     # values of 0 with proportional benchmarking (0's remain 0's with proportional benchmarking)
                     knots_ini <- knots_ini[!is.na(knots_ini$BI), , drop = FALSE]
                     n_knots_ini <- nrow(knots_ini)
-  
+
                     # Validate the initial set of knots
                     if (n_knots_ini == 0) {
-                      quiet_msg_func("Benchmarking is not required for this series (no relevant benchmark remains). ",
-                                     "New observations will not be added to the output spline knots data frame.\n")
+                      quiet_msg_func(
+                        "Benchmarking is not required for this series (no relevant benchmark remains). ",
+                        "New observations will not be added to the output spline knots data frame.\n"
+                      )
                       theta <- s
-  
                     } else {
-  
-  
                       # Add extra knots at the start and end (benchmarking timeliness issue)
-  
+
                       # Set K2...
                       #   K2 = the number of high (indicator series) frequency extra knots to add after the
                       #        low (benchmarks) frequency extra knots (K1)
@@ -1031,19 +1043,25 @@ stock_benchmarking <- function(series_df,
                       #        high frequency knots
                       K2.beg <- periodicity + max(0, knots_ini$t[1] - K1 * low_freq_periodicity - 1)
                       K2.end <- periodicity + max(0, nT - knots_ini$t[n_knots_ini] - K1 * low_freq_periodicity)
-  
+
                       # Initialize the spline knots with NA for columns "t" and "BI" for the extra knots (for now)
                       # (the 100 extra knots will be used to approximate a "slope=0" spline at both ends)
                       n_extra.beg <- K1 + K2.beg + 100
                       n_extra.end <- K1 + K2.end + 100
-                      knots <- rbind(data.frame(t = rep.int(NA_real_, n_extra.beg),
-                                                BI = rep.int(NA_real_, n_extra.beg),
-                                                extra_knot = rep.int(TRUE, n_extra.beg)),
-                                     knots_ini,
-                                     data.frame(t = rep.int(NA_real_, n_extra.end),
-                                                BI = rep.int(NA_real_, n_extra.end),
-                                                extra_knot = rep.int(TRUE, n_extra.end)))
-  
+                      knots <- rbind(
+                        data.frame(
+                          t = rep.int(NA_real_, n_extra.beg),
+                          BI = rep.int(NA_real_, n_extra.beg),
+                          extra_knot = rep.int(TRUE, n_extra.beg)
+                        ),
+                        knots_ini,
+                        data.frame(
+                          t = rep.int(NA_real_, n_extra.end),
+                          BI = rep.int(NA_real_, n_extra.end),
+                          extra_knot = rep.int(TRUE, n_extra.end)
+                        )
+                      )
+
                       # K1 low frequency knots
                       kk.beg <- n_extra.beg + 1
                       kk.end <- n_extra.beg + n_knots_ini
@@ -1057,21 +1075,21 @@ stock_benchmarking <- function(series_df,
                         knots$BI[kk.end + kk] <- bk.e$actual_bias + rho^(kk * low_freq_periodicity) *
                           (knots$BI[kk.end] - bk.e$actual_bias)
                       }
-  
+
                       # K2 high frequency knots
-                      #... at the start
+                      # ... at the start
                       kk.beg <- kk.beg - K1
                       for (kk in seq_len(K2.beg)) {
                         knots$t[kk.beg - kk] <- knots$t[kk.beg - kk + 1] - 1
                         knots$BI[kk.beg - kk] <- bk.e$actual_bias + rho * (knots$BI[kk.beg - kk + 1] - bk.e$actual_bias)
                       }
-                      #... at the end
+                      # ... at the end
                       kk.end <- kk.end + K1
                       for (kk in seq_len(K2.end)) {
                         knots$t[kk.end + kk] <- knots$t[kk.end + kk - 1] + 1
                         knots$BI[kk.end + kk] <- bk.e$actual_bias + rho * (knots$BI[kk.end + kk - 1] - bk.e$actual_bias)
                       }
-  
+
                       # 100 extra knots for "slope=0" spline approximation
                       kk.beg <- kk.beg - K2.beg
                       kk.end <- kk.end + K2.end
@@ -1083,33 +1101,39 @@ stock_benchmarking <- function(series_df,
                         knots$t[kk.end + kk] <- knots$t[kk.end] + kk / 100
                         knots$BI[kk.end + kk] <- knots$BI[kk.end]
                       }
-  
+
                       # Implement the spline interpolations
                       interpol <- stats::spline(knots$t, knots$BI, xout = 1:nT, method = "natural")
                       BI <- interpol$y
-  
+
                       # Benchmark the indicator series by applying the interpolated BI ratios or differences
                       # to the indicator series, taking into account binding indicator values (BI = bias)
                       BI[which(c_s == 0)] <- bk.e$actual_bias
                       theta <- BI_apply_func(s, BI)
-  
-  
+
+
                       # Cumulate the splineKnots output data frame info
                       n_knots <- nrow(knots)
-                      out_splineKnots_df <- rbind(out_splineKnots_df,
-                                                  cbind((bk.e$ser_df_byGrp[by])[rep.int(1, n_knots), , drop = FALSE],
-                                                        data.frame(varSeries = rep.int(var[jj], n_knots),
-                                                                   varBenchmarks = rep.int(with[jj], n_knots),
-                                                                   x = knots$t,
-                                                                   y = knots$BI,
-                                                                   extraKnot = knots$extra_knot)))
+                      out_splineKnots_df <- rbind(
+                        out_splineKnots_df,
+                        cbind(
+                          (bk.e$ser_df_byGrp[by])[rep.int(1, n_knots), , drop = FALSE],
+                          data.frame(
+                            varSeries = rep.int(var[jj], n_knots),
+                            varBenchmarks = rep.int(with[jj], n_knots),
+                            x = knots$t,
+                            y = knots$BI,
+                            extraKnot = knots$extra_knot
+                          )
+                        )
+                      )
                     }
-                    
-                    
+
+
                     # Cumulate the graphTable output data frame info
                     #   => the graphTable includes more periods than the indicator series (`n_obs_GT > nT`)
                     #      in the case of duplicate benchmarks (anchor points)
-                    
+
                     # Map benchmark level info (vectors of length `M`) to period level info (vectors of length
                     # `n >= nT`, with `n = nT` for distinct benchmarks and `n > nT` for duplicate benchmarks)
                     #
@@ -1120,59 +1144,71 @@ stock_benchmarking <- function(series_df,
                     #   - `avg_a`: benchmark value (`NA` for periods not associated to any benchmark)
                     #   - `c_a`: benchmark alter coef (`NA` for periods not associated to any benchmark)
                     bmk_info <- merge(data.frame(t = 1:nT), # period ids
-                                      # Benchmark level info
-                                      data.frame(t = bmk_per_id, # benchmark (anchor point) period ids
-                                                 m = 1:M,
-                                                 avg_s = s_lowFreq,
-                                                 avg_a = a,
-                                                 c_a = c_a),
-                                      by = "t", 
-                                      all.x = TRUE)
+                      # Benchmark level info
+                      data.frame(
+                        t = bmk_per_id, # benchmark (anchor point) period ids
+                        m = 1:M,
+                        avg_s = s_lowFreq,
+                        avg_a = a,
+                        c_a = c_a
+                      ),
+                      by = "t",
+                      all.x = TRUE
+                    )
 
                     # Generate the graphTable data frame info
                     n_obs_GT <- length(bmk_info$t)
-                    out_GT_df_var <- data.frame(varSeries = rep.int(var[jj], n_obs_GT),
-                                                varBenchmarks = rep.int(with[jj], n_obs_GT),
-                                                altSeries = rep.int(actual_alter_ser[jj], n_obs_GT),
-                                                altSeriesValue = c_s[bmk_info$t],
-                                                altbenchmarks = rep.int(actual_alter_bmk[jj], n_obs_GT),
-                                                altBenchmarksValue = bmk_info$c_a,
-                                                t = bmk_info$t,
-                                                m = bmk_info$m,
-                                                year = bk.e$ser_df_byGrp$year[bmk_info$t],
-                                                period = bk.e$ser_df_byGrp$period[bmk_info$t],
-                                                constant = rep.int(constant, n_obs_GT),
-                                                rho = rep.int(rho, n_obs_GT),
-                                                lambda = rep.int(lambda, n_obs_GT),
-                                                bias = rep.int(bk.e$actual_bias, n_obs_GT),
-                                                periodicity = rep.int(periodicity, n_obs_GT),
-                                                date = paste(bk.e$ser_df_byGrp$year[bmk_info$t], 
-                                                             sprintf("%06d", bk.e$ser_df_byGrp$period[bmk_info$t]), sep = "-"),
-                                                subAnnual = s[bmk_info$t],
-                                                benchmarked = theta[bmk_info$t],
-                                                avgBenchmark = bmk_info$avg_a,
-                                                avgSubAnnual = bmk_info$avg_s,
-                                                subAnnualCorrected = s_b[bmk_info$t],
-                                                benchmarkedSubAnnualRatio = ratio_func(theta[bmk_info$t], s[bmk_info$t]),
-                                                avgBenchmarkSubAnnualRatio = ratio_func(bmk_info$avg_a, bmk_info$avg_s),
-                                                growthRateSubAnnual = growthRate_func(s)[bmk_info$t],
-                                                growthRateBenchmarked = growthRate_func(theta)[bmk_info$t],
-                                                stringsAsFactors = FALSE)
-  
-                    out_graphTable_df <- rbind(out_graphTable_df, cbind(bk.e$ser_df_byGrp[bmk_info$t, by, drop = FALSE],
-                                                                        out_GT_df_var))
-  
+                    out_GT_df_var <- data.frame(
+                      varSeries = rep.int(var[jj], n_obs_GT),
+                      varBenchmarks = rep.int(with[jj], n_obs_GT),
+                      altSeries = rep.int(actual_alter_ser[jj], n_obs_GT),
+                      altSeriesValue = c_s[bmk_info$t],
+                      altbenchmarks = rep.int(actual_alter_bmk[jj], n_obs_GT),
+                      altBenchmarksValue = bmk_info$c_a,
+                      t = bmk_info$t,
+                      m = bmk_info$m,
+                      year = bk.e$ser_df_byGrp$year[bmk_info$t],
+                      period = bk.e$ser_df_byGrp$period[bmk_info$t],
+                      constant = rep.int(constant, n_obs_GT),
+                      rho = rep.int(rho, n_obs_GT),
+                      lambda = rep.int(lambda, n_obs_GT),
+                      bias = rep.int(bk.e$actual_bias, n_obs_GT),
+                      periodicity = rep.int(periodicity, n_obs_GT),
+                      date = paste(bk.e$ser_df_byGrp$year[bmk_info$t],
+                        sprintf("%06d", bk.e$ser_df_byGrp$period[bmk_info$t]),
+                        sep = "-"
+                      ),
+                      subAnnual = s[bmk_info$t],
+                      benchmarked = theta[bmk_info$t],
+                      avgBenchmark = bmk_info$avg_a,
+                      avgSubAnnual = bmk_info$avg_s,
+                      subAnnualCorrected = s_b[bmk_info$t],
+                      benchmarkedSubAnnualRatio = ratio_func(theta[bmk_info$t], s[bmk_info$t]),
+                      avgBenchmarkSubAnnualRatio = ratio_func(bmk_info$avg_a, bmk_info$avg_s),
+                      growthRateSubAnnual = growthRate_func(s)[bmk_info$t],
+                      growthRateBenchmarked = growthRate_func(theta)[bmk_info$t],
+                      stringsAsFactors = FALSE
+                    )
+
+                    out_graphTable_df <- rbind(out_graphTable_df, cbind(
+                      bk.e$ser_df_byGrp[bmk_info$t, by, drop = FALSE],
+                      out_GT_df_var
+                    ))
+
                     # Remove the temporary constant
                     out_ser_df_byGrp[[var[jj]]] <- theta - constant
-  
+
                     # Results validation
                     if (neg_res_func(out_ser_df_byGrp[[var[jj]]], tol = -tolN)) {
                       warning("The benchmarked series contains negative values (threshold = ", format(tolN), ").\n",
-                              call. = FALSE, immediate. = TRUE)
+                        call. = FALSE, immediate. = TRUE
+                      )
                       bk.e$warning_flag <- TRUE
                     }
                     binding_bmk_valid_func(bk.e$bmk_df_byGrp[[with[jj]]], out_ser_df_byGrp[bmk_per_id, var[jj], drop = TRUE], c_a,
-                                           bmk_start, bmk_end, tol_parm, zero_tol = 0)
+                      bmk_start, bmk_end, tol_parm,
+                      zero_tol = 0
+                    )
                   }
                 }
               }
@@ -1180,7 +1216,7 @@ stock_benchmarking <- function(series_df,
           }
         }
       }
-  
+
       # Cumulate the output series and benchmarks data frame info
       out_series_df <- rbind(out_series_df, out_ser_df_byGrp)
       out_benchmarks_df <- rbind(out_benchmarks_df, out_bmk_df_byGrp)
@@ -1193,25 +1229,29 @@ stock_benchmarking <- function(series_df,
   row.names(out_benchmarks_df) <- NULL
   row.names(out_graphTable_df) <- NULL
   row.names(out_splineKnots_df) <- NULL
-  out_list <- list(series = out_series_df, 
-                   benchmarks = out_benchmarks_df, 
-                   graphTable = out_graphTable_df, 
-                   splineKnots = out_splineKnots_df)
+  out_list <- list(
+    series = out_series_df,
+    benchmarks = out_benchmarks_df,
+    graphTable = out_graphTable_df,
+    splineKnots = out_splineKnots_df
+  )
 
 
   # Display a final warning/error message for multiple series processing
   if (final_msg_flag) {
     if (bk.e$warning_flag) {
       warning("Warnings were generated during processing. See preceeding warning message(s) for details.\n",
-              call. = FALSE, immediate. = TRUE)
+        call. = FALSE, immediate. = TRUE
+      )
     }
     # Non-muted error message (for proper condition catching by users of the function)
     if (try_error) {
       stop("Problems were encontered during processing. See preceeding error message(s) for details.\n\n",
-           call. = FALSE)
+        call. = FALSE
+      )
     }
 
-  # Display the error message for single-series processing
+    # Display the error message for single-series processing
   } else if (try_error) {
     stop(try_error_msg, call. = FALSE)
   }

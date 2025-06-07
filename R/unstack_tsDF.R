@@ -3,14 +3,14 @@
 #'
 #' @description
 #'
-#' \if{html,text}{(\emph{version française: 
+#' \if{html,text}{(\emph{version française:
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/unstack_tsDF.html}})}
-#' 
+#'
 #' Convert a stacked (tall) multivariate time series data frame ([benchmarking()] and [stock_benchmarking()]
 #' data format) into a non-stacked (wide) multivariate time series data frame.
 #'
-#' This function, combined with [tsDF_to_ts()], is useful to convert the benchmarked data frame returned by a call to 
-#' [benchmarking()] or [stock_benchmarking()] back into a "mts" object, where multiple series were benchmarked in 
+#' This function, combined with [tsDF_to_ts()], is useful to convert the benchmarked data frame returned by a call to
+#' [benchmarking()] or [stock_benchmarking()] back into a "mts" object, where multiple series were benchmarked in
 #' *BY-group* processing mode.
 #'
 #'
@@ -20,7 +20,7 @@
 #'
 #' @param ser_cName (optional)
 #'
-#' String specifying the name of the character variable (column) in the input time series data frame that 
+#' String specifying the name of the character variable (column) in the input time series data frame that
 #' contains the series identifier (the time series variable names in the output data frame).
 #'
 #' **Default value** is `ser_cName = "series"`.
@@ -28,7 +28,7 @@
 #' @param yr_cName,per_cName (optional)
 #'
 #' Strings specifying the name of the numeric variables (columns) in the input time series data frame that
-#' contain the data point year and period identifiers. These variables are *transferred* to the output data 
+#' contain the data point year and period identifiers. These variables are *transferred* to the output data
 #' frame with the same names.
 #'
 #' **Default values** are `yr_cName = "year"` and `per_cName   = "period"`.
@@ -48,7 +48,7 @@
 #' * One time series data variable for each distinct value of the input data frame variable specified with
 #' argument `ser_cName`, type numeric (see arguments `ser_cName` and `val_cName`)
 #'
-#' Note: the function returns a "data.frame" object than can be explicitly coerced to another type of object 
+#' Note: the function returns a "data.frame" object than can be explicitly coerced to another type of object
 #' with the appropriate `as*()` function (e.g., `tibble::as_tibble()` would coerce it to a tibble).
 #'
 #'
@@ -64,11 +64,7 @@ unstack_tsDF <- function(ts_df,
                          yr_cName = "year",
                          per_cName = "period",
                          val_cName = "value") {
-
   # Validate object
-  if (!is.data.frame(ts_df)) {
-    stop("Argument 'ts_df' is not a 'data.frame' object.\n\n", call. = FALSE)
-  }
   ts_df <- as.data.frame(ts_df)
   df_cols <- names(ts_df)
   cols <- c(ser_cName, yr_cName, per_cName, val_cName)
@@ -76,7 +72,9 @@ unstack_tsDF <- function(ts_df,
   for (ii in seq_along(cols)) {
     if (!(cols[ii] %in% df_cols)) {
       stop("The input data frame does not contain column \"", cols[ii], "\" (argument '", args[ii],
-           "').\n\n", call. = FALSE)
+        "').\n\n",
+        call. = FALSE
+      )
     }
   }
 
