@@ -14,25 +14,37 @@ gs.build_proc_grps(
 )
 }
 \arguments{
-\item{ts_yr_vec}{(mandatory) Vector of the time series year (time unit) values (see \code{\link[=gs.time2year]{gs.time2year()}}).}
+\item{ts_yr_vec}{(mandatory)
 
-\item{ts_per_vec}{(mandatory) Vector of the time series period (cycle) values (see \code{\link[=gs.time2per]{gs.time2per()}}).}
+Vector of the time series year (time unit) values (see \code{\link[=gs.time2year]{gs.time2year()}}).}
 
-\item{n_per}{(mandatory) Time series length (number of periods).}
+\item{ts_per_vec}{(mandatory)
 
-\item{ts_freq}{(mandatory) Time series frequency (see \code{\link[stats:time]{stats::frequency()}}).}
+Vector of the time series period (cycle) values (see \code{\link[=gs.time2per]{gs.time2per()}}).}
 
-\item{temporal_grp_periodicity}{(mandatory) Number of periods in temporal groups.}
+\item{n_per}{(mandatory)
 
-\item{temporal_grp_start}{(mandatory) First period of temporal groups.}
+Time series length (number of periods).}
+
+\item{ts_freq}{(mandatory)
+
+Time series frequency (see \code{\link[stats:time]{stats::frequency()}}).}
+
+\item{temporal_grp_periodicity}{(mandatory)
+
+Number of periods in temporal groups.}
+
+\item{temporal_grp_start}{(mandatory)
+
+First period of temporal groups.}
 }
 \value{
 A data frame with the following variables (columns):
 \itemize{
-\item \code{grp}         : integer vector identifying the processing group (1 .. < total number of groups >)
-\item \code{beg_per}     : integer vector identifying the first period of the processing group (1 .. \code{n_per})
-\item \code{end_per}     : integer vector identifying the last period of the processing group (1 .. \code{n_per})
-\item \code{complete_grp}: logical vector indicating if the processing group corresponds to a complete temporal group
+\item \code{grp}         : integer vector identifying the processing group (\verb{1:<number-of-groups>}).
+\item \code{beg_per}     : integer vector identifying the first period of the processing group.
+\item \code{end_per}     : integer vector identifying the last period of the processing group.
+\item \code{complete_grp}: logical vector indicating if the processing group corresponds to a complete temporal group.
 }
 }
 \description{
@@ -117,7 +129,7 @@ add_desc <- function(grp_df, lab_vec, word) {
 mth_grps0 <- gs.build_proc_grps(mth_info$y, mth_info$p, mth_info$n, mth_info$f,
                                 temporal_grp_periodicity = 1,
                                 temporal_grp_start = 1)
-tmp <- add_desc(mth_grps0, mth_info$l, word = "month")
+tmp <- add_desc(mth_grps0, mth_info$l, "month")
 head(tmp)
 tail(tmp)
 
@@ -128,25 +140,25 @@ tail(tmp)
 mth_grps1 <- gs.build_proc_grps(mth_info$y, mth_info$p, mth_info$n, mth_info$f,
                                 temporal_grp_periodicity = 12,
                                 temporal_grp_start = 1)
-add_desc(mth_grps1, mth_info$l, word = "month")
+add_desc(mth_grps1, mth_info$l, "month")
 
 # 2- fiscal years starting on April
 mth_grps2 <- gs.build_proc_grps(mth_info$y, mth_info$p, mth_info$n, mth_info$f,
                                 temporal_grp_periodicity = 12,
                                 temporal_grp_start = 4)
-add_desc(mth_grps2, mth_info$l, word = "month")
+add_desc(mth_grps2, mth_info$l, "month")
 
 # 3- regular quarters (starting on Jan, Apr, Jul and Oct)
 mth_grps3 <- gs.build_proc_grps(mth_info$y, mth_info$p, mth_info$n, mth_info$f,
                                 temporal_grp_periodicity = 3,
                                 temporal_grp_start = 1)
-add_desc(mth_grps3, mth_info$l, word = "month")
+add_desc(mth_grps3, mth_info$l, "month")
 
 # 4- quarters shifted by one month (starting on Feb, May, Aug and Nov)
 mth_grps4 <- gs.build_proc_grps(mth_info$y, mth_info$p, mth_info$n, mth_info$f,
                                 temporal_grp_periodicity = 3,
                                 temporal_grp_start = 2)
-add_desc(mth_grps4, mth_info$l, word = "month")
+add_desc(mth_grps4, mth_info$l, "month")
 
 
 
@@ -159,7 +171,7 @@ add_desc(mth_grps4, mth_info$l, word = "month")
 qtr_grps0 <- gs.build_proc_grps(qtr_info$y, qtr_info$p, qtr_info$n, qtr_info$f,
                                 temporal_grp_periodicity = 1,
                                 temporal_grp_start = 1)
-add_desc(qtr_grps0, qtr_info$l, word = "quarter")
+add_desc(qtr_grps0, qtr_info$l, "quarter")
 
 
 # Temporal groups corresponding to ...
@@ -168,13 +180,13 @@ add_desc(qtr_grps0, qtr_info$l, word = "quarter")
 qtr_grps1 <- gs.build_proc_grps(qtr_info$y, qtr_info$p, qtr_info$n, qtr_info$f,
                                 temporal_grp_periodicity = 4,
                                 temporal_grp_start = 1)
-add_desc(qtr_grps1, qtr_info$l, word = "quarter")
+add_desc(qtr_grps1, qtr_info$l, "quarter")
 
 # 2- fiscal years starting on April (2nd quarter)
 qtr_grps2 <- gs.build_proc_grps(qtr_info$y, qtr_info$p, qtr_info$n, qtr_info$f,
                                 temporal_grp_periodicity = 4,
                                 temporal_grp_start = 2)
-add_desc(qtr_grps2, qtr_info$l, word = "quarter")
+add_desc(qtr_grps2, qtr_info$l, "quarter")
 }
 \seealso{
 \code{\link[=tsraking_driver]{tsraking_driver()}} \code{\link[=tsbalancing]{tsbalancing()}} \link{time_values_conv}

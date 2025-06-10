@@ -14,22 +14,25 @@
 #'
 #' @param PB_graphTable (optionnel)
 #'
-#' *Data frame*, ou objet compatible, correspondant au *data frame* de sortie `graphTable` de la fonction [benchmarking()] (PB pour 
-#' approche « Proc Benchmarking »). Spécifiez `NULL` pour ne pas inclure les ajustements de [benchmarking()] dans le graphique.
+#' *Data frame* (object de classe « data.frame ») correspondant au *data frame* de sortie `graphTable` de la fonction 
+#' [benchmarking()] (PB pour approche « Proc Benchmarking »). Spécifiez `NULL` pour ne pas inclure les ajustements de 
+#' [benchmarking()] dans le graphique.
 #'
 #' **La valeur par défaut** est `PB_graphTable = NULL`.
 #'
 #' @param SB_graphTable (optionnel)
 #'
-#' *Data frame*, ou objet compatible, correspondant au *data frame* de sortie `graphTable` de la fonction [stock_benchmarking()] 
-#' (SB). Spécifiez `NULL` pour ne pas inclure les ajustements de [stock_benchmarking()] dans le graphique.
+#' *Data frame* (object de classe « data.frame ») correspondant au *data frame* de sortie `graphTable` de la fonction 
+#' [stock_benchmarking()] (SB). Spécifiez `NULL` pour ne pas inclure les ajustements de [stock_benchmarking()] dans 
+#' le graphique.
 #'
 #' **La valeur par défaut** est `SB_graphTable = NULL`.
 #'
 #' @param SB_splineKnots (optionnel)
 #'
-#' *Data frame*, ou objet compatible, correspondant au *data frame* de sortie `splineKnots` de la fonction [stock_benchmarking()] 
-#' (SB). Spécifiez `NULL` pour ne pas inclure la spline cubique de [stock_benchmarking()] dans le graphique.
+#' *Data frame* (object de classe « data.frame ») correspondant au *data frame* de sortie `splineKnots` de la fonction 
+#' [stock_benchmarking()] (SB). Spécifiez `NULL` pour ne pas inclure la spline cubique de [stock_benchmarking()] dans 
+#' le graphique.
 #'
 #' **La valeur par défaut** est `SB_splineKnots = NULL`.
 #'

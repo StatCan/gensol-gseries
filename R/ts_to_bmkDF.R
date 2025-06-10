@@ -17,7 +17,7 @@
 #'
 #' @param in_ts (mandatory)
 #'
-#' Time series ("ts" or "mts"), or object to be coerced to one, to be converted.
+#' Time series (object of class "ts" or "mts") to be converted.
 #'
 #' @param ind_frequency (mandatory)
 #'

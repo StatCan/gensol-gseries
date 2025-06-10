@@ -2,7 +2,7 @@
 % Please edit documentation in R/tsraking.R
 \name{build_raking_problem}
 \alias{build_raking_problem}
-\title{Construire les éléments du problème de ratissage.}
+\title{Construire les éléments des problèmes de ratissage.}
 \usage{
 build_raking_problem(
   data_df,
@@ -18,23 +18,23 @@ build_raking_problem(
 \arguments{
 \item{data_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui contient les données des séries chronologiques à réconcilier. Il doit au minimum
-contenir des variables correspondant aux séries composantes et aux totaux de contrôle transversaux spécifiés dans le
-\emph{data frame} des métadonnées de ratissage (argument \code{metadata_df}). Si plus d'un enregistrement (plus d'une période) est
-fournie, la somme des valeurs des séries composantes fournies sera également préservée à travers des contraintes
-temporelles implicites.}
+\emph{Data frame} (object de classe « data.frame ») qui contient les données des séries chronologiques à réconcilier.
+Il doit au minimum contenir des variables correspondant aux séries composantes et aux totaux de contrôle transversaux
+spécifiés dans le \emph{data frame} des métadonnées de ratissage (argument \code{metadata_df}). Si plus d'un enregistrement
+(plus d'une période) est fournie, la somme des valeurs des séries composantes fournies sera également préservée à
+travers des contraintes temporelles implicites.}
 
 \item{metadata_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui décrit les contraintes d'agrégation transversales (règles d'additivité) pour le
-problème de ratissage (« \emph{raking} »). Deux variables de type caractère doivent être incluses dans le \emph{data frame} :
-\code{series} et \code{total1}. Deux variables sont optionnelles : \code{total2} (caractère) et \code{alterAnnual} (numérique). Les valeurs
-de la variable \code{series} représentent les noms des variables des séries composantes dans le \emph{data frame} des données
-d'entrée (argument \code{data_df}). De même, les valeurs des variables \code{total1} et \code{total2} représentent les noms des variables
-des totaux de contrôle transversaux de 1\if{html}{\out{<sup>}}ère\if{html}{\out{</sup>}} et 2\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}} dimension dans le \emph{data frame} des données
-d'entrée. La variable \code{alterAnnual} contient le coefficient d'altérabilité pour la contrainte temporelle associée à
-chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le coefficient d'altérabilité par défaut
-spécifié avec l'argument \code{alterAnnual}.}
+\emph{Data frame} (object de classe « data.frame ») qui décrit les contraintes d'agrégation transversales (règles
+d'additivité) pour le problème de ratissage (« \emph{raking} »). Deux variables de type caractère doivent être incluses
+dans le \emph{data frame} : \code{series} et \code{total1}. Deux variables sont optionnelles : \code{total2} (caractère) et \code{alterAnnual}
+(numérique). Les valeurs de la variable \code{series} représentent les noms des variables des séries composantes dans le
+\emph{data frame} des données d'entrée (argument \code{data_df}). De même, les valeurs des variables \code{total1} et \code{total2}
+représentent les noms des variables des totaux de contrôle transversaux de 1\if{html}{\out{<sup>}}ère\if{html}{\out{</sup>}} et 2\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}} dimension
+dans le \emph{data frame} des données d'entrée. La variable \code{alterAnnual} contient le coefficient d'altérabilité pour la
+contrainte temporelle associée à chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le
+coefficient d'altérabilité par défaut spécifié avec l'argument \code{alterAnnual}.}
 
 \item{data_df_name}{(optionnel)
 
@@ -50,8 +50,8 @@ Chaîne de caractères contenant la valeur de l'argument \code{metadata_df}.
 
 \item{alterability_df}{(optionnel)
 
-\emph{Data frame}, ou objet compatible, ou \code{NULL}, qui contient les variables de coefficients d'altérabilité. Elles
-doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
+\emph{Data frame} (object de classe « data.frame »), ou \code{NULL}, qui contient les variables de coefficients d'altérabilité.
+Elles doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
 portant le même nom doit exister dans le \emph{data frame} des données d'entrée (argument \code{data_df}). Les valeurs de
 ces coefficients d'altérabilité remplaceront les coefficients d'altérabilité par défaut spécifiés avec les arguments
 \code{alterSeries}, \code{alterTotal1} et \code{alterTotal2}. Lorsque le \emph{data frame} des données d'entrée contient plusieurs
@@ -104,8 +104,8 @@ Une liste avec les éléments du problème de ratissage (excluant les totaux tem
 }
 \description{
 Cette fonction est utilisée à l'interne par \code{\link[=tsraking]{tsraking()}} pour construire les éléments du problème de ratissage. Elle peut
-également être utile pour dériver manuellement les totaux transversaux (des marges) du problème de ratissage (en dehors du
-contexte de \code{\link[=tsraking]{tsraking()}}).
+également être utile pour dériver manuellement (en dehors du contexte de \code{\link[=tsraking]{tsraking()}}) les totaux (de marge) transversaux
+du problème de ratissage.
 }
 \details{
 Voir \code{\link[=tsraking]{tsraking()}} pour une description détaillée des problèmes de \emph{ratissage de séries chronologiques}.
@@ -120,7 +120,7 @@ les éléments \code{x}, \code{c_x}, \code{g}, \code{c_g} et \code{G} du problè
 de la conversion d'objets de la classe « matrix » en vecteurs.
 }
 \examples{
-# Dériver les totaux de marge d'un cube de données à deux dimensions (2 x 3) 
+# Dériver les 5 totaux de marge d'un cube de données à deux dimensions 2 x 3 
 # en utilisant les métadonnées de `tsraking()`.
 
 mes_meta <- data.frame(series = c("A1", "A2", "A3",

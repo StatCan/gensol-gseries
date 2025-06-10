@@ -14,22 +14,25 @@ plot_benchAdj(
 \arguments{
 \item{PB_graphTable}{(optionnel)
 
-\emph{Data frame}, ou objet compatible, correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction \code{\link[=benchmarking]{benchmarking()}} (PB pour
-approche « Proc Benchmarking »). Spécifiez \code{NULL} pour ne pas inclure les ajustements de \code{\link[=benchmarking]{benchmarking()}} dans le graphique.
+\emph{Data frame} (object de classe « data.frame ») correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction
+\code{\link[=benchmarking]{benchmarking()}} (PB pour approche « Proc Benchmarking »). Spécifiez \code{NULL} pour ne pas inclure les ajustements de
+\code{\link[=benchmarking]{benchmarking()}} dans le graphique.
 
 \strong{La valeur par défaut} est \code{PB_graphTable = NULL}.}
 
 \item{SB_graphTable}{(optionnel)
 
-\emph{Data frame}, ou objet compatible, correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction \code{\link[=stock_benchmarking]{stock_benchmarking()}}
-(SB). Spécifiez \code{NULL} pour ne pas inclure les ajustements de \code{\link[=stock_benchmarking]{stock_benchmarking()}} dans le graphique.
+\emph{Data frame} (object de classe « data.frame ») correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction
+\code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB). Spécifiez \code{NULL} pour ne pas inclure les ajustements de \code{\link[=stock_benchmarking]{stock_benchmarking()}} dans
+le graphique.
 
 \strong{La valeur par défaut} est \code{SB_graphTable = NULL}.}
 
 \item{SB_splineKnots}{(optionnel)
 
-\emph{Data frame}, ou objet compatible, correspondant au \emph{data frame} de sortie \code{splineKnots} de la fonction \code{\link[=stock_benchmarking]{stock_benchmarking()}}
-(SB). Spécifiez \code{NULL} pour ne pas inclure la spline cubique de \code{\link[=stock_benchmarking]{stock_benchmarking()}} dans le graphique.
+\emph{Data frame} (object de classe « data.frame ») correspondant au \emph{data frame} de sortie \code{splineKnots} de la fonction
+\code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB). Spécifiez \code{NULL} pour ne pas inclure la spline cubique de \code{\link[=stock_benchmarking]{stock_benchmarking()}} dans
+le graphique.
 
 \strong{La valeur par défaut} est \code{SB_splineKnots = NULL}.}
 

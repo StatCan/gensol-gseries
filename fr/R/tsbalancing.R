@@ -50,7 +50,7 @@
 #'
 #' @param in_ts (obligatoire) 
 #' 
-#' Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries 
+#' Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries 
 #' chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes d'équilibrage 
 #' (« *balancing* »).
 #' 
@@ -326,7 +326,7 @@
 #' les avertissements, les erreurs et la période (ou l'ensemble de périodes) en cours de traitement. Vous pouvez également 
 #' supprimer, si vous le souhaitez, l'affichage des informations relatives à la (aux) période(s) en cours de traitement en 
 #' *enveloppant* votre appel à [tsbalancing()] avec [suppressMessages()]. Dans ce cas, le *data frame* de sortie 
-#' **proc_grp_df** peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages 
+#' `proc_grp_df` peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages 
 #' d'avertissement (le cas échéant). Notez que la spécification de `quiet = TRUE` annulera également l'argument `display_level`.
 #'
 #' **La valeur par défaut** est `quiet = FALSE`.
@@ -403,11 +403,11 @@
 #' 
 #' ## Validation et dépannage
 #' Les problèmes d'équilibrage fructueux (problèmes avec une solution valide) ont `sol_status_val > 0` ou, de manière 
-#' équivalente, `n_unmet_con = 0` ou `max_discr <= validation_tol` dans le *data frame* de sortie **proc_grp_df**. 
+#' équivalente, `n_unmet_con = 0` ou `max_discr <= validation_tol` dans le *data frame* de sortie `proc_grp_df`. 
 #' Le dépannage des problèmes d'équilibrage infructueux n'est pas nécessairement simple. Voici quelques suggestions :
 #' 
 #' - Examinez les contraintes qui ont échoué (`unmet_flag = TRUE` ou, de manière équivalente, `discr_out > validation_tol` 
-#' dans le *data frame* de sortie **prob_conf_df**) pour s'assurer qu'elles ne causent pas un espace de solution vide 
+#' dans le *data frame* de sortie `prob_con_df`) pour s'assurer qu'elles ne causent pas un espace de solution vide 
 #' (problème infaisable).
 #' 
 #' - Modifier la séquence de résolution d'OSQP. Par exemple, essayez :
@@ -532,12 +532,12 @@
 #' @returns
 #' La fonction renvoie une liste de sept objets :
 #' 
-#' - **out_ts** : version modifiée de l'objet d'entrée de type série chronologique (« ts » ou « mts »; voir l'argument `in_ts`) 
-#' contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de la fonction (sortie 
-#' principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec la fonction `as*()` 
-#' appropriée (ex., `tsibble::as_tsibble()` le convertirait en tsibble).
+#' - `out_ts` : version modifiée de l'objet d'entrée de type série chronologique (classe « ts » ou « mts » ; voir 
+#' l'argument `in_ts`) contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de 
+#' la fonction (sortie principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec 
+#' la fonction `as*()` appropriée (ex., `tsibble::as_tsibble()` le convertirait en tsibble).
 #' 
-#' - **proc_grp_df** : *data frame* récapitulatif des groupes de traitement, utile pour identifier les problèmes 
+#' - `proc_grp_df` : *data frame* récapitulatif des groupes de traitement, utile pour identifier les problèmes 
 #' fructueux ou infructueux. Il contient un enregistrement (une rangée) pour chaque problème d'équilibrage avec les 
 #' colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
@@ -581,7 +581,7 @@
 #'   solution OSQP (total des écarts de contraintes plus faible). La séquence de résolution est décrite dans la 
 #'   \ifelse{latex}{\code{vignette("osqp-settings -sequence-dataframe")}}{\code{vignette("osqp-settings-sequence-dataframe")}}.
 #'   
-#' - **periods_df** : *data frame* sur les périodes de temps, utile pour faire correspondre les périodes aux groupes 
+#' - `periods_df` : *data frame* sur les périodes de temps, utile pour faire correspondre les périodes aux groupes 
 #' de traitement. Il contient un enregistrement (une rangée) pour chaque période de l'objet d'entrée de type série 
 #' chronologique (argument `in_ts`) avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
@@ -597,7 +597,7 @@
 #'   Les colonnes `t` et `time_val` constituent toutes deux une *clé unique* (enregistrements distincts) pour le 
 #'   *data frame*.
 #'   
-#' - **prob_val_df** : *data frame* sur les valeurs du problème, utile pour analyser les changements entre les valeurs 
+#' - `prob_val_df` : *data frame* sur les valeurs du problème, utile pour analyser les changements entre les valeurs 
 #' initiales et finales (réconciliées). Il contient un enregistrement (une rangée) pour chaque valeur impliquée dans 
 #' chaque problème d'équilibrage, avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
@@ -620,7 +620,7 @@
 #'   enregistrements avec `alter = 0` ou `value_in = 0`. Inversement, les valeurs de problèmes non contraignantes (libres) 
 #'   correspondent aux enregistrements avec `alter != 0` et `value_in != 0`.
 #'   
-#' - **prob_con_df** : *data frame* sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier 
+#' - `prob_con_df` : *data frame* sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier 
 #' les contraintes non satisfaites). Il contient un enregistrement (une rangée) pour chaque contrainte impliquée dans chaque 
 #' problème d'équilibrage, avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
@@ -651,7 +651,7 @@
 #'   pour des contraintes `GE`, et incluent les tolérances, le cas échéant, spécifiées avec les arguments `tolV`, 
 #'   `tolV_temporal` et `tolP_temporal`.
 #'   
-#' - **osqp_settings_df** : *data frame* des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque 
+#' - `osqp_settings_df` : *data frame* des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque 
 #' problème (groupe de traitement) résolu avec OSQP (`proc_grp_df$sol_type = "osqp"`), avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
 #'   - une colonne correspondant à chaque élément de la liste renvoyée par la méthode \ifelse{latex}{\code{osqp::Get Params()}
@@ -675,7 +675,7 @@
 #'   (groupes de traitement) pour lesquels la solution initiale a été renvoyée (`proc_grp_df$sol_type = "initial"`) ne sont 
 #'   pas inclus dans ce *data frame*.
 #'   
-#' - **osqp_sol_info_df** : *data frame* d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée) 
+#' - `osqp_sol_info_df` : *data frame* d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée) 
 #' pour chaque problème (groupe de traitement) résolu avec OSQP (`proc_grp_df$sol_type = "osqp"`), avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
 #'   - une colonne correspondant à chaque élément de la liste `info` d'un *objet solveur d'OSQP* (objet de classe 
@@ -1875,41 +1875,41 @@ tsbalancing <- function(in_ts,
 }
 
 
-#' Construire les éléments de base des problèmes d'équilibrage.
+#' Construire les éléments des problèmes d'équilibrage.
 #'
 #' @description
-#' Cette fonction est utilisée à l'interne par [tsbalancing()] pour construire les éléments de base des problèmes 
-#' d'équilibrage. Elle peut également être utile pour dériver manuellement les séries indirectes associées aux 
-#' contraintes d'équilibrage d'égalité (en dehors du contexte de [tsbalancing()]).
+#' Cette fonction est utilisée à l'interne par [tsbalancing()] pour construire les éléments des problèmes 
+#' d'équilibrage. Elle peut également être utile pour dériver manuellement (en dehors du contexte de [tsbalancing()]) 
+#' les séries indirectes associées aux contraintes d'équilibrage d'égalité.
 #' 
 #' 
 #' @inheritParams tsbalancing
 #' 
-#' @param in_ts_name (optional) 
+#' @param in_ts_name (optionnel) 
 #' 
 #' Chaîne de caractères contenant la valeur de l'argument `in_ts`.
 #'
 #' **La valeur par défaut** est `in_ts_name = deparse1(substitute(in_ts))`.
 #' 
-#' @param ts_freq (optional)
+#' @param ts_freq (optionnel)
 #' 
 #' Fréquence de l'object the type série chronologique (argument `in_ts`).
 #' 
 #' **La valeur par défaut** est `ts_freq = stats::frequency(in_ts)`.
 #' 
-#' @param periods (optional) 
+#' @param periods (optionnel) 
 #' 
 #' Vecteur de chaînes de caractères décrivant les périodes de l'object the type série chronologique (argument `in_ts`).
 #' 
 #' **La valeur par défaut** est `periods = gs.time2str(in_ts)`.
 #' 
-#' @param n_per (optional) 
+#' @param n_per (optionnel) 
 #' 
 #' Nombre de périodes de l'object the type série chronologique (argument `in_ts`).
 #' 
 #' **La valeur par défaut** est `n_per = nrow(as.matrix(in_ts))`.
 #' 
-#' @param specs_df_name (optional)
+#' @param specs_df_name (optionnel)
 #' 
 #' Chaîne de caractères contenant la valeur de l'argument `problem_specs_df`.
 #' 
@@ -1955,7 +1955,7 @@ tsbalancing <- function(in_ts,
 #' Toute valeur manquante (`NA`) trouvée dans l'objet de série chronologique d'entrée (argument `in_ts`) serait remplacée par 0 
 #' dans `values_ts` et déclencherait un message d'avertissement.
 #' 
-#' Les éléments renvoyés des des problèmes d'équilibrage n'incluent pas les totaux temporels implicites (c.-à-d., les éléments 
+#' Les éléments renvoyés des problèmes d'équilibrage n'incluent pas les totaux temporels implicites (c.-à-d., les éléments 
 #' `A2`, `op2` et `b2` ne contiennent que les contraintes d'équilibrage).
 #' 
 #' Les éléments `A2`, `op2` et `b2` d'un problème d'équilibrage impliquant plusieurs périodes (lorsque 

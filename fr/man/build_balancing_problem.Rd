@@ -2,7 +2,7 @@
 % Please edit documentation in R/tsbalancing.R
 \name{build_balancing_problem}
 \alias{build_balancing_problem}
-\title{Construire les éléments de base des problèmes d'équilibrage.}
+\title{Construire les éléments des problèmes d'équilibrage.}
 \usage{
 build_balancing_problem(
   in_ts,
@@ -24,7 +24,7 @@ build_balancing_problem(
 \arguments{
 \item{in_ts}{(obligatoire)
 
-Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries
+Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries
 chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes d'équilibrage
 (« \emph{balancing} »).}
 
@@ -110,31 +110,31 @@ Enfin, le tableau suivant dresse la liste des alias valides (acceptés) pour les
 
 L'examen des \strong{Exemples} devrait aider à conceptualiser le \emph{data frame} des spécifications du problème d'équilibrage.}
 
-\item{in_ts_name}{(optional)
+\item{in_ts_name}{(optionnel)
 
 Chaîne de caractères contenant la valeur de l'argument \code{in_ts}.
 
 \strong{La valeur par défaut} est \code{in_ts_name = deparse1(substitute(in_ts))}.}
 
-\item{ts_freq}{(optional)
+\item{ts_freq}{(optionnel)
 
 Fréquence de l'object the type série chronologique (argument \code{in_ts}).
 
 \strong{La valeur par défaut} est \code{ts_freq = stats::frequency(in_ts)}.}
 
-\item{periods}{(optional)
+\item{periods}{(optionnel)
 
 Vecteur de chaînes de caractères décrivant les périodes de l'object the type série chronologique (argument \code{in_ts}).
 
 \strong{La valeur par défaut} est \code{periods = gs.time2str(in_ts)}.}
 
-\item{n_per}{(optional)
+\item{n_per}{(optionnel)
 
 Nombre de périodes de l'object the type série chronologique (argument \code{in_ts}).
 
 \strong{La valeur par défaut} est \code{n_per = nrow(as.matrix(in_ts))}.}
 
-\item{specs_df_name}{(optional)
+\item{specs_df_name}{(optionnel)
 
 Chaîne de caractères contenant la valeur de l'argument \code{problem_specs_df}.
 
@@ -246,9 +246,9 @@ périodes d'un groupe temporel incomplet)
 }
 }
 \description{
-Cette fonction est utilisée à l'interne par \code{\link[=tsbalancing]{tsbalancing()}} pour construire les éléments de base des problèmes
-d'équilibrage. Elle peut également être utile pour dériver manuellement les séries indirectes associées aux
-contraintes d'équilibrage d'égalité (en dehors du contexte de \code{\link[=tsbalancing]{tsbalancing()}}).
+Cette fonction est utilisée à l'interne par \code{\link[=tsbalancing]{tsbalancing()}} pour construire les éléments des problèmes
+d'équilibrage. Elle peut également être utile pour dériver manuellement (en dehors du contexte de \code{\link[=tsbalancing]{tsbalancing()}})
+les séries indirectes associées aux contraintes d'équilibrage d'égalité.
 }
 \details{
 Voir \code{\link[=tsbalancing]{tsbalancing()}} pour une description détaillée des problèmes d'\emph{équilibrage de séries chronologiques}.
@@ -256,7 +256,7 @@ Voir \code{\link[=tsbalancing]{tsbalancing()}} pour une description détaillée 
 Toute valeur manquante (\code{NA}) trouvée dans l'objet de série chronologique d'entrée (argument \code{in_ts}) serait remplacée par 0
 dans \code{values_ts} et déclencherait un message d'avertissement.
 
-Les éléments renvoyés des des problèmes d'équilibrage n'incluent pas les totaux temporels implicites (c.-à-d., les éléments
+Les éléments renvoyés des problèmes d'équilibrage n'incluent pas les totaux temporels implicites (c.-à-d., les éléments
 \code{A2}, \code{op2} et \code{b2} ne contiennent que les contraintes d'équilibrage).
 
 Les éléments \code{A2}, \code{op2} et \code{b2} d'un problème d'équilibrage impliquant plusieurs périodes (lorsque
@@ -292,7 +292,7 @@ d'altérabilité non manquant (non \code{NA}) de chaque groupe temporel complet 
 ######################################################################################
 
 
-# Dériver les totaux de marge d'un cube de données à deux dimensions (2 x 3) en 
+# Dériver les 5 totaux de marge d'un cube de données à deux dimensions 2 x 3 en 
 # utilisant les métadonnées de `tsbalancing()` (les contraintes d'agrégation d'un 
 # cube de données respectent les hypothèses ci-dessus).
 

@@ -86,7 +86,7 @@ In practice, specifying `full_sequence = TRUE` should be enough when more precis
 
 ## Guiding Principles
 
-The following is a summary of the lessons learned while developing `tsbalancing()` and experimenting with the OSQP solver. They are the guiding principles that lead to both *OSQP settings sequence data frames* presented earlier. Note these observations apply to **_time series balancing problems_** as solved by `tsbalancing()` and may not directly apply to other types of *quadratic problems*.
+The following is a summary of the lessons learned while developing `tsbalancing()` and experimenting with the OSQP solver. They are the guiding principles that lead to both *OSQP settings sequence data frames* presented earlier. Note that these observations apply to **_time series balancing problems_** as solved by `tsbalancing()` and may not directly apply to other types of *quadratic problems*.
 
 + Data preconditioning options available in OSQP (with the `scaling` setting) are not sufficient for some (badly scaled) problems. External (prior) data scaling (`prior_scaling = TRUE`) is sometimes necessary for OSQP to converge at a decent pace and generate *precise enough* solutions in a reasonable number of iterations.
 + Prior data scaling often reduces execution time (the required number of iterations to achieve the specified precision) and greatly increases the likelihood of polished solutions.

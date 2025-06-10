@@ -20,9 +20,8 @@
 #' 
 #' @param in_ts (obligatoire)
 #'
-#' Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries 
-#' chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage 
-#' (« *raking* »).
+#' Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries chronologiques 
+#' à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage (« *raking* »).
 #' 
 #' @inheritDotParams tsraking -data_df
 ######
@@ -75,7 +74,7 @@
 #'
 #'
 #' @returns
-#' La fonction renvoie un objet de type série chronologique (« ts » ou « mts ») contenant les séries composantes 
+#' La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts ») contenant les séries composantes 
 #' réconciliées, les totaux de contrôle transversaux réconciliés et d'autres séries spécifiées avec l'argument `id` de 
 #' [tsraking()]. Il peut être explicitement converti en un autre type d'objet avec la fonction `as*()` appropriée (ex., 
 #' `tsibble::as_tsibble()` le convertirait en tsibble).

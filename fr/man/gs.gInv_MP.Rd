@@ -7,17 +7,17 @@
 gs.gInv_MP(X, tol = NA)
 }
 \arguments{
-\item{X}{(mandatory)
+\item{X}{(obligatoire)
 
 Matrice à inverser.}
 
-\item{tol}{(optional)
+\item{tol}{(optionnel)
 
 Nombre réel qui spécifie la tolérance pour l'identification des valeurs singulières nulles. Lorsque \code{tol = NA}
 (par défaut), la tolérance est calculée comme étant le produit de la taille (dimension) de la matrice, de la norme
 de la matrice (plus grande valeur singulière) et de l'\emph{epsilon de la machine} (\code{.Machine$double.eps}).
 
-\strong{Default value} is \code{tol = NA}.}
+\strong{La valeur par défaut} est \code{tol = NA}.}
 }
 \value{
 L'inverse (pseudo inverse) de Moore-Penrose de la matrice \code{X}.

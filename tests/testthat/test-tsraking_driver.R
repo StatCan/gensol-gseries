@@ -240,7 +240,11 @@ test_that("errors during processing", {
                        B = c(1, 1,  1, 1), 
                        C = c(0, 0,  0, 0))
   
-  # Multiple groups (errors for some groups only): 1 "true error" (the other one is "muted")
+  # Multiple groups (errors for some groups only): 
+  #       - one "muffled" error during processing
+  #       - one "true" error at the end of processing
+  # => catch the final (true) error
+  # => the muffled error message is (still) displayed
   expect_error(suppressMessages(
     tsraking_driver(
       data1, 
@@ -249,7 +253,7 @@ test_that("errors during processing", {
       quiet = TRUE)
   ))
   
-  # Single group (error)
+  # Single group (single "true" error)
   expect_error(
     tsraking_driver(
       window(data1, start = time(data1)[3], end = time(data1)[3]), 

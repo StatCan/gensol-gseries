@@ -21,7 +21,7 @@
 #'
 #' @param bmk_df (mandatory)
 #'
-#' Data frame, or object to be coerced to one, that contains the multivariate benchmarks to be stacked.
+#' Data frame (object of class "data.frame") that contains the multivariate benchmarks to be stacked.
 #'
 #' @param ser_cName (optional)
 #'

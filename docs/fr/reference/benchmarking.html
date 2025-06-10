@@ -116,16 +116,18 @@ segments de séries chronologiques en une série chronologique unique et cohére
 
 <dl><dt id="arg-series-df">series_df<a class="anchor" aria-label="anchor" href="#arg-series-df"></a></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, qui contient les données de la (des) série(s) indicatrice(s) à étalonner. En plus de
-la (des) variable(s) contenant les données, spécifiée(s) avec l'argument <code>var</code>, le <em>data frame</em> doit aussi contenir deux
-variables numériques, <code>year</code> et <code>period</code>, identifiant les périodes des séries indicatrices.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») qui contient les données de la (des) série(s) indicatrice(s) à
+étalonner. En plus de la (des) variable(s) contenant les données, spécifiée(s) avec l'argument <code>var</code>, le
+<em>data frame</em> doit aussi contenir deux variables numériques, <code>year</code> et <code>period</code>, identifiant les périodes des
+séries indicatrices.</p></dd>
 
 
 <dt id="arg-benchmarks-df">benchmarks_df<a class="anchor" aria-label="anchor" href="#arg-benchmarks-df"></a></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, qui contient les étalons. En plus de la (des) variable(s) contenant les données,
-spécifiée(s) avec l'argument <code>with</code>, le <em>data frame</em> doit aussi contenir quatre variables numériques, <code>startYear</code>,
-<code>startPeriod</code>, <code>endYear</code> et <code>endPeriod</code>, identifiant les périodes des séries indicatrices couvertes par chaque étalon.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») qui contient les étalons. En plus de la (des) variable(s) contenant
+les données, spécifiée(s) avec l'argument <code>with</code>, le <em>data frame</em> doit aussi contenir quatre variables numériques,
+<code>startYear</code>, <code>startPeriod</code>, <code>endYear</code> et <code>endPeriod</code>, identifiant les périodes des séries indicatrices couvertes
+par chaque étalon.</p></dd>
 
 
 <dt id="arg-rho">rho<a class="anchor" aria-label="anchor" href="#arg-rho"></a></dt>
@@ -254,7 +256,7 @@ série étalonnée finale en sortie. Par exemple, la spécification d'une (petit
 proportionnel avec <code>rho = 1</code> (étalonnage de  Denton proportionnel) sur avec des séries indicatrices qui comprennent des
 valeurs de 0. Sinon, l'étalonnage proportionnel avec des valeurs de 0 pour la série indicatrice n'est possible que
 lorsque <code>rho &lt; 1</code>. Spécifier une constante avec l'étalonnage additif (<code>lambda = 0.0</code>) n'a pas d'impact sur les données
-étalonnées résultantes. Les variables de données dans le <em>data frame</em> de sortie <strong>graphTable</strong> incluent la constante,
+étalonnées résultantes. Les variables de données dans le <em>data frame</em> de sortie <code>graphTable</code> incluent la constante,
 correspondant au problème d'étalonnage effectivement résolu par la fonction.</p>
 <p><strong>La valeur par défaut</strong> est <code>constant = 0</code> (pas de constante additive temporaire).</p></dd>
 
@@ -292,13 +294,13 @@ individuelles. Notez que la spécification de <code>quiet = TRUE</code> annulera
 </dl></div>
     <div class="section level2">
     <h2 id="valeur-de-retour">Valeur de retour<a class="anchor" aria-label="anchor" href="#valeur-de-retour"></a></h2>
-    <p>La fonction renvoie une liste de trois <em>data frames</em> :</p><ul><li><p><strong>series</strong> : <em>data frame</em> contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées
+    <p>La fonction renvoie une liste de trois <em>data frames</em> :</p><ul><li><p><code>series</code> : <em>data frame</em> contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées
 avec l'argument <code>by</code> sont incluses dans le <em>data frame</em> mais pas les variables de coefficient d'altérabilité spécifiées
 avec l'argument <code>var</code>.</p></li>
-<li><p><strong>benchmarks</strong> : copie du <em>data frame</em> d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant).
+<li><p><code>benchmarks</code> : copie du <em>data frame</em> d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant).
 Les variables BY spécifiées avec l'argument <code>by</code> sont incluses dans le <em>data frame</em> mais pas les variables de coefficient
 d'altérabilité spécifiées avec l'argument <code>with</code>.</p></li>
-<li><p><strong>graphTable</strong> : <em>data frame</em> contenant des données supplémentaires utiles pour produire des tableaux et des graphiques
+<li><p><code>graphTable</code> : <em>data frame</em> contenant des données supplémentaires utiles pour produire des tableaux et des graphiques
 analytiques (voir la fonction <code><a href="plot_graphTable.html">plot_graphTable()</a></code>). Il contient les variables suivantes en plus des variables BY spécifiées
 avec l'argument <code>by</code> :</p><ul><li><p><code>varSeries</code> : Nom de la variable de la série indicatrice</p></li>
 <li><p><code>varBenchmarks</code> : Nom de la variable des étalons</p></li>
@@ -332,12 +334,12 @@ période à l'autre des valeurs de la série indicatrice (variable <code>subAnnu
 <li><p><code>growthRateBenchmarked</code> : Différence (\(\lambda = 0\)) ou différence relative (\(\lambda \ne 0\)) d'une
 période à l'autre des valeurs de la série étalonnée (variable <code>benchmarked</code>)</p></li>
 </ul></li>
-</ul><p>Notes :</p><ul><li><p>Le <em>data frame</em> de sortie <strong>benchmarks</strong> contient toujours les étalons originaux fournis dans le <em>data frame</em> d'entrée
+</ul><p>Notes :</p><ul><li><p>Le <em>data frame</em> de sortie <code>benchmarks</code> contient toujours les étalons originaux fournis dans le <em>data frame</em> d'entrée
 des étalons. Les étalons modifiés non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir du <em>data frame</em>
-de sortie <strong>series</strong>.</p></li>
+de sortie <code>series</code>.</p></li>
 <li><p>La fonction renvoie un objet <code>NULL</code> si une erreur se produit avant que le traitement des données ne puisse commencer.
 Dans le cas contraire, si l'exécution est suffisamment avancée pour que le traitement des données puisse commencer, alors
-un objet incomplet sera renvoyé en cas d'erreur (par exemple, un <em>data frame</em> de sortie <strong>series</strong> avec des valeurs <code>NA</code>
+un objet incomplet sera renvoyé en cas d'erreur (par exemple, un <em>data frame</em> de sortie <code>series</code> avec des valeurs <code>NA</code>
 pour les données étalonnées).</p></li>
 <li><p>La fonction renvoie des objets « data.frame » qui peuvent être explicitement convertis en d'autres types d'objets avec la
 fonction <code>as*()</code> appropriée (ex., <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">tibble::as_tibble()</a></code> convertirait n'importe lequel d'entre eux en tibble).</p></li>
@@ -482,7 +484,7 @@ signifie que la spécification d'un coefficient d'altérabilité de \(0.0\) pour
 <strong>ne se traduira pas</strong> par une valeur inchangée après étalonnage <strong>avec correction du biais</strong> (voir les arguments <code>biasOption</code>
 et <code>bias</code>).</p></li>
 </ul><p>Les étalons non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir de la série étalonnée (voir le
-<em>data frame</em> de sortie <strong>series</strong> dans la section <strong>Valeur de retour</strong>). Le <em>data frame</em> de sortie <strong>benchmarks</strong> contient
+<em>data frame</em> de sortie <code>series</code> dans la section <strong>Valeur de retour</strong>). Le <em>data frame</em> de sortie <code>benchmarks</code> contient
 toujours les étalons fournis dans le <em>data frame</em> d'entrée des étalons (argument <code>benchmarks_df</code>).</p>
 </div>
 
@@ -611,7 +613,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                         biasOption <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -647,7 +649,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 1 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpOyoXtn\Graphs_ex1.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpauRR1c\Graphs_ex1.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###########</span></span></span>
@@ -768,7 +770,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpOyoXtn\Graphs_ex2.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpauRR1c\Graphs_ex2.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Vérifier la valeur des ventes de camionnettes pour 2012 T1 et T2 </span></span></span>
 <span class="r-in"><span><span class="co"># dans le groupe A (valeurs fixes)</span></span></span>
@@ -848,7 +850,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpOyoXtn\Graphs_ex3.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpauRR1c\Graphs_ex3.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Convertir le « data frame » `res_eta3$series` en un objet « mts »</span></span></span>
 <span class="r-in"><span><span class="va">ventes_tri2_eta</span> <span class="op">&lt;-</span> <span class="fu"><a href="tsDF_to_ts.html">tsDF_to_ts</a></span><span class="op">(</span><span class="fu"><a href="unstack_tsDF.html">unstack_tsDF</a></span><span class="op">(</span><span class="va">res_eta3</span><span class="op">$</span><span class="va">series</span><span class="op">)</span>, frequency <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>

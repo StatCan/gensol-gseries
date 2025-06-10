@@ -344,7 +344,7 @@ alternative dans de tels cas.</p></li>
 nécessairement réalisable en pratique pour les grands projets
 d’étalonnage impliquant de nombreuses séries. Une analyse de
 classification (grossière) des données du <em>data frame</em> de sortie
-<strong>graphTable</strong> des fonctions d’étalonnage (l’entrée de la
+<code>graphTable</code> des fonctions d’étalonnage (l’entrée de la
 fonction <code><a href="../reference/plot_graphTable.html">plot_graphTable()</a></code>) peut aider à identifier les cas
 nécessitant une investigation plus poussée et un <em>regard plus
 attentif</em> aux graphiques d’étalonnage.</p>
@@ -368,7 +368,7 @@ fonctions <code><a href="../reference/benchmarking.html">benchmarking()</a></cod
 <h3 id="traiter-les-données-étalonnées">4. Traiter les données étalonnées<a class="anchor" aria-label="anchor" href="#traiter-les-donn%C3%A9es-%C3%A9talonn%C3%A9es"></a>
 </h3>
 <p>L’étape finale consiste généralement à convertir les données
-étalonnées (<em>data frame</em> de sortie <strong>series</strong> des
+étalonnées (<em>data frame</em> de sortie <code>series</code> des
 fonctions d’étalonnage) en objets « ts » (ou « mts ») avec la fonction
 utilitaire <code><a href="../reference/tsDF_to_ts.html">tsDF_to_ts()</a></code>. Lorsqu’un traitement par
 <em>groupes-BY</em> (argument <code>by</code>) est utilisé, il faut
@@ -380,15 +380,15 @@ benchmarks</em>)</strong><br>
 Bien que les problèmes d’étalonnage impliquant des étalons non
 contraignants (coefficients d’altérabilité supérieurs à 0) soient
 relativement rares en pratique, il est important de se rappeler que le
-<em>data frame</em> de sortie <strong>benchmarks</strong> des fonctions
+<em>data frame</em> de sortie <code>benchmarks</code> des fonctions
 d’étalonnage contient toujours les étalons originaux (non modifiés)
 fournis en entrée. Dans de tels cas, les étalons non contraignants
 modifiés seraient récupérés (calculés) à partir du <em>data frame</em>
-de sortie <strong>series</strong>. Par exemple, les flux étalonnés
-résultant d’un appel à <code><a href="../reference/benchmarking.html">benchmarking()</a></code> peuvent être agrégés
-en utilisant la fonction <code><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">stats::aggregate.ts()</a></code> après avoir
-d’abord converti le <em>data frame</em> de sortie
-<strong>series</strong> en un objet « ts » avec la fonction utilitaire
+de sortie <code>series</code>. Par exemple, les flux étalonnés résultant
+d’un appel à <code><a href="../reference/benchmarking.html">benchmarking()</a></code> peuvent être agrégés en
+utilisant la fonction <code><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">stats::aggregate.ts()</a></code> après avoir
+d’abord converti le <em>data frame</em> de sortie <code>series</code> en
+un objet « ts » avec la fonction utilitaire
 <code><a href="../reference/tsDF_to_ts.html">tsDF_to_ts()</a></code>.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table des matières"><h2>Sur cette page</h2>

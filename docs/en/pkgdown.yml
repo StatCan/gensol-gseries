@@ -6,7 +6,7 @@ articles:
   benchmarking-demo-script: benchmarking-demo-script.html
   gseries: gseries.html
   osqp-settings-sequence-dataframe: osqp-settings-sequence-dataframe.html
-last_built: 2025-05-14T14:22Z
+last_built: 2025-06-10T19:41Z
 urls:
   reference: https://StatCan.github.io/gensol-gseries/en/reference
   article: https://StatCan.github.io/gensol-gseries/en/articles

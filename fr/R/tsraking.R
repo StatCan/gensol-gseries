@@ -46,28 +46,28 @@
 #'
 #' @param data_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui contient les données des séries chronologiques à réconcilier. Il doit au minimum 
-#' contenir des variables correspondant aux séries composantes et aux totaux de contrôle transversaux spécifiés dans le 
-#' *data frame* des métadonnées de ratissage (argument `metadata_df`). Si plus d'un enregistrement (plus d'une période) est 
-#' fournie, la somme des valeurs des séries composantes fournies sera également préservée à travers des contraintes 
-#' temporelles implicites.
+#' *Data frame* (object de classe « data.frame ») qui contient les données des séries chronologiques à réconcilier. 
+#' Il doit au minimum contenir des variables correspondant aux séries composantes et aux totaux de contrôle transversaux 
+#' spécifiés dans le *data frame* des métadonnées de ratissage (argument `metadata_df`). Si plus d'un enregistrement 
+#' (plus d'une période) est fournie, la somme des valeurs des séries composantes fournies sera également préservée à 
+#' travers des contraintes temporelles implicites.
 #'
 #' @param metadata_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui décrit les contraintes d'agrégation transversales (règles d'additivité) pour le 
-#' problème de ratissage (« *raking* »). Deux variables de type caractère doivent être incluses dans le *data frame* : 
-#' `series` et `total1`. Deux variables sont optionnelles : `total2` (caractère) et `alterAnnual` (numérique). Les valeurs 
-#' de la variable `series` représentent les noms des variables des séries composantes dans le *data frame* des données 
-#' d'entrée (argument `data_df`). De même, les valeurs des variables `total1` et `total2` représentent les noms des variables 
-#' des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension dans le *data frame* des données 
-#' d'entrée. La variable `alterAnnual` contient le coefficient d'altérabilité pour la contrainte temporelle associée à 
-#' chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le coefficient d'altérabilité par défaut 
-#' spécifié avec l'argument `alterAnnual`.
+#' *Data frame* (object de classe « data.frame ») qui décrit les contraintes d'agrégation transversales (règles 
+#' d'additivité) pour le problème de ratissage (« *raking* »). Deux variables de type caractère doivent être incluses 
+#' dans le *data frame* : `series` et `total1`. Deux variables sont optionnelles : `total2` (caractère) et `alterAnnual` 
+#' (numérique). Les valeurs de la variable `series` représentent les noms des variables des séries composantes dans le 
+#' *data frame* des données d'entrée (argument `data_df`). De même, les valeurs des variables `total1` et `total2` 
+#' représentent les noms des variables des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension 
+#' dans le *data frame* des données d'entrée. La variable `alterAnnual` contient le coefficient d'altérabilité pour la 
+#' contrainte temporelle associée à chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le 
+#' coefficient d'altérabilité par défaut spécifié avec l'argument `alterAnnual`.
 #'
 #' @param alterability_df (optionnel)
 #'
-#' *Data frame*, ou objet compatible, ou `NULL`, qui contient les variables de coefficients d'altérabilité. Elles 
-#' doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable 
+#' *Data frame* (object de classe « data.frame »), ou `NULL`, qui contient les variables de coefficients d'altérabilité. 
+#' Elles doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable 
 #' portant le même nom doit exister dans le *data frame* des données d'entrée (argument `data_df`). Les valeurs de 
 #' ces coefficients d'altérabilité remplaceront les coefficients d'altérabilité par défaut spécifiés avec les arguments 
 #' `alterSeries`, `alterTotal1` et `alterTotal2`. Lorsque le *data frame* des données d'entrée contient plusieurs 
@@ -866,12 +866,12 @@ tsraking <- function(data_df,
 }
 
 
-#' Construire les éléments du problème de ratissage.
+#' Construire les éléments des problèmes de ratissage.
 #'
 #' @description
 #' Cette fonction est utilisée à l'interne par [tsraking()] pour construire les éléments du problème de ratissage. Elle peut 
-#' également être utile pour dériver manuellement les totaux transversaux (des marges) du problème de ratissage (en dehors du 
-#' contexte de [tsraking()]).
+#' également être utile pour dériver manuellement (en dehors du contexte de [tsraking()]) les totaux (de marge) transversaux 
+#' du problème de ratissage.
 #' 
 #' 
 #' @inheritParams tsraking

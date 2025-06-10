@@ -12,7 +12,7 @@
 #'
 #' @param ts_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, contenant les données de séries chronologiques multivariées à *désempiler*.
+#' *Data frame* (object de classe « data.frame ») contenant les données de séries chronologiques multivariées à *désempiler*.
 #'
 #' @param ser_cName (optionnel)
 #'

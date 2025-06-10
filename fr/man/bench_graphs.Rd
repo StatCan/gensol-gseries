@@ -54,7 +54,7 @@ GR_table(
 \arguments{
 \item{graphTable}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, correspondant au \emph{data frame} de sortie \strong{graphTable} de la fonction d'étalonnage.}
+\emph{Data frame} (object de classe « data.frame ») correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction d'étalonnage.}
 
 \item{title_str, subtitle_str}{(optionnel)
 
@@ -62,7 +62,7 @@ Chaînes de caractères spécifiant les titre et sous-titre du graphique. \code{
 partir du contenu du \emph{data frame} \code{graphTable} lorsque \code{NULL} et contient le nom \emph{data frame} \code{graphTable} sur la 2\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}}
 ligne et les paramètres d'étalonnage sur la 3\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}} ligne. La spécification de chaînes vides (\code{""}) supprimerait
 les titres. L'utilisation de syntaxe Markdown et HTML simple est permise (ex., pour l'affichage de caractères gras, italiques
-ou en couleur) grâce à l'utilisation à l'interne de la librairie \link[ggtext:ggtext]{ggtext} (voir \code{help(package = "ggtext")}).
+ou en couleur) via la librairie \link[ggtext:ggtext]{ggtext} (voir \code{help(package = "ggtext")}).
 
 \strong{Les valeurs par défaut} sont \code{subtitle_str = NULL} et un titre propre à chaque fonction pour \code{title_str}
 (voir \strong{Utilisation}).}
@@ -144,8 +144,8 @@ Fonctions utilisées à l'interne par \code{\link[=plot_graphTable]{plot_graphTa
 \item \code{\link[=GR_table]{GR_table()}}: Tableau des taux de croissance (argument \code{GR_table_flag = TRUE} de \code{\link[=plot_graphTable]{plot_graphTable()}})
 }
 
-Lorsque ces fonctions sont appelées directement, le \emph{data frame} \strong{graphTable} (argument \code{graphTable}) ne devrait
-contenir qu'une \strong{série unique} et le graphique est généré dans le périphérique de graphiques courant (actif).
+Lorsque ces fonctions sont appelées directement, le \emph{data frame} \code{graphTable} ne devrait  contenir qu'une
+\strong{série unique} et le graphique est généré dans le périphérique de graphiques courant (actif).
 }
 \details{
 Voir \code{\link[=plot_graphTable]{plot_graphTable()}} pour une description détaillée des quatre graphiques d'étalonnage associés à ces fonctions

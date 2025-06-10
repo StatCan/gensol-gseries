@@ -26,7 +26,7 @@
 #'
 #' @param ts_df (mandatory)
 #'
-#' Data frame, or object to be coerced to one, to be converted.
+#' Data frame (object of class "data.frame") to be converted.
 #'
 #' @param frequency (mandatory)
 #' 
@@ -42,7 +42,7 @@
 #'
 #'
 #' @returns
-#' The function returns a time series object ("ts" or "mts"), which can be explicitly coerced to another type 
+#' The function returns a time series object (class "ts" or "mts"), which can be explicitly coerced to another type 
 #' of object with the appropriate `as*()` function (e.g., `tsibble::as_tsibble()` would coerce it to a tsibble).
 #'
 #'

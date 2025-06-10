@@ -31,7 +31,7 @@ unstacked with unstack_tsDF().'></head><body>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking CookBook</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/benchmarking-demo-script.html">A Beginner's Benchmarking Demo Script</a></li>
     <li><a class="dropdown-item" href="../articles/osqp-settings-sequence-dataframe.html">OSQP Settings Sequence Data Frame</a></li>
   </ul></li>
@@ -85,7 +85,7 @@ processing mode. Stacked time series data frames associated to executions in <em
 
 <dl><dt id="arg-ts-df">ts_df<a class="anchor" aria-label="anchor" href="#arg-ts-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, to be converted.</p></dd>
+<p>Data frame (object of class "data.frame") to be converted.</p></dd>
 
 
 <dt id="arg-frequency">frequency<a class="anchor" aria-label="anchor" href="#arg-frequency"></a></dt>
@@ -103,8 +103,8 @@ point year and period identifiers.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The function returns a time series object ("ts" or "mts"), which can be explicitly coerced to another type
-of object with the appropriate <code>as*()</code> function (e.g., <code><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html" class="external-link">tsibble::as_tsibble()</a></code> would coerce it to a tsibble).</p>
+    <p>The function returns a time series object (class "ts" or "mts"), which can be explicitly coerced to another type
+of object with the appropriate <code>as*()</code> function (e.g., <code>tsibble::as_tsibble()</code> would coerce it to a tsibble).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

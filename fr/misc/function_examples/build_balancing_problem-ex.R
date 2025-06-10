@@ -14,7 +14,7 @@
 ######################################################################################
 
 
-# Dériver les totaux de marge d'un cube de données à deux dimensions (2 x 3) en 
+# Dériver les 5 totaux de marge d'un cube de données à deux dimensions 2 x 3 en 
 # utilisant les métadonnées de `tsbalancing()` (les contraintes d'agrégation d'un 
 # cube de données respectent les hypothèses ci-dessus).
 

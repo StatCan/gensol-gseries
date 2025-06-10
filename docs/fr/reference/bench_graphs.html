@@ -6,16 +6,16 @@ GR_plot(): Taux de croissance (argument GR_plot_flag = TRUE de plot_graphTable()
 GR_table(): Tableau des taux de croissance (argument GR_table_flag = TRUE de plot_graphTable())
 
 
-Lorsque ces fonctions sont appelées directement, le data frame graphTable (argument graphTable) ne devrait
-contenir qu'une série unique et le graphique est généré dans le périphérique de graphiques courant (actif)."><meta property="og:description" content="Fonctions utilisées à l'interne par plot_graphTable() pour générer les graphiques d'étalonnage dans un fichier PDF :
+Lorsque ces fonctions sont appelées directement, le data frame graphTable ne devrait  contenir qu'une
+série unique et le graphique est généré dans le périphérique de graphiques courant (actif)."><meta property="og:description" content="Fonctions utilisées à l'interne par plot_graphTable() pour générer les graphiques d'étalonnage dans un fichier PDF :
 ori_plot(): Échelle originale (argument ori_plot_flag = TRUE de plot_graphTable())
 adj_plot(): Échelle d'ajustement (argument adj_plot_flag = TRUE de plot_graphTable())
 GR_plot(): Taux de croissance (argument GR_plot_flag = TRUE de plot_graphTable())
 GR_table(): Tableau des taux de croissance (argument GR_table_flag = TRUE de plot_graphTable())
 
 
-Lorsque ces fonctions sont appelées directement, le data frame graphTable (argument graphTable) ne devrait
-contenir qu'une série unique et le graphique est généré dans le périphérique de graphiques courant (actif)."></head><body>
+Lorsque ces fonctions sont appelées directement, le data frame graphTable ne devrait  contenir qu'une
+série unique et le graphique est généré dans le périphérique de graphiques courant (actif)."></head><body>
     <a href="#main" class="visually-hidden-focusable">Passer au contenu</a>
 
 
@@ -68,8 +68,8 @@ contenir qu'une série unique et le graphique est généré dans le périphériq
 <li><p><code>adj_plot()</code>: Échelle d'ajustement (argument <code>adj_plot_flag = TRUE</code> de <code><a href="plot_graphTable.html">plot_graphTable()</a></code>)</p></li>
 <li><p><code>GR_plot()</code>: Taux de croissance (argument <code>GR_plot_flag = TRUE</code> de <code><a href="plot_graphTable.html">plot_graphTable()</a></code>)</p></li>
 <li><p><code>GR_table()</code>: Tableau des taux de croissance (argument <code>GR_table_flag = TRUE</code> de <code><a href="plot_graphTable.html">plot_graphTable()</a></code>)</p></li>
-</ul><p>Lorsque ces fonctions sont appelées directement, le <em>data frame</em> <strong>graphTable</strong> (argument <code>graphTable</code>) ne devrait
-contenir qu'une <strong>série unique</strong> et le graphique est généré dans le périphérique de graphiques courant (actif).</p>
+</ul><p>Lorsque ces fonctions sont appelées directement, le <em>data frame</em> <code>graphTable</code> ne devrait  contenir qu'une
+<strong>série unique</strong> et le graphique est généré dans le périphérique de graphiques courant (actif).</p>
     </div>
 
     <div class="section level2">
@@ -124,7 +124,7 @@ contenir qu'une <strong>série unique</strong> et le graphique est généré dan
 
 <dl><dt id="arg-graphtable">graphTable<a class="anchor" aria-label="anchor" href="#arg-graphtable"></a></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, correspondant au <em>data frame</em> de sortie <strong>graphTable</strong> de la fonction d'étalonnage.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») correspondant au <em>data frame</em> de sortie <code>graphTable</code> de la fonction d'étalonnage.</p></dd>
 
 
 <dt id="arg-title-str-subtitle-str">title_str, subtitle_str<a class="anchor" aria-label="anchor" href="#arg-title-str-subtitle-str"></a></dt>
@@ -133,7 +133,7 @@ contenir qu'une <strong>série unique</strong> et le graphique est généré dan
 partir du contenu du <em>data frame</em> <code>graphTable</code> lorsque <code>NULL</code> et contient le nom <em>data frame</em> <code>graphTable</code> sur la 2<sup>ème</sup>
 ligne et les paramètres d'étalonnage sur la 3<sup>ème</sup> ligne. La spécification de chaînes vides (<code>""</code>) supprimerait
 les titres. L'utilisation de syntaxe Markdown et HTML simple est permise (ex., pour l'affichage de caractères gras, italiques
-ou en couleur) grâce à l'utilisation à l'interne de la librairie <a href="https://wilkelab.org/ggtext/reference/ggtext.html" class="external-link">ggtext</a> (voir <code><a href="https://wilkelab.org/ggtext/reference" class="external-link">help(package = "ggtext")</a></code>).</p>
+ou en couleur) via la librairie <a href="https://wilkelab.org/ggtext/reference/ggtext.html" class="external-link">ggtext</a> (voir <code><a href="https://wilkelab.org/ggtext/reference" class="external-link">help(package = "ggtext")</a></code>).</p>
 <p><strong>Les valeurs par défaut</strong> sont <code>subtitle_str = NULL</code> et un titre propre à chaque fonction pour <code>title_str</code>
 (voir <strong>Utilisation</strong>).</p></dd>
 

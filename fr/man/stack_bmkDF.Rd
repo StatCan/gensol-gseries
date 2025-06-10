@@ -18,7 +18,7 @@ stack_bmkDF(
 \arguments{
 \item{bmk_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui contient les étalons multivariés à empiler.}
+\emph{Data frame} (object de classe « data.frame ») qui contient les étalons multivariés à empiler.}
 
 \item{ser_cName}{(optionnel)
 

@@ -17,7 +17,7 @@
 #'
 #' @param bmk_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui contient les étalons multivariés à empiler.
+#' *Data frame* (object de classe « data.frame ») qui contient les étalons multivariés à empiler.
 #'
 #' @param ser_cName (optionnel)
 #'

@@ -17,7 +17,7 @@
 #'
 #' @param ts_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui contient les données de séries chronologiques multivariées à empiler.
+#' *Data frame* (object de classe « data.frame ») qui contient les données de séries chronologiques multivariées à empiler.
 #'
 #' @param ser_cName (optionnel)
 #'

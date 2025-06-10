@@ -7,8 +7,8 @@
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/plot_graphTable.html}})}
 #' 
 #' Create a PDF file (US Letter paper size format in landscape view) containing benchmarking graphics for the set of series 
-#' contained in the specified benchmarking function ([benchmarking()] or [stock_benchmarking()]) output **graphTable** 
-#' data frame (argument `graphTable`). Four types of benchmarking graphics can be generated for each series:
+#' contained in the specified benchmarking function ([benchmarking()] or [stock_benchmarking()]) output `graphTable` 
+#' data frame. Four types of benchmarking graphics can be generated for each series:
 #' - **Original Scale Plot** (argument `ori_plot_flag`) - overlay graph of:
 #'   - Indicator series
 #'   - Average indicator series
@@ -29,8 +29,7 @@
 #'
 #' @param graphTable (mandatory)
 #'
-#' Data frame, or object to be coerced to one, corresponding to the benchmarking function output
-#' **graphTable** data frame.
+#' Data frame (object of class "data.frame") corresponding to the benchmarking function output`graphTable` data frame.
 #'
 #' @param pdf_file (mandatory)
 #'
@@ -55,8 +54,8 @@
 #'
 #'
 #' @details
-#' List of the **graphTable** data frame (argument `graphTable`) variables corresponding to each element of the four 
-#' types of benchmarking graphics:
+#' List of the `graphTable` data frame variables corresponding to each element of the four types of benchmarking 
+#' graphics:
 #' - Original Scale Plot (argument `ori_plot_flag`)
 #'   - `subAnnual` for the *Indicator Series* line
 #'   - `avgSubAnnual` for the *Avg. Indicator Series* segments
@@ -122,13 +121,13 @@
 #' @returns
 #' In addition to creating a PDF file containing the benchmarking graphics (except when `pdf_file = NULL`), this function 
 #' also invisibly returns a list with the following elements: 
-#' - **pdf_name**: Character string (character vector of length one) that contains the complete name and path of the PDF 
+#' - `graphTable`: Character string (character vector of length one) that contains the complete name and path of the PDF 
 #' file if it was successfully created and `invisible(NA_character_)` otherwise or if `pdf_file = NULL` was specified.
-#' - **graph_list**: List of the generated benchmarking graphics (one per series) with the following elements:
-#'   - **name**: Character string describing the series (matches the bookmark name in the PDF file).
-#'   - **page**: Integer representing the sequence number of the first graphic for the series in the entire sequence of 
+#' - `graph_list`: List of the generated benchmarking graphics (one per series) with the following elements:
+#'   - `name`: Character string describing the series (matches the bookmark name in the PDF file).
+#'   - `page`: Integer representing the sequence number of the first graphic for the series in the entire sequence of 
 #'   graphics for all series (matches the page number in the PDF file).
-#'   - **ggplot_list**: List of ggplot objects (one per graphic or page in the PDF file) corresponding to the generated 
+#'   - `ggplot_list`: List of ggplot objects (one per graphic or page in the PDF file) corresponding to the generated 
 #'   benchmarking graphics for the series. See section **Value** in [bench_graphs] for details.
 #' 
 #' Note that the returned ggplot objects can be displayed _manually_ with [print()], in which case some updates to the 
@@ -508,8 +507,8 @@ plot_graphTable <- function(graphTable,
 #' - [GR_plot()]: Growth Rates Plot ([plot_graphTable()] argument `GR_plot_flag = TRUE`)
 #' - [GR_table()]: Growth Rates Table ([plot_graphTable()] argument `GR_table_flag = TRUE`)
 #' 
-#' When these functions are called directly, the **graphTable** data frame (argument `graphTable`) should only 
-#' contain a **single series** and the graphic is generated in the current (active) graphics device.
+#' When these functions are called directly, the `graphTable` data frame should only  contain a **single series** 
+#' and the graphic is generated in the current (active) graphics device.
 #' 
 #' 
 #' @inheritParams plot_graphTable
@@ -519,8 +518,8 @@ plot_graphTable <- function(graphTable,
 #' Graphic title and subtitle strings (character constants). `subtitle_str` is automatically built from the 
 #' `graphTable` data frame contents when `NULL` and contains the `graphTable` data frame name on the 2<sup>nd</sup> line 
 #' and the benchmarking parameters on the 3<sup>rd</sup> line. Specifying empty strings (`""`) would remove the titles. 
-#' Simple Markdown and HTML syntax is allowed (e.g., for bold, italic or colored fonts) thanks to the internal use of 
-#' the [ggtext][ggtext::ggtext] package (see `help(package = "ggtext")`).
+#' Simple Markdown and HTML syntax is allowed (e.g., for bold, italic or colored fonts) through package [ggtext][ggtext::ggtext] 
+#' (see `help(package = "ggtext")`).
 #' 
 #' **Default values** are `subtitle_str = NULL` and a function specific string for `title_str` (see **Usage**).
 #' 
@@ -587,9 +586,9 @@ plot_graphTable <- function(graphTable,
 #' @returns
 #' In addition to displaying the corresponding graphic(s) in the current (active) graphics device (except when 
 #' `display_ggplot = FALSE`), each function also invisibly returns a list containing the generated ggplot object(s). 
-#  Notes:
+#' Notes:
 #' - [ori_plot()] and [adj_plot()] generate a single ggplot object (single graphic) while [GR_plot()] and [GR_table()] 
-#' will often generated several ggplot objects (several graphics).
+#' will often generate several ggplot objects (several graphics).
 #' - The returned ggplot object(s) can be displayed _manually_ with [print()], in which case the following ggplot2 theme 
 #' updates (used internally when `display_ggplot = TRUE`) are suggested:
 #'   ```R

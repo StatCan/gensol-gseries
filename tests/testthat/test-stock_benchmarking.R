@@ -730,7 +730,11 @@ test_that("`by`", {
       res$series$value[res$series$grp == 2 & res$series$period == 4])
   , bmk3a$value)
 
-  # error: no benchmarks for 1st
+  # Errors for some by-groups only (no benchmarks for 1st by-group): 
+  #       - one "muffled" error during processing
+  #       - one "true" error at the end of processing
+  # => catch the final (true) error
+  # => the muffled error message is (still) displayed
   expect_error(suppressMessages(
     stock_benchmarking(
       ind3a, bmk3a[bmk3a$grp == 2, ],

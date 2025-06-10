@@ -157,15 +157,15 @@
 #' @returns
 #' La fonction renvoie une liste de quatre *data frames* :
 #' 
-#' * **series** : *data frame* contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées 
+#' * `series` : *data frame* contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées 
 #' avec l'argument `by` sont incluses dans le *data frame* mais pas les variables de coefficient d'altérabilité spécifiées 
 #' avec l'argument `var`.
 #' 
-#' * **benchmarks** : copie du *data frame* d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant). 
+#' * `benchmarks` : copie du *data frame* d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant). 
 #' Les variables BY spécifiées avec l'argument `by` sont incluses dans le *data frame* mais pas les variables de coefficient 
 #' d'altérabilité spécifiées avec l'argument `with`.
 #' 
-#' * **graphTable** : *data frame* contenant des données supplémentaires utiles pour produire des tableaux et des graphiques 
+#' * `graphTable` : *data frame* contenant des données supplémentaires utiles pour produire des tableaux et des graphiques 
 #' analytiques (voir la fonction [plot_graphTable()]). Il contient les variables suivantes en plus des variables BY spécifiées 
 #' avec l'argument `by` :
 #'   * `varSeries` : Nom de la variable de la série indicatrice
@@ -199,7 +199,7 @@
 #'   * `growthRateBenchmarked` : Différence (\eqn{\lambda = 0}) ou différence relative (\eqn{\lambda \ne 0}{lambda != 0}) d'une 
 #'   période à l'autre des valeurs de la série étalonnée (variable `benchmarked`)
 #'   
-#' * **splineKnots** : ensemble de coordonnées `x` et `y` (nœuds) utilisées pour estimer la spline cubique naturelle avec la 
+#' * `splineKnots` : ensemble de coordonnées `x` et `y` (nœuds) utilisées pour estimer la spline cubique naturelle avec la 
 #' fonction `stats::spline()`. En plus de l'ensemble original de nœuds correspondant aux étalons (points d'ancrage) contraignants, 
 #' des nœuds supplémentaires sont également ajoutés au début et à la fin afin de traiter le *problème d'actualité* de 
 #' l'étalonnage et d'approximer une spline de *pente=0* aux deux extrémités (voir section **Détails**). Il contient les variables 
@@ -211,15 +211,15 @@
 #'   * `extraKnot` : Valeur logique (*logical*) identifiant les nœuds supplémentaires ajoutés au début et à la fin.
 #' 
 #'   Les enregistrements pour lesquels `extraKnot == FALSE` correspondent aux enregistrements du *data frame* de sortie 
-#'   **graphTable** pour lesquels `m` n'est pas manquant (pas `NA`), avec `x = t` et `y = benchmarkedSubAnnualRatio`.
+#'   `graphTable` pour lesquels `m` n'est pas manquant (pas `NA`), avec `x = t` et `y = benchmarkedSubAnnualRatio`.
 #'   
 #' Notes :
-#' * Le *data frame* de sortie **benchmarks** contient toujours les étalons originaux fournis dans le *data frame* d'entrée 
+#' * Le *data frame* de sortie `benchmarks` contient toujours les étalons originaux fournis dans le *data frame* d'entrée 
 #' des étalons. Les étalons modifiés non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir du *data frame* 
-#' de sortie **series**.
+#' de sortie `series`.
 #' * La fonction renvoie un objet `NULL` si une erreur se produit avant que le traitement des données ne puisse commencer. 
 #' Dans le cas contraire, si l'exécution est suffisamment avancée pour que le traitement des données puisse commencer, alors 
-#' un objet incomplet sera renvoyé en cas d'erreur (par exemple, un *data frame* de sortie **series** avec des valeurs `NA` 
+#' un objet incomplet sera renvoyé en cas d'erreur (par exemple, un *data frame* de sortie `series` avec des valeurs `NA` 
 #' pour les données étalonnées).
 #' * La fonction renvoie des objets « data.frame » qui peuvent être explicitement convertis en d'autres types d'objets avec la 
 #' fonction `as*()` appropriée (ex., `tibble::as_tibble()` convertirait n'importe lequel d'entre eux en tibble).

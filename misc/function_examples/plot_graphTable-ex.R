@@ -36,7 +36,7 @@ out_bench <- benchmarking(qtr_ind, ann_bmk,
                           quiet = TRUE)
 
 
-# Default set of graphics (the 3 types of plots)
+# Default set of graphics (the first 3 types of plots)
 plot_graphTable(out_bench$graphTable, "bench_graphs.pdf")
 
 # Temporarily use ggplot2 `theme_bw()` for the plots

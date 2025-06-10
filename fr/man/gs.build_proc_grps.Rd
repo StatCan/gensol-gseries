@@ -14,25 +14,37 @@ gs.build_proc_grps(
 )
 }
 \arguments{
-\item{ts_yr_vec}{(obligatoire) Vecteur des valeurs d'année (unité de temps; voir \code{\link[=gs.time2year]{gs.time2year()}}).}
+\item{ts_yr_vec}{(obligatoire)
 
-\item{ts_per_vec}{(obligatoire) Vecteur des valeurs de période (cycle; voir \code{\link[=gs.time2per]{gs.time2per()}}).}
+Vecteur des valeurs d'année (unité de temps; voir \code{\link[=gs.time2year]{gs.time2year()}}).}
 
-\item{n_per}{(obligatoire) Longueur (nombre de périodes) de la série chronologique.}
+\item{ts_per_vec}{(obligatoire)
 
-\item{ts_freq}{(obligatoire) Fréquence de la srie chronologique (voir \code{\link[stats:time]{stats::frequency()}}).}
+Vecteur des valeurs de période (cycle; voir \code{\link[=gs.time2per]{gs.time2per()}}).}
 
-\item{temporal_grp_periodicity}{(obligatoire) Nombre de périodes dans les groupes temporels.}
+\item{n_per}{(obligatoire)
 
-\item{temporal_grp_start}{(obligatoire) Première période des groupes temporels.}
+Longueur (nombre de périodes) de la série chronologique.}
+
+\item{ts_freq}{(obligatoire)
+
+Fréquence de la série chronologique (voir \code{\link[stats:time]{stats::frequency()}}).}
+
+\item{temporal_grp_periodicity}{(obligatoire)
+
+Nombre de périodes dans les groupes temporels.}
+
+\item{temporal_grp_start}{(obligatoire)
+
+Première période des groupes temporels.}
 }
 \value{
 Un \emph{data frame} avec les variables (colonnes) suivantes :
 \itemize{
-\item \code{grp}         : vecteur de nombres entiers identifiant le groupe de traitement (1 .. < nombre de groupes >)
-\item \code{beg_per}     : vecteur de nombres entiers identifiant la première période du groupe de traitement (1 .. \code{n_per})
-\item \code{end_per}     : vecteur de nombres entiers identifiant la dernière période du groupe de traitement (1 .. \code{n_per})
-\item \code{complete_grp}: Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet
+\item \code{grp}          : vecteur de nombres entiers identifiant le groupe de traitement (\verb{1:<nombre-de-groupes>}).
+\item \code{beg_per}      : vecteur de nombres entiers identifiant la première période du groupe de traitement.
+\item \code{end_per}      : vecteur de nombres entiers identifiant la dernière période du groupe de traitement.
+\item \code{complete_grp} : Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet.
 }
 }
 \description{

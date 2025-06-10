@@ -32,8 +32,8 @@ tsbalancing(
 \arguments{
 \item{in_ts}{(mandatory)
 
-Time series ("ts" or "mts"), or object to be coerced to one, that contains the time series data to be
-reconciled. They are the balancing problems' input data (initial solutions).}
+Time series (object of class "ts" or "mts") that contains the time series data to be reconciled.
+They are the balancing problems' input data (initial solutions).}
 
 \item{problem_specs_df}{(mandatory)
 
@@ -293,7 +293,7 @@ resulting (output) data are then validated.
 
 Logical argument specifying whether or not to display only essential information such as warnings, errors and the period
 (or set of periods) being reconciled. You could further suppress, if desired, the display of the \emph{balancing period(s)}
-information by \emph{wrapping} your \code{\link[=tsbalancing]{tsbalancing()}} call with \code{\link[=suppressMessages]{suppressMessages()}}. In that case, the \strong{proc_grp_df} output
+information by \emph{wrapping} your \code{\link[=tsbalancing]{tsbalancing()}} call with \code{\link[=suppressMessages]{suppressMessages()}}. In that case, the \code{proc_grp_df} output
 data frame can be used to identify (unsuccessful) balancing problems associated with warning messages (if any). Note that
 specifying \code{quiet = TRUE} would also \emph{nullify} argument \code{display_level}.
 
@@ -302,10 +302,10 @@ specifying \code{quiet = TRUE} would also \emph{nullify} argument \code{display_
 \value{
 The function returns is a list of seven objects:
 \itemize{
-\item \strong{out_ts}: modified version of the input time series object ("ts" or "mts"; see argument \code{in_ts}) with the resulting
+\item \code{out_ts}: modified version of the input time series object (class "ts" or "mts"; see argument \code{in_ts}) with the resulting
 reconciled time series values (primary function output). It can be explicitly coerced to another type of object with the
 appropriate \verb{as*()} function (e.g., \code{tsibble::as_tsibble()} would coerce it to a tsibble).
-\item \strong{proc_grp_df}: processing group summary data frame, useful to identify problems that have succeeded or failed.
+\item \code{proc_grp_df}: processing group summary data frame, useful to identify problems that have succeeded or failed.
 It contains one observation (row) for each balancing problem with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
@@ -352,7 +352,7 @@ or to \code{max_discr <= validation_tol}. The \emph{initial solution} (\code{sol
 there are no initial constraint discrepancies, \strong{b)} the problem is fixed (all values are binding) or \strong{c)} it beats
 the OSQP solution (smaller total constraint discrepancies). The OSQP solving sequence is described in \ifelse{latex}{
   \code{vignette("osqp-settings -sequence-dataframe")}}{\code{vignette("osqp-settings-sequence-dataframe")}}.
-\item \strong{periods_df}: time periods data frame, useful to match periods to processing groups. It contains one observation
+\item \code{periods_df}: time periods data frame, useful to match periods to processing groups. It contains one observation
 (row) for each period of the input time series object (argument \code{in_ts}) with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
@@ -361,7 +361,7 @@ the OSQP solution (smaller total constraint discrepancies). The OSQP solving seq
 }
 
 Columns \code{t} and \code{time_val} both constitute a \emph{unique key} (distinct rows) for the data frame.
-\item \strong{prob_val_df}: problem values data frame, useful to analyze change diagnostics, i.e., initial vs final (reconciled)
+\item \code{prob_val_df}: problem values data frame, useful to analyze change diagnostics, i.e., initial vs final (reconciled)
 values. It contains one observation (row) for each value involved in each balancing problem, with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
@@ -384,7 +384,7 @@ values. It contains one observation (row) for each value involved in each balanc
 Columns \code{val_type + name + t} and \code{val_type + name + time_val} both constitute a \emph{unique key} (distinct rows) for the
 data frame. Binding (fixed) problem values correspond to rows with \code{alter = 0} or \code{value_in = 0}. Conversely, nonbinding
 (free) problem values correspond to rows with \code{alter != 0} and \code{value_in != 0}.
-\item \strong{prob_con_df}: problem constraints data frame, useful for troubleshooting problems that failed (identify unmet
+\item \code{prob_con_df}: problem constraints data frame, useful for troubleshooting problems that failed (identify unmet
 constraints). It contains one observation (row) for each constraint involved in each balancing problem, with the following
 columns:
 \itemize{
@@ -414,7 +414,7 @@ Columns \code{con_type + name + t} and \code{con_type + name + time_val} both co
 data frame. Constraint bounds \eqn{\mathbf{l = u}}{l = u} for \code{EQ} constraints, \eqn{\mathbf{l} = -\infty}{l = -Inf} for
 \code{LE} constraints, \eqn{\mathbf{u} = \infty}{u = Inf} for \code{GE} constraints, and include the tolerances, when applicable,
 specified with arguments \code{tolV}, \code{tolV_temporal} and \code{tolP_temporal}.
-\item \strong{osqp_settings_df}: OSQP settings data frame. It contains one observation (row) for each problem (processing group)
+\item \code{osqp_settings_df}: OSQP settings data frame. It contains one observation (row) for each problem (processing group)
 solved with OSQP (\code{proc_grp_df$sol_type = "osqp"}), with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
@@ -441,7 +441,7 @@ used by \code{\link[=tsbalancing]{tsbalancing()}}.
 Column \code{proc_grp} constitutes a \emph{unique key} (distinct rows) for the data frame. Visit
 \url{https://osqp.org/docs/interfaces/solver_settings.html} for all available OSQP settings. Problems (processing groups) for
 which the initial solution was returned (\code{proc_grp_df$sol_type = "initial"}) are not included in this data frame.
-\item \strong{osqp_sol_info_df}: OSQP solution information data frame. It contains one observation (row) for each problem
+\item \code{osqp_sol_info_df}: OSQP solution information data frame. It contains one observation (row) for each problem
 (processing group) solved with OSQP (\code{proc_grp_df$sol_type = "osqp"}), with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
@@ -556,11 +556,11 @@ is minimized with nonbinding temporal totals (in accordance with the set of alte
 \subsection{Validation and troubleshooting}{
 
 Successful balancing problems (problems with a valid solution) have \code{sol_status_val > 0} or, equivalently,
-\code{n_unmet_con = 0} or \code{max_discr <= validation_tol} in the output \strong{proc_grp_df} data frame. Troubleshooting
+\code{n_unmet_con = 0} or \code{max_discr <= validation_tol} in the output \code{proc_grp_df} data frame. Troubleshooting
 unsuccessful balancing problems is not necessarily straightforward. Following are some suggestions:
 \itemize{
 \item Investigate the failed constraints (\code{unmet_flag = TRUE} or, equivalently, \code{discr_out > validation_tol} in the
-output \strong{prob_con_df} data frame) to make sure that they do not cause an empty solution space (infeasible problem).
+output \code{prob_con_df} data frame) to make sure that they do not cause an empty solution space (infeasible problem).
 \item Change the OSQP solving sequence. E.g., try:
 \enumerate{
 \item argument \code{full_sequence = TRUE}

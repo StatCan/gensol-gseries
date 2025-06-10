@@ -24,8 +24,8 @@
 #' 
 #' @param in_ts (mandatory)
 #'
-#' Time series ("ts" or "mts"), or object to be coerced to one, that contains the time series data to be 
-#' reconciled. They are the raking problems' input data (initial solutions).
+#' Time series (object of class "ts" or "mts") that contains the time series data to be reconciled. 
+#' They are the raking problems' input data (initial solutions).
 #'
 #' @inheritDotParams tsraking -data_df
 #' 
@@ -70,10 +70,10 @@
 #'
 #'
 #' @returns
-#' The function returns a time series object ("ts" or "mts") containing the reconciled component series, reconciled
-#' cross-sectional control totals and other series specified with [tsraking()] argument `id`. It can be explicitly 
-#' coerced to another type of object with the appropriate `as*()` function (e.g., `tsibble::as_tsibble()` would 
-#' coerce it to a tsibble). 
+#' The function returns a time series object (class "ts" or "mts") containing the reconciled component series, 
+#' reconciled cross-sectional control totals and other series specified with [tsraking()] argument `id`. It can be 
+#' explicitly coerced to another type of object with the appropriate `as*()` function (e.g., `tsibble::as_tsibble()` 
+#' would coerce it to a tsibble). 
 #' 
 #' Note that a `NULL` object is returned if an error occurs before data processing could start. Otherwise, if execution 
 #' gets far enough so that data processing could start, then an incomplete object (with `NA` values) would be returned 

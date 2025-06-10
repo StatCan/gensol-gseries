@@ -54,16 +54,15 @@ GR_table(
 \arguments{
 \item{graphTable}{(mandatory)
 
-Data frame, or object to be coerced to one, corresponding to the benchmarking function output
-\strong{graphTable} data frame.}
+Data frame (object of class "data.frame") corresponding to the benchmarking function output\code{graphTable} data frame.}
 
 \item{title_str, subtitle_str}{(optional)
 
 Graphic title and subtitle strings (character constants). \code{subtitle_str} is automatically built from the
 \code{graphTable} data frame contents when \code{NULL} and contains the \code{graphTable} data frame name on the 2\if{html}{\out{<sup>}}nd\if{html}{\out{</sup>}} line
 and the benchmarking parameters on the 3\if{html}{\out{<sup>}}rd\if{html}{\out{</sup>}} line. Specifying empty strings (\code{""}) would remove the titles.
-Simple Markdown and HTML syntax is allowed (e.g., for bold, italic or colored fonts) thanks to the internal use of
-the \link[ggtext:ggtext]{ggtext} package (see \code{help(package = "ggtext")}).
+Simple Markdown and HTML syntax is allowed (e.g., for bold, italic or colored fonts) through package \link[ggtext:ggtext]{ggtext}
+(see \code{help(package = "ggtext")}).
 
 \strong{Default values} are \code{subtitle_str = NULL} and a function specific string for \code{title_str} (see \strong{Usage}).}
 
@@ -119,9 +118,10 @@ Number of periods in a year. Based on the \code{graphTable} data frame contents 
 \value{
 In addition to displaying the corresponding graphic(s) in the current (active) graphics device (except when
 \code{display_ggplot = FALSE}), each function also invisibly returns a list containing the generated ggplot object(s).
+Notes:
 \itemize{
 \item \code{\link[=ori_plot]{ori_plot()}} and \code{\link[=adj_plot]{adj_plot()}} generate a single ggplot object (single graphic) while \code{\link[=GR_plot]{GR_plot()}} and \code{\link[=GR_table]{GR_table()}}
-will often generated several ggplot objects (several graphics).
+will often generate several ggplot objects (several graphics).
 \item The returned ggplot object(s) can be displayed \emph{manually} with \code{\link[=print]{print()}}, in which case the following ggplot2 theme
 updates (used internally when \code{display_ggplot = TRUE}) are suggested:
 
@@ -145,8 +145,8 @@ Functions used internally by \code{\link[=plot_graphTable]{plot_graphTable()}} t
 \item \code{\link[=GR_table]{GR_table()}}: Growth Rates Table (\code{\link[=plot_graphTable]{plot_graphTable()}} argument \code{GR_table_flag = TRUE})
 }
 
-When these functions are called directly, the \strong{graphTable} data frame (argument \code{graphTable}) should only
-contain a \strong{single series} and the graphic is generated in the current (active) graphics device.
+When these functions are called directly, the \code{graphTable} data frame should only  contain a \strong{single series}
+and the graphic is generated in the current (active) graphics device.
 }
 \details{
 See \code{\link[=plot_graphTable]{plot_graphTable()}} for a detailed description of the four benchmarking graphics associated to these

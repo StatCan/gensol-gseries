@@ -33,7 +33,7 @@ all periods of the time series system in a single function call."></head><body>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking CookBook</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/benchmarking-demo-script.html">A Beginner's Benchmarking Demo Script</a></li>
     <li><a class="dropdown-item" href="../articles/osqp-settings-sequence-dataframe.html">OSQP Settings Sequence Data Frame</a></li>
   </ul></li>
@@ -102,7 +102,7 @@ all periods of the time series system in a single function call.</p>
 
 <dl><dt id="arg-data-df">data_df<a class="anchor" aria-label="anchor" href="#arg-data-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, that contains the time series data to be reconciled. It must minimally
+<p>Data frame (object of class "data.frame") that contains the time series data to be reconciled. It must minimally
 contain variables corresponding to the component series and cross-sectional control totals specified in the
 metadata data frame (argument <code>metadata_df</code>). If more than one observation (period) is provided, the sum of
 the provided component series values will also be preserved as part of implicit temporal constraints.</p></dd>
@@ -110,7 +110,7 @@ the provided component series values will also be preserved as part of implicit 
 
 <dt id="arg-metadata-df">metadata_df<a class="anchor" aria-label="anchor" href="#arg-metadata-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, that describes the cross-sectional aggregation constraints
+<p>Data frame (object of class "data.frame") that describes the cross-sectional aggregation constraints
 (additivity rules) for the raking problem. Two character variables must be included in the metadata data frame:
 <code>series</code> and <code>total1</code>. Two variables are optional: <code>total2</code> (character) and <code>alterAnnual</code> (numeric). The values
 of variable <code>series</code> represent the variable names of the component series in the input time series data frame
@@ -123,7 +123,7 @@ with argument <code>alterAnnual</code>.</p></dd>
 
 <dt id="arg-alterability-df">alterability_df<a class="anchor" aria-label="anchor" href="#arg-alterability-df"></a></dt>
 <dd><p>(optional)</p>
-<p>Data frame, or object to be coerced to one, or <code>NULL</code>, that contains the alterability coefficients variables.
+<p>Data frame (object of class "data.frame"), or <code>NULL</code>, that contains the alterability coefficients variables.
 They must correspond to a component series or a cross-sectional control total, that is, a variable with the same
 name must exist in the input time series data frame (argument <code>data_df</code>). The values of these alterability
 coefficients will override the default alterability coefficients specified with arguments <code>alterSeries</code>,
@@ -394,7 +394,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-in"><span><span class="va">out_raked1</span> <span class="op">&lt;-</span> <span class="fu">tsraking</span><span class="op">(</span><span class="va">my_series1</span>, <span class="va">my_metadata1</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' | (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>

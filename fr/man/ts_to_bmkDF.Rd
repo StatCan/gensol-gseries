@@ -20,7 +20,7 @@ ts_to_bmkDF(
 \arguments{
 \item{in_ts}{(obligatoire)
 
-Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, à convertir.}
+Objet de type série chronologique (classe « ts » ou « mts ») à convertir.}
 
 \item{ind_frequency}{(obligatoire)
 

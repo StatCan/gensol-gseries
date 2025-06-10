@@ -43,7 +43,7 @@ Several series can be benchmarked in a single function call."></head><body>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking CookBook</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/benchmarking-demo-script.html">A Beginner's Benchmarking Demo Script</a></li>
     <li><a class="dropdown-item" href="../articles/osqp-settings-sequence-dataframe.html">OSQP Settings Sequence Data Frame</a></li>
   </ul></li>
@@ -119,17 +119,18 @@ segments into a single consistent time series).</p>
 
 <dl><dt id="arg-series-df">series_df<a class="anchor" aria-label="anchor" href="#arg-series-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, that contains the indicator time series data to be benchmarked.
-In addition to the series data variable(s), specified with argument <code>var</code>, the data frame must also contain
-two numeric variables, <code>year</code> and <code>period</code>, identifying the periods of the indicator time series.</p></dd>
+<p>Data frame (object of class "data.frame") that contains the indicator time series data to be
+benchmarked. In addition to the series data variable(s), specified with argument <code>var</code>, the data
+frame must also contain two numeric variables, <code>year</code> and <code>period</code>, identifying the periods of
+the indicator time series.</p></dd>
 
 
 <dt id="arg-benchmarks-df">benchmarks_df<a class="anchor" aria-label="anchor" href="#arg-benchmarks-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, that contains the benchmarks. In addition to the benchmarks
-data variable(s), specified with argument <code>with</code>, the data frame must also contain four numeric variables,
-<code>startYear</code>, <code>startPeriod</code>, <code>endYear</code> and <code>endPeriod</code>, identifying the indicator time series periods covered
-by each benchmark.</p></dd>
+<p>Data frame (object of class "data.frame") that contains the benchmarks. In addition to the benchmarks
+data variable(s), specified with argument <code>with</code>, the data frame must also contain four numeric
+variables, <code>startYear</code>, <code>startPeriod</code>, <code>endYear</code> and <code>endPeriod</code>, identifying the indicator time
+series periods covered by each benchmark.</p></dd>
 
 
 <dt id="arg-rho">rho<a class="anchor" aria-label="anchor" href="#arg-rho"></a></dt>
@@ -254,7 +255,7 @@ constant is removed from the final output benchmarked series. E.g., specifying a
 would allow proportional benchmarking with <code>rho = 1</code> (e.g., proportional Denton benchmarking) on
 indicator series that include values of 0. Otherwise, proportional benchmarking with values of 0 in
 the indicator series is only possible when <code>rho &lt; 1</code>. Specifying a constant with additive benchmarking
-(<code>lambda = 0.0</code>) has no impact on the resulting benchmarked data. The data variables in the <strong>graphTable</strong>
+(<code>lambda = 0.0</code>) has no impact on the resulting benchmarked data. The data variables in the <code>graphTable</code>
 output data frame include the constant, corresponding to the benchmarking problem that was actually solved.</p>
 <p><strong>Default value</strong> is <code>constant = 0</code> (no temporary additive constant).</p></dd>
 
@@ -292,13 +293,13 @@ also <em>nullify</em> argument <code>verbose</code>.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The function returns is a list of three data frames:</p><ul><li><p><strong>series</strong>: data frame containing the benchmarked data (primary function output). BY variables specified
+    <p>The function returns is a list of three data frames:</p><ul><li><p><code>series</code>: data frame containing the benchmarked data (primary function output). BY variables specified
 with argument <code>by</code> would be included in the data frame but not alterability coefficient variables
 specified with argument <code>var</code>.</p></li>
-<li><p><strong>benchmarks</strong>: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
+<li><p><code>benchmarks</code>: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
 BY variables specified with argument <code>by</code> would be included in the data frame but not alterability
 coefficient variables specified with argument <code>with</code>.</p></li>
-<li><p><strong>graphTable</strong>: data frame containing supplementary data useful for producing analytical tables and graphs
+<li><p><code>graphTable</code>: data frame containing supplementary data useful for producing analytical tables and graphs
 (see function <code><a href="plot_graphTable.html">plot_graphTable()</a></code>). It contains the following variables in addition to the BY variables
 specified with argument <code>by</code>:</p><ul><li><p><code>varSeries</code>: Name of the indicator series variable</p></li>
 <li><p><code>varBenchmarks</code>: Name of the benchmark variable</p></li>
@@ -328,12 +329,12 @@ of variables <code>avgBenchmark</code> and <code>avgSubAnnual</code></p></li>
 <li><p><code>growthRateSubAnnual</code>: Period to period difference (\(\lambda = 0\)) or relative difference (\(\lambda \ne 0\)) of the indicator series values (variable <code>subAnnual</code>)</p></li>
 <li><p><code>growthRateBenchmarked</code>: Period to period difference (\(\lambda = 0\)) or relative difference (\(\lambda \ne 0\)) of the benchmarked series values (variable <code>benchmarked</code>)</p></li>
 </ul></li>
-</ul><p>Notes:</p><ul><li><p>The output <strong>benchmarks</strong> data frame always contains the original benchmarks provided in the input
+</ul><p>Notes:</p><ul><li><p>The output <code>benchmarks</code> data frame always contains the original benchmarks provided in the input
 benchmarks data frame. Modified nonbinding benchmarks, when applicable, can be recovered (calculated)
-from the output <strong>series</strong> data frame.</p></li>
+from the output <code>series</code> data frame.</p></li>
 <li><p>The function returns a <code>NULL</code> object if an error occurs before data processing could start. Otherwise,
 if execution gets far enough so that data processing could start, then an incomplete object would be
-returned in case of errors (e.g., output <strong>series</strong> data frame with <code>NA</code> values for the benchmarked data).</p></li>
+returned in case of errors (e.g., output <code>series</code> data frame with <code>NA</code> values for the benchmarked data).</p></li>
 <li><p>The function returns "data.frame" objects that can be explicitly coerced to other types of objects with
 the appropriate <code>as*()</code> function (e.g., <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">tibble::as_tibble()</a></code> would coerce any of them to a tibble).</p></li>
 </ul></div>
@@ -472,7 +473,7 @@ the bias, when applicable (\(c_{s^\dagger}\) is associated to \(s^\dagger\), not
 that specifying an alterability coefficient of \(0.0\) for a given indicator series value <strong>will not</strong> result in an unchanged
 value after benchmarking <strong>with bias correction</strong> (see arguments <code>biasOption</code> and <code>bias</code>).</p></li>
 </ul><p>Nonbinding benchmarks, when applicable, can be recovered (calculated) from the benchmarked series (see output data frame
-<strong>series</strong> in section <strong>Value</strong>). The output <strong>benchmarks</strong> data frame always contains the original benchmarks provided
+<code>series</code> in section <strong>Value</strong>). The output <code>benchmarks</code> data frame always contains the original benchmarks provided
 in the input benchmarks data frame (argument <code>benchmarks_df</code>).</p>
 </div>
 
@@ -601,7 +602,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                           biasOption <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' | (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -637,7 +638,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 1 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpeO0SvE\Ex1_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpEjRhxG\Ex1_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###########</span></span></span>
@@ -757,7 +758,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpeO0SvE\Ex2_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpEjRhxG\Ex2_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check the value of van sales for 2012 Q1 and Q2 in group A (fixed values)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">my_series2</span><span class="op">$</span><span class="va">van_sales</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span><span class="op">]</span>, <span class="va">out_bench2</span><span class="op">$</span><span class="va">series</span><span class="op">$</span><span class="va">van_sales</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
@@ -837,7 +838,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpeO0SvE\Ex3_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpEjRhxG\Ex3_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Convert data frame `out_bench3$series` to a "mts" object</span></span></span>
 <span class="r-in"><span><span class="va">qtr_sales2_bmked</span> <span class="op">&lt;-</span> <span class="fu"><a href="tsDF_to_ts.html">tsDF_to_ts</a></span><span class="op">(</span><span class="fu"><a href="unstack_tsDF.html">unstack_tsDF</a></span><span class="op">(</span><span class="va">out_bench3</span><span class="op">$</span><span class="va">series</span><span class="op">)</span>, frequency <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>

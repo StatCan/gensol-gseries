@@ -69,21 +69,21 @@
 
 <dl><dt id="arg-metadata-df">metadata_df<a class="anchor" aria-label="anchor" href="#arg-metadata-df"></a></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, qui décrit les contraintes d'agrégation transversales (règles d'additivité) pour le
-problème de ratissage (« <em>raking</em> »). Deux variables de type caractère doivent être incluses dans le <em>data frame</em> :
-<code>series</code> et <code>total1</code>. Deux variables sont optionnelles : <code>total2</code> (caractère) et <code>alterAnnual</code> (numérique). Les valeurs
-de la variable <code>series</code> représentent les noms des variables des séries composantes dans le <em>data frame</em> des données
-d'entrée (argument <code>data_df</code>). De même, les valeurs des variables <code>total1</code> et <code>total2</code> représentent les noms des variables
-des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension dans le <em>data frame</em> des données
-d'entrée. La variable <code>alterAnnual</code> contient le coefficient d'altérabilité pour la contrainte temporelle associée à
-chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le coefficient d'altérabilité par défaut
-spécifié avec l'argument <code>alterAnnual</code>.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») qui décrit les contraintes d'agrégation transversales (règles
+d'additivité) pour le problème de ratissage (« <em>raking</em> »). Deux variables de type caractère doivent être incluses
+dans le <em>data frame</em> : <code>series</code> et <code>total1</code>. Deux variables sont optionnelles : <code>total2</code> (caractère) et <code>alterAnnual</code>
+(numérique). Les valeurs de la variable <code>series</code> représentent les noms des variables des séries composantes dans le
+<em>data frame</em> des données d'entrée (argument <code>data_df</code>). De même, les valeurs des variables <code>total1</code> et <code>total2</code>
+représentent les noms des variables des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension
+dans le <em>data frame</em> des données d'entrée. La variable <code>alterAnnual</code> contient le coefficient d'altérabilité pour la
+contrainte temporelle associée à chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le
+coefficient d'altérabilité par défaut spécifié avec l'argument <code>alterAnnual</code>.</p></dd>
 
 
 <dt id="arg-alterability-df">alterability_df<a class="anchor" aria-label="anchor" href="#arg-alterability-df"></a></dt>
 <dd><p>(optionnel)</p>
-<p><em>Data frame</em>, ou objet compatible, ou <code>NULL</code>, qui contient les variables de coefficients d'altérabilité. Elles
-doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
+<p><em>Data frame</em> (object de classe « data.frame »), ou <code>NULL</code>, qui contient les variables de coefficients d'altérabilité.
+Elles doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
 portant le même nom doit exister dans le <em>data frame</em> des données d'entrée (argument <code>data_df</code>). Les valeurs de
 ces coefficients d'altérabilité remplaceront les coefficients d'altérabilité par défaut spécifiés avec les arguments
 <code>alterSeries</code>, <code>alterTotal1</code> et <code>alterTotal2</code>. Lorsque le <em>data frame</em> des données d'entrée contient plusieurs

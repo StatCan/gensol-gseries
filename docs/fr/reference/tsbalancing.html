@@ -106,7 +106,7 @@ Des contraintes linéaires d'égalité et d'inégalité sont permises. Optionnel
 
 <dl><dt id="arg-in-ts">in_ts<a class="anchor" aria-label="anchor" href="#arg-in-ts"></a></dt>
 <dd><p>(obligatoire)</p>
-<p>Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries
+<p>Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries
 chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes d'équilibrage
 (« <em>balancing</em> »).</p></dd>
 
@@ -343,18 +343,18 @@ validées.</p>
 les avertissements, les erreurs et la période (ou l'ensemble de périodes) en cours de traitement. Vous pouvez également
 supprimer, si vous le souhaitez, l'affichage des informations relatives à la (aux) période(s) en cours de traitement en
 <em>enveloppant</em> votre appel à <code>tsbalancing()</code> avec <code><a href="https://rdrr.io/r/base/message.html" class="external-link">suppressMessages()</a></code>. Dans ce cas, le <em>data frame</em> de sortie
-<strong>proc_grp_df</strong> peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages
+<code>proc_grp_df</code> peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages
 d'avertissement (le cas échéant). Notez que la spécification de <code>quiet = TRUE</code> annulera également l'argument <code>display_level</code>.</p>
 <p><strong>La valeur par défaut</strong> est <code>quiet = FALSE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="valeur-de-retour">Valeur de retour<a class="anchor" aria-label="anchor" href="#valeur-de-retour"></a></h2>
-    <p>La fonction renvoie une liste de sept objets :</p><ul><li><p><strong>out_ts</strong> : version modifiée de l'objet d'entrée de type série chronologique (« ts » ou « mts »; voir l'argument <code>in_ts</code>)
-contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de la fonction (sortie
-principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec la fonction <code>as*()</code>
-appropriée (ex., <code><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html" class="external-link">tsibble::as_tsibble()</a></code> le convertirait en tsibble).</p></li>
-<li><p><strong>proc_grp_df</strong> : <em>data frame</em> récapitulatif des groupes de traitement, utile pour identifier les problèmes
+    <p>La fonction renvoie une liste de sept objets :</p><ul><li><p><code>out_ts</code> : version modifiée de l'objet d'entrée de type série chronologique (classe « ts » ou « mts » ; voir
+l'argument <code>in_ts</code>) contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de
+la fonction (sortie principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec
+la fonction <code>as*()</code> appropriée (ex., <code>tsibble::as_tsibble()</code> le convertirait en tsibble).</p></li>
+<li><p><code>proc_grp_df</code> : <em>data frame</em> récapitulatif des groupes de traitement, utile pour identifier les problèmes
 fructueux ou infructueux. Il contient un enregistrement (une rangée) pour chaque problème d'équilibrage avec les
 colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p><code>proc_grp_type</code> (car) : type de groupe de traitement. Les valeurs possibles sont :</p><ul><li><p><code>"period"</code> (périodes uniques);</p></li>
@@ -394,7 +394,7 @@ d'équilibrage fructueux (problèmes avec une solution valide) correspondent aux
 initiaux, <strong>b)</strong> le problème est fixé (toutes les valeurs sont contraignantes) ou <strong>c)</strong> elle est meilleure que la
 solution OSQP (total des écarts de contraintes plus faible). La séquence de résolution est décrite dans la
 <code><a href="../articles/osqp-settings-sequence-dataframe.html">vignette("osqp-settings-sequence-dataframe")</a></code>.</p></li>
-<li><p><strong>periods_df</strong> : <em>data frame</em> sur les périodes de temps, utile pour faire correspondre les périodes aux groupes
+<li><p><code>periods_df</code> : <em>data frame</em> sur les périodes de temps, utile pour faire correspondre les périodes aux groupes
 de traitement. Il contient un enregistrement (une rangée) pour chaque période de l'objet d'entrée de type série
 chronologique (argument <code>in_ts</code>) avec les colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p><code>t</code> (num) : identificateur de la période (<code>1:nrow(in_ts)</code>).</p></li>
@@ -402,7 +402,7 @@ chronologique (argument <code>in_ts</code>) avec les colonnes suivantes :</p><u
   (p\acute{e}riode - 1) / fr\acute{e}quence\).</p></li>
 </ul><p>Les colonnes <code>t</code> et <code>time_val</code> constituent toutes deux une <em>clé unique</em> (enregistrements distincts) pour le
 <em>data frame</em>.</p></li>
-<li><p><strong>prob_val_df</strong> : <em>data frame</em> sur les valeurs du problème, utile pour analyser les changements entre les valeurs
+<li><p><code>prob_val_df</code> : <em>data frame</em> sur les valeurs du problème, utile pour analyser les changements entre les valeurs
 initiales et finales (réconciliées). Il contient un enregistrement (une rangée) pour chaque valeur impliquée dans
 chaque problème d'équilibrage, avec les colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p><code>val_type</code> (car) : type de valeur du problème. Les valeurs possibles sont :</p><ul><li><p><code>"period value"</code> (valeur de période);</p></li>
@@ -422,7 +422,7 @@ pour un <em>total temporel</em>. Correspond conceptuellement à \(ann\acute{e}e 
 (enregistrements distincts) pour le <em>data frame</em>. Les valeurs contraignantes (fixes) des problèmes correspondent aux
 enregistrements avec <code>alter = 0</code> ou <code>value_in = 0</code>. Inversement, les valeurs de problèmes non contraignantes (libres)
 correspondent aux enregistrements avec <code>alter != 0</code> et <code>value_in != 0</code>.</p></li>
-<li><p><strong>prob_con_df</strong> : <em>data frame</em> sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier
+<li><p><code>prob_con_df</code> : <em>data frame</em> sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier
 les contraintes non satisfaites). Il contient un enregistrement (une rangée) pour chaque contrainte impliquée dans chaque
 problème d'équilibrage, avec les colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p><code>con_type</code> (car) : type de contrainte. Les valeurs possibles sont :</p><ul><li><p><code>"balancing constraint"</code> (contrainte d'équilibrage);</p></li>
@@ -448,7 +448,7 @@ pour une <em>contrainte d'agrégation temporelle</em>. Correspond conceptuelleme
 contraintes <code>EQ</code>, \(\mathbf{l} = -\infty\) pour des contraintes <code>LE</code>, \(\mathbf{u} = \infty\)
 pour des contraintes <code>GE</code>, et incluent les tolérances, le cas échéant, spécifiées avec les arguments <code>tolV</code>,
 <code>tolV_temporal</code> et <code>tolP_temporal</code>.</p></li>
-<li><p><strong>osqp_settings_df</strong> : <em>data frame</em> des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque
+<li><p><code>osqp_settings_df</code> : <em>data frame</em> des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque
 problème (groupe de traitement) résolu avec OSQP (<code>proc_grp_df$sol_type = "osqp"</code>), avec les colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p>une colonne correspondant à chaque élément de la liste renvoyée par la méthode <code>osqp::GetParams()</code> appliquée à un <em>objet solveur d'OSQP</em> (objet de classe « osqp_model » tel que renvoyé par
 <code><a href="https://rdrr.io/pkg/osqp/man/osqp.html" class="external-link">osqp::osqp()</a></code>), ex. :</p><ul><li><p>Nombre maximal d'itérations (<code>max_iter</code>);</p></li>
@@ -467,7 +467,7 @@ pour plus de détails sur la séquence de résolution utilisée par <code>tsbala
 <a href="https://osqp.org/docs/interfaces/solver_settings.html" class="external-link">https://osqp.org/docs/interfaces/solver_settings.html</a> pour tous les paramètres d'OSQP disponibles. Les problèmes
 (groupes de traitement) pour lesquels la solution initiale a été renvoyée (<code>proc_grp_df$sol_type = "initial"</code>) ne sont
 pas inclus dans ce <em>data frame</em>.</p></li>
-<li><p><strong>osqp_sol_info_df</strong> : <em>data frame</em> d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée)
+<li><p><code>osqp_sol_info_df</code> : <em>data frame</em> d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée)
 pour chaque problème (groupe de traitement) résolu avec OSQP (<code>proc_grp_df$sol_type = "osqp"</code>), avec les colonnes suivantes :</p><ul><li><p><code>proc_grp</code> (num) : identificateur du groupe de traitement.</p></li>
 <li><p>une colonne correspondant à chaque élément de la liste <code>info</code> d'un <em>objet solveur d'OSQP</em> (objet de classe
 « osqp_model » tel que renvoyé par <code><a href="https://rdrr.io/pkg/osqp/man/osqp.html" class="external-link">osqp::osqp()</a></code>), ex. :</p><ul><li><p>Statut de la solution (<code>status</code> et <code>status_val</code>) ;</p></li>
@@ -558,9 +558,9 @@ contraignants (conformément à l'ensemble de coefficients d'altérabilité util
 
 
 <p>Les problèmes d'équilibrage fructueux (problèmes avec une solution valide) ont <code>sol_status_val &gt; 0</code> ou, de manière
-équivalente, <code>n_unmet_con = 0</code> ou <code>max_discr &lt;= validation_tol</code> dans le <em>data frame</em> de sortie <strong>proc_grp_df</strong>.
+équivalente, <code>n_unmet_con = 0</code> ou <code>max_discr &lt;= validation_tol</code> dans le <em>data frame</em> de sortie <code>proc_grp_df</code>.
 Le dépannage des problèmes d'équilibrage infructueux n'est pas nécessairement simple. Voici quelques suggestions :</p><ul><li><p>Examinez les contraintes qui ont échoué (<code>unmet_flag = TRUE</code> ou, de manière équivalente, <code>discr_out &gt; validation_tol</code>
-dans le <em>data frame</em> de sortie <strong>prob_conf_df</strong>) pour s'assurer qu'elles ne causent pas un espace de solution vide
+dans le <em>data frame</em> de sortie <code>prob_con_df</code>) pour s'assurer qu'elles ne causent pas un espace de solution vide
 (problème infaisable).</p></li>
 <li><p>Modifier la séquence de résolution d'OSQP. Par exemple, essayez :</p><ol><li><p>l' argument <code>full_sequence = TRUE</code></p></li>
 <li><p>l' argument <code>osqp_settings_df = alternate_osqp_sequence</code></p></li>
@@ -746,7 +746,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                         display_level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -820,15 +820,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   6.51e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.26e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   1.87e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   6.78e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.34e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   2.01e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.87e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             2.01e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.49e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -884,15 +884,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   3.78e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   8.25e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.49e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   5.07e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   1.19e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.85e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.8750</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.49e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.85e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.47e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -948,15 +948,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   4.59e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   9.06e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   1.53e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   5.03e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   1.23e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   1.87e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9998</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.53e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.87e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.13e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1012,15 +1012,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   3.66e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   7.82e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.33e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   5.04e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   1.14e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.80e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 25</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.33e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.80e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 4.88e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1076,15 +1076,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   5.41e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   1.21e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   1.89e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   4.48e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   1.08e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   1.73e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -0.9506</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.89e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.73e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 1.39e-01</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1179,7 +1179,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                          problem_specs_df <span class="op">=</span> <span class="va">mes_specs1b</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>

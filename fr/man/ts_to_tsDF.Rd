@@ -14,7 +14,7 @@ ts_to_tsDF(
 \arguments{
 \item{in_ts}{(obligatoire)
 
-Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, à convertir.}
+Objet de type série chronologique (classe « ts » ou « mts ») à convertir.}
 
 \item{yr_cName, per_cName}{(optionnel)
 

@@ -82,7 +82,7 @@ en un objet « ts », où une ou plusieurs séries ont été étalonnées en m
 
 <dl><dt id="arg-ts-df">ts_df<a class="anchor" aria-label="anchor" href="#arg-ts-df"></a></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, à convertir.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») à convertir.</p></dd>
 
 
 <dt id="arg-frequency">frequency<a class="anchor" aria-label="anchor" href="#arg-frequency"></a></dt>
@@ -101,8 +101,8 @@ qui contiennent les identificateurs d'année et de période du point de données
 </dl></div>
     <div class="section level2">
     <h2 id="valeur-de-retour">Valeur de retour<a class="anchor" aria-label="anchor" href="#valeur-de-retour"></a></h2>
-    <p>La fonction renvoie un objet de type série chronologique (« ts » ou « mts »), qui peut être explicitement converti
-en un autre type d'objet avec la fonction <code>as*()</code> appropriée (ex., <code><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html" class="external-link">tsibble::as_tsibble()</a></code> le convertirait en tsibble).</p>
+    <p>La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts »), qui peut être explicitement converti
+en un autre type d'objet avec la fonction <code>as*()</code> appropriée (ex., <code>tsibble::as_tsibble()</code> le convertirait en tsibble).</p>
     </div>
     <div class="section level2">
     <h2 id="voir-galement">Voir également<a class="anchor" aria-label="anchor" href="#voir-galement"></a></h2>

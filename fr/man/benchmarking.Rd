@@ -30,15 +30,17 @@ benchmarking(
 \arguments{
 \item{series_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui contient les données de la (des) série(s) indicatrice(s) à étalonner. En plus de
-la (des) variable(s) contenant les données, spécifiée(s) avec l'argument \code{var}, le \emph{data frame} doit aussi contenir deux
-variables numériques, \code{year} et \code{period}, identifiant les périodes des séries indicatrices.}
+\emph{Data frame} (object de classe « data.frame ») qui contient les données de la (des) série(s) indicatrice(s) à
+étalonner. En plus de la (des) variable(s) contenant les données, spécifiée(s) avec l'argument \code{var}, le
+\emph{data frame} doit aussi contenir deux variables numériques, \code{year} et \code{period}, identifiant les périodes des
+séries indicatrices.}
 
 \item{benchmarks_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui contient les étalons. En plus de la (des) variable(s) contenant les données,
-spécifiée(s) avec l'argument \code{with}, le \emph{data frame} doit aussi contenir quatre variables numériques, \code{startYear},
-\code{startPeriod}, \code{endYear} et \code{endPeriod}, identifiant les périodes des séries indicatrices couvertes par chaque étalon.}
+\emph{Data frame} (object de classe « data.frame ») qui contient les étalons. En plus de la (des) variable(s) contenant
+les données, spécifiée(s) avec l'argument \code{with}, le \emph{data frame} doit aussi contenir quatre variables numériques,
+\code{startYear}, \code{startPeriod}, \code{endYear} et \code{endPeriod}, identifiant les périodes des séries indicatrices couvertes
+par chaque étalon.}
 
 \item{rho}{(obligatoire)
 
@@ -172,7 +174,7 @@ série étalonnée finale en sortie. Par exemple, la spécification d'une (petit
 proportionnel avec \code{rho = 1} (étalonnage de  Denton proportionnel) sur avec des séries indicatrices qui comprennent des
 valeurs de 0. Sinon, l'étalonnage proportionnel avec des valeurs de 0 pour la série indicatrice n'est possible que
 lorsque \code{rho < 1}. Spécifier une constante avec l'étalonnage additif (\code{lambda = 0.0}) n'a pas d'impact sur les données
-étalonnées résultantes. Les variables de données dans le \emph{data frame} de sortie \strong{graphTable} incluent la constante,
+étalonnées résultantes. Les variables de données dans le \emph{data frame} de sortie \code{graphTable} incluent la constante,
 correspondant au problème d'étalonnage effectivement résolu par la fonction.
 
 \strong{La valeur par défaut} est \code{constant = 0} (pas de constante additive temporaire).}
@@ -214,13 +216,13 @@ individuelles. Notez que la spécification de \code{quiet = TRUE} annulera égal
 \value{
 La fonction renvoie une liste de trois \emph{data frames} :
 \itemize{
-\item \strong{series} : \emph{data frame} contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées
+\item \code{series} : \emph{data frame} contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées
 avec l'argument \code{by} sont incluses dans le \emph{data frame} mais pas les variables de coefficient d'altérabilité spécifiées
 avec l'argument \code{var}.
-\item \strong{benchmarks} : copie du \emph{data frame} d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant).
+\item \code{benchmarks} : copie du \emph{data frame} d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant).
 Les variables BY spécifiées avec l'argument \code{by} sont incluses dans le \emph{data frame} mais pas les variables de coefficient
 d'altérabilité spécifiées avec l'argument \code{with}.
-\item \strong{graphTable} : \emph{data frame} contenant des données supplémentaires utiles pour produire des tableaux et des graphiques
+\item \code{graphTable} : \emph{data frame} contenant des données supplémentaires utiles pour produire des tableaux et des graphiques
 analytiques (voir la fonction \code{\link[=plot_graphTable]{plot_graphTable()}}). Il contient les variables suivantes en plus des variables BY spécifiées
 avec l'argument \code{by} :
 \itemize{
@@ -260,12 +262,12 @@ période à l'autre des valeurs de la série étalonnée (variable \code{benchma
 
 Notes :
 \itemize{
-\item Le \emph{data frame} de sortie \strong{benchmarks} contient toujours les étalons originaux fournis dans le \emph{data frame} d'entrée
+\item Le \emph{data frame} de sortie \code{benchmarks} contient toujours les étalons originaux fournis dans le \emph{data frame} d'entrée
 des étalons. Les étalons modifiés non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir du \emph{data frame}
-de sortie \strong{series}.
+de sortie \code{series}.
 \item La fonction renvoie un objet \code{NULL} si une erreur se produit avant que le traitement des données ne puisse commencer.
 Dans le cas contraire, si l'exécution est suffisamment avancée pour que le traitement des données puisse commencer, alors
-un objet incomplet sera renvoyé en cas d'erreur (par exemple, un \emph{data frame} de sortie \strong{series} avec des valeurs \code{NA}
+un objet incomplet sera renvoyé en cas d'erreur (par exemple, un \emph{data frame} de sortie \code{series} avec des valeurs \code{NA}
 pour les données étalonnées).
 \item La fonction renvoie des objets « data.frame » qui peuvent être explicitement convertis en d'autres types d'objets avec la
 fonction \verb{as*()} appropriée (ex., \code{tibble::as_tibble()} convertirait n'importe lequel d'entre eux en tibble).
@@ -441,7 +443,7 @@ et \code{bias}).
 }
 
 Les étalons non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir de la série étalonnée (voir le
-\emph{data frame} de sortie \strong{series} dans la section \strong{Valeur de retour}). Le \emph{data frame} de sortie \strong{benchmarks} contient
+\emph{data frame} de sortie \code{series} dans la section \strong{Valeur de retour}). Le \emph{data frame} de sortie \code{benchmarks} contient
 toujours les étalons fournis dans le \emph{data frame} d'entrée des étalons (argument \code{benchmarks_df}).
 }
 

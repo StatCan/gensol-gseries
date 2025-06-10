@@ -5,15 +5,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>(EN) G-Series in R / (FR) G-Séries en R • gseries</title>
+<title>G-Series in R: tools for cohesive time series data • gseries</title>
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="(EN) G-Series in R / (FR) G-Séries en R">
-<meta name="description" content="(EN) Statistics Canadas generalized system devoted to time series benchmarking and reconciliation. The methods used in G-Series essentially come from Dagum and Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;. / (FR) Système généralisé de Statistique Canada consacré à létalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G-Séries proviennent essentiellement de Dagum et Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;.">
-<meta property="og:description" content="(EN) Statistics Canadas generalized system devoted to time series benchmarking and reconciliation. The methods used in G-Series essentially come from Dagum and Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;. / (FR) Système généralisé de Statistique Canada consacré à létalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G-Séries proviennent essentiellement de Dagum et Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="G-Series in R: tools for cohesive time series data">
+<meta name="description" content="R version of G-Series, Statistics Canada’s generalized system devoted to time series  benchmarking and reconciliation. The methods used in G-Series essentially  come from Dagum and Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;.
+">
+<meta property="og:description" content="R version of G-Series, Statistics Canada’s generalized system devoted to time series  benchmarking and reconciliation. The methods used in G-Series essentially  come from Dagum and Cholette (2006) &lt;doi:10.1007/0-387-35439-5&gt;.
+">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -37,7 +39,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/benchmarking-cookbook.html">Benchmarking CookBook</a></li>
+<li><a class="dropdown-item" href="articles/benchmarking-cookbook.html">Benchmarking Cookbook</a></li>
     <li><a class="dropdown-item" href="articles/benchmarking-demo-script.html">A Beginner's Benchmarking Demo Script</a></li>
     <li><a class="dropdown-item" href="articles/osqp-settings-sequence-dataframe.html">OSQP Settings Sequence Data Frame</a></li>
   </ul>
@@ -85,12 +87,12 @@
 <div class="section level2">
 <h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
 </h2>
-<p>R version of Statistics Canada’s (StatCan) generalized system <strong>G-Series</strong> initially developed in SAS<sup>®</sup>. This website is devoted to G-Series in R (package gseries). Email us at <a href="mailto:g-series@statcan.gc.ca" class="email">g-series@statcan.gc.ca</a> for information about the SAS<sup>®</sup> versions.</p>
+<p>R version of Statistics Canada’s (StatCan) generalized system <strong>G‑Series</strong> initially developed in SAS<sup>®</sup>. This website is devoted to G‑Series in R (package gseries). Email us at <a href="mailto:g-series@statcan.gc.ca" class="email">g-series@statcan.gc.ca</a> for information about the SAS<sup>®</sup> versions.</p>
 <blockquote>
 <p><strong><em>Note - StatCan intranet</em></strong><br>
-StatCan employees can also visit the G-Series Confluence page on the agency’s intranet (search for “G-Series | G-Séries” in Confluence) as well as the G-Series GitLab development project also hosted on the agency’s intranet (search for “G-Series in R - G-Séries en R” in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file <code>index_StatCan.md</code> in the GitLab project root folder.</p>
+StatCan employees can also visit the G‑Series Confluence page on the agency’s intranet (search for “G-Series | G-Séries” in Confluence) as well as the G‑Series GitLab development project also hosted on the agency’s intranet (search for “G-Series in R - G-Séries en R” in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file <code>index_StatCan.md</code> in the GitLab project root folder.</p>
 </blockquote>
-<p>G-Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS<sup>®</sup> G‑Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro <strong><em>GSeriesTSBalancing</em></strong> along with a function for benchmarking <em>stocks</em> using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following <em>core functions</em>:</p>
+<p>G‑Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS<sup>®</sup> G‑Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro <strong><em>GSeriesTSBalancing</em></strong> along with a function for benchmarking <em>stocks</em> using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following <em>core functions</em>:</p>
 <ul>
 <li><code><a href="reference/benchmarking.html">benchmarking()</a></code></li>
 <li><code><a href="reference/stock_benchmarking.html">stock_benchmarking()</a></code></li>
@@ -155,7 +157,7 @@ StatCan employees can also visit the G-Series Confluence page on the agency’s 
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
-<p>The bilingual (French-English) gseries package documentation available in this website is also accessible from within R. Although R only displays the English version of the gseries documentation, links to the equivalent French pages on this website are provided at the beginning of relevant gseries help pages in R. <code><a href="reference/gseries-package.html">help("gseries")</a></code> in R displays general package information including a link (the URL) to this website. Clicking the <strong>Index</strong> link at the bottom of the gseries package help page in RStudio (or with <code><a href="https://rdrr.io/pkg/gseries/man" class="external-link">help(package = "gseries")</a></code>) displays a list of all the documentation elements available for the package, including:</p>
+<p>The bilingual (French-English) gseries package documentation available in this website is also accessible from within R. Although R only displays the English version of the gseries documentation, links to the equivalent French pages on this website are provided at the beginning of relevant gseries help pages in R. <code><a href="reference/gseries-package.html">help("gseries")</a></code> in R displays general package information including a link (the URL) to this website. Clicking the <strong>Index</strong> link at the bottom of the gseries package help page in RStudio (or with <code><a href="https://StatCan.github.io/gensol-gseries/en/reference">help(package = "gseries")</a></code>) displays a list of all the documentation elements available for the package, including:</p>
 <ul>
 <li>topic/function help pages (top bar’s <a href="./reference/index.html">Reference</a> page);</li>
 <li>vignettes, when installed (top bar’s <strong><em>Articles</em></strong> drop-down menu);</li>
@@ -163,12 +165,12 @@ StatCan employees can also visit the G-Series Confluence page on the agency’s 
 </ul>
 <p>The individual function help pages found in the <a href="./reference/index.html">Reference</a> page (top bar) can be accessed directly in R with <code>help("&lt;function-name&gt;")</code>. They contain comprehensive information about each function including useful examples and will be you primary source of information. The vignettes found under the <strong><em>Articles</em></strong> drop-down menu (top bar) are a complementary source of information that, when installed with the package, can also be accessed from within R with <code>browseVignettes("gseries")</code> or <code>vignette("&lt;vignette-name&gt;")</code>. They include:</p>
 <ul>
-<li>a <em>Benchmarking CookBook</em> (<code><a href="articles/benchmarking-cookbook.html">vignette("benchmarking-cookbook")</a></code>) going through the steps of a typical benchmarking project;</li>
+<li>a <em>Benchmarking Cookbook</em> (<code><a href="articles/benchmarking-cookbook.html">vignette("benchmarking-cookbook")</a></code>) going through the steps of a typical benchmarking project;</li>
 <li>
 <em>A Beginner’s Benchmarking Demo Script</em> (<code><a href="articles/benchmarking-demo-script.html">vignette("benchmarking-demo-script")</a></code>) illustrating the usage of the benchmarking functions in a practical context;</li>
 <li>a <em>OSQP Settings Sequence Data Frame</em> page (<code><a href="articles/osqp-settings-sequence-dataframe.html">vignette("osqp-settings-sequence-dataframe")</a></code>) describing the <em>solving sequence</em> implemented in <code><a href="reference/tsbalancing.html">tsbalancing()</a></code> and explaining how it can be customized.</li>
 </ul>
-<p>Finally, the <a href="./articles/gseries.html">Get started</a> page (top bar) provides general information about G-Series and is available as a vignette in R (<code><a href="articles/gseries.html">vignette("gseries")</a></code>).</p>
+<p>Finally, the <a href="./articles/gseries.html">Get started</a> page (top bar) provides general information about G‑Series and is available as a vignette in R (<code><a href="articles/gseries.html">vignette("gseries")</a></code>).</p>
 <div class="section level4">
 <h4 id="local-copy-of-the-package-website">
 <em>Local copy of the package website</em><a class="anchor" aria-label="anchor" href="#local-copy-of-the-package-website"></a>
@@ -186,7 +188,7 @@ StatCan employees can also visit the G-Series Confluence page on the agency’s 
 <h4 id="pdf-format">
 <em>PDF format</em><a class="anchor" aria-label="anchor" href="#pdf-format"></a>
 </h4>
-<p>Bilingual (French-English) G-Series documentation in PDF format, also useful for offline consultation or for a specific version of G-Series, is available in the <code>pdf/</code> folder of the GitHub <a href="https://github.com/StatCan/gensol-gseries" class="external-link">repository</a> (<em>main</em> branch or tag <span class="math inline">\geq</span> <em>v3.0.0</em> for the R versions and tag <span class="math inline">\leq</span> <em>v2.0</em> for the SAS<sup>®</sup> versions). Again, GitHub tool <a href="https://download-directory.github.io/" class="external-link">Download GitHub directory</a> can be used to download the contents of the <code>pdf/</code> folder instead of the entire repository. Decompressing the downloaded directory will then unveil the individual PDF files.</p>
+<p>Bilingual (French-English) G‑Series documentation in PDF format, also useful for offline consultation or for a specific version of G‑Series, is available in the <code>pdf/</code> folder of the GitHub <a href="https://github.com/StatCan/gensol-gseries" class="external-link">repository</a> (<em>main</em> branch or tag <span class="math inline">\geq</span> <em>v3.0.0</em> for the R versions and tag <span class="math inline">\leq</span> <em>v2.0</em> for the SAS<sup>®</sup> versions). Again, GitHub tool <a href="https://download-directory.github.io/" class="external-link">Download GitHub directory</a> can be used to download the contents of the <code>pdf/</code> folder instead of the entire repository. Decompressing the downloaded directory will then unveil the individual PDF files.</p>
 </div>
 </div>
 </div>

@@ -14,23 +14,29 @@ gs.time2per(ts)
 gs.time2str(ts, sep = "-")
 }
 \arguments{
-\item{ts}{(obligatoire) Objet de type série chronologique (« ts » ou « mts ») ou objet compatible.}
+\item{ts}{(obligatoire)
 
-\item{sep}{(optionnel) Chaîne de caractères (constante de type caractère) spécifiant le séparateur à
-utiliser entre les valeurs d'année et de période (\code{"-"} par défaut).}
+Objet de type série chronologique (classe « ts » ou « mts »).}
+
+\item{sep}{(optionnel)
+
+Chaîne de caractères (constante de type caractère) spécifiant le séparateur à
+utiliser entre les valeurs d'année et de période.
+
+\strong{La valeur par défaut} est \code{sep = "-"}.}
 }
 \value{
 \code{\link[=gs.time2year]{gs.time2year()}} renvoie un vecteur de nombres entiers correspondant à l'année (l'unité de temps) « la plus proche ».
 Cette fonction est l'équivalent de \code{\link[stats:time]{stats::cycle()}} pour les valeurs d'unités de temps.
 
-\code{\link[=gs.time2per]{gs.time2per()}} renvoie un vecteur de nombres entiers contenant les valeurs des périodes (cycles; voir
+\code{\link[=gs.time2per]{gs.time2per()}} renvoie un vecteur de nombres entiers contenant les valeurs des périodes (les cycles ; voir
 \code{\link[stats:time]{stats::cycle()}})).
 
 \code{\link[=gs.time2str]{gs.time2str()}} renvoie un vecteur de chaînes de caractères correspondant à \code{gs.time2year(ts)} lorsque
 \code{stats::frequency(ts) == 1} ou à \code{gs.time2year(ts)} et \code{gs.time2per(ts)} séparé par \code{sep} dans le cas contraire.
 }
 \description{
-Fonctions de conversion de valeurs de temps
+Fonctions de conversion de valeurs de temps utilisées à l'interne par d'autres fonctions de gseries.
 }
 \examples{
 # Série chronologique mensuelle « bidon »

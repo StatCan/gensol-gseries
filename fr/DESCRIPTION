@@ -1,5 +1,5 @@
 Package: gseries
-Title: (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R'
+Title: Tools for Cohesive Time Series Data
 Version: 3.0.0
 Created: April 30, 2025, at 4:57:41 PM EDT
 Authors@R: c(
@@ -8,16 +8,13 @@ Authors@R: c(
     person("Statistics Canada", role = c("cph", "fnd"))
     )
 Description: 
-    (EN) Statistics Canada's generalized system devoted to time series 
-    benchmarking and reconciliation. The methods used in 'G-Series' essentially 
-    come from Dagum and Cholette (2006) <doi:10.1007/0-387-35439-5>. / 
-    (FR) Système généralisé de Statistique Canada consacré à l'étalonnage 
-    et à la réconciliation de séries chronologiques. Les méthodes utilisées 
-    dans 'G-Séries' proviennent essentiellement de Dagum et Cholette (2006) 
+    'R' version of 'G-Series', Statistics Canada's generalized system devoted 
+    to time series benchmarking and reconciliation. The methods used in 
+    'G-Series' essentially come from Dagum and Cholette (2006) 
     <doi:10.1007/0-387-35439-5>.
 License: GPL (>= 3)
 URL: 
-    https://StatCan.github.io/gensol-gseries/en/,   
+    https://StatCan.github.io/gensol-gseries/en/, 
     https://StatCan.github.io/gensol-gseries/fr/
 BugReports: 
     https://github.com/StatCan/gensol-gseries/issues/

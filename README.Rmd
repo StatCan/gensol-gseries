@@ -29,20 +29,20 @@ knitr::opts_chunk$set(
 
 
 ## Description
-R version of Statistics Canada's (StatCan) generalized system **G-Series** initially developed in SAS^®^. This project is devoted to G-Series in R (package gseries). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information about the SAS^®^ versions. 
+R version of Statistics Canada's (StatCan) generalized system **G<span>&#8209;</span>Series** initially developed in SAS^®^. This project is devoted to G<span>&#8209;</span>Series in R (package gseries). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information about the SAS^®^ versions. 
 
 > _**Note - StatCan intranet**_\
-> StatCan employees can also visit the G-Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G-Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes information and instructions specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
+> StatCan employees can also visit the G<span>&#8209;</span>Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G<span>&#8209;</span>Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes information and instructions specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
 
-G-Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences.
+G<span>&#8209;</span>Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences.
 
 https://StatCan.github.io/gensol-gseries/en/ (the gseries package website) is your *go-to* place for everything there is to know about this package:
 
 * installation instructions (home page);
 * complete function documentation with examples (**Reference** page);
 * package vignettes containing complementary documentation (**Articles** menu);
-* G-Series version *changelog* (**News** > **Changelog** page);
-* how to download local copies of the G-Series HTML and PDF documentation (home page);
+* G<span>&#8209;</span>Series version *changelog* (**News** > **Changelog** page);
+* how to download local copies of the G<span>&#8209;</span>Series HTML and PDF documentation (home page);
 * etc.
 
 
@@ -54,11 +54,11 @@ With the exception of the following directories, the files in this project follo
 * `misc/`: various files related to the package maintenance.
 * `pdf/` (\*): bilingual package documentation and vignettes in PDF format.
 
-(\*) The purpose of directories `docs/` and `pdf/` is to provide access to the complete library of available G-Series documentation in HTML and PDF formats, as opposed to only the CRAN version for the package website or the installed version through R and RStudio. So whether one is interested in the documentation for a previous version of G-Series (*tag* < CRAN version) or for the development version (when *main* branch version > CRAN version), the contents of these folders can be downloaded for offline consultation.
+(\*) The purpose of directories `docs/` and `pdf/` is to provide access to the complete library of available G<span>&#8209;</span>Series documentation in HTML and PDF formats, as opposed to only the CRAN version for the package website or the installed version through R and RStudio. So whether one is interested in the documentation for a previous version of G<span>&#8209;</span>Series (*tag* < CRAN version) or for the development version (when *main* branch version > CRAN version), the contents of these folders can be downloaded for offline consultation.
 
 
 ## Contact - Support
-User support for G-Series is provided by the Time Series Research and Analysis Centre (TSRAC) in the Economic Statistics Methods Division (ESMD) and the Digital Processing Solutions Division (DPSD). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information or help using G-Series. GitHub account holders can also request information, ask questions or report problems through the G-Series GitHub project [Issues](https://github.com/StatCan/gensol-gseries/issues) page. StatCan employees can do the same through the **Issues** page of the G-Series GitLab development project hosted on the StatCan intranet (search for "G-Series in R - G-Séries en R" in GitLab).
+User support for G<span>&#8209;</span>Series is provided by the Time Series Research and Analysis Centre (TSRAC) in the Economic Statistics Methods Division (ESMD) and the Digital Processing Solutions Division (DPSD). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information or help using G<span>&#8209;</span>Series. GitHub account holders can also request information, ask questions or report problems through the G<span>&#8209;</span>Series GitHub project [Issues](https://github.com/StatCan/gensol-gseries/issues) page. StatCan employees can do the same through the **Issues** page of the G<span>&#8209;</span>Series GitLab development project hosted on the StatCan intranet (search for "G-Series in R - G-Séries en R" in GitLab).
 
 <br>
 
@@ -82,20 +82,20 @@ User support for G-Series is provided by the Time Series Research and Analysis C
 
 
 ## Description
-Version R du système généralisé de Statistique Canada (StatCan) **G-Séries** initialement développé en SAS^®^. Ce projet est consacré à la version R de G-Séries (librairie gseries). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations sur les versions SAS^®^. 
+Version R du système généralisé de Statistique Canada (StatCan) **G<span>&#8209;</span>Séries** initialement développé en SAS^®^. Ce projet est consacré à la version R de G<span>&#8209;</span>Séries (librairie gseries). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations sur les versions SAS^®^. 
 
 > _**Note - intranet de StatCan**_\
-> Les employés de StatCan peuvent également visiter la page Confluence de G-Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence) ainsi que le projet de développement GitLab de G-Séries également hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab). Ce dernier inclut des informations et instructions qui sont spécifiques à l'infrastructure TI de StatCan (ex., Artifactory et GitLab) ; voir le fichier `index_StatCan.md` dans le répertoire racine du projet GitLab.
+> Les employés de StatCan peuvent également visiter la page Confluence de G<span>&#8209;</span>Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence) ainsi que le projet de développement GitLab de G<span>&#8209;</span>Séries également hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab). Ce dernier inclut des informations et instructions qui sont spécifiques à l'infrastructure TI de StatCan (ex., Artifactory et GitLab) ; voir le fichier `index_StatCan.md` dans le répertoire racine du projet GitLab.
 
-G-Séries 3.0 (librairie gseries 3.0.0) est la première version du logiciel offerte en libre accès (logiciel libre). Elle inclut le recodage en R de toutes les fonctionalités SAS^®^ de G<span>&#8209;</span>Series 2.0, soit PROC BENCHMARKING, PROC TSRAKING et la macro _**GSeriesTSBalancing**_, ainsi qu'une fonction pour l'étalonnage de *séries de stocks* par l'entremise d'interpolations par spline cubique où les noeuds de la spline correspondent aux ratios ou différences entre les valeurs des étalons et de la série indicatrice.
+G<span>&#8209;</span>Séries 3.0 (librairie gseries 3.0.0) est la première version du logiciel offerte en libre accès (logiciel libre). Elle inclut le recodage en R de toutes les fonctionalités SAS^®^ de G<span>&#8209;</span>Séries 2.0, soit PROC BENCHMARKING, PROC TSRAKING et la macro _**GSeriesTSBalancing**_, ainsi qu'une fonction pour l'étalonnage de *séries de stocks* par l'entremise d'interpolations par spline cubique où les noeuds de la spline correspondent aux ratios ou différences entre les valeurs des étalons et de la série indicatrice.
 
 https://StatCan.github.io/gensol-gseries/fr/ (le site web de la librairie gseries) est l'endroit de prédilection pour tout ce qu'il y a à savoir sur la librairie :
 
 * instructions d'installation (page d'accueil) ;
 * documentation complète des fonctions avec des exemples (page **Référence**) ;
 * vignettes de la librairie contenant de la documentation complémentaire (menu **Articles**) ;
-* historique des versions de G-Séries (page **Nouveautés** > **Changements**) ;
-* comment télécharger une copie locale de la documentation HTML et PDF de G-Séries (page d'accueil) ;
+* historique des versions de G<span>&#8209;</span>Séries (page **Nouveautés** > **Changements**) ;
+* comment télécharger une copie locale de la documentation HTML et PDF de G<span>&#8209;</span>Séries (page d'accueil) ;
 * etc.
 
 
@@ -107,8 +107,8 @@ A l'exception des répertoires suivants, les fichiers de ce projet suivent la st
 * `misc/` : divers fichiers liés à la maintenance de la librairie.
 * `pdf/` (\*) : documentation et vignettes de la librairie gseries en format PDF.
 
-(\*) La raison d'être des répertoires `docs/` et `pdf/` est de fournir un accès à la bibliothèque complète de la documentation disponible de G-Séries en format HTML et PDF, par opposition à uniquement la version CRAN pour le site web de la librairie ou la version installée via R et RStudio. Ainsi, que l'on soit intéressé par la documentation d'une version précédente de G-Séries (*tag* < version CRAN) ou de la version de développement (lorsque version branche *main* > version CRAN), le contenu de ces répertoires peut être téléchargé pour consultation hors ligne.
+(\*) La raison d'être des répertoires `docs/` et `pdf/` est de fournir un accès à la bibliothèque complète de la documentation disponible de G<span>&#8209;</span>Séries en format HTML et PDF, par opposition à uniquement la version CRAN pour le site web de la librairie ou la version installée via R et RStudio. Ainsi, que l'on soit intéressé par la documentation d'une version précédente de G<span>&#8209;</span>Séries (*tag* < version CRAN) ou de la version de développement (lorsque version branche *main* > version CRAN), le contenu de ces répertoires peut être téléchargé pour consultation hors ligne.
 
 
 ## Contact - Assistance
-L'assistance aux utilisateurs de G-Séries assurée par le Centre de recherche et d'analyse en séries chronologiques (CRASC) de la Division des méthodes de la statistique économique (DMSE) et par la Division des solutions de traitement numérique (DSTN). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations ou de l'aide sur l'utilisation de G-Séries. Les détenteurs d'un compte GitHub peuvent également demander des informations, de poser des questions ou de signaler des problèmes via la page [*Issues*](https://github.com/StatCan/gensol-gseries/issues) du projet GitHub de G-Séries. Les employés de StatCan peuvent faire de même via la page **Tickets** du projet de développement GitLab de G-Séries hébergé dans l'intranet de StatCan (recherchez « G-Series in R - G-Séries en R » dans GitLab).
+L'assistance aux utilisateurs de G<span>&#8209;</span>Séries assurée par le Centre de recherche et d'analyse en séries chronologiques (CRASC) de la Division des méthodes de la statistique économique (DMSE) et par la Division des solutions de traitement numérique (DSTN). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations ou de l'aide sur l'utilisation de G<span>&#8209;</span>Séries. Les détenteurs d'un compte GitHub peuvent également demander des informations, poser des questions ou signaler des problèmes via la page [*Issues*](https://github.com/StatCan/gensol-gseries/issues) du projet GitHub de G<span>&#8209;</span>Séries. Les employés de StatCan peuvent faire de même via la page **Tickets** du projet de développement GitLab de G<span>&#8209;</span>Séries hébergé dans l'intranet de StatCan (recherchez « G-Series in R - G-Séries en R » dans GitLab).

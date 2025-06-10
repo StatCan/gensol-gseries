@@ -14,15 +14,15 @@ tsraking_driver(
 \arguments{
 \item{in_ts}{(mandatory)
 
-Time series ("ts" or "mts"), or object to be coerced to one, that contains the time series data to be
-reconciled. They are the raking problems' input data (initial solutions).}
+Time series (object of class "ts" or "mts") that contains the time series data to be reconciled.
+They are the raking problems' input data (initial solutions).}
 
 \item{...}{
   Arguments passed on to \code{\link[=tsraking]{tsraking}}
   \describe{
     \item{\code{metadata_df}}{(mandatory)
 
-Data frame, or object to be coerced to one, that describes the cross-sectional aggregation constraints
+Data frame (object of class "data.frame") that describes the cross-sectional aggregation constraints
 (additivity rules) for the raking problem. Two character variables must be included in the metadata data frame:
 \code{series} and \code{total1}. Two variables are optional: \code{total2} (character) and \code{alterAnnual} (numeric). The values
 of variable \code{series} represent the variable names of the component series in the input time series data frame
@@ -33,7 +33,7 @@ each component series. When specified, the latter will override the default alte
 with argument \code{alterAnnual}.}
     \item{\code{alterability_df}}{(optional)
 
-Data frame, or object to be coerced to one, or \code{NULL}, that contains the alterability coefficients variables.
+Data frame (object of class "data.frame"), or \code{NULL}, that contains the alterability coefficients variables.
 They must correspond to a component series or a cross-sectional control total, that is, a variable with the same
 name must exist in the input time series data frame (argument \code{data_df}). The values of these alterability
 coefficients will override the default alterability coefficients specified with arguments \code{alterSeries},
@@ -161,10 +161,10 @@ for period-by-period processing without temporal total preservation (\code{tempo
 \strong{Default value} is \code{temporal_grp_start = 1}.}
 }
 \value{
-The function returns a time series object ("ts" or "mts") containing the reconciled component series, reconciled
-cross-sectional control totals and other series specified with \code{\link[=tsraking]{tsraking()}} argument \code{id}. It can be explicitly
-coerced to another type of object with the appropriate \verb{as*()} function (e.g., \code{tsibble::as_tsibble()} would
-coerce it to a tsibble).
+The function returns a time series object (class "ts" or "mts") containing the reconciled component series,
+reconciled cross-sectional control totals and other series specified with \code{\link[=tsraking]{tsraking()}} argument \code{id}. It can be
+explicitly coerced to another type of object with the appropriate \verb{as*()} function (e.g., \code{tsibble::as_tsibble()}
+would coerce it to a tsibble).
 
 Note that a \code{NULL} object is returned if an error occurs before data processing could start. Otherwise, if execution
 gets far enough so that data processing could start, then an incomplete object (with \code{NA} values) would be returned

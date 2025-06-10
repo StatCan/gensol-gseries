@@ -22,7 +22,7 @@
 #'
 #' @param ts_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, à convertir.
+#' *Data frame* (object de classe « data.frame ») à convertir.
 #'
 #' @param frequency (obligatoire)
 #' 
@@ -39,7 +39,7 @@
 #'
 #'
 #' @returns
-#' La fonction renvoie un objet de type série chronologique (« ts » ou « mts »), qui peut être explicitement converti 
+#' La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts »), qui peut être explicitement converti 
 #' en un autre type d'objet avec la fonction `as*()` appropriée (ex., `tsibble::as_tsibble()` le convertirait en tsibble).
 #'
 #'

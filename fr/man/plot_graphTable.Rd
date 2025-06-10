@@ -17,7 +17,7 @@ plot_graphTable(
 \arguments{
 \item{graphTable}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, correspondant au \emph{data frame} de sortie \strong{graphTable} de la fonction d'étalonnage.}
+\emph{Data frame} (object de classe « data.frame ») correspondant au \emph{data frame} de sortie \code{graphTable} de la fonction d'étalonnage.}
 
 \item{pdf_file}{(obligatoire)
 
@@ -42,14 +42,14 @@ premiers types de graphiques sont générés par défaut alors que le quatrième
 En plus de créer un fichier PDF contenant les graphiques d'étalonnage (sauf si \code{pdf_file = NULL}), cette fonction renvoie également
 de manière invisible une liste comprenant les éléments suivants :
 \itemize{
-\item \strong{pdf_name} : Chaîne de caractères (vecteur de type caractère de longueur un) qui contient le nom complet et le chemin du fichier
+\item \code{pdf_name} : Chaîne de caractères (vecteur de type caractère de longueur un) qui contient le nom complet et le chemin du fichier
 PDF s'il a été créé avec succès et \code{invisible(NA_character_)} dans le cas contraire ou si \code{pdf_file = NULL} a été spécifié.
-\item \strong{graph_list} : Liste des graphiques d'étalonnage générés (une par série) comprenant les éléments suivants :
+\item \code{graph_list} : Liste des graphiques d'étalonnage générés (une par série) comprenant les éléments suivants :
 \itemize{
-\item \strong{name} : Chaîne de caractères décrivant la série (concorde avec le nom du signet dans le fichier PDF).
-\item \strong{page} : Entier représentant le numéro de séquence du premier graphique de la série dans la séquence complète des graphiques
+\item \code{name} : Chaîne de caractères décrivant la série (concorde avec le nom du signet dans le fichier PDF).
+\item \code{page} : Entier représentant le numéro de séquence du premier graphique de la série dans la séquence complète des graphiques
 pour toutes les séries (concorde avec le numéro de page dans le fichier PDF).
-\item \strong{ggplot_list} : Liste d'objets ggplot (une par graphique ou par page dans le fichier PDF) correspondant aux graphiques
+\item \code{ggplot_list} : Liste d'objets ggplot (une par graphique ou par page dans le fichier PDF) correspondant aux graphiques
 d'étalonnage générés pour la série. Voir la section \strong{Valeur} dans \link{bench_graphs} pour plus de détails.
 }
 }
@@ -62,9 +62,8 @@ ces graphiques sont optimisés pour un format de papier Lettre US en orientation
 }
 \description{
 Créer un fichier PDF (format de papier lettre US en orientation paysage) contenant des graphiques d'étalonnage pour l'ensemble
-des séries contenues dans le \emph{data frame} de sortie \strong{graphTable} (argument \code{graphTable}) de la fonction d'étalonnage
-(\code{\link[=benchmarking]{benchmarking()}} ou \code{\link[=stock_benchmarking]{stock_benchmarking()}}) spécifiée. Quatre types de graphiques d'étalonnage peuvent être générés pour chaque
-série :
+des séries contenues dans le \emph{data frame} de sortie \code{graphTable} de la fonction d'étalonnage (\code{\link[=benchmarking]{benchmarking()}} ou
+\code{\link[=stock_benchmarking]{stock_benchmarking()}}) spécifié. Quatre types de graphiques d'étalonnage peuvent être générés pour chaque série :
 \itemize{
 \item \strong{Échelle originale} (argument \code{ori_plot_flag}) - graphique superposé des composantes :
 \itemize{
@@ -91,8 +90,8 @@ graphiques d'étalonnage peut être activé ou désactivé à l'aide du drapeau 
 sont générés par défaut alors que le quatrième (le tableau des taux de croissance) ne l'est pas.
 }
 \details{
-Liste des variables du \emph{data frame} \strong{graphTable} (argument \code{graphTable}) correspondant à chaque élément des quatre
-types de graphiques d'étalonnage:
+Liste des variables du \emph{data frame} \code{graphTable} correspondant à chaque élément des quatre types de graphiques
+d'étalonnage:
 \itemize{
 \item Échelle originale (argument \code{ori_plot_flag})
 \itemize{

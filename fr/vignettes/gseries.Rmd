@@ -26,24 +26,24 @@ library(gseries)
 
 ## Description
 
-G-Séries est le système généralisé de Statistique Canada (StatCan) consacré à l'étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G-Séries proviennent essentiellement de
+G<span>&#8209;</span>Séries est le système généralisé de Statistique Canada (StatCan) consacré à l'étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G<span>&#8209;</span>Séries proviennent essentiellement de
 
 * Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, #186.
 
 ### Étalonnage de séries chronologiques
 Objectif : rétablir la cohérence entre les données de séries chronologiques d'une même variable cible mesurée à différentes fréquences (ex. : infra-annuellement et annuellement). 
 
-La famille des sujets inclus sous *l'ombrelle de l'étalonnage* dans G-Séries comprend entre autres la *distribution temporelle* (action réciproque de l'étalonnage : désagrégation de la série d'étalons en observations plus fréquentes), la *calendarisation* (cas spécial de distribution temporelle) et le *raccordement* (« *linking* » : connexion de différents segments de séries chronologiques en une série chronologique unique et cohérente).
+La famille des sujets inclus sous *l'ombrelle de l'étalonnage* dans G<span>&#8209;</span>Séries comprend entre autres la *distribution temporelle* (action réciproque de l'étalonnage : désagrégation de la série d'étalons en observations plus fréquentes), la *calendarisation* (cas spécial de distribution temporelle) et le *raccordement* (« *linking* » : connexion de différents segments de séries chronologiques en une série chronologique unique et cohérente).
 
 ### Réconciliation de séries chronologiques
 Objectif : rétablir les contraintes transversales (contemporaines) d'un système de séries chronologiques mesurées à la même fréquence (ex. : séries provinciales et nationales) avec la préservation optionnelle des contraintes temporelles.
 
-La réconciliation de tables d'agrégation (cubes de données) impliquant uniquement des contraintes d'additivité est appelée *ratissage* (« *raking* ») dans G-Séries, tandis que l'*équilibrage* (« *balancing* ») fait référence à une classe plus générale de problèmes de réconciliation impliquant tout type de contraintes linéaires (y compris des contraintes d'inégalité).
+La réconciliation de tables d'agrégation (cubes de données) impliquant uniquement des contraintes d'additivité est appelée *ratissage* (« *raking* ») dans G<span>&#8209;</span>Séries, tandis que l'*équilibrage* (« *balancing* ») fait référence à une classe plus générale de problèmes de réconciliation impliquant tout type de contraintes linéaires (y compris des contraintes d'inégalité).
 
 
 ## Disponibilité du logiciel
 
-Alors que les premières versions de G-Séries (v1.04 et v2.0) ont été développées en SAS^®^, le logiciel est désormais offert en libre accès (logiciel libre) depuis la sortie de G-Séries 3.0 (librairie R gseries 3.0.0). Ce projet est consacré à la version de G-Séries offerte en libre accès (librairie R gseries). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations sur les versions SAS^®^. Les employés de StatCan peuvent également visiter la page Concfluence de G-Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence).
+Alors que les premières versions de G<span>&#8209;</span>Séries (v1.04 et v2.0) ont été développées en SAS^®^, le logiciel est désormais offert en libre accès (logiciel libre) depuis la sortie de G<span>&#8209;</span>Séries 3.0 (librairie R gseries 3.0.0). Ce projet est consacré à la version de G<span>&#8209;</span>Séries offerte en libre accès (librairie R gseries). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations sur les versions SAS^®^. Les employés de StatCan peuvent également visiter la page Confluence de G<span>&#8209;</span>Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence).
 
 
 ## Formation
@@ -56,4 +56,4 @@ StatCan offre de la formation sur ces sujets. Visitez les pages suivantes sur le
 
 ## Contact - Assistance
 
-L'assistance à G-Séries est assuré par le Centre de recherche et d’analyse en séries chronologiques (CRASC) de la Division des méthodes de la statistique économique (DMSE) et par la Division des solutions de traitement numérique (DSTN). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations ou de l'aide sur l'utilisation de G-Séries. Les détenteurs d'un compte GitHub peuvent également demander des informations, poser des questions ou signaler des problèmes via la page [*Issues*](https://github.com/StatCan/gensol-gseries/issues) du projet GitHub de G-Séries. Les employés de StatCan peuvent faire de même via la page **Tickets** du projet de développement GitLab de G-Séries hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab).
+L'assistance à G<span>&#8209;</span>Séries est assurée par le Centre de recherche et d’analyse en séries chronologiques (CRASC) de la Division des méthodes de la statistique économique (DMSE) et par la Division des solutions de traitement numérique (DSTN). Écrivez-nous à [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) pour obtenir des informations ou de l'aide sur l'utilisation de G<span>&#8209;</span>Séries. Les détenteurs d'un compte GitHub peuvent également demander des informations, poser des questions ou signaler des problèmes via la page [*Issues*](https://github.com/StatCan/gensol-gseries/issues) du projet GitHub de G<span>&#8209;</span>Séries. Les employés de StatCan peuvent faire de même via la page **Tickets** du projet de développement GitLab de G<span>&#8209;</span>Séries hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab).
