@@ -159,15 +159,15 @@
 #' @returns
 #' The function returns is a list of four data frames:
 #' 
-#' * **series**: data frame containing the benchmarked data (primary function output). BY-group variables
+#' * `series`: data frame containing the benchmarked data (primary function output). BY-group variables
 #' specified with argument `by` would be included in the data frame but not alterability coefficient variables
 #' specified with argument `var`.
 #' 
-#' * **benchmarks**: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
+#' * `benchmarks`: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
 #' BY-group variables specified with argument `by` would be included in the data frame but not alterability
 #' coefficient variables specified with argument `with`.
 #' 
-#' * **graphTable**: data frame containing supplementary data useful to produce analytical tables and graphs
+#' * `graphTable`: data frame containing supplementary data useful to produce analytical tables and graphs
 #' (see function [plot_graphTable()]). It contains the following variables in addition to the BY-group variables
 #' specified with argument `by`:
 #'   * `varSeries`: Name of the indicator series variable
@@ -199,7 +199,7 @@
 #'   * `growthRateBenchmarked`: Period to period difference (\eqn{\lambda = 0}) or relative difference (\eqn{\lambda \ne 0}{
 #'   lambda != 0}) of the benchmarked series values (variable `benchmarked`)
 #'   
-#' * **splineKnots**: set of `x` and `y` coordinates (knots) used to estimate the natural cubic spline with
+#' * `splineKnots`: set of `x` and `y` coordinates (knots) used to estimate the natural cubic spline with
 #' function `stats::spline()`. In addition to the original set of knots corresponding to binding benchmarks
 #' (anchor points), extra knots are also added at the beginning and end in order to deal with the *benchmarking
 #' timeliness issue* and approximate a *slope=0* spline at both ends (see section **Details**). It contains the following 
@@ -210,16 +210,16 @@
 #'   * `y`: Cubic spline `y` coordinate
 #'   * `extraKnot`: Logical value identifying the extra knots added at the beginning and end
 #'   
-#'   Rows for which `extraKnot == FALSE` correspond to rows in the **graphTable** output data frame for which 
+#'   Rows for which `extraKnot == FALSE` correspond to rows in the `graphTable` output data frame for which 
 #'   `m` is not missing (not `NA`), with `x = t` and `y = benchmarkedSubAnnualRatio`.
 #'
 #' Notes:
-#' * The output **benchmarks** data frame always contains the original benchmarks provided in the input
+#' * The output `benchmarks` data frame always contains the original benchmarks provided in the input
 #' benchmarks data frame. Modified nonbinding benchmarks, when applicable, can be recovered (calculated)
-#' from the output **series** data frame.
+#' from the output `series` data frame.
 #' * The function returns a `NULL` object if an error occurs before data processing could start. Otherwise,
 #' if execution gets far enough so that data processing could start, then an incomplete object would be
-#' returned in case of errors (e.g., output **series** data frame with `NA` values for the benchmarked data).
+#' returned in case of errors (e.g., output `series` data frame with `NA` values for the benchmarked data).
 #' * The function returns "data.frame" objects that can be explicitly coerced to other types of objects with 
 #' the appropriate `as*()` function (e.g., `tibble::as_tibble()` would coerce any of them to a tibble).
 #'

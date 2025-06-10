@@ -7,7 +7,9 @@
 gs.gInv_MP(X, tol = NA)
 }
 \arguments{
-\item{X}{(mandatory) Matrix to invert.}
+\item{X}{(mandatory)
+
+Matrix to invert.}
 
 \item{tol}{(optional)
 

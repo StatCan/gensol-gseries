@@ -14,7 +14,7 @@ tsDF_to_ts(
 \arguments{
 \item{ts_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, à convertir.}
+\emph{Data frame} (object de classe « data.frame ») à convertir.}
 
 \item{frequency}{(obligatoire)
 
@@ -30,7 +30,7 @@ qui contiennent les identificateurs d'année et de période du point de données
 \strong{Les valeurs par défaut} sont \code{yr_cName = "year"} et \code{per_cName = "period"}.}
 }
 \value{
-La fonction renvoie un objet de type série chronologique (« ts » ou « mts »), qui peut être explicitement converti
+La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts »), qui peut être explicitement converti
 en un autre type d'objet avec la fonction \verb{as*()} appropriée (ex., \code{tsibble::as_tsibble()} le convertirait en tsibble).
 }
 \description{

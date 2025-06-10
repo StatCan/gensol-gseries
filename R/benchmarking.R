@@ -50,16 +50,17 @@
 #'
 #' @param series_df (mandatory)
 #'
-#' Data frame, or object to be coerced to one, that contains the indicator time series data to be benchmarked.
-#' In addition to the series data variable(s), specified with argument `var`, the data frame must also contain
-#' two numeric variables, `year` and `period`, identifying the periods of the indicator time series.
+#' Data frame (object of class "data.frame") that contains the indicator time series data to be 
+#' benchmarked. In addition to the series data variable(s), specified with argument `var`, the data 
+#' frame must also contain two numeric variables, `year` and `period`, identifying the periods of 
+#' the indicator time series.
 #'
 #' @param benchmarks_df (mandatory)
 #'
-#' Data frame, or object to be coerced to one, that contains the benchmarks. In addition to the benchmarks
-#' data variable(s), specified with argument `with`, the data frame must also contain four numeric variables,
-#' `startYear`, `startPeriod`, `endYear` and `endPeriod`, identifying the indicator time series periods covered
-#' by each benchmark.
+#' Data frame (object of class "data.frame") that contains the benchmarks. In addition to the benchmarks 
+#' data variable(s), specified with argument `with`, the data frame must also contain four numeric 
+#' variables, `startYear`, `startPeriod`, `endYear` and `endPeriod`, identifying the indicator time 
+#' series periods covered by each benchmark.
 #'
 #' @param rho (mandatory)
 #'
@@ -188,7 +189,7 @@
 #' would allow proportional benchmarking with `rho = 1` (e.g., proportional Denton benchmarking) on
 #' indicator series that include values of 0. Otherwise, proportional benchmarking with values of 0 in
 #' the indicator series is only possible when `rho < 1`. Specifying a constant with additive benchmarking
-#' (`lambda = 0.0`) has no impact on the resulting benchmarked data. The data variables in the **graphTable**
+#' (`lambda = 0.0`) has no impact on the resulting benchmarked data. The data variables in the `graphTable`
 #' output data frame include the constant, corresponding to the benchmarking problem that was actually solved.
 #'
 #' **Default value** is `constant = 0` (no temporary additive constant).
@@ -365,7 +366,7 @@
 #' value after benchmarking **with bias correction** (see arguments `biasOption` and `bias`).
 #'
 #' Nonbinding benchmarks, when applicable, can be recovered (calculated) from the benchmarked series (see output data frame
-#' **series** in section **Value**). The output **benchmarks** data frame always contains the original benchmarks provided 
+#' `series` in section **Value**). The output `benchmarks` data frame always contains the original benchmarks provided 
 #' in the input benchmarks data frame (argument `benchmarks_df`).
 #'
 #' ## Benchmarking Multiple Series
@@ -412,15 +413,15 @@
 #' @returns
 #' The function returns is a list of three data frames:
 #' 
-#' * **series**: data frame containing the benchmarked data (primary function output). BY variables specified 
+#' * `series`: data frame containing the benchmarked data (primary function output). BY variables specified 
 #' with argument `by` would be included in the data frame but not alterability coefficient variables 
 #' specified with argument `var`.
 #' 
-#' * **benchmarks**: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
+#' * `benchmarks`: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
 #' BY variables specified with argument `by` would be included in the data frame but not alterability
 #' coefficient variables specified with argument `with`.
 #' 
-#' * **graphTable**: data frame containing supplementary data useful for producing analytical tables and graphs
+#' * `graphTable`: data frame containing supplementary data useful for producing analytical tables and graphs
 #' (see function [plot_graphTable()]). It contains the following variables in addition to the BY variables
 #' specified with argument `by`:
 #'   * `varSeries`: Name of the indicator series variable
@@ -454,12 +455,12 @@
 #'   lambda != 0}) of the benchmarked series values (variable `benchmarked`)
 #'
 #' Notes:
-#' * The output **benchmarks** data frame always contains the original benchmarks provided in the input
+#' * The output `benchmarks` data frame always contains the original benchmarks provided in the input
 #' benchmarks data frame. Modified nonbinding benchmarks, when applicable, can be recovered (calculated)
-#' from the output **series** data frame.
+#' from the output `series` data frame.
 #' * The function returns a `NULL` object if an error occurs before data processing could start. Otherwise,
 #' if execution gets far enough so that data processing could start, then an incomplete object would be
-#' returned in case of errors (e.g., output **series** data frame with `NA` values for the benchmarked data).
+#' returned in case of errors (e.g., output `series` data frame with `NA` values for the benchmarked data).
 #' * The function returns "data.frame" objects that can be explicitly coerced to other types of objects with 
 #' the appropriate `as*()` function (e.g., `tibble::as_tibble()` would coerce any of them to a tibble).
 #'

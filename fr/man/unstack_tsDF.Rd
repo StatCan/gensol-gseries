@@ -15,7 +15,7 @@ unstack_tsDF(
 \arguments{
 \item{ts_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, contenant les données de séries chronologiques multivariées à \emph{désempiler}.}
+\emph{Data frame} (object de classe « data.frame ») contenant les données de séries chronologiques multivariées à \emph{désempiler}.}
 
 \item{ser_cName}{(optionnel)
 

@@ -16,7 +16,7 @@ stack_tsDF(
 \arguments{
 \item{ts_df}{(mandatory)
 
-Data frame, or object to be coerced to one, that contains the multivariate time series data to be stacked.}
+Data frame (object of class "data.frame") that contains the multivariate time series data to be stacked.}
 
 \item{ser_cName}{(optional)
 

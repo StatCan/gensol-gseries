@@ -31,25 +31,25 @@ status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.
 ## Description
 
 Version R du système généralisé de Statistique Canada (StatCan)
-**G-Séries** initialement développé en SAS<sup>®</sup>. Ce site web est
-consacré à la version R de G-Séries (librairie gseries). Écrivez-nous à
+**G‑Séries** initialement développé en SAS<sup>®</sup>. Ce site web est
+consacré à la version R de G‑Séries (librairie gseries). Écrivez-nous à
 <g-series@statcan.gc.ca> pour obtenir des informations sur les versions
 SAS<sup>®</sup>.
 
 > ***Note - intranet de StatCan***  
 > Les employés de StatCan peuvent également visiter la page Confluence
-> de G-Séries dans l’intranet de l’agence (cherchez « G-Series \|
+> de G‑Séries dans l’intranet de l’agence (cherchez « G-Series \|
 > G-Séries » dans Confluence) ainsi que le projet de développement
-> GitLab de G-Séries également hébergé dans l’intranet de l’agence
+> GitLab de G‑Séries également hébergé dans l’intranet de l’agence
 > (cherchez « G-Series in R - G-Séries en R » dans GitLab). Ce dernier
 > inclut une version des informations et instructions contenues dans
 > cette page qui sont spécifiques à l’infrastructure TI de StatCan (ex.,
 > Artifactory et GitLab) ; voir `index_StatCan.md` dans le répertoire
 > racine du projet GitLab.
 
-G-Séries 3.0 (librairie gseries 3.0.0) est la première version du
+G‑Séries 3.0 (librairie gseries 3.0.0) est la première version du
 logiciel offerte en libre accès (logiciel libre). Elle inclut le
-recodage en R de toutes les fonctionalités SAS<sup>®</sup> de G‑Series
+recodage en R de toutes les fonctionalités SAS<sup>®</sup> de G‑Séries
 2.0, soient PROC BENCHMARKING, PROC TSRAKING et la macro
 ***GSeriesTSBalancing***, ainsi qu’une fonction pour l’étalonnage de
 *séries de stocks* par l’entremise d’interpolations par spline cubique
@@ -198,7 +198,7 @@ accessibles à partir de R avec `browseVignettes("gseries")` ou
   expliquant comment elle peut être personnalisée.
 
 Enfin, la page [Prise en main](./articles/gseries.html) (barre
-supérieure) fournit des informations générales sur G-Séries et est
+supérieure) fournit des informations générales sur G‑Séries et est
 disponible sous la forme d’une vignette dans R (`vignette("gseries")`).
 
 #### *Copie locale du site web de la librairie*
@@ -234,8 +234,8 @@ dans les copies locales du site web de la librairie.
 #### *Format PDF*
 
 La documentation bilingue (anglaise-française) en format PDF de
-G-Séries, également utile en mode hors ligne ou pour une version
-spécifique de G-Séries, est disponible dans le dossier `pdf/` du
+G‑Séries, également utile en mode hors ligne ou pour une version
+spécifique de G‑Séries, est disponible dans le dossier `pdf/` du
 [dépôt](https://github.com/StatCan/gensol-gseries) GitHub (branche
 *main* ou *tag* $\geq$ *v3.0.0* pour les versions R et *tag* $\leq$
 *v2.0* pour les versions SAS<sup>®</sup>). Là encore, l’outil GitHub

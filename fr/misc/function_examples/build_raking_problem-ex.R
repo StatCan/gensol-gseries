@@ -1,4 +1,4 @@
-# Dériver les totaux de marge d'un cube de données à deux dimensions (2 x 3) 
+# Dériver les 5 totaux de marge d'un cube de données à deux dimensions 2 x 3 
 # en utilisant les métadonnées de `tsraking()`.
 
 mes_meta <- data.frame(series = c("A1", "A2", "A3",

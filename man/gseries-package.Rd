@@ -4,9 +4,9 @@
 \name{gseries-package}
 \alias{gseries}
 \alias{gseries-package}
-\title{gseries: (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R'}
+\title{gseries: Tools for Cohesive Time Series Data}
 \description{
-(EN) Statistics Canada's generalized system devoted to time series benchmarking and reconciliation. The methods used in 'G-Series' essentially come from Dagum and Cholette (2006) \doi{10.1007/0-387-35439-5}. / (FR) Système généralisé de Statistique Canada consacré à l'étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans 'G-Séries' proviennent essentiellement de Dagum et Cholette (2006) \doi{10.1007/0-387-35439-5}.
+'R' version of 'G-Series', Statistics Canada's generalized system devoted to time series benchmarking and reconciliation. The methods used in 'G-Series' essentially come from Dagum and Cholette (2006) \doi{10.1007/0-387-35439-5}.
 }
 \seealso{
 Useful links:

@@ -46,15 +46,17 @@
 #'
 #' @param series_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui contient les données de la (des) série(s) indicatrice(s) à étalonner. En plus de 
-#' la (des) variable(s) contenant les données, spécifiée(s) avec l'argument `var`, le *data frame* doit aussi contenir deux 
-#' variables numériques, `year` et `period`, identifiant les périodes des séries indicatrices.
+#' *Data frame* (object de classe « data.frame ») qui contient les données de la (des) série(s) indicatrice(s) à 
+#' étalonner. En plus de la (des) variable(s) contenant les données, spécifiée(s) avec l'argument `var`, le 
+#' *data frame* doit aussi contenir deux variables numériques, `year` et `period`, identifiant les périodes des 
+#' séries indicatrices.
 #'
 #' @param benchmarks_df (obligatoire)
 #'
-#' *Data frame*, ou objet compatible, qui contient les étalons. En plus de la (des) variable(s) contenant les données, 
-#' spécifiée(s) avec l'argument `with`, le *data frame* doit aussi contenir quatre variables numériques, `startYear`, 
-#' `startPeriod`, `endYear` et `endPeriod`, identifiant les périodes des séries indicatrices couvertes par chaque étalon.
+#' *Data frame* (object de classe « data.frame ») qui contient les étalons. En plus de la (des) variable(s) contenant 
+#' les données, spécifiée(s) avec l'argument `with`, le *data frame* doit aussi contenir quatre variables numériques, 
+#' `startYear`, `startPeriod`, `endYear` et `endPeriod`, identifiant les périodes des séries indicatrices couvertes 
+#' par chaque étalon.
 #'
 #' @param rho (obligatoire)
 #'
@@ -187,7 +189,7 @@
 #' proportionnel avec `rho = 1` (étalonnage de  Denton proportionnel) sur avec des séries indicatrices qui comprennent des 
 #' valeurs de 0. Sinon, l'étalonnage proportionnel avec des valeurs de 0 pour la série indicatrice n'est possible que 
 #' lorsque `rho < 1`. Spécifier une constante avec l'étalonnage additif (`lambda = 0.0`) n'a pas d'impact sur les données 
-#' étalonnées résultantes. Les variables de données dans le *data frame* de sortie **graphTable** incluent la constante, 
+#' étalonnées résultantes. Les variables de données dans le *data frame* de sortie `graphTable` incluent la constante, 
 #' correspondant au problème d'étalonnage effectivement résolu par la fonction.
 #'
 #' **La valeur par défaut** est `constant = 0` (pas de constante additive temporaire).
@@ -375,7 +377,7 @@
 #' et `bias`).
 #' 
 #' Les étalons non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir de la série étalonnée (voir le 
-#' *data frame* de sortie **series** dans la section **Valeur de retour**). Le *data frame* de sortie **benchmarks** contient 
+#' *data frame* de sortie `series` dans la section **Valeur de retour**). Le *data frame* de sortie `benchmarks` contient 
 #' toujours les étalons fournis dans le *data frame* d'entrée des étalons (argument `benchmarks_df`).
 #' 
 #' ## Étalonnage de plusieurs séries
@@ -421,15 +423,15 @@
 #' @returns
 #' La fonction renvoie une liste de trois *data frames* :
 #' 
-#' * **series** : *data frame* contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées 
+#' * `series` : *data frame* contenant les données étalonnées (sortie principale de la fonction). Les variables BY spécifiées 
 #' avec l'argument `by` sont incluses dans le *data frame* mais pas les variables de coefficient d'altérabilité spécifiées 
 #' avec l'argument `var`.
 #' 
-#' * **benchmarks** : copie du *data frame* d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant). 
+#' * `benchmarks` : copie du *data frame* d'entrée des étalons (à l'exclusion des étalons non valides, le cas échéant). 
 #' Les variables BY spécifiées avec l'argument `by` sont incluses dans le *data frame* mais pas les variables de coefficient 
 #' d'altérabilité spécifiées avec l'argument `with`.
 #' 
-#' * **graphTable** : *data frame* contenant des données supplémentaires utiles pour produire des tableaux et des graphiques 
+#' * `graphTable` : *data frame* contenant des données supplémentaires utiles pour produire des tableaux et des graphiques 
 #' analytiques (voir la fonction [plot_graphTable()]). Il contient les variables suivantes en plus des variables BY spécifiées 
 #' avec l'argument `by` :
 #'   * `varSeries` : Nom de la variable de la série indicatrice
@@ -465,12 +467,12 @@
 #'   période à l'autre des valeurs de la série étalonnée (variable `benchmarked`)
 #'   
 #' Notes :
-#' * Le *data frame* de sortie **benchmarks** contient toujours les étalons originaux fournis dans le *data frame* d'entrée 
+#' * Le *data frame* de sortie `benchmarks` contient toujours les étalons originaux fournis dans le *data frame* d'entrée 
 #' des étalons. Les étalons modifiés non contraignants, le cas échéant, peuvent être récupérés (calculés) à partir du *data frame* 
-#' de sortie **series**.
+#' de sortie `series`.
 #' * La fonction renvoie un objet `NULL` si une erreur se produit avant que le traitement des données ne puisse commencer. 
 #' Dans le cas contraire, si l'exécution est suffisamment avancée pour que le traitement des données puisse commencer, alors 
-#' un objet incomplet sera renvoyé en cas d'erreur (par exemple, un *data frame* de sortie **series** avec des valeurs `NA` 
+#' un objet incomplet sera renvoyé en cas d'erreur (par exemple, un *data frame* de sortie `series` avec des valeurs `NA` 
 #' pour les données étalonnées).
 #' * La fonction renvoie des objets « data.frame » qui peuvent être explicitement convertis en d'autres types d'objets avec la 
 #' fonction `as*()` appropriée (ex., `tibble::as_tibble()` convertirait n'importe lequel d'entre eux en tibble).

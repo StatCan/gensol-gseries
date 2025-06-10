@@ -233,17 +233,17 @@ gs.validate_cols <- function(cols, against, df_name, source_str = NA) {
 #' rectangulaire en utilisant la décomposition en valeurs singulières (SVD, de l'anglais 
 #' _singular value decomposition_). Elle est utlilisée à l'interne par [tsraking()] et [benchmarking()].
 #' 
-#' @param X (mandatory)
+#' @param X (obligatoire) 
 #' 
 #' Matrice à inverser.
 #' 
-#' @param tol (optional)
+#' @param tol (optionnel)
 #' 
 #' Nombre réel qui spécifie la tolérance pour l'identification des valeurs singulières nulles. Lorsque `tol = NA` 
 #' (par défaut), la tolérance est calculée comme étant le produit de la taille (dimension) de la matrice, de la norme 
 #' de la matrice (plus grande valeur singulière) et de l'_epsilon de la machine_ (`.Machine$double.eps`). 
-#' 
-#' **Default value** is `tol = NA`.
+#'
+#' **La valeur par défaut** est `tol = NA`.
 #' 
 #' @returns
 #' L'inverse (pseudo inverse) de Moore-Penrose de la matrice `X`.
@@ -307,15 +307,25 @@ gs.gInv_MP <- function(X, tol = NA) {
 #' 
 #' @name time_values_conv
 #' 
-#' @param ts (obligatoire) Objet de type série chronologique (« ts » ou « mts ») ou objet compatible.
-#' @param sep (optionnel) Chaîne de caractères (constante de type caractère) spécifiant le séparateur à 
-#' utiliser entre les valeurs d'année et de période (`"-"` par défaut).
+#' @description
+#' Fonctions de conversion de valeurs de temps utilisées à l'interne par d'autres fonctions de gseries.
+#' 
+#' @param ts (obligatoire) 
+#' 
+#' Objet de type série chronologique (classe « ts » ou « mts »).
+#' 
+#' @param sep (optionnel) 
+#' 
+#' Chaîne de caractères (constante de type caractère) spécifiant le séparateur à 
+#' utiliser entre les valeurs d'année et de période.
+#'
+#' **La valeur par défaut** est `sep = "-"`.
 #' 
 #' @returns 
 #' [gs.time2year()] renvoie un vecteur de nombres entiers correspondant à l'année (l'unité de temps) « la plus proche ». 
 #' Cette fonction est l'équivalent de [stats::cycle()] pour les valeurs d'unités de temps.
 #' 
-#' [gs.time2per()] renvoie un vecteur de nombres entiers contenant les valeurs des périodes (cycles; voir 
+#' [gs.time2per()] renvoie un vecteur de nombres entiers contenant les valeurs des périodes (les cycles ; voir 
 #' [stats::cycle()])).
 #' 
 #' [gs.time2str()] renvoie un vecteur de chaînes de caractères correspondant à `gs.time2year(ts)` lorsque 
@@ -370,21 +380,38 @@ gs.time2str <- function(ts, sep = "-") {
 #' Cette fonction construit le _data frame_ des groupes de traitement pour les problèmes de réconciliation. 
 #' Elle est utilisée à interne par [tsraking_driver()] et [tsbalancing()].
 #' 
-#' @param ts_yr_vec (obligatoire) Vecteur des valeurs d'année (unité de temps; voir [gs.time2year()]).
-#' @param ts_per_vec (obligatoire) Vecteur des valeurs de période (cycle; voir [gs.time2per()]).
-#' @param n_per (obligatoire) Longueur (nombre de périodes) de la série chronologique.
-#' @param ts_freq (obligatoire) Fréquence de la srie chronologique (voir [stats::frequency()]).
-#' @param temporal_grp_periodicity (obligatoire) Nombre de périodes dans les groupes temporels.
-#' @param temporal_grp_start (obligatoire) Première période des groupes temporels.
+#' @param ts_yr_vec (obligatoire) 
+#' 
+#' Vecteur des valeurs d'année (unité de temps; voir [gs.time2year()]).
+#' 
+#' @param ts_per_vec (obligatoire) 
+#' 
+#' Vecteur des valeurs de période (cycle; voir [gs.time2per()]).
+#' 
+#' @param n_per (obligatoire) 
+#' 
+#' Longueur (nombre de périodes) de la série chronologique.
+#' 
+#' @param ts_freq (obligatoire) 
+#' 
+#' Fréquence de la série chronologique (voir [stats::frequency()]).
+#' 
+#' @param temporal_grp_periodicity (obligatoire) 
+#' 
+#' Nombre de périodes dans les groupes temporels.
+#' 
+#' @param temporal_grp_start (obligatoire) 
+#' 
+#' Première période des groupes temporels.
 #' 
 #' @inheritSection tsbalancing Groupes de traitement
 #' 
 #' @returns
 #' Un _data frame_ avec les variables (colonnes) suivantes :
-#' - `grp`         : vecteur de nombres entiers identifiant le groupe de traitement (1 .. < nombre de groupes >)
-#' - `beg_per`     : vecteur de nombres entiers identifiant la première période du groupe de traitement (1 .. `n_per`)
-#' - `end_per`     : vecteur de nombres entiers identifiant la dernière période du groupe de traitement (1 .. `n_per`)
-#' - `complete_grp`: Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet
+#' - `grp`          : vecteur de nombres entiers identifiant le groupe de traitement (`1:<nombre-de-groupes>`).
+#' - `beg_per`      : vecteur de nombres entiers identifiant la première période du groupe de traitement.
+#' - `end_per`      : vecteur de nombres entiers identifiant la dernière période du groupe de traitement.
+#' - `complete_grp` : Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet.
 #' 
 #' @seealso [tsraking_driver()] [tsbalancing()] [time_values_conv] 
 #' 

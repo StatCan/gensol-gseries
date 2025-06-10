@@ -14,28 +14,27 @@ tsraking_driver(
 \arguments{
 \item{in_ts}{(obligatoire)
 
-Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries
-chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage
-(« \emph{raking} »).}
+Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries chronologiques
+à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage (« \emph{raking} »).}
 
 \item{...}{
   Arguments transmis à \code{\link[=tsraking]{tsraking}}
   \describe{
     \item{\code{metadata_df}}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui décrit les contraintes d'agrégation transversales (règles d'additivité) pour le
-problème de ratissage (« \emph{raking} »). Deux variables de type caractère doivent être incluses dans le \emph{data frame} :
-\code{series} et \code{total1}. Deux variables sont optionnelles : \code{total2} (caractère) et \code{alterAnnual} (numérique). Les valeurs
-de la variable \code{series} représentent les noms des variables des séries composantes dans le \emph{data frame} des données
-d'entrée (argument \code{data_df}). De même, les valeurs des variables \code{total1} et \code{total2} représentent les noms des variables
-des totaux de contrôle transversaux de 1\if{html}{\out{<sup>}}ère\if{html}{\out{</sup>}} et 2\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}} dimension dans le \emph{data frame} des données
-d'entrée. La variable \code{alterAnnual} contient le coefficient d'altérabilité pour la contrainte temporelle associée à
-chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le coefficient d'altérabilité par défaut
-spécifié avec l'argument \code{alterAnnual}.}
+\emph{Data frame} (object de classe « data.frame ») qui décrit les contraintes d'agrégation transversales (règles
+d'additivité) pour le problème de ratissage (« \emph{raking} »). Deux variables de type caractère doivent être incluses
+dans le \emph{data frame} : \code{series} et \code{total1}. Deux variables sont optionnelles : \code{total2} (caractère) et \code{alterAnnual}
+(numérique). Les valeurs de la variable \code{series} représentent les noms des variables des séries composantes dans le
+\emph{data frame} des données d'entrée (argument \code{data_df}). De même, les valeurs des variables \code{total1} et \code{total2}
+représentent les noms des variables des totaux de contrôle transversaux de 1\if{html}{\out{<sup>}}ère\if{html}{\out{</sup>}} et 2\if{html}{\out{<sup>}}ème\if{html}{\out{</sup>}} dimension
+dans le \emph{data frame} des données d'entrée. La variable \code{alterAnnual} contient le coefficient d'altérabilité pour la
+contrainte temporelle associée à chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le
+coefficient d'altérabilité par défaut spécifié avec l'argument \code{alterAnnual}.}
     \item{\code{alterability_df}}{(optionnel)
 
-\emph{Data frame}, ou objet compatible, ou \code{NULL}, qui contient les variables de coefficients d'altérabilité. Elles
-doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
+\emph{Data frame} (object de classe « data.frame »), ou \code{NULL}, qui contient les variables de coefficients d'altérabilité.
+Elles doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
 portant le même nom doit exister dans le \emph{data frame} des données d'entrée (argument \code{data_df}). Les valeurs de
 ces coefficients d'altérabilité remplaceront les coefficients d'altérabilité par défaut spécifiés avec les arguments
 \code{alterSeries}, \code{alterTotal1} et \code{alterTotal2}. Lorsque le \emph{data frame} des données d'entrée contient plusieurs
@@ -168,7 +167,7 @@ d'effet pour un traitement période par période sans préservation des totaux t
 \strong{La valeur par défaut} est \code{temporal_grp_start = 1}.}
 }
 \value{
-La fonction renvoie un objet de type série chronologique (« ts » ou « mts ») contenant les séries composantes
+La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts ») contenant les séries composantes
 réconciliées, les totaux de contrôle transversaux réconciliés et d'autres séries spécifiées avec l'argument \code{id} de
 \code{\link[=tsraking]{tsraking()}}. Il peut être explicitement converti en un autre type d'objet avec la fonction \verb{as*()} appropriée (ex.,
 \code{tsibble::as_tsibble()} le convertirait en tsibble).

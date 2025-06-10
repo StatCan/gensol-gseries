@@ -45,8 +45,8 @@
 #'
 #' @param in_ts (mandatory) 
 #' 
-#' Time series ("ts" or "mts"), or object to be coerced to one, that contains the time series data to be 
-#' reconciled. They are the balancing problems' input data (initial solutions).
+#' Time series (object of class "ts" or "mts") that contains the time series data to be reconciled. 
+#' They are the balancing problems' input data (initial solutions).
 #' 
 #' @param problem_specs_df (mandatory) 
 #' 
@@ -293,7 +293,7 @@
 #' 
 #' Logical argument specifying whether or not to display only essential information such as warnings, errors and the period 
 #' (or set of periods) being reconciled. You could further suppress, if desired, the display of the _balancing period(s)_ 
-#' information by _wrapping_ your [tsbalancing()] call with [suppressMessages()]. In that case, the **proc_grp_df** output 
+#' information by _wrapping_ your [tsbalancing()] call with [suppressMessages()]. In that case, the `proc_grp_df` output 
 #' data frame can be used to identify (unsuccessful) balancing problems associated with warning messages (if any). Note that 
 #' specifying `quiet = TRUE` would also *nullify* argument `display_level`.
 #'
@@ -365,11 +365,11 @@
 #' 
 #' ## Validation and troubleshooting
 #' Successful balancing problems (problems with a valid solution) have `sol_status_val > 0` or, equivalently, 
-#' `n_unmet_con = 0` or `max_discr <= validation_tol` in the output **proc_grp_df** data frame. Troubleshooting 
+#' `n_unmet_con = 0` or `max_discr <= validation_tol` in the output `proc_grp_df` data frame. Troubleshooting 
 #' unsuccessful balancing problems is not necessarily straightforward. Following are some suggestions:
 #' 
 #' - Investigate the failed constraints (`unmet_flag = TRUE` or, equivalently, `discr_out > validation_tol` in the 
-#' output **prob_con_df** data frame) to make sure that they do not cause an empty solution space (infeasible problem).
+#' output `prob_con_df` data frame) to make sure that they do not cause an empty solution space (infeasible problem).
 #' 
 #' - Change the OSQP solving sequence. E.g., try:
 #'   1. argument `full_sequence = TRUE`
@@ -482,11 +482,11 @@
 #' @returns
 #' The function returns is a list of seven objects:
 #' 
-#' - **out_ts**: modified version of the input time series object ("ts" or "mts"; see argument `in_ts`) with the resulting 
+#' - `out_ts`: modified version of the input time series object (class "ts" or "mts"; see argument `in_ts`) with the resulting 
 #' reconciled time series values (primary function output). It can be explicitly coerced to another type of object with the 
 #' appropriate `as*()` function (e.g., `tsibble::as_tsibble()` would coerce it to a tsibble).
 #' 
-#' - **proc_grp_df**: processing group summary data frame, useful to identify problems that have succeeded or failed. 
+#' - `proc_grp_df`: processing group summary data frame, useful to identify problems that have succeeded or failed. 
 #' It contains one observation (row) for each balancing problem with the following columns:
 #'   - `proc_grp` (num): processing group id.
 #'   - `proc_grp_type` (chr): processing group type. Possible values are:
@@ -524,7 +524,7 @@
 #'   the OSQP solution (smaller total constraint discrepancies). The OSQP solving sequence is described in \ifelse{latex}{
 #'   \code{vignette("osqp-settings -sequence-dataframe")}}{\code{vignette("osqp-settings-sequence-dataframe")}}.
 #'     
-#' - **periods_df**: time periods data frame, useful to match periods to processing groups. It contains one observation 
+#' - `periods_df`: time periods data frame, useful to match periods to processing groups. It contains one observation 
 #' (row) for each period of the input time series object (argument `in_ts`) with the following columns:
 #'   - `proc_grp` (num): processing group id.
 #'   - `t` (num): time id (`1:nrow(in_ts)`).
@@ -532,7 +532,7 @@
 #'   
 #'   Columns `t` and `time_val` both constitute a *unique key* (distinct rows) for the data frame.
 #' 
-#' - **prob_val_df**: problem values data frame, useful to analyze change diagnostics, i.e., initial vs final (reconciled) 
+#' - `prob_val_df`: problem values data frame, useful to analyze change diagnostics, i.e., initial vs final (reconciled) 
 #' values. It contains one observation (row) for each value involved in each balancing problem, with the following columns:
 #'   - `proc_grp` (num): processing group id.
 #'   - `val_type` (chr): problem value type. Possible values are:
@@ -552,7 +552,7 @@
 #'   data frame. Binding (fixed) problem values correspond to rows with `alter = 0` or `value_in = 0`. Conversely, nonbinding 
 #'   (free) problem values correspond to rows with `alter != 0` and `value_in != 0`.
 #'   
-#' - **prob_con_df**: problem constraints data frame, useful for troubleshooting problems that failed (identify unmet 
+#' - `prob_con_df`: problem constraints data frame, useful for troubleshooting problems that failed (identify unmet 
 #' constraints). It contains one observation (row) for each constraint involved in each balancing problem, with the following 
 #' columns:
 #'   - `proc_grp` (num): processing group id.
@@ -579,7 +579,7 @@
 #'   `LE` constraints, \eqn{\mathbf{u} = \infty}{u = Inf} for `GE` constraints, and include the tolerances, when applicable, 
 #'   specified with arguments `tolV`, `tolV_temporal` and `tolP_temporal`.
 #' 
-#' - **osqp_settings_df**: OSQP settings data frame. It contains one observation (row) for each problem (processing group) 
+#' - `osqp_settings_df`: OSQP settings data frame. It contains one observation (row) for each problem (processing group) 
 #' solved with OSQP (`proc_grp_df$sol_type = "osqp"`), with the following columns:
 #'   - `proc_grp` (num): processing group id.
 #'   - one column corresponding to each element of the list returned by the `osqp::GetParams()` method applied to a 
@@ -601,7 +601,7 @@
 #'   <https://osqp.org/docs/interfaces/solver_settings.html> for all available OSQP settings. Problems (processing groups) for 
 #'   which the initial solution was returned (`proc_grp_df$sol_type = "initial"`) are not included in this data frame.
 #' 
-#' - **osqp_sol_info_df**: OSQP solution information data frame. It contains one observation (row) for each problem 
+#' - `osqp_sol_info_df`: OSQP solution information data frame. It contains one observation (row) for each problem 
 #' (processing group) solved with OSQP (`proc_grp_df$sol_type = "osqp"`), with the following columns:
 #'   - `proc_grp` (num): processing group id.
 #'   - one column corresponding to each element of the `info` list of a *OSQP solver object* (class "osqp_model" object 
@@ -1803,14 +1803,14 @@ tsbalancing <- function(in_ts,
 }
 
 
-#' Build the core elements (building blocks) for the balancing problems.
+#' Build the elements of balancing problems.
 #'
 #' @description
 #'
 #' \if{html,text}{(\emph{version française: 
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/build_balancing_problem.html}})}
 #' 
-#' This function is used internally by [tsbalancing()] to build the core elements of the balancing problems. 
+#' This function is used internally by [tsbalancing()] to build the elements of the balancing problems. 
 #' It can also be useful to derive the indirect series associated to equality balancing constraints manually 
 #' (outside of the [tsbalancing()] context). 
 #' 
@@ -1859,7 +1859,7 @@ tsbalancing <- function(in_ts,
 #'                (`type` is missing (is `NA`); extra columns:
 #'   - `row.lc`  : `tolower(row)` 
 #'   - `con.flag`: `labels_df$con.flag` allocated through `row.lc`
-#' - `values_ts`: reduced version of 'in_ts' with only the relevant series (see vector `ser_names`)
+#' - `values_ts`: reduced version of `in_ts` with only the relevant series (see vector `ser_names`)
 #' - `lb`       : lower bound info (`type.lc  = "lowerbd"`) for the relevant series; list object with the 
 #'                following elements:
 #'   - `coefs_ts`       : lower bound values for series and period

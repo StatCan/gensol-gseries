@@ -18,7 +18,7 @@
 #'
 #' @param PB_graphTable (optional)
 #'
-#' Data frame, or object to be coerced to one, corresponding to the [benchmarking()] (PB for "Proc Benchmarking"
+#' Data frame (object of class "data.frame") corresponding to the [benchmarking()] (PB for "Proc Benchmarking"
 #' approach) function output `graphTable` data frame. Specify `NULL` not to include the [benchmarking()] adjustments
 #' in the plot.
 #'
@@ -26,14 +26,14 @@
 #'
 #' @param SB_graphTable (optional)
 #'
-#' Data frame, or object to be coerced to one, corresponding to the [stock_benchmarking()] (SB) function output
+#' Data frame (object of class "data.frame") corresponding to the [stock_benchmarking()] (SB) function output
 #' `graphTable` data frame. Specify `NULL` not to include the [stock_benchmarking()] adjustments in the plot.
 #'
 #' **Default value** is `SB_graphTable = NULL`.
 #'
 #' @param SB_splineKnots (optional)
 #'
-#' Data frame, or object to be coerced to one, corresponding to the [stock_benchmarking()] (SB) function output
+#' Data frame (object of class "data.frame") corresponding to the [stock_benchmarking()] (SB) function output
 #' `splineKnots` data frame. Specify `NULL` not to include the [stock_benchmarking()] cubic spline in the plot.
 #'
 #' **Default value** is `SB_splineKnots = NULL`.

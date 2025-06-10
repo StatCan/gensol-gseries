@@ -16,7 +16,7 @@ stack_tsDF(
 \arguments{
 \item{ts_df}{(obligatoire)
 
-\emph{Data frame}, ou objet compatible, qui contient les données de séries chronologiques multivariées à empiler.}
+\emph{Data frame} (object de classe « data.frame ») qui contient les données de séries chronologiques multivariées à empiler.}
 
 \item{ser_cName}{(optionnel)
 

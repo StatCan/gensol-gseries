@@ -31,22 +31,22 @@ status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.
 ## Description
 
 R version of Statistics Canada’s (StatCan) generalized system
-**G-Series** initially developed in SAS<sup>®</sup>. This website is
-devoted to G-Series in R (package gseries). Email us at
+**G‑Series** initially developed in SAS<sup>®</sup>. This website is
+devoted to G‑Series in R (package gseries). Email us at
 <g-series@statcan.gc.ca> for information about the SAS<sup>®</sup>
 versions.
 
 > ***Note - StatCan intranet***  
-> StatCan employees can also visit the G-Series Confluence page on the
+> StatCan employees can also visit the G‑Series Confluence page on the
 > agency’s intranet (search for “G-Series \| G-Séries” in Confluence) as
-> well as the G-Series GitLab development project also hosted on the
+> well as the G‑Series GitLab development project also hosted on the
 > agency’s intranet (search for “G-Series in R - G-Séries en R” in
 > GitLab). The latter includes a version of the information and
 > instructions contained on this page that are specific to the StatCan
 > IT infrastructure (e.g., Artifactory and GitLab); see file
 > `index_StatCan.md` in the GitLab project root folder.
 
-G-Series 3.0 (package gseries 3.0.0) is the initial open-source version
+G‑Series 3.0 (package gseries 3.0.0) is the initial open-source version
 of the software. It includes the rewriting in R of all SAS<sup>®</sup>
 G‑Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING
 and macro ***GSeriesTSBalancing*** along with a function for
@@ -174,7 +174,7 @@ information that, when installed with the package, can also be accessed
 from within R with `browseVignettes("gseries")` or
 `vignette("<vignette-name>")`. They include:
 
-- a *Benchmarking CookBook* (`vignette("benchmarking-cookbook")`) going
+- a *Benchmarking Cookbook* (`vignette("benchmarking-cookbook")`) going
   through the steps of a typical benchmarking project;
 - *A Beginner’s Benchmarking Demo Script*
   (`vignette("benchmarking-demo-script")`) illustrating the usage of the
@@ -185,7 +185,7 @@ from within R with `browseVignettes("gseries")` or
   it can be customized.
 
 Finally, the [Get started](./articles/gseries.html) page (top bar)
-provides general information about G-Series and is available as a
+provides general information about G‑Series and is available as a
 vignette in R (`vignette("gseries")`).
 
 #### *Local copy of the package website*
@@ -217,8 +217,8 @@ of the package website.
 
 #### *PDF format*
 
-Bilingual (French-English) G-Series documentation in PDF format, also
-useful for offline consultation or for a specific version of G-Series,
+Bilingual (French-English) G‑Series documentation in PDF format, also
+useful for offline consultation or for a specific version of G‑Series,
 is available in the `pdf/` folder of the GitHub
 [repository](https://github.com/StatCan/gensol-gseries) (*main* branch
 or tag $\geq$ *v3.0.0* for the R versions and tag $\leq$ *v2.0* for the

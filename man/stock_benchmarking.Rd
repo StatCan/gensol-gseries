@@ -30,16 +30,17 @@ stock_benchmarking(
 \arguments{
 \item{series_df}{(mandatory)
 
-Data frame, or object to be coerced to one, that contains the indicator time series data to be benchmarked.
-In addition to the series data variable(s), specified with argument \code{var}, the data frame must also contain
-two numeric variables, \code{year} and \code{period}, identifying the periods of the indicator time series.}
+Data frame (object of class "data.frame") that contains the indicator time series data to be
+benchmarked. In addition to the series data variable(s), specified with argument \code{var}, the data
+frame must also contain two numeric variables, \code{year} and \code{period}, identifying the periods of
+the indicator time series.}
 
 \item{benchmarks_df}{(mandatory)
 
-Data frame, or object to be coerced to one, that contains the benchmarks. In addition to the benchmarks
-data variable(s), specified with argument \code{with}, the data frame must also contain four numeric variables,
-\code{startYear}, \code{startPeriod}, \code{endYear} and \code{endPeriod}, identifying the indicator time series periods covered
-by each benchmark.}
+Data frame (object of class "data.frame") that contains the benchmarks. In addition to the benchmarks
+data variable(s), specified with argument \code{with}, the data frame must also contain four numeric
+variables, \code{startYear}, \code{startPeriod}, \code{endYear} and \code{endPeriod}, identifying the indicator time
+series periods covered by each benchmark.}
 
 \item{rho}{(mandatory)
 
@@ -192,7 +193,7 @@ constant is removed from the final output benchmarked series. E.g., specifying a
 would allow proportional benchmarking with \code{rho = 1} (e.g., proportional Denton benchmarking) on
 indicator series that include values of 0. Otherwise, proportional benchmarking with values of 0 in
 the indicator series is only possible when \code{rho < 1}. Specifying a constant with additive benchmarking
-(\code{lambda = 0.0}) has no impact on the resulting benchmarked data. The data variables in the \strong{graphTable}
+(\code{lambda = 0.0}) has no impact on the resulting benchmarked data. The data variables in the \code{graphTable}
 output data frame include the constant, corresponding to the benchmarking problem that was actually solved.
 
 \strong{Default value} is \code{constant = 0} (no temporary additive constant).}
@@ -234,13 +235,13 @@ also \emph{nullify} argument \code{verbose}.
 \value{
 The function returns is a list of four data frames:
 \itemize{
-\item \strong{series}: data frame containing the benchmarked data (primary function output). BY-group variables
+\item \code{series}: data frame containing the benchmarked data (primary function output). BY-group variables
 specified with argument \code{by} would be included in the data frame but not alterability coefficient variables
 specified with argument \code{var}.
-\item \strong{benchmarks}: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
+\item \code{benchmarks}: copy of the input benchmarks data frame (excluding invalid benchmarks when applicable).
 BY-group variables specified with argument \code{by} would be included in the data frame but not alterability
 coefficient variables specified with argument \code{with}.
-\item \strong{graphTable}: data frame containing supplementary data useful to produce analytical tables and graphs
+\item \code{graphTable}: data frame containing supplementary data useful to produce analytical tables and graphs
 (see function \code{\link[=plot_graphTable]{plot_graphTable()}}). It contains the following variables in addition to the BY-group variables
 specified with argument \code{by}:
 \itemize{
@@ -273,7 +274,7 @@ of variables \code{avgBenchmark} and \code{avgSubAnnual}
 \item \code{growthRateBenchmarked}: Period to period difference (\eqn{\lambda = 0}) or relative difference (\eqn{\lambda \ne 0}{
   lambda != 0}) of the benchmarked series values (variable \code{benchmarked})
 }
-\item \strong{splineKnots}: set of \code{x} and \code{y} coordinates (knots) used to estimate the natural cubic spline with
+\item \code{splineKnots}: set of \code{x} and \code{y} coordinates (knots) used to estimate the natural cubic spline with
 function \code{stats::spline()}. In addition to the original set of knots corresponding to binding benchmarks
 (anchor points), extra knots are also added at the beginning and end in order to deal with the \emph{benchmarking
 timeliness issue} and approximate a \emph{slope=0} spline at both ends (see section \strong{Details}). It contains the following
@@ -286,18 +287,18 @@ variables in addition to the BY-group variables specified with argument \code{by
 \item \code{extraKnot}: Logical value identifying the extra knots added at the beginning and end
 }
 
-Rows for which \code{extraKnot == FALSE} correspond to rows in the \strong{graphTable} output data frame for which
+Rows for which \code{extraKnot == FALSE} correspond to rows in the \code{graphTable} output data frame for which
 \code{m} is not missing (not \code{NA}), with \code{x = t} and \code{y = benchmarkedSubAnnualRatio}.
 }
 
 Notes:
 \itemize{
-\item The output \strong{benchmarks} data frame always contains the original benchmarks provided in the input
+\item The output \code{benchmarks} data frame always contains the original benchmarks provided in the input
 benchmarks data frame. Modified nonbinding benchmarks, when applicable, can be recovered (calculated)
-from the output \strong{series} data frame.
+from the output \code{series} data frame.
 \item The function returns a \code{NULL} object if an error occurs before data processing could start. Otherwise,
 if execution gets far enough so that data processing could start, then an incomplete object would be
-returned in case of errors (e.g., output \strong{series} data frame with \code{NA} values for the benchmarked data).
+returned in case of errors (e.g., output \code{series} data frame with \code{NA} values for the benchmarked data).
 \item The function returns "data.frame" objects that can be explicitly coerced to other types of objects with
 the appropriate \verb{as*()} function (e.g., \code{tibble::as_tibble()} would coerce any of them to a tibble).
 }

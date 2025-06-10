@@ -21,7 +21,7 @@ Convert a tsraking() metadata data frame to a tsbalancing() problem specs data f
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking CookBook</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/benchmarking-cookbook.html">Benchmarking Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/benchmarking-demo-script.html">A Beginner's Benchmarking Demo Script</a></li>
     <li><a class="dropdown-item" href="../articles/osqp-settings-sequence-dataframe.html">OSQP Settings Sequence Data Frame</a></li>
   </ul></li>
@@ -72,7 +72,7 @@ Convert a tsraking() metadata data frame to a tsbalancing() problem specs data f
 
 <dl><dt id="arg-metadata-df">metadata_df<a class="anchor" aria-label="anchor" href="#arg-metadata-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Data frame, or object to be coerced to one, that describes the cross-sectional aggregation constraints
+<p>Data frame (object of class "data.frame") that describes the cross-sectional aggregation constraints
 (additivity rules) for the raking problem. Two character variables must be included in the metadata data frame:
 <code>series</code> and <code>total1</code>. Two variables are optional: <code>total2</code> (character) and <code>alterAnnual</code> (numeric). The values
 of variable <code>series</code> represent the variable names of the component series in the input time series data frame
@@ -85,7 +85,7 @@ with argument <code>alterAnnual</code>.</p></dd>
 
 <dt id="arg-alterability-df">alterability_df<a class="anchor" aria-label="anchor" href="#arg-alterability-df"></a></dt>
 <dd><p>(optional)</p>
-<p>Data frame, or object to be coerced to one, or <code>NULL</code>, that contains the alterability coefficients variables.
+<p>Data frame (object of class "data.frame"), or <code>NULL</code>, that contains the alterability coefficients variables.
 They must correspond to a component series or a cross-sectional control total, that is, a variable with the same
 name must exist in the input time series data frame (argument <code>data_df</code>). The values of these alterability
 coefficients will override the default alterability coefficients specified with arguments <code>alterSeries</code>,

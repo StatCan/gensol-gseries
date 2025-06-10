@@ -32,7 +32,7 @@ tsbalancing(
 \arguments{
 \item{in_ts}{(obligatoire)
 
-Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries
+Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries
 chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes d'équilibrage
 (« \emph{balancing} »).}
 
@@ -316,7 +316,7 @@ Argument logique (\emph{logical}) spécifiant s'il faut ou non afficher uniqueme
 les avertissements, les erreurs et la période (ou l'ensemble de périodes) en cours de traitement. Vous pouvez également
 supprimer, si vous le souhaitez, l'affichage des informations relatives à la (aux) période(s) en cours de traitement en
 \emph{enveloppant} votre appel à \code{\link[=tsbalancing]{tsbalancing()}} avec \code{\link[=suppressMessages]{suppressMessages()}}. Dans ce cas, le \emph{data frame} de sortie
-\strong{proc_grp_df} peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages
+\code{proc_grp_df} peut être utilisé pour identifier les problèmes d'équilibrage (infructueux) associés aux messages
 d'avertissement (le cas échéant). Notez que la spécification de \code{quiet = TRUE} annulera également l'argument \code{display_level}.
 
 \strong{La valeur par défaut} est \code{quiet = FALSE}.}
@@ -324,11 +324,11 @@ d'avertissement (le cas échéant). Notez que la spécification de \code{quiet =
 \value{
 La fonction renvoie une liste de sept objets :
 \itemize{
-\item \strong{out_ts} : version modifiée de l'objet d'entrée de type série chronologique (« ts » ou « mts »; voir l'argument \code{in_ts})
-contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de la fonction (sortie
-principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec la fonction \verb{as*()}
-appropriée (ex., \code{tsibble::as_tsibble()} le convertirait en tsibble).
-\item \strong{proc_grp_df} : \emph{data frame} récapitulatif des groupes de traitement, utile pour identifier les problèmes
+\item \code{out_ts} : version modifiée de l'objet d'entrée de type série chronologique (classe « ts » ou « mts » ; voir
+l'argument \code{in_ts}) contenant les valeurs réconciliées des séries chronologiques qui résultent de l'exécution de
+la fonction (sortie principale de la fonction). Il peut être explicitement converti en un autre type d'objet avec
+la fonction \verb{as*()} appropriée (ex., \code{tsibble::as_tsibble()} le convertirait en tsibble).
+\item \code{proc_grp_df} : \emph{data frame} récapitulatif des groupes de traitement, utile pour identifier les problèmes
 fructueux ou infructueux. Il contient un enregistrement (une rangée) pour chaque problème d'équilibrage avec les
 colonnes suivantes :
 \itemize{
@@ -381,7 +381,7 @@ d'équilibrage fructueux (problèmes avec une solution valide) correspondent aux
 initiaux, \strong{b)} le problème est fixé (toutes les valeurs sont contraignantes) ou \strong{c)} elle est meilleure que la
 solution OSQP (total des écarts de contraintes plus faible). La séquence de résolution est décrite dans la
 \ifelse{latex}{\code{vignette("osqp-settings -sequence-dataframe")}}{\code{vignette("osqp-settings-sequence-dataframe")}}.
-\item \strong{periods_df} : \emph{data frame} sur les périodes de temps, utile pour faire correspondre les périodes aux groupes
+\item \code{periods_df} : \emph{data frame} sur les périodes de temps, utile pour faire correspondre les périodes aux groupes
 de traitement. Il contient un enregistrement (une rangée) pour chaque période de l'objet d'entrée de type série
 chronologique (argument \code{in_ts}) avec les colonnes suivantes :
 \itemize{
@@ -393,7 +393,7 @@ chronologique (argument \code{in_ts}) avec les colonnes suivantes :
 
 Les colonnes \code{t} et \code{time_val} constituent toutes deux une \emph{clé unique} (enregistrements distincts) pour le
 \emph{data frame}.
-\item \strong{prob_val_df} : \emph{data frame} sur les valeurs du problème, utile pour analyser les changements entre les valeurs
+\item \code{prob_val_df} : \emph{data frame} sur les valeurs du problème, utile pour analyser les changements entre les valeurs
 initiales et finales (réconciliées). Il contient un enregistrement (une rangée) pour chaque valeur impliquée dans
 chaque problème d'équilibrage, avec les colonnes suivantes :
 \itemize{
@@ -419,7 +419,7 @@ Les colonnes \code{val_type + name + t} et \code{val_type + name + time_val} con
 (enregistrements distincts) pour le \emph{data frame}. Les valeurs contraignantes (fixes) des problèmes correspondent aux
 enregistrements avec \code{alter = 0} ou \code{value_in = 0}. Inversement, les valeurs de problèmes non contraignantes (libres)
 correspondent aux enregistrements avec \code{alter != 0} et \code{value_in != 0}.
-\item \strong{prob_con_df} : \emph{data frame} sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier
+\item \code{prob_con_df} : \emph{data frame} sur les contraintes du problème, utile pour dépanner les problèmes infructueux (identifier
 les contraintes non satisfaites). Il contient un enregistrement (une rangée) pour chaque contrainte impliquée dans chaque
 problème d'équilibrage, avec les colonnes suivantes :
 \itemize{
@@ -453,7 +453,7 @@ Les colonnes \code{con_type + name + t} et \code{con_type + name + time_val} con
 contraintes \code{EQ}, \eqn{\mathbf{l} = -\infty}{l = -Inf} pour des contraintes \code{LE}, \eqn{\mathbf{u} = \infty}{u = Inf}
 pour des contraintes \code{GE}, et incluent les tolérances, le cas échéant, spécifiées avec les arguments \code{tolV},
 \code{tolV_temporal} et \code{tolP_temporal}.
-\item \strong{osqp_settings_df} : \emph{data frame} des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque
+\item \code{osqp_settings_df} : \emph{data frame} des paramètres d'OSQP. Il contient un enregistrement (une rangée) pour chaque
 problème (groupe de traitement) résolu avec OSQP (\code{proc_grp_df$sol_type = "osqp"}), avec les colonnes suivantes :
 \itemize{
 \item \code{proc_grp} (num) : identificateur du groupe de traitement.
@@ -482,7 +482,7 @@ La colonne \code{proc_grp} constitue une \emph{clé unique} (enregistrements dis
 \url{https://osqp.org/docs/interfaces/solver_settings.html} pour tous les paramètres d'OSQP disponibles. Les problèmes
 (groupes de traitement) pour lesquels la solution initiale a été renvoyée (\code{proc_grp_df$sol_type = "initial"}) ne sont
 pas inclus dans ce \emph{data frame}.
-\item \strong{osqp_sol_info_df} : \emph{data frame} d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée)
+\item \code{osqp_sol_info_df} : \emph{data frame} d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée)
 pour chaque problème (groupe de traitement) résolu avec OSQP (\code{proc_grp_df$sol_type = "osqp"}), avec les colonnes suivantes :
 \itemize{
 \item \code{proc_grp} (num) : identificateur du groupe de traitement.
@@ -599,11 +599,11 @@ contraignants (conformément à l'ensemble de coefficients d'altérabilité util
 \subsection{Validation et dépannage}{
 
 Les problèmes d'équilibrage fructueux (problèmes avec une solution valide) ont \code{sol_status_val > 0} ou, de manière
-équivalente, \code{n_unmet_con = 0} ou \code{max_discr <= validation_tol} dans le \emph{data frame} de sortie \strong{proc_grp_df}.
+équivalente, \code{n_unmet_con = 0} ou \code{max_discr <= validation_tol} dans le \emph{data frame} de sortie \code{proc_grp_df}.
 Le dépannage des problèmes d'équilibrage infructueux n'est pas nécessairement simple. Voici quelques suggestions :
 \itemize{
 \item Examinez les contraintes qui ont échoué (\code{unmet_flag = TRUE} ou, de manière équivalente, \code{discr_out > validation_tol}
-dans le \emph{data frame} de sortie \strong{prob_conf_df}) pour s'assurer qu'elles ne causent pas un espace de solution vide
+dans le \emph{data frame} de sortie \code{prob_con_df}) pour s'assurer qu'elles ne causent pas un espace de solution vide
 (problème infaisable).
 \item Modifier la séquence de résolution d'OSQP. Par exemple, essayez :
 \enumerate{

@@ -71,35 +71,41 @@ Elle est utilisée à interne par <code><a href="tsraking_driver.html">tsraking_
 
 
 <dl><dt id="arg-ts-yr-vec">ts_yr_vec<a class="anchor" aria-label="anchor" href="#arg-ts-yr-vec"></a></dt>
-<dd><p>(obligatoire) Vecteur des valeurs d'année (unité de temps; voir <code><a href="time_values_conv.html">gs.time2year()</a></code>).</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Vecteur des valeurs d'année (unité de temps; voir <code><a href="time_values_conv.html">gs.time2year()</a></code>).</p></dd>
 
 
 <dt id="arg-ts-per-vec">ts_per_vec<a class="anchor" aria-label="anchor" href="#arg-ts-per-vec"></a></dt>
-<dd><p>(obligatoire) Vecteur des valeurs de période (cycle; voir <code><a href="time_values_conv.html">gs.time2per()</a></code>).</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Vecteur des valeurs de période (cycle; voir <code><a href="time_values_conv.html">gs.time2per()</a></code>).</p></dd>
 
 
 <dt id="arg-n-per">n_per<a class="anchor" aria-label="anchor" href="#arg-n-per"></a></dt>
-<dd><p>(obligatoire) Longueur (nombre de périodes) de la série chronologique.</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Longueur (nombre de périodes) de la série chronologique.</p></dd>
 
 
 <dt id="arg-ts-freq">ts_freq<a class="anchor" aria-label="anchor" href="#arg-ts-freq"></a></dt>
-<dd><p>(obligatoire) Fréquence de la srie chronologique (voir <code><a href="https://rdrr.io/r/stats/time.html" class="external-link">stats::frequency()</a></code>).</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Fréquence de la série chronologique (voir <code><a href="https://rdrr.io/r/stats/time.html" class="external-link">stats::frequency()</a></code>).</p></dd>
 
 
 <dt id="arg-temporal-grp-periodicity">temporal_grp_periodicity<a class="anchor" aria-label="anchor" href="#arg-temporal-grp-periodicity"></a></dt>
-<dd><p>(obligatoire) Nombre de périodes dans les groupes temporels.</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Nombre de périodes dans les groupes temporels.</p></dd>
 
 
 <dt id="arg-temporal-grp-start">temporal_grp_start<a class="anchor" aria-label="anchor" href="#arg-temporal-grp-start"></a></dt>
-<dd><p>(obligatoire) Première période des groupes temporels.</p></dd>
+<dd><p>(obligatoire)</p>
+<p>Première période des groupes temporels.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="valeur-de-retour">Valeur de retour<a class="anchor" aria-label="anchor" href="#valeur-de-retour"></a></h2>
-    <p>Un <em>data frame</em> avec les variables (colonnes) suivantes :</p><ul><li><p><code>grp</code>         : vecteur de nombres entiers identifiant le groupe de traitement (1 .. &lt; nombre de groupes &gt;)</p></li>
-<li><p><code>beg_per</code>     : vecteur de nombres entiers identifiant la première période du groupe de traitement (1 .. <code>n_per</code>)</p></li>
-<li><p><code>end_per</code>     : vecteur de nombres entiers identifiant la dernière période du groupe de traitement (1 .. <code>n_per</code>)</p></li>
-<li><p><code>complete_grp</code>: Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet</p></li>
+    <p>Un <em>data frame</em> avec les variables (colonnes) suivantes :</p><ul><li><p><code>grp</code>          : vecteur de nombres entiers identifiant le groupe de traitement (<code>1:&lt;nombre-de-groupes&gt;</code>).</p></li>
+<li><p><code>beg_per</code>      : vecteur de nombres entiers identifiant la première période du groupe de traitement.</p></li>
+<li><p><code>end_per</code>      : vecteur de nombres entiers identifiant la dernière période du groupe de traitement.</p></li>
+<li><p><code>complete_grp</code> : Vecteur logique indiquant si le groupe de traitement correspond à un groupe temporel complet.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="groupes-de-traitement">Groupes de traitement<a class="anchor" aria-label="anchor" href="#groupes-de-traitement"></a></h2>

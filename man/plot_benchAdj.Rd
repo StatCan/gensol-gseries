@@ -14,7 +14,7 @@ plot_benchAdj(
 \arguments{
 \item{PB_graphTable}{(optional)
 
-Data frame, or object to be coerced to one, corresponding to the \code{\link[=benchmarking]{benchmarking()}} (PB for "Proc Benchmarking"
+Data frame (object of class "data.frame") corresponding to the \code{\link[=benchmarking]{benchmarking()}} (PB for "Proc Benchmarking"
 approach) function output \code{graphTable} data frame. Specify \code{NULL} not to include the \code{\link[=benchmarking]{benchmarking()}} adjustments
 in the plot.
 
@@ -22,14 +22,14 @@ in the plot.
 
 \item{SB_graphTable}{(optional)
 
-Data frame, or object to be coerced to one, corresponding to the \code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB) function output
+Data frame (object of class "data.frame") corresponding to the \code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB) function output
 \code{graphTable} data frame. Specify \code{NULL} not to include the \code{\link[=stock_benchmarking]{stock_benchmarking()}} adjustments in the plot.
 
 \strong{Default value} is \code{SB_graphTable = NULL}.}
 
 \item{SB_splineKnots}{(optional)
 
-Data frame, or object to be coerced to one, corresponding to the \code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB) function output
+Data frame (object of class "data.frame") corresponding to the \code{\link[=stock_benchmarking]{stock_benchmarking()}} (SB) function output
 \code{splineKnots} data frame. Specify \code{NULL} not to include the \code{\link[=stock_benchmarking]{stock_benchmarking()}} cubic spline in the plot.
 
 \strong{Default value} is \code{SB_splineKnots = NULL}.}

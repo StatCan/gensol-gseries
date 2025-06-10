@@ -14,10 +14,16 @@ gs.time2per(ts)
 gs.time2str(ts, sep = "-")
 }
 \arguments{
-\item{ts}{(mandatory) Time series ("ts" or "mts") or object to be coerced to one.}
+\item{ts}{(mandatory)
 
-\item{sep}{(optional) String (character constant) specifying the separator to use between the year
-and period values (defaults to \code{"-"}).}
+Time series (object of class "ts" or "mts").}
+
+\item{sep}{(optional)
+
+String (character constant) specifying the separator to use between the year
+and period values.
+
+\strong{Default value} is \code{sep = "-"}.}
 }
 \value{
 \code{\link[=gs.time2year]{gs.time2year()}} returns an integer vector of the "nearest" year (time unit) values. This function is the
@@ -31,6 +37,8 @@ or \code{gs.time2year(ts)} and \code{gs.time2per(ts)} separated with \code{sep} 
 \description{
 \if{html,text}{(\emph{version française: 
 \url{https://StatCan.github.io/gensol-gseries/fr/reference/time_values_conv.html}})}
+
+Time values conversion functions used internally by other gseries functions.
 }
 \examples{
 # Dummy monthly time series 

@@ -694,7 +694,11 @@ test_that("`by`", {
       sum(res$series$value[res$series$grp == 2]))
   , bmk3a$value)
 
-  # error: 1 period for 1st group with Denton benchmarking (`rho = 1`)
+  # Errors for some by-groups only (1 period for 1st by-group with Denton benchmarking): 
+  #       - one "muffled" error during processing
+  #       - one "true" error at the end of processing
+  # => catch the final (true) error
+  # => the muffled error message is (still) displayed
   expect_error(suppressMessages(
     benchmarking(
       ind3a[4:8, ], bmk3a,
@@ -702,8 +706,12 @@ test_that("`by`", {
       by = "grp",
       quiet = TRUE)
     ))
-  
-  # error: no benchmarks for 1st
+
+  # Errors for some by-groups only (no benchmarks for 1st by-group): 
+  #       - one "muffled" error during processing
+  #       - one "true" error at the end of processing
+  # => catch the final (true) error
+  # => the muffled error message is (still) displayed
   expect_error(suppressMessages(
     benchmarking(
       ind3a, bmk3a[bmk3a$grp == 2, ],

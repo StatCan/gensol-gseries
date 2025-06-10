@@ -43,12 +43,12 @@ knitr::opts_chunk$set(
 
 ## Description
 
-R version of Statistics Canada's (StatCan) generalized system **G-Series** initially developed in SAS^®^. This website is devoted to G-Series in R (package gseries). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information about the SAS^®^ versions. 
+R version of Statistics Canada's (StatCan) generalized system **G<span>&#8209;</span>Series** initially developed in SAS^®^. This website is devoted to G<span>&#8209;</span>Series in R (package gseries). Email us at [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca) for information about the SAS^®^ versions. 
 
 > _**Note - StatCan intranet**_\
-> StatCan employees can also visit the G-Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G-Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
+> StatCan employees can also visit the G<span>&#8209;</span>Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G<span>&#8209;</span>Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
 
-G-Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
+G<span>&#8209;</span>Series 3.0 (package gseries 3.0.0) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
 
 * `benchmarking()`
 * `stock_benchmarking()`
@@ -116,11 +116,11 @@ The bilingual (French-English) gseries package documentation available in this w
 
 The individual function help pages found in the [Reference](./reference/index.html) page (top bar) can be accessed directly in R with `help("<function-name>")`. They contain comprehensive information about each function including useful examples and will be you primary source of information. The vignettes found under the ***Articles*** drop-down menu (top bar) are a complementary source of information that, when installed with the package, can also be accessed from within R with `browseVignettes("gseries")` or `vignette("<vignette-name>")`. They include: 
 
-* a *Benchmarking CookBook* (`vignette("benchmarking-cookbook")`) going through the steps of a typical benchmarking project;
+* a *Benchmarking Cookbook* (`vignette("benchmarking-cookbook")`) going through the steps of a typical benchmarking project;
 * *A Beginner's Benchmarking Demo Script* (`vignette("benchmarking-demo-script")`) illustrating the usage of the benchmarking functions in a practical context;
 * a *OSQP Settings Sequence Data Frame* page (`vignette("osqp-settings-sequence-dataframe")`) describing the *solving sequence* implemented in `tsbalancing()` and explaining how it can be customized.
 
-Finally, the [Get started](./articles/gseries.html) page (top bar) provides general information about G-Series and is available as a vignette in R (`vignette("gseries")`).
+Finally, the [Get started](./articles/gseries.html) page (top bar) provides general information about G<span>&#8209;</span>Series and is available as a vignette in R (`vignette("gseries")`).
 
 #### *Local copy of the package website*
 The `docs/` folder of the GitHub [repository](https://github.com/StatCan/gensol-gseries) (*main* branch or tag $\geq$ *v3.0.0*) contains the package website files and can therefore be downloaded to obtain a local copy of this website. This can be useful for offline consultation or for accessing the documentation of a specific version of the package (e.g., the development version or an earlier release). After having downloaded (*Code* > *Download ZIP*) and decompressed the repository files, open file `docs/en/index.html` in a web browser to access the local copy of the (current) home page. Alternatively, one can use GitHub tool [Download GitHub directory](https://download-directory.github.io/) and download only the contents of the `docs/` folder instead of the entire repository:
@@ -133,4 +133,4 @@ The `docs/` folder of the GitHub [repository](https://github.com/StatCan/gensol-
 Note: the *Search for* box (top bar) is not functional in local copies of the package website.
 
 #### *PDF format*
-Bilingual (French-English) G-Series documentation in PDF format, also useful for offline consultation or for a specific version of G-Series, is available in the `pdf/` folder of the GitHub [repository](https://github.com/StatCan/gensol-gseries) (*main* branch or tag $\geq$ *v3.0.0* for the R versions and tag $\leq$ *v2.0* for the SAS^®^ versions). Again, GitHub tool [Download GitHub directory](https://download-directory.github.io/) can be used to download the contents of the `pdf/` folder instead of the entire repository. Decompressing the downloaded directory will then unveil the individual PDF files.
+Bilingual (French-English) G<span>&#8209;</span>Series documentation in PDF format, also useful for offline consultation or for a specific version of G<span>&#8209;</span>Series, is available in the `pdf/` folder of the GitHub [repository](https://github.com/StatCan/gensol-gseries) (*main* branch or tag $\geq$ *v3.0.0* for the R versions and tag $\leq$ *v2.0* for the SAS^®^ versions). Again, GitHub tool [Download GitHub directory](https://download-directory.github.io/) can be used to download the contents of the `pdf/` folder instead of the entire repository. Decompressing the downloaded directory will then unveil the individual PDF files.

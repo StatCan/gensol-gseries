@@ -2,7 +2,7 @@
 % Please edit documentation in R/tsbalancing.R
 \name{build_balancing_problem}
 \alias{build_balancing_problem}
-\title{Build the core elements (building blocks) for the balancing problems.}
+\title{Build the elements of balancing problems.}
 \usage{
 build_balancing_problem(
   in_ts,
@@ -24,8 +24,8 @@ build_balancing_problem(
 \arguments{
 \item{in_ts}{(mandatory)
 
-Time series ("ts" or "mts"), or object to be coerced to one, that contains the time series data to be
-reconciled. They are the balancing problems' input data (initial solutions).}
+Time series (object of class "ts" or "mts") that contains the time series data to be reconciled.
+They are the balancing problems' input data (initial solutions).}
 
 \item{problem_specs_df}{(mandatory)
 
@@ -205,7 +205,7 @@ A list with the elements of the balancing problems (excluding the temporal total
 \item \code{row.lc}  : \code{tolower(row)}
 \item \code{con.flag}: \code{labels_df$con.flag} allocated through \code{row.lc}
 }
-\item \code{values_ts}: reduced version of 'in_ts' with only the relevant series (see vector \code{ser_names})
+\item \code{values_ts}: reduced version of \code{in_ts} with only the relevant series (see vector \code{ser_names})
 \item \code{lb}       : lower bound info (\code{type.lc  = "lowerbd"}) for the relevant series; list object with the
 following elements:
 \itemize{
@@ -233,7 +233,7 @@ of periods of a complete temporal group)
 \if{html,text}{(\emph{version française: 
 \url{https://StatCan.github.io/gensol-gseries/fr/reference/build_balancing_problem.html}})}
 
-This function is used internally by \code{\link[=tsbalancing]{tsbalancing()}} to build the core elements of the balancing problems.
+This function is used internally by \code{\link[=tsbalancing]{tsbalancing()}} to build the elements of the balancing problems.
 It can also be useful to derive the indirect series associated to equality balancing constraints manually
 (outside of the \code{\link[=tsbalancing]{tsbalancing()}} context).
 }

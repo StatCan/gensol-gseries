@@ -79,28 +79,27 @@ périodes pour les groupes temporels complets (ex., l'ensemble des périodes d'u
 
 <dl><dt id="arg-in-ts">in_ts<a class="anchor" aria-label="anchor" href="#arg-in-ts"></a></dt>
 <dd><p>(obligatoire)</p>
-<p>Objet de type série chronologique (« ts » ou « mts »), ou objet compatible, qui contient les données des séries
-chronologiques à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage
-(« <em>raking</em> »).</p></dd>
+<p>Objet de type série chronologique (classe « ts » ou « mts ») qui contient les données des séries chronologiques
+à réconcilier. Il s'agit des données d'entrée (solutions initiales) des problèmes de ratissage (« <em>raking</em> »).</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Arguments transmis à <code><a href="tsraking.html">tsraking</a></code></p><dl><dt><code>metadata_df</code></dt>
 <dd><p>(obligatoire)</p>
-<p><em>Data frame</em>, ou objet compatible, qui décrit les contraintes d'agrégation transversales (règles d'additivité) pour le
-problème de ratissage (« <em>raking</em> »). Deux variables de type caractère doivent être incluses dans le <em>data frame</em> :
-<code>series</code> et <code>total1</code>. Deux variables sont optionnelles : <code>total2</code> (caractère) et <code>alterAnnual</code> (numérique). Les valeurs
-de la variable <code>series</code> représentent les noms des variables des séries composantes dans le <em>data frame</em> des données
-d'entrée (argument <code>data_df</code>). De même, les valeurs des variables <code>total1</code> et <code>total2</code> représentent les noms des variables
-des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension dans le <em>data frame</em> des données
-d'entrée. La variable <code>alterAnnual</code> contient le coefficient d'altérabilité pour la contrainte temporelle associée à
-chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le coefficient d'altérabilité par défaut
-spécifié avec l'argument <code>alterAnnual</code>.</p></dd>
+<p><em>Data frame</em> (object de classe « data.frame ») qui décrit les contraintes d'agrégation transversales (règles
+d'additivité) pour le problème de ratissage (« <em>raking</em> »). Deux variables de type caractère doivent être incluses
+dans le <em>data frame</em> : <code>series</code> et <code>total1</code>. Deux variables sont optionnelles : <code>total2</code> (caractère) et <code>alterAnnual</code>
+(numérique). Les valeurs de la variable <code>series</code> représentent les noms des variables des séries composantes dans le
+<em>data frame</em> des données d'entrée (argument <code>data_df</code>). De même, les valeurs des variables <code>total1</code> et <code>total2</code>
+représentent les noms des variables des totaux de contrôle transversaux de 1<sup>ère</sup> et 2<sup>ème</sup> dimension
+dans le <em>data frame</em> des données d'entrée. La variable <code>alterAnnual</code> contient le coefficient d'altérabilité pour la
+contrainte temporelle associée à chaque série composante. Lorsqu'elle est spécifiée, cette dernière remplace le
+coefficient d'altérabilité par défaut spécifié avec l'argument <code>alterAnnual</code>.</p></dd>
 
     <dt><code>alterability_df</code></dt>
 <dd><p>(optionnel)</p>
-<p><em>Data frame</em>, ou objet compatible, ou <code>NULL</code>, qui contient les variables de coefficients d'altérabilité. Elles
-doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
+<p><em>Data frame</em> (object de classe « data.frame »), ou <code>NULL</code>, qui contient les variables de coefficients d'altérabilité.
+Elles doivent correspondre à une série composante ou à un total de contrôle transversal, c'est-à-dire qu'une variable
 portant le même nom doit exister dans le <em>data frame</em> des données d'entrée (argument <code>data_df</code>). Les valeurs de
 ces coefficients d'altérabilité remplaceront les coefficients d'altérabilité par défaut spécifiés avec les arguments
 <code>alterSeries</code>, <code>alterTotal1</code> et <code>alterTotal2</code>. Lorsque le <em>data frame</em> des données d'entrée contient plusieurs
@@ -228,10 +227,10 @@ d'effet pour un traitement période par période sans préservation des totaux t
 </dl></div>
     <div class="section level2">
     <h2 id="valeur-de-retour">Valeur de retour<a class="anchor" aria-label="anchor" href="#valeur-de-retour"></a></h2>
-    <p>La fonction renvoie un objet de type série chronologique (« ts » ou « mts ») contenant les séries composantes
+    <p>La fonction renvoie un objet de type série chronologique (classe « ts » ou « mts ») contenant les séries composantes
 réconciliées, les totaux de contrôle transversaux réconciliés et d'autres séries spécifiées avec l'argument <code>id</code> de
 <code><a href="tsraking.html">tsraking()</a></code>. Il peut être explicitement converti en un autre type d'objet avec la fonction <code>as*()</code> appropriée (ex.,
-<code><a href="https://tsibble.tidyverts.org/reference/as-tsibble.html" class="external-link">tsibble::as_tsibble()</a></code> le convertirait en tsibble).</p>
+<code>tsibble::as_tsibble()</code> le convertirait en tsibble).</p>
 <p>Notez qu'un objet <code>NULL</code> est renvoyé si une erreur survient avant que le traitement des données ne puisse commencer.
 Dans le cas contraire, si l'exécution est suffisamment avancée pour que le traitement des données puisse commencer,
 alors un objet incomplet (avec des valeurs <code>NA</code>) sera renvoyé en cas d'erreur.</p>
@@ -346,7 +345,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -376,7 +375,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -406,7 +405,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -436,7 +435,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -466,7 +465,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -496,7 +495,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -526,7 +525,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -556,7 +555,7 @@ impaire</em> au lieu d'une <em>année paire</em> (par défaut) correspond à <co
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ======================</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - (EN) 'G-Series' in 'R' / (FR) 'G-Séries' en 'R' ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>

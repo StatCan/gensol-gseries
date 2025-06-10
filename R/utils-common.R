@@ -228,7 +228,9 @@ gs.validate_cols <- function(cols, against, df_name, source_str = NA) {
 #' This function calculates the Moore-Penrose (pseudo) inverse of a square or rectangular matrix 
 #' using Singular Value Decomposition (SVD). It is used internally by [tsraking()] and [benchmarking()].
 #' 
-#' @param X (mandatory) Matrix to invert.
+#' @param X (mandatory) 
+#' 
+#' Matrix to invert.
 #' 
 #' @param tol (optional) 
 #' 
@@ -303,9 +305,18 @@ gs.gInv_MP <- function(X, tol = NA) {
 #' \if{html,text}{(\emph{version française: 
 #' \url{https://StatCan.github.io/gensol-gseries/fr/reference/time_values_conv.html}})}
 #' 
-#' @param ts (mandatory) Time series ("ts" or "mts") or object to be coerced to one.
-#' @param sep (optional) String (character constant) specifying the separator to use between the year 
-#' and period values (defaults to `"-"`).
+#' Time values conversion functions used internally by other gseries functions.
+#' 
+#' @param ts (mandatory) 
+#' 
+#' Time series (object of class "ts" or "mts").
+#' 
+#' @param sep (optional) 
+#' 
+#' String (character constant) specifying the separator to use between the year 
+#' and period values.
+#' 
+#' **Default value** is `sep = "-"`.
 #' 
 #' @returns 
 #' [gs.time2year()] returns an integer vector of the "nearest" year (time unit) values. This function is the 
@@ -369,21 +380,38 @@ gs.time2str <- function(ts, sep = "-") {
 #' This function builds the processing groups data frame for reconciliation problems. It is used internally by 
 #' [tsraking_driver()] and [tsbalancing()].
 #' 
-#' @param ts_yr_vec (mandatory) Vector of the time series year (time unit) values (see [gs.time2year()]).
-#' @param ts_per_vec (mandatory) Vector of the time series period (cycle) values (see [gs.time2per()]).
-#' @param n_per (mandatory) Time series length (number of periods).
-#' @param ts_freq (mandatory) Time series frequency (see [stats::frequency()]).
-#' @param temporal_grp_periodicity (mandatory) Number of periods in temporal groups.
-#' @param temporal_grp_start (mandatory) First period of temporal groups.
+#' @param ts_yr_vec (mandatory) 
+#' 
+#' Vector of the time series year (time unit) values (see [gs.time2year()]).
+#' 
+#' @param ts_per_vec (mandatory) 
+#' 
+#' Vector of the time series period (cycle) values (see [gs.time2per()]).
+#' 
+#' @param n_per (mandatory) 
+#' 
+#' Time series length (number of periods).
+#' 
+#' @param ts_freq (mandatory) 
+#' 
+#' Time series frequency (see [stats::frequency()]).
+#' 
+#' @param temporal_grp_periodicity (mandatory) 
+#' 
+#' Number of periods in temporal groups.
+#' 
+#' @param temporal_grp_start (mandatory) 
+#' 
+#' First period of temporal groups.
 #' 
 #' @inheritSection tsbalancing Processing groups
 #' 
 #' @returns
 #' A data frame with the following variables (columns):
-#' - `grp`         : integer vector identifying the processing group (1 .. < total number of groups >)
-#' - `beg_per`     : integer vector identifying the first period of the processing group (1 .. `n_per`)
-#' - `end_per`     : integer vector identifying the last period of the processing group (1 .. `n_per`)
-#' - `complete_grp`: logical vector indicating if the processing group corresponds to a complete temporal group
+#' - `grp`         : integer vector identifying the processing group (`1:<number-of-groups>`).
+#' - `beg_per`     : integer vector identifying the first period of the processing group.
+#' - `end_per`     : integer vector identifying the last period of the processing group.
+#' - `complete_grp`: logical vector indicating if the processing group corresponds to a complete temporal group.
 #' 
 #' @seealso [tsraking_driver()] [tsbalancing()] [time_values_conv] 
 #' 

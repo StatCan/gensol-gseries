@@ -28,14 +28,14 @@ tsraking(
 \arguments{
 \item{data_df}{(mandatory)
 
-Data frame, or object to be coerced to one, that contains the time series data to be reconciled. It must minimally
+Data frame (object of class "data.frame") that contains the time series data to be reconciled. It must minimally
 contain variables corresponding to the component series and cross-sectional control totals specified in the
 metadata data frame (argument \code{metadata_df}). If more than one observation (period) is provided, the sum of
 the provided component series values will also be preserved as part of implicit temporal constraints.}
 
 \item{metadata_df}{(mandatory)
 
-Data frame, or object to be coerced to one, that describes the cross-sectional aggregation constraints
+Data frame (object of class "data.frame") that describes the cross-sectional aggregation constraints
 (additivity rules) for the raking problem. Two character variables must be included in the metadata data frame:
 \code{series} and \code{total1}. Two variables are optional: \code{total2} (character) and \code{alterAnnual} (numeric). The values
 of variable \code{series} represent the variable names of the component series in the input time series data frame
@@ -47,7 +47,7 @@ with argument \code{alterAnnual}.}
 
 \item{alterability_df}{(optional)
 
-Data frame, or object to be coerced to one, or \code{NULL}, that contains the alterability coefficients variables.
+Data frame (object of class "data.frame"), or \code{NULL}, that contains the alterability coefficients variables.
 They must correspond to a component series or a cross-sectional control total, that is, a variable with the same
 name must exist in the input time series data frame (argument \code{data_df}). The values of these alterability
 coefficients will override the default alterability coefficients specified with arguments \code{alterSeries},

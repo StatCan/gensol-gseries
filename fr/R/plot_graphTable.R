@@ -11,9 +11,8 @@
 #'
 #' @description
 #' Créer un fichier PDF (format de papier lettre US en orientation paysage) contenant des graphiques d'étalonnage pour l'ensemble 
-#' des séries contenues dans le *data frame* de sortie **graphTable** (argument `graphTable`) de la fonction d'étalonnage 
-#' ([benchmarking()] ou [stock_benchmarking()]) spécifiée. Quatre types de graphiques d'étalonnage peuvent être générés pour chaque 
-#' série :
+#' des séries contenues dans le *data frame* de sortie `graphTable` de la fonction d'étalonnage ([benchmarking()] ou 
+#' [stock_benchmarking()]) spécifié. Quatre types de graphiques d'étalonnage peuvent être générés pour chaque série :
 #' - **Échelle originale** (argument `ori_plot_flag`) - graphique superposé des composantes :
 #'   - Série indicatrice
 #'   - Moyennes de la série indicatrice
@@ -36,7 +35,7 @@
 #'
 #' @param graphTable (obligatoire)
 #' 
-#' *Data frame*, ou objet compatible, correspondant au *data frame* de sortie **graphTable** de la fonction d'étalonnage.
+#' *Data frame* (object de classe « data.frame ») correspondant au *data frame* de sortie `graphTable` de la fonction d'étalonnage.
 #'
 #' @param pdf_file (obligatoire)
 #'
@@ -61,8 +60,8 @@
 #'
 #'
 #' @details
-#' Liste des variables du *data frame* **graphTable** (argument `graphTable`) correspondant à chaque élément des quatre 
-#' types de graphiques d'étalonnage:
+#' Liste des variables du *data frame* `graphTable` correspondant à chaque élément des quatre types de graphiques 
+#' d'étalonnage:
 #' - Échelle originale (argument `ori_plot_flag`)
 #'   - `subAnnual` pour la ligne *Indicator Series*
 #'   - `avgSubAnnual` pour les segments *Avg. Indicator Series*
@@ -129,13 +128,13 @@
 #' @returns
 #' En plus de créer un fichier PDF contenant les graphiques d'étalonnage (sauf si `pdf_file = NULL`), cette fonction renvoie également 
 #' de manière invisible une liste comprenant les éléments suivants : 
-#' - **pdf_name** : Chaîne de caractères (vecteur de type caractère de longueur un) qui contient le nom complet et le chemin du fichier 
+#' - `pdf_name` : Chaîne de caractères (vecteur de type caractère de longueur un) qui contient le nom complet et le chemin du fichier 
 #' PDF s'il a été créé avec succès et `invisible(NA_character_)` dans le cas contraire ou si `pdf_file = NULL` a été spécifié.
-#' - **graph_list** : Liste des graphiques d'étalonnage générés (une par série) comprenant les éléments suivants :
-#'   - **name** : Chaîne de caractères décrivant la série (concorde avec le nom du signet dans le fichier PDF).
-#'   - **page** : Entier représentant le numéro de séquence du premier graphique de la série dans la séquence complète des graphiques 
+#' - `graph_list` : Liste des graphiques d'étalonnage générés (une par série) comprenant les éléments suivants :
+#'   - `name` : Chaîne de caractères décrivant la série (concorde avec le nom du signet dans le fichier PDF).
+#'   - `page` : Entier représentant le numéro de séquence du premier graphique de la série dans la séquence complète des graphiques 
 #'   pour toutes les séries (concorde avec le numéro de page dans le fichier PDF).
-#'   - **ggplot_list** : Liste d'objets ggplot (une par graphique ou par page dans le fichier PDF) correspondant aux graphiques 
+#'   - `ggplot_list` : Liste d'objets ggplot (une par graphique ou par page dans le fichier PDF) correspondant aux graphiques 
 #'   d'étalonnage générés pour la série. Voir la section **Valeur** dans [bench_graphs] pour plus de détails.
 #'
 #' Notez que les objets ggplot renvoyés par la fonction peuvent être affichés _manuellement_ avec [print()], auquel cas certaines mises 
@@ -511,8 +510,8 @@ plot_graphTable <- function(graphTable,
 #' - [GR_plot()]: Taux de croissance (argument `GR_plot_flag = TRUE` de [plot_graphTable()])
 #' - [GR_table()]: Tableau des taux de croissance (argument `GR_table_flag = TRUE` de [plot_graphTable()])
 #' 
-#' Lorsque ces fonctions sont appelées directement, le *data frame* **graphTable** (argument `graphTable`) ne devrait 
-#' contenir qu'une **série unique** et le graphique est généré dans le périphérique de graphiques courant (actif).
+#' Lorsque ces fonctions sont appelées directement, le *data frame* `graphTable` ne devrait  contenir qu'une 
+#' **série unique** et le graphique est généré dans le périphérique de graphiques courant (actif).
 #' 
 #' 
 #' @inheritParams plot_graphTable
@@ -523,7 +522,7 @@ plot_graphTable <- function(graphTable,
 #' partir du contenu du *data frame* `graphTable` lorsque `NULL` et contient le nom *data frame* `graphTable` sur la 2<sup>ème</sup> 
 #' ligne et les paramètres d'étalonnage sur la 3<sup>ème</sup> ligne. La spécification de chaînes vides (`""`) supprimerait 
 #' les titres. L'utilisation de syntaxe Markdown et HTML simple est permise (ex., pour l'affichage de caractères gras, italiques 
-#' ou en couleur) grâce à l'utilisation à l'interne de la librairie [ggtext][ggtext::ggtext] (voir `help(package = "ggtext")`).
+#' ou en couleur) via la librairie [ggtext][ggtext::ggtext] (voir `help(package = "ggtext")`).
 #' 
 #' **Les valeurs par défaut** sont `subtitle_str = NULL` et un titre propre à chaque fonction pour `title_str` 
 #' (voir **Utilisation**).
