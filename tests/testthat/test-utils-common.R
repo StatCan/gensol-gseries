@@ -247,26 +247,28 @@ test_that("`gs.display_difftime()`", {
     ))
 })
 
-test_that("`gs.display_obj()`, `str()`, no title", {
-  expect_no_condition(
+test_that("`gs.display_obj()`", {
+  
+  # `str()`, no title
+  expect_snapshot(
     gs.display_obj(
       x = 1:10, 
       title = NA, 
       head = FALSE, 
       str = TRUE)
     )
-})
-test_that("`gs.display_obj()`, no `str()`, title", {
-  expect_no_condition(
+
+  # no `str()`, title
+  expect_snapshot(
     gs.display_obj(
       x = 1:10, 
       title = "title", 
       head = FALSE, 
       str = FALSE)
   )
-})
-test_that("`gs.display_obj()`, no `str()`, no title, `head()`", {
-  expect_no_condition(
+
+  # no `str()`, no title, `head()`
+  expect_snapshot(
     gs.display_obj(
       x = 1:10, 
       title = NA, 
