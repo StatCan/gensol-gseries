@@ -37,11 +37,11 @@ They are the balancing problems' input data (initial solutions).}
 
 \item{problem_specs_df}{(mandatory)
 
-Balancing problem specifications data frame. Using a sparse format inspired from the SAS/OR\eqn{^\circledR}{®} LP procedure’s
-\emph{sparse data input format} (SAS Institute 2015), it contains only the relevant information such as the nonzero coefficients
-of the balancing constraints as well as the non-default alterability coefficients and lower/upper bounds (i.e., values that
-would take precedence over those defined with arguments \code{alter_pos}, \code{alter_neg}, \code{alter_mix}, \code{alter_temporal},
-\code{lower_bound} and \code{upper_bound}).
+Balancing problem specifications data frame (object of class "data.frame"). Using a sparse format inspired from the
+SAS/OR\eqn{^\circledR}{®} LP procedure’s \emph{sparse data input format} (SAS Institute 2015), it contains only the relevant
+information such as the nonzero coefficients of the balancing constraints as well as the non-default alterability
+coefficients and lower/upper bounds (i.e., values that would take precedence over those defined with arguments \code{alter_pos},
+\code{alter_neg}, \code{alter_mix}, \code{alter_temporal}, \code{lower_bound} and \code{upper_bound}).
 
 The information is provided using four mandatory variables (\code{type}, \code{col}, \code{row} and \code{coef}) and one optional variable
 (\code{timeVal}). An observation (a row) in the problem specs data frame either defines a label for one of the seven types of the
@@ -131,8 +131,8 @@ for period-by-period processing without temporal total preservation (\code{tempo
 
 \item{osqp_settings_df}{(optional)
 
-Data frame containing a sequence of OSQP settings for solving the balancing problems. The package includes two
-predefined OSQP settings sequence data frames:
+Data frame (object of class "data.frame") containing a sequence of OSQP settings for solving the balancing problems.
+The package includes two predefined OSQP settings sequence data frames:
 \itemize{
 \item \link{default_osqp_sequence}: fast and effective (default);
 \item \link{alternate_osqp_sequence}: geared towards precision at the expense of execution time.

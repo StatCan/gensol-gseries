@@ -112,11 +112,11 @@ They are the balancing problems' input data (initial solutions).</p></dd>
 
 <dt id="arg-problem-specs-df">problem_specs_df<a class="anchor" aria-label="anchor" href="#arg-problem-specs-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Balancing problem specifications data frame. Using a sparse format inspired from the SAS/OR\(^\circledR\) LP procedure’s
-<em>sparse data input format</em> (SAS Institute 2015), it contains only the relevant information such as the nonzero coefficients
-of the balancing constraints as well as the non-default alterability coefficients and lower/upper bounds (i.e., values that
-would take precedence over those defined with arguments <code>alter_pos</code>, <code>alter_neg</code>, <code>alter_mix</code>, <code>alter_temporal</code>,
-<code>lower_bound</code> and <code>upper_bound</code>).</p>
+<p>Balancing problem specifications data frame (object of class "data.frame"). Using a sparse format inspired from the
+SAS/OR\(^\circledR\) LP procedure’s <em>sparse data input format</em> (SAS Institute 2015), it contains only the relevant
+information such as the nonzero coefficients of the balancing constraints as well as the non-default alterability
+coefficients and lower/upper bounds (i.e., values that would take precedence over those defined with arguments <code>alter_pos</code>,
+<code>alter_neg</code>, <code>alter_mix</code>, <code>alter_temporal</code>, <code>lower_bound</code> and <code>upper_bound</code>).</p>
 <p>The information is provided using four mandatory variables (<code>type</code>, <code>col</code>, <code>row</code> and <code>coef</code>) and one optional variable
 (<code>timeVal</code>). An observation (a row) in the problem specs data frame either defines a label for one of the seven types of the
 balancing problem elements with columns <code>type</code> and <code>row</code> (see <em>Label definition records</em> below) or specifies coefficients
@@ -179,8 +179,8 @@ for period-by-period processing without temporal total preservation (<code>tempo
 
 <dt id="arg-osqp-settings-df">osqp_settings_df<a class="anchor" aria-label="anchor" href="#arg-osqp-settings-df"></a></dt>
 <dd><p>(optional)</p>
-<p>Data frame containing a sequence of OSQP settings for solving the balancing problems. The package includes two
-predefined OSQP settings sequence data frames:</p><ul><li><p><a href="osqp_settings_sequence.html">default_osqp_sequence</a>: fast and effective (default);</p></li>
+<p>Data frame (object of class "data.frame") containing a sequence of OSQP settings for solving the balancing problems.
+The package includes two predefined OSQP settings sequence data frames:</p><ul><li><p><a href="osqp_settings_sequence.html">default_osqp_sequence</a>: fast and effective (default);</p></li>
 <li><p><a href="osqp_settings_sequence.html">alternate_osqp_sequence</a>: geared towards precision at the expense of execution time.</p></li>
 </ul><p>See <code><a href="../articles/osqp-settings-sequence-dataframe.html">vignette("osqp-settings-sequence-dataframe")</a></code> for more details on this topic and to see the actual contents
 of these two data frames. Note that the concept of a <em>solving sequence</em> with different sets of solver settings is
@@ -762,15 +762,15 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   1.00e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.45e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   1.90e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   4.98e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.14e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   1.76e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.90e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.76e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.49e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -826,15 +826,15 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   4.07e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   9.32e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.48e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   2.83e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   8.92e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.31e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.8750</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.48e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.31e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.47e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -890,15 +890,15 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   6.11e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   1.34e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   2.10e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   2.90e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   7.22e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   1.14e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9998</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             2.10e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.14e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.13e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -954,15 +954,15 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   3.42e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   7.58e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.22e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   2.95e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   6.88e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.29e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 25</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.22e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.29e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 4.88e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1018,15 +1018,15 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   4.93e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   1.14e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   1.82e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   2.70e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   6.89e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   1.13e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -0.9506</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.82e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.13e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 1.39e-01</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>

@@ -56,12 +56,12 @@
 #' 
 #' @param problem_specs_df (obligatoire) 
 #' 
-#' *Data frame* des spécifications du problème d'équilibrage. En utilisant un format clairsemé (épars) inspiré de la 
-#' procédure LP de SAS/OR\eqn{^\circledR}{®} (SAS Institute 2015), il ne contient que les informations pertinentes 
-#' telles que les coefficients non nuls des contraintes d'équilibrage ainsi que les coefficients d'altérabilité et les 
-#' bornes inférieures/supérieures à utiliser au lieu des valeurs par défaut (c.-à-d., les valeurs qui auraient la priorité 
-#' sur celles définies avec les arguments `alter_pos`, `alter_neg`, `alter_mix`, `alter_temporal`, `lower_bound` et 
-#' `upper_bound`).
+#' *Data frame* (object de classe « data.frame ») des spécifications du problème d'équilibrage. En utilisant un format 
+#' clairsemé (épars) inspiré de la procédure LP de SAS/OR\eqn{^\circledR}{®} (SAS Institute 2015), il ne contient que les 
+#' informations pertinentes telles que les coefficients non nuls des contraintes d'équilibrage ainsi que les coefficients 
+#' d'altérabilité et les bornes inférieures/supérieures à utiliser au lieu des valeurs par défaut (c.-à-d., les valeurs qui 
+#' auraient la priorité sur celles définies avec les arguments `alter_pos`, `alter_neg`, `alter_mix`, `alter_temporal`, 
+#' `lower_bound` et `upper_bound`).
 #' 
 #' Les informations sont fournies à l'aide de quatre variables obligatoires (`type`, `col`, `row` et `coef`) et d'une 
 #' variable facultative (`timeVal`). Un enregistrement (une rangée) dans le *data frame* des spécifications du problème 
@@ -155,8 +155,8 @@
 #' 
 #' @param osqp_settings_df (optionnel)
 #' 
-#' *Data frame* contenant une séquence de paramètres d'OSQP pour la résolution des problèmes d'équilibrage. La librairie 
-#' inclut deux *data frames* prédéfinis de séquences de paramètres d'OSQP :
+#' *Data frame* (object de classe « data.frame ») contenant une séquence de paramètres d'OSQP pour la résolution des problèmes 
+#' d'équilibrage. La librairie inclut deux *data frames* prédéfinis de séquences de paramètres d'OSQP :
 #' * [default_osqp_sequence] : rapide et efficace (par défaut);
 #' * [alternate_osqp_sequence] : orienté vers la précision au détriment du temps d'exécution.
 #' 

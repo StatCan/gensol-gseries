@@ -689,13 +689,14 @@ test_that("`all_cols`", {
     ), as.vector(bmk_[c("value", "value2")]))
 })
 
-test_that("`by`", {
+test_that("by-group processing with muffled errors", {
+  
   # error: confusion with `var`
   expect_error(
     stock_benchmarking(ind3, bmk3,
-                 rho = 0.729, lambda = 0, biasOption = 1,
-                 by = "value",
-                 quiet = TRUE)
+                       rho = 0.729, lambda = 0, biasOption = 1,
+                       by = "value",
+                       quiet = TRUE)
   )
   
   # error: confusion with `with`
@@ -705,9 +706,9 @@ test_that("`by`", {
   ind_$bmkval <- NA
   expect_error(
     stock_benchmarking(ind_, bmk_,
-                 rho = 0.729, lambda = 0, biasOption = 1,
-                 var = "value", with = "bmkval", by = "bmkval",
-                 quiet = TRUE)
+                       rho = 0.729, lambda = 0, biasOption = 1,
+                       var = "value", with = "bmkval", by = "bmkval",
+                       quiet = TRUE)
   )
   
   
@@ -719,7 +720,7 @@ test_that("`by`", {
                             grp2 = rep(1, 2 * nrow(bmk3))),
                  rep(bmk3[rep(seq_len(nrow(bmk3)), 2), ]))
   
-  # normal
+  # normal (no error, no warning)
   res <- suppressMessages(stock_benchmarking(
     ind3a, bmk3a,
     rho = 0.729, lambda = 0, biasOption = 3,
@@ -728,32 +729,38 @@ test_that("`by`", {
   expect_equal(
     c(res$series$value[res$series$grp == 1 & res$series$period == 4],
       res$series$value[res$series$grp == 2 & res$series$period == 4])
-  , bmk3a$value)
+    , bmk3a$value)
 
-  # Errors for some by-groups only (no benchmarks for 1st by-group): 
-  #       - one "muffled" error during processing
-  #       - one "true" error at the end of processing
-  # => catch the final (true) error
-  # => the muffled error message is (still) displayed
-  expect_error(suppressMessages(
-    stock_benchmarking(
-      ind3a, bmk3a[bmk3a$grp == 2, ],
-      rho = 0.729, lambda = 0, biasOption = 1,
-      by = "grp",
-      quiet = TRUE)
-  ))
+  # Error in the 1st by-group (no benchmarks): 2 errors:
+  #   - one "muffled" error during processing (caught with `expect_snapshot()`)
+  #   - one "true" error at the end of processing (caught with `expect_error()`)
+  expect_snapshot(
+    expect_error(
+      suppressMessages(
+        stock_benchmarking(
+          ind3a, bmk3a[bmk3a$grp == 2, ],
+          rho = 0.729, lambda = 0, biasOption = 1,
+          by = "grp",
+          quiet = TRUE)
+      )
+    )
+  )
   
   # 2 warnings: one for the 2nd group (invalid benchmarks rejected) 
   #             and the generic one at the end
   bmk_ <- bmk3a[c(1, 2, 2), ]
   bmk_[3, c(3, 5, 7)] <- c(0.5, 0.5, NA)
-  expect_warning(expect_warning(suppressMessages(
-    stock_benchmarking(
-      ind3a, bmk_,
-      rho = 0.729, lambda = 0, biasOption = 1,
-      by = "grp",
-      quiet = TRUE)
-  )))
+  expect_warning(
+    expect_warning(
+      suppressMessages(
+        stock_benchmarking(
+          ind3a, bmk_,
+          rho = 0.729, lambda = 0, biasOption = 1,
+          by = "grp",
+          quiet = TRUE)
+      )
+    )
+  )
 })
 
 
