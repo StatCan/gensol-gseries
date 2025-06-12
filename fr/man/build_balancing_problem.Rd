@@ -30,12 +30,12 @@ chronologiques à réconcilier. Il s'agit des données d'entrée (solutions init
 
 \item{problem_specs_df}{(obligatoire)
 
-\emph{Data frame} des spécifications du problème d'équilibrage. En utilisant un format clairsemé (épars) inspiré de la
-procédure LP de SAS/OR\eqn{^\circledR}{®} (SAS Institute 2015), il ne contient que les informations pertinentes
-telles que les coefficients non nuls des contraintes d'équilibrage ainsi que les coefficients d'altérabilité et les
-bornes inférieures/supérieures à utiliser au lieu des valeurs par défaut (c.-à-d., les valeurs qui auraient la priorité
-sur celles définies avec les arguments \code{alter_pos}, \code{alter_neg}, \code{alter_mix}, \code{alter_temporal}, \code{lower_bound} et
-\code{upper_bound}).
+\emph{Data frame} (object de classe « data.frame ») des spécifications du problème d'équilibrage. En utilisant un format
+clairsemé (épars) inspiré de la procédure LP de SAS/OR\eqn{^\circledR}{®} (SAS Institute 2015), il ne contient que les
+informations pertinentes telles que les coefficients non nuls des contraintes d'équilibrage ainsi que les coefficients
+d'altérabilité et les bornes inférieures/supérieures à utiliser au lieu des valeurs par défaut (c.-à-d., les valeurs qui
+auraient la priorité sur celles définies avec les arguments \code{alter_pos}, \code{alter_neg}, \code{alter_mix}, \code{alter_temporal},
+\code{lower_bound} et \code{upper_bound}).
 
 Les informations sont fournies à l'aide de quatre variables obligatoires (\code{type}, \code{col}, \code{row} et \code{coef}) et d'une
 variable facultative (\code{timeVal}). Un enregistrement (une rangée) dans le \emph{data frame} des spécifications du problème

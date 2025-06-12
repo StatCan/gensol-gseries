@@ -50,11 +50,11 @@
 #' 
 #' @param problem_specs_df (mandatory) 
 #' 
-#' Balancing problem specifications data frame. Using a sparse format inspired from the SAS/OR\eqn{^\circledR}{®} LP procedure’s 
-#' *sparse data input format* (SAS Institute 2015), it contains only the relevant information such as the nonzero coefficients 
-#' of the balancing constraints as well as the non-default alterability coefficients and lower/upper bounds (i.e., values that 
-#' would take precedence over those defined with arguments `alter_pos`, `alter_neg`, `alter_mix`, `alter_temporal`, 
-#' `lower_bound` and `upper_bound`).
+#' Balancing problem specifications data frame (object of class "data.frame"). Using a sparse format inspired from the 
+#' SAS/OR\eqn{^\circledR}{®} LP procedure’s *sparse data input format* (SAS Institute 2015), it contains only the relevant 
+#' information such as the nonzero coefficients of the balancing constraints as well as the non-default alterability 
+#' coefficients and lower/upper bounds (i.e., values that would take precedence over those defined with arguments `alter_pos`, 
+#' `alter_neg`, `alter_mix`, `alter_temporal`, `lower_bound` and `upper_bound`).
 #' 
 #' The information is provided using four mandatory variables (`type`, `col`, `row` and `coef`) and one optional variable 
 #' (`timeVal`). An observation (a row) in the problem specs data frame either defines a label for one of the seven types of the 
@@ -135,8 +135,8 @@
 #' 
 #' @param osqp_settings_df (optional)
 #' 
-#' Data frame containing a sequence of OSQP settings for solving the balancing problems. The package includes two 
-#' predefined OSQP settings sequence data frames:
+#' Data frame (object of class "data.frame") containing a sequence of OSQP settings for solving the balancing problems. 
+#' The package includes two predefined OSQP settings sequence data frames:
 #' * [default_osqp_sequence]: fast and effective (default);
 #' * [alternate_osqp_sequence]: geared towards precision at the expense of execution time.
 #' 

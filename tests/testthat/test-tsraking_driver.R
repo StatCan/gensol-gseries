@@ -234,26 +234,28 @@ test_that("warnings during processing", {
   ))
 })
 
-test_that("errors during processing", {
+test_that("muffled error in multi-group processing", {
   
   alter_ <- data.frame(A = c(1, 1, -1, 1), 
                        B = c(1, 1,  1, 1), 
                        C = c(0, 0,  0, 0))
   
-  # Multiple groups (errors for some groups only): 
-  #       - one "muffled" error during processing
-  #       - one "true" error at the end of processing
-  # => catch the final (true) error
-  # => the muffled error message is (still) displayed
-  expect_error(suppressMessages(
-    tsraking_driver(
-      data1, 
-      meta1, 
-      alterability_df = alter_,
-      quiet = TRUE)
-  ))
+  # Error in the 3rd group (negative alter coef): 2 errors:
+  #   - one "muffled" error during processing (caught with `expect_snapshot()`)
+  #   - one "true" error at the end of processing (caught with `expect_error()`)
+  expect_snapshot(
+    expect_error(
+      suppressMessages(
+        tsraking_driver(
+          data1, 
+          meta1, 
+          alterability_df = alter_,
+          quiet = TRUE)
+      )
+    )
+  )
   
-  # Single group (single "true" error)
+  # Single group (3rd group only): single "true" error (caught with `expect_error()`)
   expect_error(
     tsraking_driver(
       window(data1, start = time(data1)[3], end = time(data1)[3]), 

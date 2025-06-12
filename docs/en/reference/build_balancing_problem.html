@@ -92,11 +92,11 @@ They are the balancing problems' input data (initial solutions).</p></dd>
 
 <dt id="arg-problem-specs-df">problem_specs_df<a class="anchor" aria-label="anchor" href="#arg-problem-specs-df"></a></dt>
 <dd><p>(mandatory)</p>
-<p>Balancing problem specifications data frame. Using a sparse format inspired from the SAS/OR\(^\circledR\) LP procedure’s
-<em>sparse data input format</em> (SAS Institute 2015), it contains only the relevant information such as the nonzero coefficients
-of the balancing constraints as well as the non-default alterability coefficients and lower/upper bounds (i.e., values that
-would take precedence over those defined with arguments <code>alter_pos</code>, <code>alter_neg</code>, <code>alter_mix</code>, <code>alter_temporal</code>,
-<code>lower_bound</code> and <code>upper_bound</code>).</p>
+<p>Balancing problem specifications data frame (object of class "data.frame"). Using a sparse format inspired from the
+SAS/OR\(^\circledR\) LP procedure’s <em>sparse data input format</em> (SAS Institute 2015), it contains only the relevant
+information such as the nonzero coefficients of the balancing constraints as well as the non-default alterability
+coefficients and lower/upper bounds (i.e., values that would take precedence over those defined with arguments <code>alter_pos</code>,
+<code>alter_neg</code>, <code>alter_mix</code>, <code>alter_temporal</code>, <code>lower_bound</code> and <code>upper_bound</code>).</p>
 <p>The information is provided using four mandatory variables (<code>type</code>, <code>col</code>, <code>row</code> and <code>coef</code>) and one optional variable
 (<code>timeVal</code>). An observation (a row) in the problem specs data frame either defines a label for one of the seven types of the
 balancing problem elements with columns <code>type</code> and <code>row</code> (see <em>Label definition records</em> below) or specifies coefficients
