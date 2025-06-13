@@ -912,6 +912,9 @@ tsraking <- function(data_df,
 #' (selon le principe « column-major order » en anglais), ce qui correspond au comportement par défaut de R lors 
 #' de la conversion d'objets de la classe « matrix » en vecteurs.
 #'
+#' Note : la validation des arguments n'est pas effectuée ici ; on suppose (carrément) que la fonction est 
+#' appelée par [tsraking()] où une validation complète des arguments est effectuée.
+#' 
 #'
 #' @seealso [tsraking()] [build_balancing_problem()]
 #' 

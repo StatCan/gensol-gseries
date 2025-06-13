@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Activer la navigation">
@@ -26,7 +26,7 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-nouveaut-s" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Nouveautés</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-nouveaut-s"><li><h6 class="dropdown-header" data-toc-skip>Versions</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.0)</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.1)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/">G-Séries 2.0 (version SAS®)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/">G-Séries 1.04 (version SAS®)</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -46,6 +46,14 @@
       <small>Source : <a href="https://github.com/StatCan/gensol-gseries/tree/main/fr/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="3.0.1" id="gseries-301">gseries 3.0.1<a class="anchor" aria-label="anchor" href="#gseries-301"></a></h2>
+<p>(<em>G-Séries 3.0 en R</em>)</p>
+<ul><li><p>Correction d’un bogue dans <code><a href="../reference/tsbalancing.html">tsbalancing()</a></code> pour éviter de modifier l’option d’erreur de la session R (<code>getOption("error")</code>) après l’exécution de la fonction.</p></li>
+<li><p>Validation des objets d’entrée de classe « data.frame » dans les fonctions utilitaires (pertinentes) pour assurer la cohérence avec les fonctions principales.</p></li>
+<li><p>Mise à jour de la description des arguments des fonctions concernant la classe attendue des objets d’entrée.</p></li>
+<li><p>Changements mineurs pour se conformer aux exigences du CRAN suite au processus de soumission initial.</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="3.0.0" id="gseries-300">gseries 3.0.0<a class="anchor" aria-label="anchor" href="#gseries-300"></a></h2>
 <p>(<em>G-Séries 3.0 en R</em>)</p>

@@ -897,6 +897,9 @@ tsraking <- function(data_df,
 #' When the input data contains multiple periods (temporal total preservation scenario), raking problem 
 #' elements `x`, `c_x`, `g`, `c_g` and `G` are constructed _column by column_ (in "column-major order"), 
 #' corresponding to the default behaviour of R for converting objects of class "matrix" into vectors.
+#' 
+#' Note: argument validation is not performed here; it is (bluntly) assumed that the function is called 
+#' by [tsraking()] where a thorough validation of the arguments is done.
 #'
 #'
 #' @seealso [tsraking()] [build_balancing_problem()]

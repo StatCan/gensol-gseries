@@ -531,8 +531,8 @@ plot_benchAdj(PB_graphTable = out_PB2$graphTable,
 # quarterly growth rates, which are conveniently produced by `plot_graphTable()`.
 # Pay particular attention to the transition in the growth rates from Q4 to Q1
 # every year in the generated PDF graphs.
-plot_graphTable(out_PB2$graphTable, file.path(tempdir(), "PB_stock_flat_ind.pdf"))
-plot_graphTable(out_SB2$graphTable, file.path(tempdir(), "SB_stock_flat_ind.pdf"))
+\donttest{plot_graphTable(out_PB2$graphTable, file.path(tempdir(), "PB_stock_flat_ind.pdf"))}
+\donttest{plot_graphTable(out_SB2$graphTable, file.path(tempdir(), "SB_stock_flat_ind.pdf"))}
 
 
 # Illustrate approximating a natural cubic spline at the original end knots (first and 

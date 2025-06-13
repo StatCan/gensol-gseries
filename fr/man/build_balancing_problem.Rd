@@ -268,12 +268,17 @@ Autrement dit, les contraintes d'équilibrage correspondent conceptuellement à�
 \item \verb{A2 \%*\% as.vector(values_ts[t1:t2, ]) op2 b2} pour des problèmes impliquant \code{temporal_grp_periodicity} périodes (\code{t1:t2})
 }
 
-Notez que l'argument \code{alter_temporal} n'a pas encore été appliqué à ce stade et que \code{altertmp$coefs_ts} ne contient que les
+Notes :
+\itemize{
+\item L'argument \code{alter_temporal} n'a pas encore été appliqué à ce stade et \code{altertmp$coefs_ts} ne contient que les
 coefficients spécifiés dans le \emph{data frame} des spécifications du problème (argument \code{problem_specs_df}). Autrement dit,
 \code{altertmp$coefs_ts} contient des valeurs manquantes (\code{NA}) à l'exception des coefficients d'altérabilité de total temporel
 inclus dans (spécifiés avec) \code{problem_specs_df}. Ceci est fait afin de faciliter l'identification du premier coefficient
 d'altérabilité non manquant (non \code{NA}) de chaque groupe temporel complet (à survenir ultérieurement, le cas échéant, dans
 \code{\link[=tsbalancing]{tsbalancing()}}).
+\item La validation des arguments n'est pas effectuée ici ; on suppose (carrément) que la fonction est appelée par
+\code{\link[=tsbalancing]{tsbalancing()}} où une validation complète des arguments est effectuée.
+}
 }
 \examples{
 ######################################################################################

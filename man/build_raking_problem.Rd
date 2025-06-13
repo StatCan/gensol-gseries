@@ -115,6 +115,9 @@ when applicable (i.e., elements \code{g} and \code{G} only contain the cross-sec
 When the input data contains multiple periods (temporal total preservation scenario), raking problem
 elements \code{x}, \code{c_x}, \code{g}, \code{c_g} and \code{G} are constructed \emph{column by column} (in "column-major order"),
 corresponding to the default behaviour of R for converting objects of class "matrix" into vectors.
+
+Note: argument validation is not performed here; it is (bluntly) assumed that the function is called
+by \code{\link[=tsraking]{tsraking()}} where a thorough validation of the arguments is done.
 }
 \examples{
 # Derive the 5 marginal totals of a 2 x 3 two-dimensional data cube using `tsraking()` 

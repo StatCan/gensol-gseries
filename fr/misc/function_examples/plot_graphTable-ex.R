@@ -39,23 +39,23 @@ res_eta <- benchmarking(ind_tri, eta_tri,
 
 
 # Ensemble de graphiques par défaut (les 3 premiers types de graphiques)
-plot_graphTable(res_eta$graphTable, "graphes_etalonnage.pdf")
+\donttest{plot_graphTable(res_eta$graphTable, "graphes_etalonnage.pdf")}
 
 # Utiliser temporairement `theme_bw()` de ggplot2 pour les graphiques
 library(ggplot2)
 theme_ini <- theme_get()
 theme_set(theme_bw())
-plot_graphTable(res_eta$graphTable, "graphes_etalonnage_bw.pdf")
+\donttest{plot_graphTable(res_eta$graphTable, "graphes_etalonnage_bw.pdf")}
 theme_set(theme_ini)
 
 # Generer les 4 types de graphiques (incluant le tableau des taux de croissance)
-plot_graphTable(res_eta$graphTable, "graphes_etalonnage_avec_tableauTC.pdf",
-                GR_table_flag = TRUE)
+\donttest{plot_graphTable(res_eta$graphTable, "graphes_etalonnage_avec_tableauTC.pdf",
+                GR_table_flag = TRUE)}
 
 # Réduire le temps d'exécution en désactivant les deux types de graphiques 
 # des taux de croissance
-plot_graphTable(res_eta$graphTable, "graphes_etalonnage_sans_TC.pdf",
-                GR_plot_flag = FALSE)
+\donttest{plot_graphTable(res_eta$graphTable, "graphes_etalonnage_sans_TC.pdf",
+                GR_plot_flag = FALSE)}
 
 
 # Réinitialiser le répertoire de travail à son emplacement initial

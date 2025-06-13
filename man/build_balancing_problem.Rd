@@ -254,11 +254,16 @@ Multi-period balancing problem elements \code{A2}, \code{op2} and \code{b2} (whe
 \item \verb{A2 \%*\% as.vector(values_ts[t1:t2, ]) op2 b2} for problems involving \code{temporal_grp_periodicity} periods (\code{t1:t2}).
 }
 
-Note that argument \code{alter_temporal} has not been applied yet at this point and \code{altertmp$coefs_ts} only contains the
+Notes:
+\itemize{
+\item Argument \code{alter_temporal} has not been applied yet at this point and \code{altertmp$coefs_ts} only contains the
 coefficients specified in the problem specs data frame (argument \code{problem_specs_df}). I.e., \code{altertmp$coefs_ts} contains
 missing (\code{NA}) values except for the temporal total alterability coefficients included in (specified with) \code{problem_specs_df}.
 This is done in order to simplify the identification of the first non missing (non \code{NA}) temporal total alterability
 coefficient of each complete temporal group (to occur later, when applicable, inside \code{\link[=tsbalancing]{tsbalancing()}}).
+\item Argument validation is not performed here; it is (bluntly) assumed that the function is called by \code{\link[=tsbalancing]{tsbalancing()}}
+where a thorough validation of the arguments is done.
+}
 }
 \examples{
 ######################################################################################

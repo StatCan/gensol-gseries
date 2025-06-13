@@ -31,7 +31,7 @@ res_eta1 <- benchmarking(mes_ind1,
                          biasOption = 3)
 
 # Générerer les graphiques d'étalonnage
-plot_graphTable(res_eta1$graphTable, "Graphs_ex1.pdf")
+\donttest{plot_graphTable(res_eta1$graphTable, "Graphs_ex1.pdf")}
 
 
 ###########
@@ -99,7 +99,7 @@ res_eta2 <- benchmarking(mes_ind2,
                          quiet = TRUE)
 
 # Générerer les graphiques d'étalonnage
-plot_graphTable(res_eta2$graphTable, "Graphs_ex2.pdf")
+\donttest{plot_graphTable(res_eta2$graphTable, "Graphs_ex2.pdf")}
 
 # Vérifier la valeur des ventes de camionnettes pour 2012 T1 et T2 
 # dans le groupe A (valeurs fixes)
@@ -134,7 +134,7 @@ res_eta3 <- benchmarking(mes_ind3,
                          quiet = TRUE)
 
 # Générerer les graphiques d'étalonnage
-plot_graphTable(res_eta3$graphTable, "Graphs_ex3.pdf")
+\donttest{plot_graphTable(res_eta3$graphTable, "Graphs_ex3.pdf")}
 
 # Convertir le « data frame » `res_eta3$series` en un objet « mts »
 ventes_tri2_eta <- tsDF_to_ts(unstack_tsDF(res_eta3$series), frequency = 4)

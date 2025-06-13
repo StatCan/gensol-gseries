@@ -208,22 +208,22 @@ out_bench <- benchmarking(qtr_ind, ann_bmk,
 
 
 # Default set of graphics (the first 3 types of plots)
-plot_graphTable(out_bench$graphTable, "bench_graphs.pdf")
+\donttest{plot_graphTable(out_bench$graphTable, "bench_graphs.pdf")}
 
 # Temporarily use ggplot2 `theme_bw()` for the plots
 library(ggplot2)
 ini_theme <- theme_get()
 theme_set(theme_bw())
-plot_graphTable(out_bench$graphTable, "bench_graphs_bw.pdf")
+\donttest{plot_graphTable(out_bench$graphTable, "bench_graphs_bw.pdf")}
 theme_set(ini_theme)
 
 # Generate all 4 types of graphics (including the growth rates table)
-plot_graphTable(out_bench$graphTable, "bench_graphs_with_GRTable.pdf",
-                GR_table_flag = TRUE)
+\donttest{plot_graphTable(out_bench$graphTable, "bench_graphs_with_GRTable.pdf",
+                GR_table_flag = TRUE)}
 
 # Reduce execution time by disabling both types of growth rates graphics
-plot_graphTable(out_bench$graphTable, "bench_graphs_no_GR.pdf",
-                GR_plot_flag = FALSE)
+\donttest{plot_graphTable(out_bench$graphTable, "bench_graphs_no_GR.pdf",
+                GR_plot_flag = FALSE)}
 
 
 # Reset the working directory to its initial location

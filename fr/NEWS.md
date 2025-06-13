@@ -1,3 +1,16 @@
+# gseries 3.0.1
+
+(*G-Séries 3.0 en R*)
+
+* Correction d'un bogue dans `tsbalancing()` pour éviter de modifier l'option d'erreur de la session R (`getOption("error")`) après l'exécution de la fonction.
+
+* Validation des objets d'entrée de classe « data.frame » dans les fonctions utilitaires (pertinentes) pour assurer la cohérence avec les fonctions principales.
+
+* Mise à jour de la description des arguments des fonctions concernant la classe attendue des objets d'entrée.
+
+* Changements mineurs pour se conformer aux exigences du CRAN suite au processus de soumission initial.
+
+
 # gseries 3.0.0
 
 (*G-Séries 3.0 en R*)

@@ -19,6 +19,10 @@
 gs.pkg_info <- utils::packageDescription("gseries")
 attr(gs.pkg_info, "file") <- NULL  # drop the DESCRIPTION file name and path 
 
+# Extra package info fields (CRAN does not allow extra files in DESCRIPTION file)
+gs.pkg_created <- "June 13, 2025, at 1:09:40 PM EDT"
+gs.pkg_email <- "g-series@statcan.gc.ca"  # comma separated emails (when applicable)
+
 # Core function header string
 gs.header <- paste0("--- Package gseries ", gs.pkg_info$Version)
 if (length(gs.pkg_info$Title) > 0) {
@@ -26,18 +30,18 @@ if (length(gs.pkg_info$Title) > 0) {
 } else {
   gs.header <- paste0(gs.header, " ---")
 }
-if (length(gs.pkg_info$Created) > 0) {
-  gs.header <- paste0(gs.header, "\nCreated on ", gs.pkg_info$Created)
+if (length(gs.pkg_created) > 0) {
+  gs.header <- paste0(gs.header, "\nCreated on ", gs.pkg_created)
 }
 if (length(gs.pkg_info$URL) > 0) {
   # Multiple URLs on separate lines
   gs.header <- paste0(gs.header, "\nURL: ", 
                       gsub("[[:blank:]]*,[[:blank:]]*[\n]?[[:blank:]]*", "\n     ", gs.pkg_info$URL))
 } 
-if (length(gs.pkg_info$Email) > 0) {
+if (length(gs.pkg_email) > 0) {
   # Multiple Emails on separate lines
   gs.header <- paste0(gs.header, "\nEmail: ", 
-                      gsub("[[:blank:]]*,[[:blank:]]*[\n]?[[:blank:]]*", "\n       ", gs.pkg_info$Email))
+                      gsub("[[:blank:]]*,[[:blank:]]*[\n]?[[:blank:]]*", "\n       ", gs.pkg_email))
 } 
 
 # Tolerances for numerical comparisons and number of significant digits for rounding

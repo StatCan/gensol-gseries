@@ -118,6 +118,9 @@ Lorsque les données d'entrée contiennent plusieurs périodes (scénario de pr�
 les éléments \code{x}, \code{c_x}, \code{g}, \code{c_g} et \code{G} du problème de ratissage sont construits \emph{colonne par colonne}
 (selon le principe « column-major order » en anglais), ce qui correspond au comportement par défaut de R lors
 de la conversion d'objets de la classe « matrix » en vecteurs.
+
+Note : la validation des arguments n'est pas effectuée ici ; on suppose (carrément) que la fonction est
+appelée par \code{\link[=tsraking]{tsraking()}} où une validation complète des arguments est effectuée.
 }
 \examples{
 # Dériver les 5 totaux de marge d'un cube de données à deux dimensions 2 x 3 

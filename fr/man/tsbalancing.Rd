@@ -519,7 +519,7 @@ Notez que les objets de type « data.frame » renvoyés par la fonction peuven
 d'objets avec la fonction \verb{as*()} appropriée (ex., \code{tibble::as_tibble()} convertirait n'importe lequel d'entre eux en tibble).
 }
 \description{
-\emph{Réplication de la macro \emph{\strong{GSeriesTSBalancing}} de G-Séries 2.0 en SAS\eqn{^\circledR}{®}. Voir la documentation
+\emph{Réplication de la macro \strong{GSeriesTSBalancing} de G-Séries 2.0 en SAS\eqn{^\circledR}{®}. Voir la documentation
 de G-Séries 2.0 pour plus de détails (Statistique Canada 2016).}
 
 Cette fonction équilibre (réconcilie) un système de séries chronologiques selon un ensemble de contraintes linéaires.
@@ -1009,7 +1009,7 @@ Statistique Canada (2018). \strong{Théorie et application de la réconciliation
 Statistique Canada, Ottawa, Canada.
 
 Stellato, B., G. Banjac, P. Goulart et al. (2020). « OSQP: an operator splitting solver for quadratic programs ».
-\strong{Math. Prog. Comp. 12}, 637–672 (2020). \url{https://doi.org/10.1007/s12532-020-00179-2}
+\strong{Math. Prog. Comp. 12}, 637–672 (2020). \doi{10.1007/s12532-020-00179-2}
 }
 \seealso{
 \code{\link[=tsraking]{tsraking()}} \code{\link[=tsraking_driver]{tsraking_driver()}} \code{\link[=rkMeta_to_blSpecs]{rkMeta_to_blSpecs()}} \code{\link[=gs.build_proc_grps]{gs.build_proc_grps()}} \code{\link[=build_balancing_problem]{build_balancing_problem()}} \link{aliases}

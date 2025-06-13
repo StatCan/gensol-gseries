@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">3.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">News</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-news"><li><h6 class="dropdown-header" data-toc-skip>Releases</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/">G-Series 3.0 (latest - R package gseries 3.0.0)</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/">G-Series 3.0 (latest - R package gseries 3.0.1)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/">G-Series 2.0 (SAS® version)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/">G-Series 1.04 (SAS® version)</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="3.0.0" id="gseries-300">gseries 3.0.0<a class="anchor" aria-label="anchor" href="#gseries-300"></a></h2>
+<h2 class="pkg-version" data-toc-text="3.0.1" id="gseries-301">gseries 3.0.1<a class="anchor" aria-label="anchor" href="#gseries-301"></a></h2>
 <p>(<em>G-Series 3.0 in R</em>)</p>
 <!-- Display a link to the French `NEWS.md' file (only when rendering an HTML document)
 
@@ -59,6 +59,14 @@
         `development: mode: release` in `_pkdown.yml`, resulting in a single "release" website
         regardless of the version number -->
 
+<ul><li><p>Bug fix in <code><a href="../reference/tsbalancing.html">tsbalancing()</a></code> to avoid altering the R session’s error option (<code>getOption("error")</code>) after execution.</p></li>
+<li><p>Validation of class “data.frame” input objects in (relevant) utility functions for coherence with the core functions.</p></li>
+<li><p>Updated description of the function arguments regarding the expected class of input objects.</p></li>
+<li><p>Minor changes to comply with the CRAN requirements following the initial submission process.</p></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="3.0.0" id="gseries-300">gseries 3.0.0<a class="anchor" aria-label="anchor" href="#gseries-300"></a></h2>
+<p>(<em>G-Series 3.0 in R</em>)</p>
 <ul><li><p>Initial release of G-Series in R (package gseries).</p></li>
 <li><p>New functionality (<code><a href="../reference/stock_benchmarking.html">stock_benchmarking()</a></code>) designed for benchmarking stocks using a cubic spline interpolation approach.</p></li>
 <li>

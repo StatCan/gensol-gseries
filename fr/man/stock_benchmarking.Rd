@@ -534,8 +534,8 @@ plot_benchAdj(PB_graphTable = res_PB2$graphTable,
 # trimestriels résultants, qui sont commodément produits par `plot_graphTable()`. 
 # Portez une attention particulière à la transition des taux de croissance de T4 à T1 
 # à chaque année dans les graphiques PDF générés.
-plot_graphTable(res_PB2$graphTable, file.path(tempdir(), "Stock_ind_plat_PB.pdf"))
-plot_graphTable(res_SB2$graphTable, file.path(tempdir(), "Stock_ind_plat_SB.pdf"))
+\donttest{plot_graphTable(res_PB2$graphTable, file.path(tempdir(), "Stock_ind_plat_PB.pdf"))}
+\donttest{plot_graphTable(res_SB2$graphTable, file.path(tempdir(), "Stock_ind_plat_SB.pdf"))}
 
 
 # Illustrer l'approximation d'une spline cubique naturelle aux nœuds d'extrémité originaux 

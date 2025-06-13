@@ -30,7 +30,7 @@ out_bench1 <- benchmarking(my_series1,
                            biasOption = 3)
 
 # Generate the benchmarking graphs
-plot_graphTable(out_bench1$graphTable, "Ex1_graphs.pdf")
+\donttest{plot_graphTable(out_bench1$graphTable, "Ex1_graphs.pdf")}
 
 
 ###########
@@ -97,7 +97,7 @@ out_bench2 <- benchmarking(my_series2,
                            quiet = TRUE)
 
 # Generate the benchmarking graphs
-plot_graphTable(out_bench2$graphTable, "Ex2_graphs.pdf")
+\donttest{plot_graphTable(out_bench2$graphTable, "Ex2_graphs.pdf")}
 
 # Check the value of van sales for 2012 Q1 and Q2 in group A (fixed values)
 all.equal(my_series2$van_sales[c(5,6)], out_bench2$series$van_sales[c(5,6)])
@@ -132,7 +132,7 @@ out_bench3 <- benchmarking(my_series3,
                            quiet = TRUE)
 
 # Generate the benchmarking graphs
-plot_graphTable(out_bench3$graphTable, "Ex3_graphs.pdf")
+\donttest{plot_graphTable(out_bench3$graphTable, "Ex3_graphs.pdf")}
 
 # Convert data frame `out_bench3$series` to a "mts" object
 qtr_sales2_bmked <- tsDF_to_ts(unstack_tsDF(out_bench3$series), frequency = 4)

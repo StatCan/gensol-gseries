@@ -21,7 +21,7 @@ Des contraintes linéaires d'égalité et d'inégalité sont permises. Optionnel
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Activer la navigation">
@@ -40,7 +40,7 @@ Des contraintes linéaires d'égalité et d'inégalité sont permises. Optionnel
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-nouveaut-s" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Nouveautés</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-nouveaut-s"><li><h6 class="dropdown-header" data-toc-skip>Versions</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.0)</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.1)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/">G-Séries 2.0 (version SAS®)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/">G-Séries 1.04 (version SAS®)</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -62,7 +62,7 @@ Des contraintes linéaires d'égalité et d'inégalité sont permises. Optionnel
     </div>
 
     <div class="ref-description section level2">
-    <p><em>Réplication de la macro <em><strong>GSeriesTSBalancing</strong></em> de G-Séries 2.0 en SAS\(^\circledR\). Voir la documentation
+    <p><em>Réplication de la macro <strong>GSeriesTSBalancing</strong> de G-Séries 2.0 en SAS\(^\circledR\). Voir la documentation
 de G-Séries 2.0 pour plus de détails (Statistique Canada 2016).</em></p>
 <p>Cette fonction équilibre (réconcilie) un système de séries chronologiques selon un ensemble de contraintes linéaires.
 La solution d'équilibrage (« <em>balancing</em> ») est obtenue en résolvant un ou plusieurs problèmes de minimisation quadratique
@@ -689,7 +689,7 @@ Statistique Canada, Ottawa, Canada.</p>
 <p>Statistique Canada (2018). <strong>Théorie et application de la réconciliation (Code du cours 0437)</strong>.
 Statistique Canada, Ottawa, Canada.</p>
 <p>Stellato, B., G. Banjac, P. Goulart et al. (2020). « OSQP: an operator splitting solver for quadratic programs ».
-<strong>Math. Prog. Comp. 12</strong>, 637–672 (2020). <a href="https://doi.org/10.1007/s12532-020-00179-2" class="external-link">https://doi.org/10.1007/s12532-020-00179-2</a></p>
+<strong>Math. Prog. Comp. 12</strong>, 637–672 (2020). <a href="https://doi.org/10.1007/s12532-020-00179-2" class="external-link">doi:10.1007/s12532-020-00179-2</a></p>
     </div>
     <div class="section level2">
     <h2 id="voir-galement">Voir également<a class="anchor" aria-label="anchor" href="#voir-galement"></a></h2>
@@ -746,8 +746,8 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                         display_level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.1 - Tools for Cohesive Time Series Data ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Created on June 13, 2025, at 1:09:40 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Email: g-series@statcan.gc.ca</span>
@@ -820,15 +820,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   5.32e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.17e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   1.76e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   7.94e-01   8.11e+01   1.00e-01   7.62e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9200e+00   9.38e-11   5.19e-10   1.00e-01   1.47e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   1.11e-16   2.22e-16  ---------   2.20e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.76e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             2.20e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.49e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -884,15 +884,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   4.54e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   1.04e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.62e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.2816e+00   1.57e-01   1.77e+01   1.00e-01   5.46e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.8750e+00   1.33e-11   1.11e-10   1.00e-01   1.21e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.8750e+00   2.78e-17   0.00e+00  ---------   1.89e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.8750</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.62e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.89e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.47e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -948,15 +948,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   4.90e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   1.13e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   1.78e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.4512e+00   2.00e-02   3.05e+00   1.00e-01   4.98e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -1.9998e+00   1.70e-12   1.29e-11   1.00e-01   1.18e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9998e+00   1.73e-17   1.73e-17  ---------   1.82e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9998</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.78e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.82e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 5.13e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1012,15 +1012,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   2.88e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   6.78e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.09e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -1.3898e+00   6.04e-03   1.05e+00   1.00e-01   5.35e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     25  -1.9200e+00   5.09e-08   5.35e-07   1.00e-01   1.16e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -1.9200e+00   0.00e+00   1.11e-16  ---------   1.84e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 25</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -1.9200</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.09e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             1.84e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 4.88e-02</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1076,15 +1076,15 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>             warm start: on, polish: on, time_limit: off</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   iter  objective    pri res    dua res    rho        time</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   7.99e-05s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   1.66e-04s</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   2.63e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>      1  -6.1701e-02   1.19e+00   1.21e+02   1.00e-01   5.56e-05s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     50  -9.5062e-01   1.37e-10   1.41e-10   1.00e-01   1.60e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   plsh  -9.5062e-01   0.00e+00   0.00e+00  ---------   2.53e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   status:               solved</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   solution polish:      successful</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   number of iterations: 50</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal objective:    -0.9506</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             2.63e-04s</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   run time:             2.53e-04s</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   optimal rho estimate: 1.39e-01</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>   OSQP iteration 1:</span>
@@ -1179,8 +1179,8 @@ Statistique Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                          problem_specs_df <span class="op">=</span> <span class="va">mes_specs1b</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.0 - Tools for Cohesive Time Series Data ---</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Created on April 30, 2025, at 4:57:41 PM EDT</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.1 - Tools for Cohesive Time Series Data ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Created on June 13, 2025, at 1:09:40 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Email: g-series@statcan.gc.ca</span>

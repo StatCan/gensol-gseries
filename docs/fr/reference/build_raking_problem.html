@@ -11,7 +11,7 @@ du problème de ratissage."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Activer la navigation">
@@ -30,7 +30,7 @@ du problème de ratissage."></head><body>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-nouveaut-s" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Nouveautés</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-nouveaut-s"><li><h6 class="dropdown-header" data-toc-skip>Versions</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.0)</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.1)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/">G-Séries 2.0 (version SAS®)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/">G-Séries 1.04 (version SAS®)</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -171,6 +171,8 @@ transversaux).</p>
 les éléments <code>x</code>, <code>c_x</code>, <code>g</code>, <code>c_g</code> et <code>G</code> du problème de ratissage sont construits <em>colonne par colonne</em>
 (selon le principe « column-major order » en anglais), ce qui correspond au comportement par défaut de R lors
 de la conversion d'objets de la classe « matrix » en vecteurs.</p>
+<p>Note : la validation des arguments n'est pas effectuée ici ; on suppose (carrément) que la fonction est
+appelée par <code><a href="tsraking.html">tsraking()</a></code> où une validation complète des arguments est effectuée.</p>
     </div>
     <div class="section level2">
     <h2 id="voir-galement">Voir également<a class="anchor" aria-label="anchor" href="#voir-galement"></a></h2>

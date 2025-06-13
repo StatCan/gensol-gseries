@@ -11,7 +11,7 @@ les séries indirectes associées aux contraintes d'équilibrage d'égalité."><
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dernière version publiée">3.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Activer la navigation">
@@ -30,7 +30,7 @@ les séries indirectes associées aux contraintes d'équilibrage d'égalité."><
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-nouveaut-s" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Nouveautés</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-nouveaut-s"><li><h6 class="dropdown-header" data-toc-skip>Versions</h6></li>
-    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.0)</a></li>
+    <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/">G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.1)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/">G-Séries 2.0 (version SAS®)</a></li>
     <li><a class="external-link dropdown-item" href="https://github.com/StatCan/gensol-gseries/releases/tag/v1.04/">G-Séries 1.04 (version SAS®)</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -282,13 +282,15 @@ dans <code>values_ts</code> et déclencherait un message d'avertissement.</p>
 ce qui correspond au comportement par défaut de R lors de la conversion d'objets de la classe « matrix » en vecteurs.
 Autrement dit, les contraintes d'équilibrage correspondent conceptuellement à :</p><ul><li><p><code>A1 %*% values_ts[t, ] op1 b1</code> pour des problèmes impliquant une seule période (<code>t</code>)</p></li>
 <li><p><code>A2 %*% as.vector(values_ts[t1:t2, ]) op2 b2</code> pour des problèmes impliquant <code>temporal_grp_periodicity</code> périodes (<code>t1:t2</code>)</p></li>
-</ul><p>Notez que l'argument <code>alter_temporal</code> n'a pas encore été appliqué à ce stade et que <code>altertmp$coefs_ts</code> ne contient que les
+</ul><p>Notes :</p><ul><li><p>L'argument <code>alter_temporal</code> n'a pas encore été appliqué à ce stade et <code>altertmp$coefs_ts</code> ne contient que les
 coefficients spécifiés dans le <em>data frame</em> des spécifications du problème (argument <code>problem_specs_df</code>). Autrement dit,
 <code>altertmp$coefs_ts</code> contient des valeurs manquantes (<code>NA</code>) à l'exception des coefficients d'altérabilité de total temporel
 inclus dans (spécifiés avec) <code>problem_specs_df</code>. Ceci est fait afin de faciliter l'identification du premier coefficient
 d'altérabilité non manquant (non <code>NA</code>) de chaque groupe temporel complet (à survenir ultérieurement, le cas échéant, dans
-<code><a href="tsbalancing.html">tsbalancing()</a></code>).</p>
-    </div>
+<code><a href="tsbalancing.html">tsbalancing()</a></code>).</p></li>
+<li><p>La validation des arguments n'est pas effectuée ici ; on suppose (carrément) que la fonction est appelée par
+<code><a href="tsbalancing.html">tsbalancing()</a></code> où une validation complète des arguments est effectuée.</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="voir-galement">Voir également<a class="anchor" aria-label="anchor" href="#voir-galement"></a></h2>
     <div class="dont-index"><p><code><a href="tsbalancing.html">tsbalancing()</a></code> <code><a href="build_raking_problem.html">build_raking_problem()</a></code></p></div>
