@@ -675,6 +675,11 @@ ori_plot <- function(graphTable,
     if (grepl("structure(", df_name, fixed = TRUE)) {
       df_name <- "<argument 'graphTable'>"
     }
+    graphTable <- graphTable
+    if (!is.data.frame(graphTable)) {
+      stop("Argument 'graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+    }
+    graphTable <- as.data.frame(graphTable)
     
     # Set the benchmarking parms
     parms <- extract_parms(graphTable)
@@ -850,6 +855,11 @@ adj_plot <- function(graphTable,
     if (grepl("structure(", df_name, fixed = TRUE)) {
       df_name <- "<argument 'graphTable'>"
     }
+    graphTable <- graphTable
+    if (!is.data.frame(graphTable)) {
+      stop("Argument 'graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+    }
+    graphTable <- as.data.frame(graphTable)
     
     # Set the benchmarking parms
     parms <- extract_parms(graphTable)
@@ -1031,6 +1041,11 @@ GR_plot <- function(graphTable,
     if (grepl("structure(", df_name, fixed = TRUE)) {
       df_name <- "<argument 'graphTable'>"
     }
+    graphTable <- graphTable
+    if (!is.data.frame(graphTable)) {
+      stop("Argument 'graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+    }
+    graphTable <- as.data.frame(graphTable)
     
     # Set the benchmarking parms
     parms <- extract_parms(graphTable)
@@ -1166,6 +1181,11 @@ GR_table <- function(graphTable,
     if (grepl("structure(", df_name, fixed = TRUE)) {
       df_name <- "<argument 'graphTable'>"
     }
+    graphTable <- graphTable
+    if (!is.data.frame(graphTable)) {
+      stop("Argument 'graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+    }
+    graphTable <- as.data.frame(graphTable)
     
     # Set the benchmarking parms
     parms <- extract_parms(graphTable)

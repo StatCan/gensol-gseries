@@ -75,3 +75,15 @@ test_that("multiplicative benchmarking, with bias", {
                   legendPos = "bottomright")
   )
 })
+
+test_that("invalid input objects", {
+  expect_error(
+    plot_benchAdj(PB_graphTable = "dummy string")
+  )
+  expect_error(
+    plot_benchAdj(SB_graphTable = "dummy string")
+  )
+  expect_error(
+    plot_benchAdj(SB_splineKnots = "dummy string")
+  )
+})

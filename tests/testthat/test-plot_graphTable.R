@@ -189,19 +189,33 @@ test_that("warning: notihng to plot", {
   ))
 })
 
-test_that("error: no graphtable", {
+test_that("invalid inputs", {
+  
+  # error: no graphtable
   expect_error(
     plot_graphTable()
   )
-})
-test_that("error: graphtable not a data.frame", {
+  
+  # error: missing cols in graphTable
+  expect_error(
+    plot_graphTable(graphTable = data.frame(x = 1))
+  )
+  
+  # error: graphtable not a data.frame
   expect_error(
     plot_graphTable(NULL)
   )
-})
-test_that("error: missing cols in graphTable", {
   expect_error(
-    plot_graphTable(graphTable = data.frame(x = 1))
+    ori_plot(NULL)
+  )
+  expect_error(
+    adj_plot(NULL)
+  )
+  expect_error(
+    GR_plot(NULL)
+  )
+  expect_error(
+    GR_table(NULL)
   )
 })
 

@@ -1,4 +1,4 @@
-# gseries 3.0.0
+# gseries 3.0.1
 
 (*G-Series 3.0 in R*)
 
@@ -18,6 +18,18 @@
 
 </div>
 
+* Bug fix in `tsbalancing()` to avoid altering the R session's error option (`getOption("error")`) after execution.
+
+* Validation of class "data.frame" input objects in (relevant) utility functions for coherence with the core functions.
+
+* Updated description of the function arguments regarding the expected class of input objects.
+
+* Minor changes to comply with the CRAN requirements following the initial submission process.
+
+
+# gseries 3.0.0
+
+(*G-Series 3.0 in R*)
 
 * Initial release of G-Series in R (package gseries).
 

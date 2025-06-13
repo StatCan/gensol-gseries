@@ -99,6 +99,9 @@ plot_benchAdj <- function(PB_graphTable = NULL,
       SB_splineKnots <- NULL
     } else {
       
+      if (!is.data.frame(SB_splineKnots)) {
+        stop("Argument 'SB_splineKnots' is not a 'data.frame' object.\n\n", call. = FALSE)
+      }
       SB_splineKnots <- as.data.frame(SB_splineKnots)
       var_list <- names(SB_splineKnots)
       if ("extraKnot" %in% var_list) {
@@ -135,6 +138,9 @@ plot_benchAdj <- function(PB_graphTable = NULL,
       SB_graphTable <- NULL
     } else {
       
+      if (!is.data.frame(SB_graphTable)) {
+        stop("Argument 'SB_graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+      }
       SB_graphTable <- as.data.frame(SB_graphTable)
       lab_list <- c(lab_list, "Stock Bench. (SB)")
       col_list <- c(col_list, "red")
@@ -178,6 +184,9 @@ plot_benchAdj <- function(PB_graphTable = NULL,
       PB_graphTable <- NULL
     } else {
       
+      if (!is.data.frame(PB_graphTable)) {
+        stop("Argument 'PB_graphTable' is not a 'data.frame' object.\n\n", call. = FALSE)
+      }
       PB_graphTable <- as.data.frame(PB_graphTable)
       PB_graphTable <- PB_graphTable[!duplicated(PB_graphTable[c("t", "benchmarkedSubAnnualRatio")]), ]
       lab_list <- c(lab_list, "Proc Bench. (PB)")

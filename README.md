@@ -32,7 +32,7 @@ versions.
 > the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file
 > `index_StatCan.md` in the GitLab project root folder.
 
-G‑Series 3.0 (package gseries 3.0.0) is the initial open-source version
+G‑Series 3.0 (package gseries 3.0.1) is the initial open-source version
 of the software. It includes the rewriting in R of all SAS<sup>®</sup>
 G‑Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING
 and macro ***GSeriesTSBalancing*** along with a function for
@@ -131,7 +131,7 @@ SAS<sup>®</sup>.
 > l’infrastructure TI de StatCan (ex., Artifactory et GitLab) ; voir le
 > fichier `index_StatCan.md` dans le répertoire racine du projet GitLab.
 
-G‑Séries 3.0 (librairie gseries 3.0.0) est la première version du
+G‑Séries 3.0 (librairie gseries 3.0.1) est la première version du
 logiciel offerte en libre accès (logiciel libre). Elle inclut le
 recodage en R de toutes les fonctionalités SAS<sup>®</sup> de G‑Séries
 2.0, soit PROC BENCHMARKING, PROC TSRAKING et la macro

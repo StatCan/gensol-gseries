@@ -483,7 +483,7 @@ the appropriate \verb{as*()} function (e.g., \code{tibble::as_tibble()} would co
 \if{html,text}{(\emph{version française: 
 \url{https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.html}})}
 
-\emph{Replication of the G-Series 2.0 SAS\eqn{^\circledR}{®} \emph{\strong{GSeriesTSBalancing}} macro. See the
+\emph{Replication of the G-Series 2.0 SAS\eqn{^\circledR}{®} \strong{GSeriesTSBalancing} macro. See the
 G-Series 2.0 documentation for details (Statistics Canada 2016).}
 
 This function balances (reconciles) a system of time series according to a set of linear constraints. The balancing
@@ -952,7 +952,7 @@ Statistics Canada (2018). \strong{Theory and Application of Reconciliation (Cour
 Statistics Canada, Ottawa, Canada.
 
 Stellato, B., G. Banjac, P. Goulart et al. (2020). "OSQP: an operator splitting solver for quadratic programs".
-\strong{Math. Prog. Comp. 12}, 637–672 (2020). \url{https://doi.org/10.1007/s12532-020-00179-2}
+\strong{Math. Prog. Comp. 12}, 637–672 (2020). \doi{10.1007/s12532-020-00179-2}
 }
 \seealso{
 \code{\link[=tsraking]{tsraking()}} \code{\link[=tsraking_driver]{tsraking_driver()}} \code{\link[=rkMeta_to_blSpecs]{rkMeta_to_blSpecs()}} \code{\link[=gs.build_proc_grps]{gs.build_proc_grps()}} \code{\link[=build_balancing_problem]{build_balancing_problem()}} \link{aliases}

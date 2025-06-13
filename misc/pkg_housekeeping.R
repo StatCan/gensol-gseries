@@ -1,3 +1,6 @@
+# Constant `gs.pkg_created` in scripts (EN & FR) `utils-common.R` (to be manually copied)
+t <- Sys.time(); cat(paste0(format(t, "%B %d, %Y,"), " at ", format(t, "%X %Z")))
+
 # Called all the time during development:
 devtools::load_all(".")
 devtools::load_all("fr")
@@ -28,6 +31,11 @@ urlchecker::url_update("fr")
 
 usethis::use_cran_comments()
 
+
+##### Submit to CRAN !!!
+devtools::submit_cran()
+
+
 # Copy relevant MD files to the French folder
 file.copy(c("CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "SECURITY.md", "LICENSE.md"), "fr", overwrite = TRUE)
 
@@ -55,8 +63,7 @@ devtools::build_rmd("index_StatCan.Rmd")
 source("misc/update_files.R"); update_Rd_files()
 
 
-# Field "Created" in the DESCRIPTION file (to be manually copied):
-t <- Sys.time(); cat(paste0(format(t, "%B %d, %Y,"), " at ", format(t, "%X %Z")))
+# Copy DESCRIPTION fie "as is" to the `fr/` folder (exact same function headers)
 file.copy("DESCRIPTION", "fr", overwrite = TRUE)
 
 devtools::build(".")

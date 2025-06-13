@@ -43,8 +43,8 @@ home:
 
 news:
   releases:
-  - text: "G-Series 3.0 (latest - R package gseries 3.0.0)"
-    href: https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.0/
+  - text: "G-Series 3.0 (latest - R package gseries 3.0.1)"
+    href: https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/
   - text: "G-Series 2.0 (SAS® version)"
     href: https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/
   - text: "G-Series 1.04 (SAS® version)"

@@ -6,7 +6,7 @@
 \alias{gseries-package}
 \title{gseries: Tools for Cohesive Time Series Data}
 \description{
-'R' version of 'G-Series', Statistics Canada's generalized system devoted to time series benchmarking and reconciliation. The methods used in 'G-Series' essentially come from Dagum and Cholette (2006) \doi{10.1007/0-387-35439-5}.
+'R' version of 'G-Series', Statistics Canada's generalized system devoted to the benchmarking and reconciliation of time series data. The methods used in 'G-Series' essentially come from Dagum, E. B., and P. Cholette (2006) \doi{10.1007/0-387-35439-5}.
 }
 \seealso{
 Useful links:
