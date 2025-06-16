@@ -29,11 +29,12 @@ repo:
     source: https://github.com/StatCan/gensol-gseries/tree/main/fr/
 
 home:
-  title: "G-Séries en R : des outlis pour des séries chronologiques cohérentes"
+  title: "G-Séries en R : améliorez la cohérence de vos séries chronologiques"
   description: >
-    Version R de G-Séries, le système généralisé de Statistique Canada consacré à 
-    l’étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées 
-    dans G-Séries proviennent essentiellement de Dagum et Cholette (2006) <doi:10.1007/0-387-35439-5>.
+    Version R de G-Séries, le système généralisé de Statistique Canada consacré 
+    à l’étalonnage et à la réconciliation de séries chronologiques. Les méthodes
+    utilisées dans G-Séries proviennent essentiellement de Dagum, E. B. et P. 
+    Cholette (2006) <doi:10.1007/0-387-35439-5>.
   sidebar:
     structure: [toc, links, contact, license, community, citation, authors]
     components:
@@ -43,8 +44,8 @@ home:
 
 news:
   releases:
-  - text: "G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.1)"
-    href: https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.1/
+  - text: "G-Séries 3.0 (version la plus récente - librairie R gseries 3.0.2)"
+    href: https://github.com/StatCan/gensol-gseries/releases/tag/v3.0.2/
   - text: "G-Séries 2.0 (version SAS®)"
     href: https://github.com/StatCan/gensol-gseries/releases/tag/v2.0/
   - text: "G-Séries 1.04 (version SAS®)"

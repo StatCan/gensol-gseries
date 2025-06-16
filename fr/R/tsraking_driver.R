@@ -116,6 +116,10 @@ tsraking_driver <- function(in_ts,                         # input data as a "ts
   
   ### Main function ###
   
+  # Define a pointer to the main function environment and create a NULL object
+  main.e <- environment()
+  main.e$dummy <- NULL
+  
   # Initialize the object to be returned by the function via `on.exit()`
   out_ts <- NULL
   on.exit(return(out_ts))
@@ -340,6 +344,9 @@ tsraking_driver <- function(in_ts,                         # input data as a "ts
     per_vec <- grp_df$beg_per[grp]:grp_df$end_per[grp]
     grp_data_df <- in_df[per_vec, out_cols, drop = FALSE]
     
+    # The warning and error handler functions defined below (inside `withCallingHandlers()` and `tryCatch()` 
+    # respectively) use environment pointer `main.e` to update objects in the current (main) function environment 
+    # (instead of using operator `<<-`)
     out_df <- rbind(out_df,
                     tryCatch(
                       withCallingHandlers(
@@ -351,14 +358,14 @@ tsraking_driver <- function(in_ts,                         # input data as a "ts
                         ),
                         
                         warning = function(wCnd) {
-                          warning_flag <<- TRUE
+                          main.e$warning_flag <- TRUE
                         }
                       ),
                       
                       error = function(eCnd) {
-                        try_error_msg <<- conditionMessage(eCnd)
+                        main.e$try_error_msg <- conditionMessage(eCnd)
                         try_stop_func(try_error_msg)
-                        try_error <<- TRUE
+                        main.e$try_error <- TRUE
                         df <- grp_data_df
                         df[prob_cols] <- NA
                         df

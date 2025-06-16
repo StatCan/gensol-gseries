@@ -418,7 +418,7 @@
 #' indicatrices et que des variables BY sont spécifiées, le groupe-BY correspondant est ignoré, un message d'avertissement est 
 #' affiché et la fonction passe au groupe-BY suivant. Si aucune variable BY n'est spécifiée, la série indicatrice concernée 
 #' n'est pas traitée, un message d'avertissement est affiché et la fonction passe à la série indicatrice suivante (le cas échéant).
-
+#' 
 #'
 #' @returns
 #' La fonction renvoie une liste de trois *data frames* :
@@ -576,7 +576,9 @@ benchmarking <- function(series_df,
   # Benchmarking functions according to (main function) argument 'rho':
   #   - Denton benchmarking    : rho = 1
   #   - Non-Denton benchmarking: otherwise (rho < 1)
-  # => No arguments: they refer to objects that exist in the parent (calling function) environment
+  # => No arguments: they refer to objects that exist in the parent (main function) calling environment and 
+  #                  use environment pointer `main.e` (when necessary) to update objects in that environment 
+  #                  (instead of using operator `<<-`)
   Denton_bench <- function() {
     
     # Data rescaling (standardization) of matrix C
@@ -588,7 +590,7 @@ benchmarking <- function(series_df,
       tmp_C <- tmp_C / mean_C
     }
     verbose_func(start_time, Sys.time(), "Data rescaling for matrix C")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     # Build the matrices and solve
     C <- diag(tmp_C, nrow = nT)
@@ -596,27 +598,27 @@ benchmarking <- function(series_df,
     delta[lower.tri(delta)] <- 0
     delta <- delta[1:(nT - 1), , drop = FALSE]
     verbose_func(start_time, Sys.time(), "C and Delta matrices construction")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     C_inv <- gs.gInv_MP(C)
     verbose_func(start_time, Sys.time(), "Inverse C calculation")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     M0 <- C_inv %*% t(delta) %*% delta %*% C_inv
     verbose_func(start_time, Sys.time(), "Inv(C) x Delta' x Delta x Inv(C)")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     M1_inv <- gs.gInv_MP(rbind(cbind(M0, t(J)), cbind(J, matrix(0, nrow = M, ncol = M))))
     verbose_func(start_time, Sys.time(), "Inverse BigMat1 calculation")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     bigMat <- M1_inv %*% rbind(cbind(M0, matrix(0, nrow = nT, ncol = M)), cbind(J, diag(1, nrow = M)))
     verbose_func(start_time, Sys.time(), "BigMat3 = Inv(BigMat1) x BigMat2")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     theta <- as.vector(s_b + bigMat[1:nT, (nT + 1):(nT + M), drop = FALSE] %*% (a - J %*% s_b))
     verbose_func(start_time, Sys.time(), "Theta = s* + W x (a - J x s*)")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     theta
   }
@@ -631,7 +633,7 @@ benchmarking <- function(series_df,
       tmp_V <- tmp_V / mean_C^2
     }
     verbose_func(start_time, Sys.time(), "Data rescaling for matrices C and V_eps")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     # Build the matrices and solve
     C <- diag(tmp_C, nrow = nT)
@@ -639,23 +641,23 @@ benchmarking <- function(series_df,
     # `sapply()` is safe: Omega_e will always be a "matrix" object, even when `nT = 1`
     Omega_e <- stats::toeplitz(sapply(1:nT, function(x) rho^(x - 1)))
     verbose_func(start_time, Sys.time(), "C, V_eps and Omega matrices construction")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     V_e <- C %*% Omega_e %*% C
     verbose_func(start_time, Sys.time(), "V_e = C x Omega x C")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     V_d <- J %*% V_e %*% t(J) + V_eps
     verbose_func(start_time, Sys.time(), "V_d = J x V_e x J' + V_eps")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     V_d_inv <- gs.gInv_MP(V_d)
     verbose_func(start_time, Sys.time(), "Inverse V_d calculation")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     theta <- as.vector(s_b + V_e %*% t(J) %*% V_d_inv %*% (a - J %*% s_b))
     verbose_func(start_time, Sys.time(), "Theta = s* + V_e x J' x Inv(V_d) x (a - J x s*)")
-    start_time <<- Sys.time()
+    main.e$start_time <- Sys.time()
     
     theta
   }
@@ -665,6 +667,11 @@ benchmarking <- function(series_df,
   
   ### Main function ###
   
+  # Define a pointer to the main function environment and create a NULL object
+  main.e <- environment()
+  main.e$dummy <- NULL
+  
+  # Time stamps (when argument `verbose = TRUE`)
   start_time <- Sys.time()
   start_time0 <- start_time
   
@@ -1364,8 +1371,8 @@ benchmarking <- function(series_df,
                 #                (infeasible proportional benchmarking problem)
                 #   - negative benchmarks or indicator series values (according to argument `negInput_option`)
                 if (zeros_verif_func(s, J, a, c_a, tol = gs.tolerance)) {
-                  try_error_msg <<- paste0("The indicator series has zero values. This is not permitted for proportional ",
-                                           "benchmarking when `rho = 1` or `lambda < 0`.\n\n")
+                  try_error_msg <- paste0("The indicator series has zero values. This is not permitted for proportional ",
+                                          "benchmarking when `rho = 1` or `lambda < 0`.\n\n")
                   try_stop_func(try_error_msg)
                   try_error <- TRUE
                   

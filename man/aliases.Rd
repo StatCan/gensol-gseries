@@ -16,6 +16,14 @@ macro_gseriestsbalancing(...)
 \arguments{
 \item{...}{Corresponding function arguments.}
 }
+\value{
+See the corresponding function:
+\itemize{
+\item \code{\link[=benchmarking]{benchmarking()}} for alias \code{\link[=proc_benchmarking]{proc_benchmarking()}}
+\item \code{\link[=tsraking]{tsraking()}} for alias \code{\link[=proc_tsraking]{proc_tsraking()}}
+\item \code{\link[=tsbalancing]{tsbalancing()}} for alias \code{\link[=macro_gseriestsbalancing]{macro_gseriestsbalancing()}}
+}
+}
 \description{
 \if{html,text}{(\emph{version française: 
 \url{https://StatCan.github.io/gensol-gseries/fr/reference/aliases.html}})}
@@ -31,11 +39,7 @@ The name of these aliases is reminiscent of the corresponding function's SAS\eqn
 (PROC BENCHMARKING, PROC TSRAKING and macro \emph{\strong{GSeriesTSBalancing}} in G-Series 2.0). These aliases also
 ensure backward compatibility with early development versions of the R package.
 
-See the corresponding function for examples or the description of the arguments and the returned value:
-\itemize{
-\item \code{\link[=benchmarking]{benchmarking()}} for alias \code{\link[=proc_benchmarking]{proc_benchmarking()}}
-\item \code{\link[=tsraking]{tsraking()}} for alias \code{\link[=proc_tsraking]{proc_tsraking()}}
-\item \code{\link[=tsbalancing]{tsbalancing()}} for alias \code{\link[=macro_gseriestsbalancing]{macro_gseriestsbalancing()}}
-}
+See the corresponding function for more details, including complete examples, detailed description of the
+arguments and the returned value.
 }
 \keyword{internal}

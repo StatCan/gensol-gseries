@@ -172,6 +172,7 @@ usethis::use_build_ignore(".lintr")
 usethis::use_git_ignore(".pdf", directory = "tests/testthat/")
 usethis::use_git_ignore("..Rcheck")
 usethis::use_git_ignore("gseries.Rcheck")
+#usethis::use_git_ignore("CRAN-SUBMISSION")
 
 # Vignettes (initial creation)
 usethis::use_vignette("benchmarking-cookbook")

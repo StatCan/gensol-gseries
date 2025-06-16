@@ -15,8 +15,11 @@
 #' (PROC BENCHMARKING, PROC TSRAKING et macro ***GSeriesTSBalancing*** dans G-Séries 2.0). Ces alias  
 #' assurent également la compatibilité avec les premières versions de développement de la librairie R.
 #' 
-#' Voir la fonction correspondante pour des exemples ou la description des arguments et de la valeur 
-#' de retour :
+#' Voir la fonction correspondante pour plus de détails, y compris des exemples complets, une description 
+#' détaillée des arguments et la valeur de retour.
+#'
+#' @returns
+#' Voir la fonction correspondante :
 #' - [benchmarking()] pour l'alias [proc_benchmarking()]
 #' - [tsraking()] pour l'alias [proc_tsraking()]
 #' - [tsbalancing()] pour l'alias [macro_gseriestsbalancing()]

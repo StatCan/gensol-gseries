@@ -48,7 +48,7 @@ R version of Statistics Canada's (StatCan) generalized system **G<span>&#8209;</
 > _**Note - StatCan intranet**_\
 > StatCan employees can also visit the G<span>&#8209;</span>Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G<span>&#8209;</span>Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
 
-G<span>&#8209;</span>Series 3.0 (package gseries 3.0.1) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
+G<span>&#8209;</span>Series 3.0 (package gseries 3.0.2) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
 
 * `benchmarking()`
 * `stock_benchmarking()`
