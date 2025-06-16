@@ -100,14 +100,15 @@ test_that("Lower/upper bounds mapping bug", {
 
 # Regular tests start here
 
+test.e <- environment()
+test.e$dummy <- NULL
 
 
 #---- Normal Execution ----
 
-
 res1 <- NULL
 test_that("Period-by-period processing", {
-  res1 <<- expect_type(suppressMessages(
+  test.e$res1 <- expect_type(suppressMessages(
     tsbalancing(test_ts, test_specs, quiet = TRUE)
   ), "list")
 })
@@ -120,7 +121,7 @@ test_that("Period-by-period processing", {
 
 res2 <- NULL
 test_that("Temporal group processing", {
-  res2 <<- expect_type(suppressMessages(
+  test.e$res2 <- expect_type(suppressMessages(
     tsbalancing(test_ts, test_specs, quiet = TRUE,
                 temporal_grp_periodicity = 4)
   ), "list")

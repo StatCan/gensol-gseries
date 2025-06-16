@@ -1,6 +1,6 @@
 Package: gseries
-Title: Tools for Cohesive Time Series Data
-Version: 3.0.1
+Title: Improve the Coherence of Your Time Series Data
+Version: 3.0.2
 Authors@R: c(
     person("Michel", "Ferland", email = "michel.ferland@statcan.gc.ca", 
     role = c("aut", "cre")),

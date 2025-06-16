@@ -16,6 +16,14 @@ macro_gseriestsbalancing(...)
 \arguments{
 \item{...}{Arguments de la fonction correspondante.}
 }
+\value{
+Voir la fonction correspondante :
+\itemize{
+\item \code{\link[=benchmarking]{benchmarking()}} pour l'alias \code{\link[=proc_benchmarking]{proc_benchmarking()}}
+\item \code{\link[=tsraking]{tsraking()}} pour l'alias \code{\link[=proc_tsraking]{proc_tsraking()}}
+\item \code{\link[=tsbalancing]{tsbalancing()}} pour l'alias \code{\link[=macro_gseriestsbalancing]{macro_gseriestsbalancing()}}
+}
+}
 \description{
 \code{\link[=proc_benchmarking]{proc_benchmarking()}} est un alias de \code{\link[=benchmarking]{benchmarking()}}
 
@@ -28,12 +36,7 @@ Le nom de ces alias rappelle l'origine SAS\eqn{^\circledR}{®} de la fonction co
 (PROC BENCHMARKING, PROC TSRAKING et macro \emph{\strong{GSeriesTSBalancing}} dans G-Séries 2.0). Ces alias
 assurent également la compatibilité avec les premières versions de développement de la librairie R.
 
-Voir la fonction correspondante pour des exemples ou la description des arguments et de la valeur
-de retour :
-\itemize{
-\item \code{\link[=benchmarking]{benchmarking()}} pour l'alias \code{\link[=proc_benchmarking]{proc_benchmarking()}}
-\item \code{\link[=tsraking]{tsraking()}} pour l'alias \code{\link[=proc_tsraking]{proc_tsraking()}}
-\item \code{\link[=tsbalancing]{tsbalancing()}} pour l'alias \code{\link[=macro_gseriestsbalancing]{macro_gseriestsbalancing()}}
-}
+Voir la fonction correspondante pour plus de détails, y compris des exemples complets, une description
+détaillée des arguments et la valeur de retour.
 }
 \keyword{internal}

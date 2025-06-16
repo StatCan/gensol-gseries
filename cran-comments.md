@@ -2,16 +2,11 @@
 
 This is a resubmission. In this version I have:
 
-* Reworded the package 'description' field in DESCRIPTION and added the authors' 
-  abbreviated first names (letters) to hopefully clarify words that were 
-  identified as *possibly misspelled*.
+* Updated field 'title' in DESCRIPTION.
 
-* Removed invalid fields 'Created' and 'Email' in DESCRIPTION.
+* Added a return value to function aliases (Rd-tag `\value` in 'aliases.Rd').
 
-* Replaced `\url{}` with `\doi{}` and fixed nested `\emph{}` in 
-  'tsbalancing.Rd'.
-
-* Wrapped lengthy examples in `\donttest{}`.
+* Replaced operator `<<-` with environment specific assignments (for more predictive behaviour).
 
 
 ## R CMD check results

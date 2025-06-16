@@ -1,7 +1,6 @@
-# gseries 3.0.1
+# gseries 3.0.2
 
 (*G-Series 3.0 in R*)
-
 
 <!-- Display a link to the French `NEWS.md' file (only when rendering an HTML document)
      
@@ -17,6 +16,16 @@
 (*version française : <https://StatCan.github.io/gensol-gseries/fr/news/index.html>*)
 
 </div>
+
+* Minor changes to comply with the CRAN requirements following the second submission process:
+  * New package title (`DESCRIPTION`).
+  * Return values added for function aliases (`aliases.R`).
+  * Operator `<<-` replaced with environment specific assignments (for more predictive behaviour).
+
+
+# gseries 3.0.1
+
+(*G-Series 3.0 in R*)
 
 * Bug fix in `tsbalancing()` to avoid altering the R session's error option (`getOption("error")`) after execution.
 

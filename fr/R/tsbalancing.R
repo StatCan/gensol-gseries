@@ -949,13 +949,14 @@ tsbalancing <- function(in_ts,
   #
   # Other main (parent) function objects used in this function:
   #   - osqp_output_file: name and path of the (temporary) text file to be deleted as the function exits
+  #                       (updated using environment pointer `main.e` instead of operator `<<-`)
   sink_setup <- function(txtfile) {
     sink(file = txtfile, type = c("output", "message"))
     invisible(NULL)
   }
   sink_wrapup <- function(txtfile) {
     sink()
-    osqp_output_file <<- txtfile
+    main.e$osqp_output_file <- txtfile
     msg <- paste0("  ", readLines(txtfile), collapse = "\n")
     message("\n", msg)
     invisible(NULL)
@@ -1036,6 +1037,10 @@ tsbalancing <- function(in_ts,
   
   
   ### Main function ###
+  
+  # Define a pointer to the main function environment and create a NULL object
+  main.e <- environment()
+  main.e$dummy <- NULL
   
   # Initialize the object to be returned by the function via `on.exit()`
   out_list <- NULL

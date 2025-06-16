@@ -1,3 +1,13 @@
+# gseries 3.0.2
+
+(*G-Series 3.0 in R*)
+
+* Changements mineurs pour se conformer aux exigences du CRAN suite au second processus de soumission :
+  * Nouveau titre pour la librarie (`DESCRIPTION`).
+  * Valeurs de retour ajoutées pour les alias de fonction (`aliases.R`).
+  * L'opérateur `<<-` a été remplacé par des affectations à un environnement spécifique (pour un comportement plus prédictif).
+
+
 # gseries 3.0.1
 
 (*G-Séries 3.0 en R*)
