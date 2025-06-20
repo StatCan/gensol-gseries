@@ -4,8 +4,9 @@
 # G-Series in R (package gseries)
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries) -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries)
 [![Lifecycle:
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check
@@ -102,8 +103,9 @@ GitLab development project hosted on the StatCan intranet (search for
 # G-Séries en R (librairie gseries)
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries) -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries)
 [![Lifecycle:
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check

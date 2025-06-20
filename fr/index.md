@@ -4,8 +4,9 @@
 # Librairie R gseries
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries) -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries)
 [![Lifecycle:
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check
@@ -70,8 +71,7 @@ supérieure) pour obtenir la liste complète des fonctions disponibles.
 
 ``` r
 # Version publiée sur le CRAN
-# (bientôt disponible...)
-#install.packages("gseries")
+install.packages("gseries")
 
 # Version de développement sur GitHub
 install.packages("remotes")
