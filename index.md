@@ -4,8 +4,9 @@
 # R package gseries
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries) -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gseries)](https://cran.r-project.org/package=gseries)
 [![Lifecycle:
 stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R-CMD-check
@@ -67,8 +68,7 @@ of available functions.
 
 ``` r
 # Release version from CRAN 
-# (coming soon...)
-#install.packages("gseries")
+install.packages("gseries")
 
 # Development version from GitHub
 install.packages("remotes")

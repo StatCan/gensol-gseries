@@ -10,3 +10,4 @@ vignettes/*.pdf
 .Rprofile
 ..Rcheck
 gseries.Rcheck
+CRAN-SUBMISSION

@@ -172,7 +172,7 @@ usethis::use_build_ignore(".lintr")
 usethis::use_git_ignore(".pdf", directory = "tests/testthat/")
 usethis::use_git_ignore("..Rcheck")
 usethis::use_git_ignore("gseries.Rcheck")
-#usethis::use_git_ignore("CRAN-SUBMISSION")
+usethis::use_git_ignore("CRAN-SUBMISSION")
 
 # Vignettes (initial creation)
 usethis::use_vignette("benchmarking-cookbook")
@@ -320,7 +320,7 @@ setwd("fr"); pkgdown::build_home_index(pkg = "."); setwd("..")
 file.copy(md_list, "misc"); unlink(md_list); pkgdown::build_home("."); file.copy(md_list2, "."); unlink(md_list2)
 setwd("fr"); pkgdown::build_home(pkg = "."); setwd("..")
 
-# Update the pkgdown home page
+# Update the pkgdown News/Changelog page
 pkgdown::build_news(pkg = ".")
 setwd("fr"); pkgdown::build_news(pkg = "."); setwd("..")
 
