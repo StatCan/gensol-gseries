@@ -1,6 +1,12 @@
+# gseries (development version)
+
+* Corrections mineures de la documentation (ex., correction de fautes de frappe).
+* Écusson *Awesome Official Statistics* (`README.md`, `index.md` et `fr/index.md`).
+
+
 # gseries 3.0.2
 
-(*G-Series 3.0 in R*)
+(*G-Séries 3.0 en R*)
 
 * Changements mineurs pour se conformer aux exigences du CRAN suite au second processus de soumission :
   * Nouveau titre pour la librarie (`DESCRIPTION`).
@@ -69,20 +75,20 @@
 
 # Version 1.3.0
 
-(*G-Séries 1.03 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
+(*Forillon 1.03 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
 
 * Nouveaux énoncés `VAR` et `BY` pour PROC BENCHMARKING.
 
 
 # Version 1.2.0
 
-(*G-Séries 1.02 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
+(*Forillon 1.02 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
 
 * Ajout de PROC TSRAKING.
 
 
 # Version 1.1.0
 
-(*G-Séries 1.01 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
+(*Forillon 1.01 en SAS<sup>®</sup>*, contactez [g-series@statcan.gc.ca](mailto:g-series@statcan.gc.ca))
 
 * Version initiale avec PROC BENCHMARKING.

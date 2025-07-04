@@ -31,7 +31,7 @@ Several series can be benchmarked in a single function call."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">gseries</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">3.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">3.0.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -602,7 +602,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-in"><span>                           biasOption <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.2 - Improve the Coherence of Your Time Series Data ---</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> --- Package gseries 3.0.2.9000 - Improve the Coherence of Your Time Series Data ---</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Created on June 16, 2025, at 3:11:30 PM EDT</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> URL: https://StatCan.github.io/gensol-gseries/en/</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>      https://StatCan.github.io/gensol-gseries/fr/</span>
@@ -638,7 +638,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 1 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\Rtmp6PgLxs\Ex1_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpW6hA1Q\Ex1_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###########</span></span></span>
@@ -758,7 +758,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\Rtmp6PgLxs\Ex2_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpW6hA1Q\Ex2_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check the value of van sales for 2012 Q1 and Q2 in group A (fixed values)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">my_series2</span><span class="op">$</span><span class="va">van_sales</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span><span class="op">]</span>, <span class="va">out_bench2</span><span class="op">$</span><span class="va">series</span><span class="op">$</span><span class="va">van_sales</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
@@ -838,7 +838,7 @@ Statistics Canada, Ottawa, Canada.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Generating the benchmarking graphics. Please be patient...</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Benchmarking graphics generated for 4 series in the following PDF file:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\Rtmp6PgLxs\Ex3_graphs.pdf</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   %TEMP%\RtmpW6hA1Q\Ex3_graphs.pdf</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Convert data frame `out_bench3$series` to a "mts" object</span></span></span>
 <span class="r-in"><span><span class="va">qtr_sales2_bmked</span> <span class="op">&lt;-</span> <span class="fu"><a href="tsDF_to_ts.html">tsDF_to_ts</a></span><span class="op">(</span><span class="fu"><a href="unstack_tsDF.html">unstack_tsDF</a></span><span class="op">(</span><span class="va">out_bench3</span><span class="op">$</span><span class="va">series</span><span class="op">)</span>, frequency <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
