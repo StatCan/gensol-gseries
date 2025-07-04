@@ -1,6 +1,4 @@
-# gseries 3.0.2
-
-(*G-Series 3.0 in R*)
+# gseries (development version)
 
 <!-- Display a link to the French `NEWS.md' file (only when rendering an HTML document)
      
@@ -16,6 +14,14 @@
 (*version française : <https://StatCan.github.io/gensol-gseries/fr/news/index.html>*)
 
 </div>
+
+* Minor corrections to the documentation (e.g., fixing typos).
+* *Awesome Official Statistics* badge (`README.md`, `index.md` and `fr/index.md`).
+
+
+# gseries 3.0.2
+
+(*G-Series 3.0 in R*)
 
 * Minor changes to comply with the CRAN requirements following the second submission process:
   * New package title (`DESCRIPTION`).
