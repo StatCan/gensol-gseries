@@ -478,8 +478,8 @@
 #' fonction `as*()` appropriée (ex., `tibble::as_tibble()` convertirait n'importe lequel d'entre eux en tibble).
 #' 
 #'
-#' @references Dagum, E. B. et P. Cholette (2006). **Benchmarking, Temporal Distribution and Reconciliation
-#' Methods of Time Series**. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186
+#' @references Dagum, E. B. et P. Cholette (2006). **Benchmarking, Temporal Distribution and Reconciliation Methods 
+#' of Time Series**. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. \doi{10.1007/0-387-35439-5}
 #'
 #' @references Fortier, S. et B. Quenneville (2007). « Theory and Application of Benchmarking in Business Surveys ».
 #' **Proceedings of the Third International Conference on Establishment Surveys (ICES-III)**. Montréal, juin 2007.

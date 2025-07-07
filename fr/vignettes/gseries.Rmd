@@ -28,7 +28,7 @@ library(gseries)
 
 G<span>&#8209;</span>Séries est le système généralisé de Statistique Canada (StatCan) consacré à l'étalonnage et à la réconciliation de séries chronologiques. Les méthodes utilisées dans G<span>&#8209;</span>Séries proviennent essentiellement de
 
-* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, #186.
+* Dagum, E. B., et P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. [doi:10.1007/0-387-35439-5](https://doi.org/10.1007/0-387-35439-5)
 
 ### Étalonnage de séries chronologiques
 Objectif : rétablir la cohérence entre les données de séries chronologiques d'une même variable cible mesurée à différentes fréquences (ex. : infra-annuellement et annuellement). 

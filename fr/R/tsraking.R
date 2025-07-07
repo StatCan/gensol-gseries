@@ -286,7 +286,7 @@
 #' Association.
 #'
 #' @references Dagum, E. B. and P. Cholette (2006). **Benchmarking, Temporal Distribution and Reconciliation Methods
-#' of Time Series**. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186.
+#' of Time Series**. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. \doi{10.1007/0-387-35439-5}
 #' 
 #' @references Ferland, M. (2016). « Negative Values with PROC TSRAKING ». **Document interne**. Statistique Canada, Ottawa, 
 #' Canada.
