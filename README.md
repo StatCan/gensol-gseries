@@ -12,7 +12,7 @@ stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/
 status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml?query=branch%3Amain)
 [![codecov](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg?token=ZUL7LPM7EV)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main)
 [![Mentioned in Awesome Official
-Statistics](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
+Statistics](https://awesome.re/mentioned-badge.svg)](https://github.com/SNStatComp/awesome-official-statistics-software)
 
 <!-- badges: end -->
 
@@ -113,7 +113,7 @@ stable](man/figures/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/
 status](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/StatCan/gensol-gseries/actions/workflows/R-CMD-check.yaml?query=branch%3Amain)
 [![codecov](https://codecov.io/gh/StatCan/gensol-gseries/branch/main/graph/badge.svg?token=ZUL7LPM7EV)](https://app.codecov.io/gh/StatCan/gensol-gseries?branch=main)
 [![Mentioned in Awesome Official
-Statistics](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
+Statistics](https://awesome.re/mentioned-badge.svg)](https://github.com/SNStatComp/awesome-official-statistics-software)
 
 <!-- badges: end -->
 

@@ -41,6 +41,9 @@ home:
       contact:
         title: "Contact - Assistance"
         text: "g-series@statcan.gc.ca"
+  links:
+  - text: "Awesome official statistics software"
+    href: https://github.com/SNStatComp/awesome-official-statistics-software
 
 news:
   releases:

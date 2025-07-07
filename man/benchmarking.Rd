@@ -635,8 +635,8 @@ all.equal(window(qtr_sales2[, "A.van_sales"], start = c(2012, 1), end = c(2012, 
 setwd(iniwd)
 }
 \references{
-Dagum, E. B. and P. Cholette (2006). \strong{Benchmarking, Temporal Distribution and Reconciliation
-Methods of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186
+Dagum, E. B. and P. Cholette (2006). \strong{Benchmarking, Temporal Distribution and Reconciliation Methods
+of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. \doi{10.1007/0-387-35439-5}
 
 Fortier, S. and B. Quenneville (2007). "Theory and Application of Benchmarking in Business Surveys".
 \strong{Proceedings of the Third International Conference on Establishment Surveys (ICES-III)}. Montréal, June 2007.

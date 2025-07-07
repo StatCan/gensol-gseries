@@ -648,8 +648,8 @@ all.equal(window(ventes_tri2[, "A.camionnettes"], start = c(2012, 1), end = c(20
 setwd(rep_ini)
 }
 \references{
-Dagum, E. B. et P. Cholette (2006). \strong{Benchmarking, Temporal Distribution and Reconciliation
-Methods of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186
+Dagum, E. B. et P. Cholette (2006). \strong{Benchmarking, Temporal Distribution and Reconciliation Methods
+of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. \doi{10.1007/0-387-35439-5}
 
 Fortier, S. et B. Quenneville (2007). « Theory and Application of Benchmarking in Business Surveys ».
 \strong{Proceedings of the Third International Conference on Establishment Surveys (ICES-III)}. Montréal, juin 2007.

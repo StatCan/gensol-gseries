@@ -44,7 +44,7 @@ library(gseries)
 
 G<span>&#8209;</span>Series is Statistics Canada's (StatCan) generalized system devoted to the benchmarking and reconciliation of time series data. The methods used in G<span>&#8209;</span>Series essentially come from
 
-* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, #186.
+* Dagum, E. B., and P. Cholette (2006). *Benchmarking, Temporal Distribution and Reconciliation Methods of Time Series*. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. [doi:10.1007/0-387-35439-5](https://doi.org/10.1007/0-387-35439-5)
 
 ### Time Series Benchmarking
 Goal: restore coherence between time series data of the same target variable measured at different frequencies (e.g., sub-annually and annually). 

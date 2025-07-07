@@ -929,7 +929,7 @@ all.equal(out_raked3, out_balanced3$out_ts)
 }
 \references{
 Dagum, E. B. and P. Cholette (2006). \strong{Benchmarking, Temporal Distribution and Reconciliation Methods
-of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186.
+of Time Series}. Springer-Verlag, New York, Lecture Notes in Statistics, Vol. 186. \doi{10.1007/0-387-35439-5}
 
 Ferland, M., S. Fortier and J. Bérubé (2016). "A Mathematical Optimization Approach to Balancing Time Series:
 Statistics Canada’s GSeriesTSBalancing". In \strong{JSM Proceedings, Business and Economic Statistics Section}. Alexandria,
