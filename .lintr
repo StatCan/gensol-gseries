@@ -2,11 +2,12 @@ linters: linters_with_defaults(
     assignment_linter = assignment_linter(operator = "<-"),  # do not allow operator `<<-` (to simplify CRAN approval)
     line_length_linter = NULL,          # don't care about this one quite frankly
     trailing_whitespace_linter = NULL,  # don't care about this one quite frankly
-    commented_code_linter = NULL,       # not reliable enough (e.g., comment before object names in tick marks)
     indentation_linter = NULL,          # not reliable enough (e.g., comment on the line preceeding a `} else {` line)
     object_name_linter = NULL           # gseries uses a mix of camel case and snake case names (frankly, that's fine)...
                                         #   this may upset some people, but who doesn't get upset nowadays anyway...  ;)
   )
 exclusions: list(
+  "tests/testthat",
+  "vignettes"
   )
 encoding: "UTF-8"
