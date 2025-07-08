@@ -1,7 +1,7 @@
 # Simple workflow for deploying static content to GitHub Pages
 # Source: https://github.com/actions/starter-workflows/blob/main/pages/static.yml
 
-name: Deploy Pages (manual: on CRAN release)
+name: Deploy Pages (manual on CRAN release)
 on:
   # Only allow a manual run of the workflow from the Actions tab
   # (the package website should only be updated following a CRAN release)
