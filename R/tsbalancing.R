@@ -709,8 +709,8 @@ tsbalancing <- function(in_ts,
   #     - pos_ser  : vector of series names with only positive constraint coefficients (across all constraints)
   #     - neg_ser  : vector of series names with only negative constraint coefficients (across all constraints)
   #     - mix_ser  : vector of series names with both positive and negative constraint coefficients (across all constraints)
-  #   - n_ser      : `length(pb$ser_names)`
-  #   - n_con      : `length(pb$labels_df$row.lc[pb$labels_df$con.flag])`
+  #   - n_ser      : number of series (length of vector `pb$ser_names`)
+  #   - n_con      : number of constraints (length of vector `pb$labels_df$row.lc[pb$labels_df$con.flag]`)
   #   - arguments `alter_pos`, `alter_neg`, `alter_mix`, `alter_temporal`, `lower_bound`, `upper_bound`, 
   #     `validation_only` and `temporal_grp_periodicity`
   print_specs <- function() {
@@ -1388,12 +1388,12 @@ tsbalancing <- function(in_ts,
   # info), excluding the temporal totals info (will be added later, inside the processing groups loop):
   #   - labels_df: cleaned-up version of the label definition records from `problem_specs_df` 
   #                (rows where `type` is non-missing); extra columns:
-  #                  - type.lc : `tolower(type)`
-  #                  - row.lc  : `tolower(row)` 
-  #                  - con.flag: `type.lc %in% c("eq", "le", "ge")`
+  #                  - type.lc : lowercase version of `type`
+  #                  - row.lc  : lowercase version of `row` 
+  #                  - con.flag: `TRUE` if `type.lc` is "eq", "le" or "ge"
   #   - coefs_df : cleaned-up version of the information specification records from `problem_specs_df` 
   #                (rows where `type` is missing); extra columns:
-  #                  - row.lc  : `tolower(row)` 
+  #                  - row.lc  : lowercase version of `row` 
   #                  - con.flag: `labels_df$con.flag` allocated through `row.lc`
   #   - values_ts: reduced version of 'in_ts' with only the relevant series (see vector `ser_names`)
   #   - lb       : lower bound info (`type.lc = "lowerbd"`) for the relevant series; list object with the 
