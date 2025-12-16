@@ -51,7 +51,7 @@ Alors que les premières versions de G<span>&#8209;</span>Séries (v1.04 et v2.0
 StatCan offre de la formation sur ces sujets. Visitez les pages suivantes sur le site web de l'agence pour plus d'information :
 
 * [Théorie et application de l’étalonnage (Code du cours 0436)](https://www.statcan.gc.ca/fr/formation/statistique/0436)
-* [Théorie et application de la réconciliation (Code du cours 0437)](https://www.statcan.gc.ca/fr/formation/enquetes/0437)
+* [Théorie et application de la réconciliation (Code du cours 0437)](https://www.statcan.gc.ca/fr/formation/statistique/0437)
 
 
 ## Contact - Assistance

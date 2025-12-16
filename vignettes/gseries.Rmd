@@ -67,7 +67,7 @@ While early versions of G<span>&#8209;</span>Series (v1.04 and v2.0) were develo
 StatCan offers training on these topics. Visit the following pages on the agency's website for more information:
 
 * [Theory and Application of Benchmarking (Course code 0436)](https://www.statcan.gc.ca/en/training/statistical/0436)
-* [Theory and Application of Reconciliation (Course code 0437)](https://www.statcan.gc.ca/en/training/surveys/0437)
+* [Theory and Application of Reconciliation (Course code 0437)](https://www.statcan.gc.ca/en/training/statistical/0437)
 
 
 ## Contact - Support
