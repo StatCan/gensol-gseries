@@ -81,9 +81,15 @@ functions in order to benchmark multiple series in a single function call.
 \examples{
 # Create a data frame with 2 quarterly indicators series
 # (with missing values for the last 2 quarters)
-my_indicators <- ts_to_tsDF(ts(data.frame(ser1 = c(1:5 *  10, NA, NA),
-                                          ser2 = c(1:5 * 100, NA, NA)), 
-                               start = c(2019, 1), frequency = 4))
+my_indicators <- ts_to_tsDF(
+  ts(
+    data.frame(
+      ser1 = c(1:5 *  10, NA, NA),
+      ser2 = c(1:5 * 100, NA, NA)
+    ), 
+    start = c(2019, 1), frequency = 4
+  )
+)
 my_indicators
 
 

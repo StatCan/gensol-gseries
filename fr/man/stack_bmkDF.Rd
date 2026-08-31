@@ -83,10 +83,16 @@ fonctions d'étalonnage afin d'étalonner plusieurs séries en un seul appel de 
 \examples{
 # Créer un « data frame » d'étalons annuels pour 2 séries indicatrices trimestrielles 
 # (avec des valeurs manquantes pour les étalons des 2 dernières années)
-mes_etalons <- ts_to_bmkDF(ts(data.frame(ser1 = c(1:3 *  10, NA, NA), 
-                                         ser2 = c(1:3 * 100, NA, NA)),
-                              start = c(2019, 1), frequency = 1),
-                           ind_frequency = 4)
+mes_etalons <- ts_to_bmkDF(
+  ts(
+    data.frame(
+      ser1 = c(1:3 *  10, NA, NA), 
+      ser2 = c(1:3 * 100, NA, NA)
+    ), 
+    start = c(2019, 1), frequency = 1
+  ),
+  ind_frequency = 4
+)
 mes_etalons
 
 

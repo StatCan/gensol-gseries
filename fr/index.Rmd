@@ -49,7 +49,7 @@ Version R du système généralisé de Statistique Canada (StatCan) **G<span>&#8
 > _**Note - intranet de StatCan**_\
 > Les employés de StatCan peuvent également visiter la page Confluence de G<span>&#8209;</span>Séries dans l'intranet de l'agence (cherchez « G-Series | G-Séries » dans Confluence) ainsi que le projet de développement GitLab de G<span>&#8209;</span>Séries également hébergé dans l'intranet de l'agence (cherchez « G-Series in R - G-Séries en R » dans GitLab). Ce dernier inclut une version des informations et instructions contenues dans cette page qui sont spécifiques à l'infrastructure TI de StatCan (ex., Artifactory et GitLab) ; voir `index_StatCan.md` dans le répertoire racine du projet GitLab.
 
-G<span>&#8209;</span>Séries 3.0 (librairie gseries 3.0.2) est la première version du logiciel offerte en libre accès (logiciel libre). Elle inclut le recodage en R de toutes les fonctionalités SAS^®^ de G<span>&#8209;</span>Séries 2.0, soient PROC BENCHMARKING, PROC TSRAKING et la macro ***GSeriesTSBalancing***, ainsi qu'une fonction pour l'étalonnage de *séries de stocks* par l'entremise d'interpolations par spline cubique où les noeuds de la spline correspondent aux ratios ou différences entre les valeurs des étalons et de la série indicatrice. Il comprend les *fonctions principales* suivantes:
+G<span>&#8209;</span>Séries 3.0 (librairie gseries 3.0.3) est la première version du logiciel offerte en libre accès (logiciel libre). Elle inclut le recodage en R de toutes les fonctionalités SAS^®^ de G<span>&#8209;</span>Séries 2.0, soient PROC BENCHMARKING, PROC TSRAKING et la macro ***GSeriesTSBalancing***, ainsi qu'une fonction pour l'étalonnage de *séries de stocks* par l'entremise d'interpolations par spline cubique où les noeuds de la spline correspondent aux ratios ou différences entre les valeurs des étalons et de la série indicatrice. Il comprend les *fonctions principales* suivantes:
 
 * `benchmarking()`
 * `stock_benchmarking()`
@@ -61,15 +61,20 @@ D'autres *fonctions utilitaires* sont également incluses dans la librairie. Vis
 
 ## Installation
 
+Version publiée sur le CRAN :
 ```{r, eval = FALSE}
-# Version publiée sur le CRAN
 install.packages("gseries")
+```
 
-# Version de développement sur GitHub
+Version de développement sur GitHub :
+```{r, eval = FALSE}
 install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries")
+```
 
-# Version spécifique sur GitHub
+Version spécifique sur GitHub :
+```{r, eval = FALSE}
+install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries@<release-tag>")
 ```
 où *\<release-tag\>* réfère aux valeurs énumérées sous les [*Tags*](https://github.com/StatCan/gensol-gseries/tags) ($\geq$ *v3.0.0*) du projet GitHub.
@@ -82,9 +87,13 @@ La librairie peut également être installée à partir des fichiers sources té
 3. Décompresser les fichiers téléchargés.
 4. Installer la librairie gseries (et ses librairies dépendantes) :
 ```{r, eval = FALSE}
-install.packages(c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf"))
-install.packages("<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>",
-                 repos = NULL, type = "source")
+install.packages(
+  c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf")
+)
+install.packages(
+  "<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>",
+  repos = NULL, type = "source"
+)
 ```
 
 #### _Vignettes_
@@ -92,17 +101,24 @@ L'installation de gseries à partir du CRAN (`install.packages("gseries")`) cons
 
 La construction des vignettes de la librairie gseries nécessite le logiciel (gratuit) [Pandoc](https://pandoc.org/), qui est inclus dans [RStudio](https://posit.co/downloads/), et une distribution LaTeX (par exemple, [TinyTex](https://github.com/rstudio/tinytex-releases)). Vous devez donc éviter d'essayer de construire les vignettes de la librairie gseries avec l'interface graphique de base de R (à moins que vous n'ayez une installation autonome de Pandoc) ou sans une distribution LaTeX fonctionnelle. La construction des vignettes nécessite également les librairies R knitr et rmarkdown.
 
-Lors de l'installation **à partir de GitHub**, utilisez l'argument `build_vignettes = TRUE` :
+Lors de l'installation **à partir de GitHub**, spécifiez les arguments `build_vignettes = TRUE` et  `dependencies = TRUE` afin d'installer également les dépendances _suggérées_ de G-Séries (librairies  nécessaires afin de construire les vignettes qui ne sont pas installées par défaut par  `remotes::install_github()`) :
 ```{r, eval = FALSE}
-install.packages(c("knitr", "remotes", "rmarkdown"))
-remotes::install_github("StatCan/gensol-gseries", build_vignettes = TRUE)
+install.packages("remotes")
+remotes::install_github(
+  "StatCan/gensol-gseries", 
+  build_vignettes = TRUE, dependencies = TRUE
+)
 ```
 
 Lors de l'installation **à partir des fichiers sources téléchargés**, créez d'abord la version *groupée (« bundled »)* de la librairie avec `devtools::build()` :
 ```{r, eval = FALSE}
-install.packages(c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf"))
-bndl_pkg_path <- devtools::build("<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>")
-install.packages(bndl_pkg_path, repos = NULL, type = "source")
+install.packages(
+  c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf")
+)
+devtools::build(
+  "<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>"
+) |> 
+  install.packages(repos = NULL, type = "source")
 ```
 Remarque : les librairies knitr, lifecycle, rlang et rmarkdown sont automatiquement installées avec devtools.
 

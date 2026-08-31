@@ -30,3 +30,4 @@
 ^\.github$
 ^github_cleaning\.cmd$
 ^CRAN-SUBMISSION$
+^revdep$

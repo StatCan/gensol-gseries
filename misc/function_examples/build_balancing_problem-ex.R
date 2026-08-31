@@ -19,11 +19,17 @@
 
 # Build the balancing problem specs through the (simpler) raking metadata.
 my_specs <- rkMeta_to_blSpecs(
-  data.frame(series = c("A1", "A2", "A3",
-                        "B1", "B2", "B3"),
-             total1 = c(rep("totA", 3),
-                        rep("totB", 3)),
-             total2 = rep(c("tot1", "tot2", "tot3"), 2)),
+  data.frame(
+    series = c(
+      "A1", "A2", "A3",
+      "B1", "B2", "B3"
+    ),
+    total1 = c(
+      rep("totA", 3),
+      rep("totB", 3)
+    ),
+    total2 = rep(c("tot1", "tot2", "tot3"), 2)
+  ),
   alterSeries = 0,  # binding (fixed) component series
   alterTotal1 = 1,  # nonbinding (free) marginal totals (to be derived)
   alterTotal2 = 1)  # nonbinding (free) marginal totals (to be derived)
@@ -31,23 +37,29 @@ my_specs
 
 # 6 periods (quarters) of data with marginal totals set to zero (0): they MUST exist
 # in the input data AND contain valid (non missing) data.
-my_ts <- ts(data.frame(A1 = c(12, 10, 12,  9, 15,  7),
-                       B1 = c(20, 21, 15, 17, 19, 18),
-                       A2 = c(14,  9,  8,  9, 11, 10),
-                       B2 = c(20, 29, 20, 24, 21, 17),
-                       A3 = c(13, 15, 17, 14, 16, 12),
-                       B3 = c(24, 20, 30, 23, 21, 19),
-                       tot1 = rep(0, 6),
-                       tot2 = rep(0, 6),
-                       tot3 = rep(0, 6),
-                       totA = rep(0, 6),
-                       totB = rep(0, 6)),
-            start = 2019, frequency = 4)
+my_ts <- ts(
+  data.frame(
+    A1 = c(12, 10, 12,  9, 15,  7),
+    B1 = c(20, 21, 15, 17, 19, 18),
+    A2 = c(14,  9,  8,  9, 11, 10),
+    B2 = c(20, 29, 20, 24, 21, 17),
+    A3 = c(13, 15, 17, 14, 16, 12),
+    B3 = c(24, 20, 30, 23, 21, 19),
+    tot1 = rep(0, 6),
+    tot2 = rep(0, 6),
+    tot3 = rep(0, 6),
+    totA = rep(0, 6),
+    totB = rep(0, 6)
+  ),
+  start = 2019, frequency = 4
+)
 
 # Get the balancing problem elements.
 n_per <- nrow(my_ts)
-p <- build_balancing_problem(my_ts, my_specs, 
-                             temporal_grp_periodicity = n_per)
+p <- build_balancing_problem(
+  my_ts, my_specs, 
+  temporal_grp_periodicity = n_per
+)
 
 # `A2`, `op2` and `b2` define 30 constraints (5 marginal totals X 6 periods) 
 # involving a total of 66 time series data points (11 series X 6 periods) of which 
@@ -58,7 +70,9 @@ dim(p$A2)
 # in which the corresponding constraints appear in the specs (constraints specification 
 # order).
 tmp <- p$coefs_df$col[p$coefs_df$con.flag]
-tot_names <- tmp[tmp %in% p$ser_names[p$alter$nondated_id_vec[p$alter$nondated_coefs != 0]]]
+tot_names <- tmp[
+  tmp %in% p$ser_names[p$alter$nondated_id_vec[p$alter$nondated_coefs != 0]]
+]
 
 # Define logical flags identifying the marginal total columns:
 # - `tot_col_logi1`: for single-period elements (of length 11 = number of series)

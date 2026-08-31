@@ -20,7 +20,7 @@ gs.pkg_info <- utils::packageDescription("gseries")
 attr(gs.pkg_info, "file") <- NULL  # drop the DESCRIPTION file name and path 
 
 # Extra package info fields (CRAN does not allow extra files in DESCRIPTION file)
-gs.pkg_created <- "June 16, 2025, at 3:11:30 PM EDT"
+gs.pkg_created <- "August 31, 2026, at 2:52:43 PM EDT"
 gs.pkg_email <- "g-series@statcan.gc.ca"  # comma separated emails (when applicable)
 
 # Core function header string

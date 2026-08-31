@@ -27,9 +27,9 @@ and period values.
 }
 \value{
 \code{\link[=gs.time2year]{gs.time2year()}} returns an integer vector of the "nearest" year (time unit) values. This function is the
-equivalent of \code{\link[stats:time]{stats::cycle()}} for time unit values.
+equivalent of \code{\link[stats:cycle]{stats::cycle()}} for time unit values.
 
-\code{\link[=gs.time2per]{gs.time2per()}} returns an integer vector of the period (cycle) values (see \code{\link[stats:time]{stats::cycle()}}).
+\code{\link[=gs.time2per]{gs.time2per()}} returns an integer vector of the period (cycle) values (see \code{\link[stats:cycle]{stats::cycle()}}).
 
 \code{\link[=gs.time2str]{gs.time2str()}} returns a character vector corresponding to \code{gs.time2year(ts)} if \code{stats::frequency(ts) == 1}
 or \code{gs.time2year(ts)} and \code{gs.time2per(ts)} separated with \code{sep} otherwise.

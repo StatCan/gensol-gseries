@@ -1,8 +1,14 @@
 # Créer un « data frame » de 2 séries indicatrices trimestrielles
 # (avec des valeurs manquantes pour les 2 dernières trimestres)
-mes_indicateurs <- ts_to_tsDF(ts(data.frame(ser1 = c(1:5 *  10, NA, NA),
-                                            ser2 = c(1:5 * 100, NA, NA)), 
-                                 start = c(2019, 1), frequency = 4))
+mes_indicateurs <- ts_to_tsDF(
+  ts(
+    data.frame(
+      ser1 = c(1:5 *  10, NA, NA),
+      ser2 = c(1:5 * 100, NA, NA)
+    ), 
+    start = c(2019, 1), frequency = 4
+  )
+)
 mes_indicateurs
 
 

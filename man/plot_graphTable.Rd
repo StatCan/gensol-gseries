@@ -170,23 +170,29 @@ specifying the path of the Ghostscript executable in environment variable \code{
 }
 \examples{
 # Set the working directory (for the PDF files)
-iniwd <- getwd() 
-setwd(tempdir())
+iniwd <- setwd(tempdir())
 
 # Quarterly car and van sales (indicator series)
 qtr_ind <- ts_to_tsDF(
-  ts(matrix(c(# Car sales
-              1851, 2436, 3115, 2205, 1987, 2635, 3435, 2361, 2183, 2822,
-              3664, 2550, 2342, 3001, 3779, 2538, 2363, 3090, 3807, 2631,
-              2601, 3063, 3961, 2774, 2476, 3083, 3864, 2773, 2489, 3082,
-              # Van sales
-              1900, 2200, 3000, 2000, 1900, 2500, 3800, 2500, 2100, 3100,
-              3650, 2950, 3300, 4000, 3290, 2600, 2010, 3600, 3500, 2100,
-              2050, 3500, 4290, 2800, 2770, 3080, 3100, 2800, 3100, 2860),
-            ncol = 2),
-     start = c(2011, 1),
-     frequency = 4,
-     names = c("car_sales", "van_sales")))
+  ts(
+    matrix(
+      c(
+        # Car sales
+        1851, 2436, 3115, 2205, 1987, 2635, 3435, 2361, 2183, 2822,
+        3664, 2550, 2342, 3001, 3779, 2538, 2363, 3090, 3807, 2631,
+        2601, 3063, 3961, 2774, 2476, 3083, 3864, 2773, 2489, 3082,
+        # Van sales
+        1900, 2200, 3000, 2000, 1900, 2500, 3800, 2500, 2100, 3100,
+        3650, 2950, 3300, 4000, 3290, 2600, 2010, 3600, 3500, 2100,
+        2050, 3500, 4290, 2800, 2770, 3080, 3100, 2800, 3100, 2860
+      ),
+      ncol = 2
+    ),
+    start = c(2011, 1),
+    frequency = 4,
+    names = c("car_sales", "van_sales")
+  )
+)
 
 # Annual car and van sales (benchmarks)
 ann_bmk <- ts_to_bmkDF(

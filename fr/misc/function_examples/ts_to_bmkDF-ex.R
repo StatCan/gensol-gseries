@@ -15,34 +15,50 @@ ts_to_bmkDF(ma_sc_ann, ind_frequency = 4)
 ts_to_bmkDF(ma_sc_tri, ind_frequency = 12)
 
 # Stocks de début d'année pour des séries indicatrices trimestrielles
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 4,
-            discrete_flag = TRUE)
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 4,
+  discrete_flag = TRUE
+)
 
 # Stocks de fin de trimestre pour des séries indicatrices mensuelles
-ts_to_bmkDF(ma_sc_tri, ind_frequency = 12,
-            discrete_flag = TRUE, alignment = "e")
+ts_to_bmkDF(
+  ma_sc_tri, ind_frequency = 12,
+  discrete_flag = TRUE, alignment = "e"
+)
 
 # Étalons annuels (avril à mars) pour des séries indicatrices ...
 # ... mensuelles
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 12,
-            bmk_interval_start = 4)
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 12,
+  bmk_interval_start = 4
+)
 # ... trimestrielles
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 4,
-            bmk_interval_start = 2)
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 4,
+  bmk_interval_start = 2
+)
 
 # Stocks de fin d'année (avril à mars) pour des séries indicatrices ...
 # ... mensuelles
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 12,
-            discrete_flag = TRUE, alignment = "e", bmk_interval_start = 4)
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 12,
+  discrete_flag = TRUE, alignment = "e", bmk_interval_start = 4
+)
 # ... trimestrielles
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 4,
-            discrete_flag = TRUE, alignment = "e", bmk_interval_start = 2)
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 4,
+  discrete_flag = TRUE, alignment = "e", bmk_interval_start = 2
+)
 
 # Nom personnalisé pour la variable (colonne) des étalons
-ts_to_bmkDF(ma_sc_ann, ind_frequency = 12,
-            val_cName = "eta_val")
+ts_to_bmkDF(
+  ma_sc_ann, ind_frequency = 12,
+  val_cName = "eta_val"
+)
 
 # Séries chronologiques multiples: argument `val_cName` ignoré
 # (les noms des colonnes de l'object « mts » sont toujours utilisés)
-ts_to_bmkDF(ts.union(ser1 = ma_sc_ann, ser2 = ma_sc_ann / 10), ind_frequency = 12,
-            val_cName = "nom_de_colonne_inutile")
+ts_to_bmkDF(
+  ts.union(ser1 = ma_sc_ann, ser2 = ma_sc_ann / 10), ind_frequency = 12,
+  val_cName = "nom_de_colonne_inutile"
+)

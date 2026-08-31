@@ -50,7 +50,7 @@ SAS<sup>®</sup>.
 > Artifactory et GitLab) ; voir `index_StatCan.md` dans le répertoire
 > racine du projet GitLab.
 
-G‑Séries 3.0 (librairie gseries 3.0.2) est la première version du
+G‑Séries 3.0 (librairie gseries 3.0.3) est la première version du
 logiciel offerte en libre accès (logiciel libre). Elle inclut le
 recodage en R de toutes les fonctionalités SAS<sup>®</sup> de G‑Séries
 2.0, soient PROC BENCHMARKING, PROC TSRAKING et la macro
@@ -71,15 +71,23 @@ supérieure) pour obtenir la liste complète des fonctions disponibles.
 
 ## Installation
 
-``` r
-# Version publiée sur le CRAN
-install.packages("gseries")
+Version publiée sur le CRAN :
 
-# Version de développement sur GitHub
+``` r
+install.packages("gseries")
+```
+
+Version de développement sur GitHub :
+
+``` r
 install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries")
+```
 
-# Version spécifique sur GitHub
+Version spécifique sur GitHub :
+
+``` r
+install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries@<release-tag>")
 ```
 
@@ -102,9 +110,13 @@ librairies dont dépend gseries (à cause de `repos = NULL` dans l’appel
 4.  Installer la librairie gseries (et ses librairies dépendantes) :
 
 ``` r
-install.packages(c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf"))
-install.packages("<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>",
-                 repos = NULL, type = "source")
+install.packages(
+  c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf")
+)
+install.packages(
+  "<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>",
+  repos = NULL, type = "source"
+)
 ```
 
 #### *Vignettes*
@@ -135,12 +147,18 @@ une installation autonome de Pandoc) ou sans une distribution LaTeX
 fonctionnelle. La construction des vignettes nécessite également les
 librairies R knitr et rmarkdown.
 
-Lors de l’installation **à partir de GitHub**, utilisez l’argument
-`build_vignettes = TRUE` :
+Lors de l’installation **à partir de GitHub**, spécifiez les arguments
+`build_vignettes = TRUE` et `dependencies = TRUE` afin d’installer
+également les dépendances *suggérées* de G-Séries (librairies
+nécessaires afin de construire les vignettes qui ne sont pas installées
+par défaut par `remotes::install_github()`) :
 
 ``` r
-install.packages(c("knitr", "remotes", "rmarkdown"))
-remotes::install_github("StatCan/gensol-gseries", build_vignettes = TRUE)
+install.packages("remotes")
+remotes::install_github(
+  "StatCan/gensol-gseries", 
+  build_vignettes = TRUE, dependencies = TRUE
+)
 ```
 
 Lors de l’installation **à partir des fichiers sources téléchargés**,
@@ -148,9 +166,13 @@ créez d’abord la version *groupée (« bundled »)* de la librairie avec
 `devtools::build()` :
 
 ``` r
-install.packages(c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf"))
-bndl_pkg_path <- devtools::build("<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>")
-install.packages(bndl_pkg_path, repos = NULL, type = "source")
+install.packages(
+  c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf")
+)
+devtools::build(
+  "<nom & chemin d'accès des fichiers du dépôt téléchargés et décompressés>"
+) |> 
+  install.packages(repos = NULL, type = "source")
 ```
 
 Remarque : les librairies knitr, lifecycle, rlang et rmarkdown sont

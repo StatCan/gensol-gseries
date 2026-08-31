@@ -27,10 +27,10 @@ utiliser entre les valeurs d'année et de période.
 }
 \value{
 \code{\link[=gs.time2year]{gs.time2year()}} renvoie un vecteur de nombres entiers correspondant à l'année (l'unité de temps) « la plus proche ».
-Cette fonction est l'équivalent de \code{\link[stats:time]{stats::cycle()}} pour les valeurs d'unités de temps.
+Cette fonction est l'équivalent de \code{\link[stats:cycle]{stats::cycle()}} pour les valeurs d'unités de temps.
 
 \code{\link[=gs.time2per]{gs.time2per()}} renvoie un vecteur de nombres entiers contenant les valeurs des périodes (les cycles ; voir
-\code{\link[stats:time]{stats::cycle()}})).
+\code{\link[stats:cycle]{stats::cycle()}})).
 
 \code{\link[=gs.time2str]{gs.time2str()}} renvoie un vecteur de chaînes de caractères correspondant à \code{gs.time2year(ts)} lorsque
 \code{stats::frequency(ts) == 1} ou à \code{gs.time2year(ts)} et \code{gs.time2per(ts)} séparé par \code{sep} dans le cas contraire.

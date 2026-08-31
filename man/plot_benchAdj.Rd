@@ -93,32 +93,40 @@ out_PB <- benchmarking(
   ts_to_tsDF(qtr_ts), 
   ts_to_bmkDF(ann_ts, discrete_flag = TRUE, alignment = "e", ind_frequency = 4),
   rho = 0.729, lambda = 1, biasOption = 3,
-  quiet = TRUE)
+  quiet = TRUE
+)
 # ... with `stock_benchmarking()`
 out_SB <- stock_benchmarking(
   ts_to_tsDF(qtr_ts), 
   ts_to_bmkDF(ann_ts, discrete_flag = TRUE, alignment = "e", ind_frequency = 4),
   rho = 0.729, lambda = 1, biasOption = 3,
-  quiet = TRUE)
+  quiet = TRUE
+)
 
 
 #######
 # Plot the benchmarking adjustments
 
 # `benchmarking()` adjustments (`out_PB`), without a legend
-plot_benchAdj(PB_graphTable = out_PB$graphTable,
-              legendPos = NULL)
+plot_benchAdj(
+  PB_graphTable = out_PB$graphTable,
+  legendPos = NULL
+)
 
 # Add the `stock_benchmarking()` (`out_SB`) adjustments, with a legend this time
-plot_benchAdj(PB_graphTable = out_PB$graphTable,
-              SB_graphTable = out_SB$graphTable)
+plot_benchAdj(
+  PB_graphTable = out_PB$graphTable,
+  SB_graphTable = out_SB$graphTable
+)
 
 # Add the `stock_benchmarking()` cubic spline actually used to generate the adjustments
 # (incl. the extra knots at both ends), with the legend located in the top-left corner
-plot_benchAdj(PB_graphTable = out_PB$graphTable,
-              SB_graphTable = out_SB$graphTable,
-              SB_splineKnots = out_SB$splineKnots,
-              legendPos = "topleft")
+plot_benchAdj(
+  PB_graphTable = out_PB$graphTable,
+  SB_graphTable = out_SB$graphTable,
+  SB_splineKnots = out_SB$splineKnots,
+  legendPos = "topleft"
+)
 
 
 #######
@@ -133,24 +141,29 @@ out_SB2 <- stock_benchmarking(
   ts_to_bmkDF(ann_mts, discrete_flag = TRUE, alignment = "e", ind_frequency = 4),
   rho = 0.729, lambda = 1, biasOption = 3,
   allCols = TRUE,
-  quiet = TRUE)
+  quiet = TRUE
+)
 
 # Adjustments for 2nd stock (ser2)
 plot_benchAdj(
-  SB_graphTable = out_SB2$graphTable[out_SB2$graphTable$varSeries == "ser2", ])
+  SB_graphTable = out_SB2$graphTable[out_SB2$graphTable$varSeries == "ser2", ]
+)
 
 # Using argument `by = "series"` (identify stocks with column `series`)
 out_SB3 <- stock_benchmarking(
   stack_tsDF(ts_to_tsDF(qtr_mts)),
   stack_bmkDF(ts_to_bmkDF(
-    ann_mts, discrete_flag = TRUE, alignment = "e", ind_frequency = 4)),
+    ann_mts, discrete_flag = TRUE, alignment = "e", ind_frequency = 4)
+  ),
   rho = 0.729, lambda = 1, biasOption = 3,
   by = "series",
-  quiet = TRUE)
+  quiet = TRUE
+)
 
 # Cubic spline for 3nd stock (ser3)
 plot_benchAdj(
-  SB_splineKnots = out_SB3$splineKnots[out_SB3$splineKnots$series == "ser3", ])
+  SB_splineKnots = out_SB3$splineKnots[out_SB3$splineKnots$series == "ser3", ]
+)
 }
 \seealso{
 \code{\link[=plot_graphTable]{plot_graphTable()}} \link{bench_graphs} \code{\link[=benchmarking]{benchmarking()}} \code{\link[=stock_benchmarking]{stock_benchmarking()}}

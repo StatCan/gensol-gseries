@@ -1,6 +1,14 @@
-# gseries (development version)
+# gseries 3.0.3
 
-* Corrections mineures de la documentation (ex., correction de fautes de frappe).
+(*G-Séries 3.0 en R*)
+
+* Conformité de `tsbalancing()` avec OSQP V1.0 :
+  * Paramètre `polish` renommé à `polishing`.
+  * Modification de l’objet OSQP: d'un objet R6 de classe "osqp_model" à un objet S7 de classe 
+  "OSQP_Model".
+* Correction d'un bogue mineur dans `tsbalancing()` : la colonne `require_polished` était absente du 
+_data frame_ de sortie `osqp_setttings_df`
+* Corrections mineures de la documentation (ex., correction de fautes de frappe, reformatage du code des exemples).
 * Écusson *Awesome Official Statistics* (`README.md`, `index.md` et `fr/index.md`).
 
 

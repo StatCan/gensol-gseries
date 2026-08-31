@@ -49,7 +49,7 @@ R version of Statistics Canada's (StatCan) generalized system **G<span>&#8209;</
 > _**Note - StatCan intranet**_\
 > StatCan employees can also visit the G<span>&#8209;</span>Series Confluence page on the agency's intranet (search for "G-Series | G-Séries" in Confluence) as well as the G<span>&#8209;</span>Series GitLab development project also hosted on the agency's intranet (search for "G-Series in R - G-Séries en R" in GitLab). The latter includes a version of the information and instructions contained on this page that are specific to the StatCan IT infrastructure (e.g., Artifactory and GitLab); see file `index_StatCan.md` in the GitLab project root folder.
 
-G<span>&#8209;</span>Series 3.0 (package gseries 3.0.2) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
+G<span>&#8209;</span>Series 3.0 (package gseries 3.0.3) is the initial open-source version of the software. It includes the rewriting in R of all SAS^®^ G<span>&#8209;</span>Series 2.0 functionalities, that is PROC BENCHMARKING, PROC TSRAKING and macro _**GSeriesTSBalancing**_ along with a function for benchmarking *stocks* using a spline interpolation approach where the spline knots correspond to the benchmark-to-indicator ratios or differences. It includes the following *core functions*:
 
 * `benchmarking()`
 * `stock_benchmarking()`
@@ -61,15 +61,20 @@ Other *utility functions* are also included with the package. Visit the [Referen
 
 ## Installation
 
+Release version from CRAN:
 ```{r, eval = FALSE}
-# Release version from CRAN 
 install.packages("gseries")
+```
 
-# Development version from GitHub
+Development version from GitHub:
+```{r, eval = FALSE}
 install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries")
+```
 
-# A specific release version from GitHub
+A specific release version from GitHub:
+```{r, eval = FALSE}
+install.packages("remotes")
 remotes::install_github("StatCan/gensol-gseries@<release-tag>")
 ```
 where *\<release-tag\>* refers to values listed under the GitHub project  [Tags](https://github.com/StatCan/gensol-gseries/tags) ($\geq$ *v3.0.0*).
@@ -82,9 +87,13 @@ The package can also be installed from the downloaded source files. This approac
 3. Decompress the downloaded repository files
 4. Install the gseries package (and its dependent packages):
 ```{r, eval = FALSE}
-install.packages(c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf"))
-install.packages("<name & path of the decompressed downloaded repository files>",
-                 repos = NULL, type = "source")
+install.packages(
+  c("ggplot2", "ggtext", "gridExtra", "lifecycle", "osqp", "rlang", "xmpdf")
+)
+install.packages(
+  "<name & path of the decompressed downloaded repository files>",
+  repos = NULL, type = "source"
+)
 ```
 
 #### _Vignettes_
@@ -92,17 +101,24 @@ Installing gseries from CRAN (`install.packages("gseries")`) automatically build
 
 Building the gseries package vignettes requires the (free) [Pandoc](https://pandoc.org/) software, which is included in [RStudio](https://posit.co/downloads/), and a LaTeX distribution (e.g., [TinyTex](https://github.com/rstudio/tinytex-releases)). You should therefore avoid trying to build the gseries package vignettes with the basic R GUI (unless you have a standalone installation of Pandoc) or without a working LaTeX distribution. Building vignettes also requires R packages knitr and rmarkdown.
 
-When installing **from GitHub**, use argument `build_vignettes = TRUE`:
+When installing **from GitHub**, specify arguments `build_vignettes = TRUE` and `dependencies = TRUE` to also install the _suggested_ G-Series dependencies (packages necessary to build the vignettes that are not installed by default by `remotes::install_github()`):
 ```{r, eval = FALSE}
-install.packages(c("knitr", "remotes", "rmarkdown"))
-remotes::install_github("StatCan/gensol-gseries", build_vignettes = TRUE)
+install.packages("remotes")
+remotes::install_github(
+  "StatCan/gensol-gseries", 
+  build_vignettes = TRUE, dependencies = TRUE
+)
 ```
 
 When installing **from the downloaded source files**, build the *bundle package* first with `devtools::build()`:
 ```{r, eval = FALSE}
-install.packages(c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf"))
-bndl_pkg_path <- devtools::build("<name & path of the decompressed downloaded repository files>")
-install.packages(bndl_pkg_path, repos = NULL, type = "source")
+install.packages(
+  c("devtools", "ggplot2", "ggtext", "gridExtra", "osqp", "xmpdf")
+)
+devtools::build(
+  "<name & path of the decompressed downloaded repository files>"
+) |> 
+  install.packages(repos = NULL, type = "source")
 ```
 Note: packages knitr, lifecycle, rlang and rmarkdown are automatically installed with devtools.
 
