@@ -418,12 +418,12 @@ specified with arguments \code{tolV}, \code{tolV_temporal} and \code{tolP_tempor
 solved with OSQP (\code{proc_grp_df$sol_type = "osqp"}), with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
-\item one column corresponding to each element of the list returned by the \code{osqp::GetParams()} method applied to a
-\emph{OSQP solver object} (class "osqp_model" object as returned by \code{\link[osqp:osqp]{osqp::osqp()}}), e.g.:
+\item one column corresponding to each element of the list returned by the \code{osqp::GetParams()} method applied
+to a \emph{OSQP solver object} (class "OSQP_Model" object as returned by \code{\link[osqp:osqp]{osqp::osqp()}}), e.g.:
 \itemize{
 \item Maximum iterations (\code{max_iter});
 \item Primal and dual infeasibility tolerances (\code{eps_prim_inf} and \code{eps_dual_inf});
-\item Solution polishing flag (\code{polish});
+\item Solution polishing flag (\code{polishing});
 \item Number of scaling iterations (\code{scaling});
 \item etc.
 }
@@ -445,8 +445,8 @@ which the initial solution was returned (\code{proc_grp_df$sol_type = "initial"}
 (processing group) solved with OSQP (\code{proc_grp_df$sol_type = "osqp"}), with the following columns:
 \itemize{
 \item \code{proc_grp} (num): processing group id.
-\item one column corresponding to each element of the \code{info} list of a \emph{OSQP solver object} (class "osqp_model" object
-as returned by \code{\link[osqp:osqp]{osqp::osqp()}}) after having been solved with the \code{osqp::Solve()} method, e.g.:
+\item one column corresponding to each element of the \code{info} list of a \emph{OSQP solver object} (class "OSQP_Model"
+object as returned by \code{\link[osqp:osqp]{osqp::osqp()}}) after having been solved with the \code{osqp::Solve()} method, e.g.:
 \itemize{
 \item Solution status (\code{status} and \code{status_val});
 \item Polishing status (\code{status_polish});
@@ -646,34 +646,45 @@ See the \code{\link[=gs.build_proc_grps]{gs.build_proc_grps()}} \strong{Examples
 
 \section{Comparing \code{\link[=tsraking]{tsraking()}} and \code{\link[=tsbalancing]{tsbalancing()}}}{
 \itemize{
-\item \code{\link[=tsraking]{tsraking()}} is limited to one- and two-dimensional aggregation table raking problems (with temporal total
-preservation if required) while \code{\link[=tsbalancing]{tsbalancing()}} handles more general balancing problems (e.g., higher dimensional
-raking problems, nonnegative solutions, general linear equality and inequality constraints as opposed to aggregation
-rules only, etc.).
-\item \code{\link[=tsraking]{tsraking()}} returns the generalized least squared solution of the Dagum and Cholette regression-based raking
-model (Dagum and Cholette 2006) while \code{\link[=tsbalancing]{tsbalancing()}} solves the corresponding quadratic minimization problem using
-a numerical solver. In most cases, \emph{convergence to the minimum} is achieved and the \code{\link[=tsbalancing]{tsbalancing()}} solution matches
-the (exact) \code{\link[=tsraking]{tsraking()}} least square solution. It may not be the case, however, if convergence could not be achieved
-after a reasonable number of iterations. Having said that, only in very rare occasions will the \code{\link[=tsbalancing]{tsbalancing()}}
-solution \emph{significantly} differ from the \code{\link[=tsraking]{tsraking()}} solution.
-\item \code{\link[=tsbalancing]{tsbalancing()}} is usually faster than \code{\link[=tsraking]{tsraking()}}, especially for large raking problems, but is generally more
-sensitive to the presence of (small) inconsistencies in the input data associated to the redundant constraints of
-fully specified (over-specified) raking problems. \code{\link[=tsraking]{tsraking()}} handles these inconsistencies by using the
-Moore-Penrose inverse (uniform distribution among all binding totals).
-\item \code{\link[=tsbalancing]{tsbalancing()}} accommodates the specification of sparse problems in their reduced form. This is not true in the
-case of \code{\link[=tsraking]{tsraking()}} where aggregation rules must always be fully specified since a \emph{complete data cube} without
-missing data is expected as input (every single \emph{inner-cube} component series must contribute to all dimensions of
-the cube, i.e., to every single \emph{outer-cube} marginal total series).
-\item Both tools handle negative values in the input data differently by default. While the solutions of raking problems
-obtained from \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} are identical when all input data points are positive, they will
-differ if some data points are negative (unless argument \code{Vmat_option = 2} is specified with \code{\link[=tsraking]{tsraking()}}).
-\item While both \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} allow the preservation of temporal totals, time management is not
-incorporated in \code{\link[=tsraking]{tsraking()}}. For example, the construction of the processing groups (sets of periods of each raking
-problem) is left to the user with \code{\link[=tsraking]{tsraking()}} and separate calls must be submitted for each processing group (each
-raking problem). That's where helper function \code{\link[=tsraking_driver]{tsraking_driver()}} comes in handy with \code{\link[=tsraking]{tsraking()}}.
-\item \code{\link[=tsbalancing]{tsbalancing()}} returns the same set of series as the input time series object while \code{\link[=tsraking]{tsraking()}} returns the set
-of series involved in the raking problem plus those specified with argument \code{id} (which could correspond to a subset
-of the input series).
+\item \code{\link[=tsraking]{tsraking()}} is limited to one- and two-dimensional aggregation table raking problems (with temporal
+total preservation if required) while \code{\link[=tsbalancing]{tsbalancing()}} handles more general balancing problems (e.g.,
+higher dimensional raking problems, nonnegative solutions, general linear equality and inequality
+constraints as opposed to aggregation rules only, etc.).
+\item \code{\link[=tsraking]{tsraking()}} returns the generalized least squared solution of the Dagum and Cholette regression-based
+raking model (Dagum and Cholette 2006) while \code{\link[=tsbalancing]{tsbalancing()}} solves the corresponding quadratic
+minimization problem using a numerical solver. In most cases, \emph{convergence to the minimum} is achieved
+and the \code{\link[=tsbalancing]{tsbalancing()}} solution matches the (exact) \code{\link[=tsraking]{tsraking()}} least square solution. It may not be
+the case, however, if convergence could not be achieved after a reasonable number of iterations.
+Having said that, only in very rare occasions will the \code{\link[=tsbalancing]{tsbalancing()}} solution \emph{significantly} differ
+from the \code{\link[=tsraking]{tsraking()}} solution.
+\item \code{\link[=tsbalancing]{tsbalancing()}} is usually faster than \code{\link[=tsraking]{tsraking()}}, especially for large raking problems, but is
+generally more sensitive to the presence of (small) inconsistencies in the input data associated to
+the redundant constraints of fully specified (over-specified) raking problems. \code{\link[=tsraking]{tsraking()}} handles
+these inconsistencies by using the Moore-Penrose inverse (uniform distribution among all binding totals).
+\item \code{\link[=tsbalancing]{tsbalancing()}} accommodates the specification of sparse problems in their reduced form. This is not
+true in the case of \code{\link[=tsraking]{tsraking()}} where aggregation rules must always be fully specified since a
+\emph{complete data cube} without missing data is expected as input (every single \emph{inner-cube} component
+series must contribute to all dimensions of the cube, i.e., to every single \emph{outer-cube} marginal
+total series).
+\item Both tools handle negative values in the input data differently by default. While the solutions of
+raking problems obtained from \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} are identical when all input data
+points are positive, they will differ if some data points are negative (unless argument
+\code{Vmat_option = 2} is specified with \code{\link[=tsraking]{tsraking()}}).
+\item While both \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} allow the preservation of temporal totals, time
+management is not incorporated in \code{\link[=tsraking]{tsraking()}}. For example, the construction of the processing groups
+(sets of periods of each raking problem) is left to the user with \code{\link[=tsraking]{tsraking()}} and separate calls must
+be submitted for each processing group (each raking problem). That's where helper function
+\code{\link[=tsraking_driver]{tsraking_driver()}} comes in handy with \code{\link[=tsraking]{tsraking()}}.
+\item The marginal totals (\emph{outer-cube} marginal total series) returned by \code{\link[=tsraking]{tsraking()}} are always
+recalculated as the sum of the relevant component series (\emph{inner-cube} component series). The output
+values of \strong{binding} marginal totals may therefore slightly differ from the input values. The
+magnitude of the differences depends on the initial inconsistencies (that end up being uniformly
+distributed by the Moore-Penrose inverse). This is not the case for \code{\link[=tsbalancing]{tsbalancing()}} where the values
+of \strong{binding} marginal totals always remain perfectly unchanged, potentially resulting in (small)
+discrepancies between the sum of the returned component series and the corresponding marginal totals.
+\item \code{\link[=tsbalancing]{tsbalancing()}} returns the same set of series as the input time series object while \code{\link[=tsraking]{tsraking()}}
+returns the set of series involved in the raking problem plus those specified with argument \code{id}
+(which could correspond to a subset of the input series).
 }
 }
 
@@ -684,36 +695,53 @@ of the input series).
 #            without modifying `Profits` where `Revenues >= 0` and `Expenses >= 0`.
 
 # Problem specifications
-my_specs1 <- data.frame(type = c("EQ", rep(NA, 3), 
-                                 "alter", NA, 
-                                 "lowerBd", NA, NA),
-                        col = c(NA, "Revenues", "Expenses", "Profits", 
-                                NA, "Profits", 
-                                NA, "Revenues", "Expenses"),
-                        row = c(rep("Accounting Rule", 4), 
-                                rep("Alterability Coefficient", 2), 
-                                rep("Lower Bound", 3)),
-                        coef = c(NA, 1, -1, -1,
-                                 NA, 0,
-                                 NA, 0, 0))
+my_specs1 <- data.frame(
+  type = c(
+    "EQ", rep(NA, 3), 
+    "alter", NA, 
+    "lowerBd", NA, NA
+  ),
+  col = c(
+    NA, "Revenues", "Expenses", "Profits", 
+    NA, "Profits", 
+    NA, "Revenues", "Expenses"
+  ),
+  row = c(
+    rep("Accounting Rule", 4), 
+    rep("Alterability Coefficient", 2), 
+    rep("Lower Bound", 3)
+  ),
+  coef = c(
+    NA, 1, -1, -1,
+    NA, 0,
+    NA, 0, 0
+  )
+)
 my_specs1
 
 # Problem data
-my_series1 <- ts(matrix(c( 15,  10,  10,
-                            4,   8,  -1,
-                          250, 250,   5,
-                            8,  12,   0,
-                            0,  45, -55),
-                        ncol = 3,
-                        byrow = TRUE,
-                        dimnames = list(NULL, c("Revenues", "Expenses", "Profits"))),
-                 start = c(2022, 1),
-                 frequency = 4)
+my_series1 <- ts(
+  matrix(
+    c( 15,  10,  10,
+        4,   8,  -1,
+      250, 250,   5,
+        8,  12,   0,
+        0,  45, -55
+    ),
+    ncol = 3,
+    byrow = TRUE
+  ),
+  start = c(2022, 1),
+  frequency = 4,
+  names = c("Revenues", "Expenses", "Profits")
+)
 
 # Reconcile the data
-out_balanced1 <- tsbalancing(in_ts = my_series1,
-                             problem_specs_df = my_specs1,
-                             display_level = 3)
+out_balanced1 <- tsbalancing(
+  in_ts = my_series1,
+  problem_specs_df = my_specs1,
+  display_level = 3
+)
 
 # Initial data
 my_series1
@@ -736,43 +764,61 @@ out_balanced1$proc_grp_df[, c("proc_grp_label", "max_discr")]
 # Let’s do this for the processing group 2022Q2 (`timeVal = 2022.25`), with the default 
 # displayed level of information (`display_level = 1`). 
 
-my_specs1b <- rbind(cbind(my_specs1, 
-                          data.frame(timeVal = rep(NA_real_, nrow(my_specs1)))),
-                    data.frame(type = rep(NA, 2),
-                               col = c("Revenues", "Expenses"),
-                               row = rep("Alterability Coefficient", 2),
-                               coef = c(0.25, 0.125),
-                               timeVal = rep(2022.25, 2)))
+my_specs1b <- rbind(
+  cbind(my_specs1,  data.frame(timeVal = rep(NA_real_, nrow(my_specs1)))),
+  data.frame(
+    type = rep(NA, 2),
+    col = c("Revenues", "Expenses"),
+    row = rep("Alterability Coefficient", 2),
+    coef = c(0.25, 0.125),
+    timeVal = rep(2022.25, 2)
+  )
+)
 my_specs1b
 
-out_balanced1b <- tsbalancing(in_ts = my_series1,
-                              problem_specs_df = my_specs1b)
+out_balanced1b <- tsbalancing(
+  in_ts = my_series1,
+  problem_specs_df = my_specs1b
+)
 
 # Display the initial 2022Q2 values and both solutions
-cbind(data.frame(Status = c("initial", "pro-rating", "equal change")),
-      rbind(as.data.frame(my_series1[2, , drop = FALSE]), 
-            as.data.frame(out_balanced1$out_ts[2, , drop = FALSE]),
-            as.data.frame(out_balanced1b$out_ts[2, , drop = FALSE])),
-      data.frame(Accounting_discr = c(my_series1[2, 1] - my_series1[2, 2] - 
-                                        my_series1[2, 3],
-                                      out_balanced1$out_ts[2, 1] - 
-                                        out_balanced1$out_ts[2, 2] - 
-                                        out_balanced1$out_ts[2, 3],
-                                      out_balanced1b$out_ts[2, 1] - 
-                                        out_balanced1b$out_ts[2, 2] - 
-                                        out_balanced1b$out_ts[2, 3]),
-                 RelChg_Rev = c(NA, 
-                                out_balanced1$out_ts[2, 1] / my_series1[2, 1] - 1,
-                                out_balanced1b$out_ts[2, 1] / my_series1[2, 1] - 1),
-                 RelChg_Exp = c(NA, 
-                                out_balanced1$out_ts[2, 2] / my_series1[2, 2] - 1,
-                                out_balanced1b$out_ts[2, 2] / my_series1[2, 2] - 1),
-                 AbsChg_Rev = c(NA, 
-                                out_balanced1$out_ts[2, 1] - my_series1[2, 1],
-                                out_balanced1b$out_ts[2, 1] - my_series1[2, 1]),
-                 AbsChg_Exp = c(NA, 
-                                out_balanced1$out_ts[2, 2] - my_series1[2, 2],
-                                out_balanced1b$out_ts[2, 2] - my_series1[2, 2])))
+cbind(
+  data.frame(Status = c("initial", "pro-rating", "equal change")),
+  rbind(
+    as.data.frame(my_series1[2, , drop = FALSE]), 
+    as.data.frame(out_balanced1$out_ts[2, , drop = FALSE]),
+    as.data.frame(out_balanced1b$out_ts[2, , drop = FALSE])
+  ),
+  data.frame(
+    Accounting_discr = c(
+      my_series1[2, 1] - my_series1[2, 2] - my_series1[2, 3],
+      out_balanced1$out_ts[2, 1] - out_balanced1$out_ts[2, 2] - 
+        out_balanced1$out_ts[2, 3],
+      out_balanced1b$out_ts[2, 1] - out_balanced1b$out_ts[2, 2] - 
+        out_balanced1b$out_ts[2, 3]
+    ),
+    RelChg_Rev = c(
+      NA, 
+      out_balanced1$out_ts[2, 1] / my_series1[2, 1] - 1,
+      out_balanced1b$out_ts[2, 1] / my_series1[2, 1] - 1
+    ),
+    RelChg_Exp = c(
+      NA, 
+      out_balanced1$out_ts[2, 2] / my_series1[2, 2] - 1,
+      out_balanced1b$out_ts[2, 2] / my_series1[2, 2] - 1
+    ),
+    AbsChg_Rev = c(
+      NA, 
+      out_balanced1$out_ts[2, 1] - my_series1[2, 1],
+      out_balanced1b$out_ts[2, 1] - my_series1[2, 1]
+    ),
+    AbsChg_Exp = c(
+      NA, 
+      out_balanced1$out_ts[2, 2] - my_series1[2, 2],
+      out_balanced1b$out_ts[2, 2] - my_series1[2, 2]
+    )
+  )
+)
 
 
 ###########
@@ -794,39 +840,48 @@ cbind(data.frame(Status = c("initial", "pro-rating", "equal change")),
 # Problem specifications
 my_specs2 <- data.frame(
   
-  type = c("EQ", rep(NA, 4),
-           "EQ", rep(NA, 4),
-           "EQ", rep(NA, 4),
-           "LE", rep(NA, 3),
-           "LE", rep(NA, 3),
-           "LE", rep(NA, 3),
-           "alter", rep(NA, 4)),
+  type = c(
+    "EQ", rep(NA, 4),
+    "EQ", rep(NA, 4),
+    "EQ", rep(NA, 4),
+    "LE", rep(NA, 3),
+    "LE", rep(NA, 3),
+    "LE", rep(NA, 3),
+    "alter", rep(NA, 4)
+  ),
   
-  col = c(NA, "West_AllTypes", "Centre_AllTypes", "East_AllTypes", "National_AllTypes", 
-          NA, "West_Cars", "Centre_Cars", "East_Cars", "National_Cars", 
-          NA, "West_Trucks", "Centre_Trucks", "East_Trucks", "National_Trucks", 
-          NA, "West_Cars", "West_Trucks", "West_AllTypes", 
-          NA, "Centre_Cars", "Centre_Trucks", "Centre_AllTypes", 
-          NA, "East_Cars", "East_Trucks", "East_AllTypes",
-          NA, "National_AllTypes", "National_Cars", "National_Trucks", "Centre_Trucks"),
+  col = c(
+    NA, "West_AllTypes", "Centre_AllTypes", "East_AllTypes", "National_AllTypes", 
+    NA, "West_Cars", "Centre_Cars", "East_Cars", "National_Cars", 
+    NA, "West_Trucks", "Centre_Trucks", "East_Trucks", "National_Trucks", 
+    NA, "West_Cars", "West_Trucks", "West_AllTypes", 
+    NA, "Centre_Cars", "Centre_Trucks", "Centre_AllTypes", 
+    NA, "East_Cars", "East_Trucks", "East_AllTypes",
+    NA, "National_AllTypes", "National_Cars", "National_Trucks", "Centre_Trucks"
+  ),
   
-  row = c(rep("National Total - All Types", 5),
-          rep("National Total - Cars", 5),
-          rep("National Total - Trucks", 5),
-          rep("West Region Sum", 4),
-          rep("Center Region Sum", 4),
-          rep("East Region Sum", 4),
-          rep("Alterability Coefficient", 5)),
+  row = c(
+    rep("National Total - All Types", 5),
+    rep("National Total - Cars", 5),
+    rep("National Total - Trucks", 5),
+    rep("West Region Sum", 4),
+    rep("Center Region Sum", 4),
+    rep("East Region Sum", 4),
+    rep("Alterability Coefficient", 5)
+  ),
   
-  coef = c(NA, 1, 1, 1, -1,
-           NA, 1, 1, 1, -1,
-           NA, 1, 1, 1, -1,
-           NA, 1, 1, -.95,
-           NA, 1, 1, -.95,
-           NA, 1, 1, -.95,
-           NA, 0, 0, 0, 0),
+  coef = c(
+    NA, 1, 1, 1, -1,
+    NA, 1, 1, 1, -1,
+    NA, 1, 1, 1, -1,
+    NA, 1, 1, -.95,
+    NA, 1, 1, -.95,
+    NA, 1, 1, -.95,
+    NA, 0, 0, 0, 0
+  ),
   
-  time_val = c(rep(NA, 31), 2022.25))
+  time_val = c(rep(NA, 31), 2022.25)
+)
 
 # Beginning and end of the specifications data frame
 head(my_specs2, n = 10)
@@ -834,20 +889,25 @@ tail(my_specs2)
 
 # Problem data
 my_series2 <- ts(
-  matrix(c(43, 49, 47, 136, 20, 18, 12, 53, 20, 22, 26, 61,
-           40, 45, 42, 114, 16, 16, 19, 44, 21, 26, 21, 59,
-           35, 47, 40, 133, 14, 15, 16, 50, 19, 25, 19, 71,
-           44, 44, 45, 138, 19, 20, 14, 52, 21, 18, 27, 74,
-           46, 48, 55, 135, 16, 15, 19, 51, 27, 25, 28, 54),
-         ncol = 12,
-         byrow = TRUE,
-         dimnames = list(NULL, 
-                         c("West_AllTypes", "Centre_AllTypes", "East_AllTypes", 
-                           "National_AllTypes", "West_Cars", "Centre_Cars", 
-                           "East_Cars", "National_Cars", "West_Trucks", 
-                           "Centre_Trucks", "East_Trucks", "National_Trucks"))),
+  matrix(
+    c(
+      43, 49, 47, 136, 20, 18, 12, 53, 20, 22, 26, 61,
+      40, 45, 42, 114, 16, 16, 19, 44, 21, 26, 21, 59,
+      35, 47, 40, 133, 14, 15, 16, 50, 19, 25, 19, 71,
+      44, 44, 45, 138, 19, 20, 14, 52, 21, 18, 27, 74,
+      46, 48, 55, 135, 16, 15, 19, 51, 27, 25, 28, 54
+    ),
+    ncol = 12,
+    byrow = TRUE
+  ),
   start = c(2022, 1),
-  frequency = 4)
+  frequency = 4,
+  names = c(
+    "West_AllTypes", "Centre_AllTypes", "East_AllTypes", "National_AllTypes", 
+    "West_Cars", "Centre_Cars", "East_Cars", "National_Cars", 
+    "West_Trucks", "Centre_Trucks", "East_Trucks", "National_Trucks"
+  )
+)
 
 # Reconcile without displaying the function header and enforce nonnegative data
 out_balanced2 <- tsbalancing(
@@ -855,7 +915,8 @@ out_balanced2 <- tsbalancing(
   problem_specs_df         = my_specs2,
   temporal_grp_periodicity = frequency(my_series2),
   lower_bound              = 0,
-  quiet                    = TRUE)
+  quiet                    = TRUE
+)
 
 # Initial data
 my_series2
@@ -875,8 +936,10 @@ out_balanced2$proc_grp_df[, c("proc_grp_label", "max_discr")]
 #            (1-dimensional raking problem with annual total preservation).
 
 # `tsraking()` metadata
-my_metadata3 <- data.frame(series = c("cars_alb", "cars_sask", "cars_man"),
-                           total1 = rep("cars_tot", 3))
+my_metadata3 <- data.frame(
+  series = c("cars_alb", "cars_sask", "cars_man"),
+  total1 = rep("cars_tot", 3)
+)
 my_metadata3
 
 # `tsbalancing()` problem specifications
@@ -884,32 +947,41 @@ my_specs3 <- rkMeta_to_blSpecs(my_metadata3)
 my_specs3
 
 # Problem data
-my_series3 <- ts(matrix(c(14, 18, 14, 58,
-                          17, 14, 16, 44,
-                          14, 19, 18, 58,
-                          20, 18, 12, 53,
-                          16, 16, 19, 44,
-                          14, 15, 16, 50,
-                          19, 20, 14, 52,
-                          16, 15, 19, 51),
-                        ncol = 4,
-                        byrow = TRUE,
-                        dimnames = list(NULL, c("cars_alb", "cars_sask",
-                                                "cars_man", "cars_tot"))),
-                 start = c(2019, 2),
-                 frequency = 4)
+my_series3 <- ts(
+  matrix(
+    c(
+      14, 18, 14, 58,
+      17, 14, 16, 44,
+      14, 19, 18, 58,
+      20, 18, 12, 53,
+      16, 16, 19, 44,
+      14, 15, 16, 50,
+      19, 20, 14, 52,
+      16, 15, 19, 51
+    ),
+    ncol = 4,
+    byrow = TRUE
+  ),
+  start = c(2019, 2),
+  frequency = 4,
+  names = c("cars_alb", "cars_sask", "cars_man", "cars_tot")
+)
 
 # Reconcile the data with `tsraking()` (through `tsraking_driver()`)
-out_raked3 <- tsraking_driver(in_ts = my_series3,
-                              metadata_df = my_metadata3,
-                              temporal_grp_periodicity = frequency(my_series3),
-                              quiet = TRUE)
+out_raked3 <- tsraking_driver(
+  in_ts = my_series3,
+  metadata_df = my_metadata3,
+  temporal_grp_periodicity = frequency(my_series3),
+  quiet = TRUE
+)
 
 # Reconcile the data with `tsbalancing()`
-out_balanced3 <- tsbalancing(in_ts = my_series3,
-                             problem_specs_df = my_specs3,
-                             temporal_grp_periodicity = frequency(my_series3),
-                             quiet = TRUE)
+out_balanced3 <- tsbalancing(
+  in_ts = my_series3,
+  problem_specs_df = my_specs3,
+  temporal_grp_periodicity = frequency(my_series3),
+  quiet = TRUE
+)
 
 # Initial data
 my_series3

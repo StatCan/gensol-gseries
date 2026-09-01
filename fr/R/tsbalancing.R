@@ -496,37 +496,52 @@
 #' 
 #' 
 #' # Comparaison de [tsraking()] et [tsbalancing()]
-#' - [tsraking()] est limitée aux problèmes de ratissage (« *raking* ») de tables d'agrégation unidimensionnelles et 
-#' bidimensionnelles (avec préservation des totaux temporels si nécessaire) alors que [tsbalancing()] traite des problèmes 
-#' d'équilibrage plus généraux (ex., des problèmes de ratissage de plus grande dimension, solutions non négatives, 
-#' contraintes linéaires générales d'égalité et d'inégalité par opposition à des règles d'agrégation uniquement, etc.)
-#' - [tsraking()] renvoie la solution des moindres carrés généralisés du modèle de ratissage basé sur la régression de 
-#' Dagum et Cholette (Dagum et Cholette 2006) tandis que [tsbalancing()] résout le problème de minimisation quadratique 
-#' correspondant à l'aide d'un solveur numérique. Dans la plupart des cas, la *convergence vers le minimum* est atteinte 
-#' et la solution de [tsbalancing()] correspond à la solution (exacte) des moindres carrés de [tsraking()]. Cela peut ne 
-#' pas être le cas, cependant, si la convergence n'a pas pu être atteinte après un nombre raisonnable d'itérations. Cela 
-#' dit, ce n'est qu'en de très rares occasions que la solution de [tsbalancing()] différera *significativement* de celle 
-#' de [tsraking()].
-#' - [tsbalancing()] est généralement plus rapide que [tsraking()], en particulier pour les gros problèmes de ratissage, 
-#' mais est généralement plus sensible à la présence de (petites) incohérences dans les données d'entrée associées aux 
-#' contraintes redondantes des problèmes de ratissage *entièrement spécifiés* (ou surspécifiés). [tsraking()] gère ces 
-#' incohérences en utilisant l'inverse de Moore-Penrose (distribution uniforme à travers tous les totaux contraignants).
-#' - [tsbalancing()] permet de spécifier des problèmes épars (clairsemés) sous leur forme réduite. Ce n'est pas le cas de 
-#' [tsraking()] où les règles d'agrégation doivent toujours être entièrement spécifiées étant donné qu'un _cube de données 
-#' complet_, sans données manquantes, est attendu en entrée (chaque série composante de l'*intérieur du cube* doit 
-#' contribuer à toutes les dimensions du cube, c.-à-d., à chaque série totale des *faces extérieures du cube*). 
-#' - Les deux outils traitent différemment les valeurs négatives dans les données d'entrée par défaut. Alors que les 
-#' solutions des problèmes de ratissage obtenues avec [tsbalancing()] et [tsraking()] sont identiques lorsque tous les 
-#' points de données d'entrée sont positifs, elles seront différentes si certains points de données sont négatifs (à 
-#' moins que l'argument `Vmat_option = 2` ne soit spécifié avec [tsraking()]).
-#' - Alors que [tsbalancing()] et [tsraking()] permettent toutes les deux de préserver les totaux temporels, la gestion 
-#' du temps n'est pas incorporée dans [tsraking()]. Par exemple, la construction des groupes de traitement (ensembles de 
-#' périodes de chaque problème de ratissage) est laissée à l'utilisateur avec [tsraking()] et des appels séparés doivent 
-#' être soumis pour chaque groupe de traitement (chaque problème de ratissage). De là l'utilité de la fonction 
-#' d'assistance [tsraking_driver()] pour [tsraking()].
-#' - [tsbalancing()] renvoie le même ensemble de séries que l'objet d'entrée de type série chronologique (argument 
-#' `in_ts`) alors que [tsraking()] renvoie l'ensemble des séries impliquées dans le problème de ratissage plus celles 
-#' spécifiées avec l'argument `id` (qui pourrait correspondre à un sous-ensemble des séries d'entrée).
+#' - [tsraking()] est limitée aux problèmes de ratissage (« _raking_ ») de tables d'agrégation 
+#' unidimensionnelles et bidimensionnelles (avec préservation des totaux temporels si nécessaire) alors 
+#' que [tsbalancing()] traite des problèmes d'équilibrage plus généraux (ex., des problèmes de ratissage 
+#' de plus grande dimension, solutions non négatives, contraintes linéaires générales d'égalité et 
+#' d'inégalité par opposition à des règles d'agrégation uniquement, etc.)
+#' - [tsraking()] renvoie la solution des moindres carrés généralisés du modèle de ratissage basé sur la 
+#' régression de Dagum et Cholette (Dagum et Cholette 2006) tandis que [tsbalancing()] résout le problème 
+#' de minimisation quadratique correspondant à l'aide d'un solveur numérique. Dans la plupart des cas, 
+#' la _convergence vers le minimum_ est atteinte et la solution de [tsbalancing()] correspond à la 
+#' solution (exacte) des moindres carrés de [tsraking()]. Cela peut ne pas être le cas, cependant, si la 
+#' convergence n'a pas pu être atteinte après un nombre raisonnable d'itérations. Cela dit, ce n'est 
+#' qu'en de très rares occasions que la solution de [tsbalancing()] différera _significativement_ de 
+#' celle de [tsraking()].
+#' - [tsbalancing()] est généralement plus rapide que [tsraking()], en particulier pour les gros problèmes 
+#' de ratissage, mais est généralement plus sensible à la présence de (petites) incohérences dans les 
+#' données d'entrée associées aux contraintes redondantes des problèmes de ratissage *entièrement 
+#' spécifiés* (ou surspécifiés). [tsraking()] gère ces incohérences en utilisant l'inverse de 
+#' Moore-Penrose (distribution uniforme à travers tous les totaux contraignants).
+#' - [tsbalancing()] permet de spécifier des problèmes épars (clairsemés) sous leur forme réduite. Ce 
+#' n'est pas le cas de [tsraking()] où les règles d'agrégation doivent toujours être entièrement 
+#' spécifiées étant donné qu'un _cube de données complet_, sans données manquantes, est attendu en entrée 
+#' (chaque série composante de l'_intérieur du cube_ doit contribuer à toutes les dimensions du cube, 
+#' c.-à-d., à chaque série totale des _faces extérieures du cube_). 
+#' - Les deux outils traitent différemment les valeurs négatives dans les données d'entrée par défaut. 
+#' Alors que les solutions des problèmes de ratissage obtenues avec [tsbalancing()] et [tsraking()] sont 
+#' identiques lorsque tous les points de données d'entrée sont positifs, elles seront différentes si 
+#' certains points de données sont négatifs (à moins que l'argument `Vmat_option = 2` ne soit spécifié 
+#' avec [tsraking()]).
+#' - Alors que [tsbalancing()] et [tsraking()] permettent toutes les deux de préserver les totaux 
+#' temporels, la gestion du temps n'est pas incorporée dans [tsraking()]. Par exemple, la construction 
+#' des groupes de traitement (ensembles de périodes de chaque problème de ratissage) est laissée à 
+#' l'utilisateur avec [tsraking()] et des appels séparés doivent être soumis pour chaque groupe de 
+#' traitement (chaque problème de ratissage). De là l'utilité de la fonction d'assistance 
+#' [tsraking_driver()] pour [tsraking()].
+#' - Les totaux marginaux (séries des faces extérieures du cube de données) renvoyés par [tsraking()] 
+#' sont toujours recalculés comme la somme des séries composantes pertinentes (séries de l'intérieur du 
+#' cube). Les valeurs de sortie des totaux marginaux **contraignants** peuvent donc légèrement différer 
+#' des valeurs d’entrée. L’ampleur des différences dépend des incohérences initiales (qui sont 
+#' uniformément distribuées par l’inverse de Moore-Penrose). Ce n’est pas le cas de [tsbalancing()] où 
+#' les totaux marginaux **contraignants** restent toujours parfaitement inchangés, ce qui peut se traduire 
+#' par des (petits) écarts en sortie entre la somme des séries composantes et le total marginal 
+#' correspondant.
+#' - [tsbalancing()] renvoie le même ensemble de séries que l'objet d'entrée de type série chronologique 
+#' (argument `in_ts`) alors que [tsraking()] renvoie l'ensemble des séries impliquées dans le problème 
+#' de ratissage plus celles spécifiées avec l'argument `id` (qui pourrait correspondre à un sous-ensemble 
+#' des séries d'entrée).
 #'
 #'
 #' @returns
@@ -655,11 +670,11 @@
 #' problème (groupe de traitement) résolu avec OSQP (`proc_grp_df$sol_type = "osqp"`), avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
 #'   - une colonne correspondant à chaque élément de la liste renvoyée par la méthode \ifelse{latex}{\code{osqp::Get Params()}
-#'   }{\code{osqp::GetParams()}} appliquée à un *objet solveur d'OSQP* (objet de classe « osqp_model » tel que renvoyé par 
-#'   [osqp::osqp()]), ex. :
+#'   }{\code{osqp::GetParams()}} appliquée à un *objet solveur d'OSQP* (objet de classe « OSQP_Model » tel que 
+#'   renvoyé par [osqp::osqp()]), ex. :
 #'     - Nombre maximal d'itérations (`max_iter`);
 #'     - Tolérances d'infaisabilité primale et duale (`eps_prim_inf` et `eps_dual_inf`);
-#'     - Drapeau d'exécution de l'étape de raffinement de la solution (`polish`);
+#'     - Drapeau d'exécution de l'étape de raffinement de la solution (`polishing`);
 #'     - Nombre d'itérations de mise à l'échelle (`scaling`);
 #'     - etc.
 #'   - paramètres supplémentaires spécifiques à [tsbalancing()] :
@@ -678,8 +693,8 @@
 #' - `osqp_sol_info_df` : *data frame* d'informations sur les solutions OSQP. Il contient un enregistrement (une rangée) 
 #' pour chaque problème (groupe de traitement) résolu avec OSQP (`proc_grp_df$sol_type = "osqp"`), avec les colonnes suivantes :
 #'   - `proc_grp` (num) : identificateur du groupe de traitement.
-#'   - une colonne correspondant à chaque élément de la liste `info` d'un *objet solveur d'OSQP* (objet de classe 
-#'   « osqp_model » tel que renvoyé par [osqp::osqp()]), ex. :
+#'   - une colonne correspondant à chaque élément de la liste `info` d'un *objet solveur d'OSQP* (objet de 
+#'   classe « OSQP_Model » tel que renvoyé par [osqp::osqp()]), ex. :
 #'     - Statut de la solution (`status` et `status_val`) ;
 #'     - Statut de raffinement de la solution (`status_polish`) ;
 #'     - Nombre d'itérations (`iter`) ;
@@ -1343,14 +1358,25 @@ tsbalancing <- function(in_ts,
         settings_df <- unique(settings_df)
         row.names(settings_df) <- NULL
       }
-      # Set `require_polished`
+      # Replace old setting `polish` (before OSQP V1.0) with new setting `polishing` (since OSQP v1.0)
       settings_cols <- names(settings_df)
+      if ("polish" %in% settings_cols) {
+        if ("polishing" %in% settings_cols) {
+          # Ignore the old `polish` setting (rely on the new `polishing` setting)
+          settings_df$polish <- NULL
+        } else {
+          # Rename `polish` to `polishing`
+          names(settings_df)[names(settings_df) == "polish"] <- "polishing"
+        }
+        settings_cols <- names(settings_df)
+      }
+      # Set `require_polished`
       if ("require_polished" %in% settings_cols) {
         # Impose polishing when `require_polished == TRUE`
-        if ("polish" %in% settings_cols) {
-          settings_df$polish <- (settings_df$polish | settings_df$require_polished)
+        if ("polishing" %in% settings_cols) {
+          settings_df$polishing <- (settings_df$polishing | settings_df$require_polished)
         } else {
-          settings_df$polish <- settings_df$require_polished
+          settings_df$polishing <- settings_df$require_polished
         }
       } else {
         settings_df$require_polished <- FALSE
@@ -2707,7 +2733,7 @@ solve_one_osqp <- function(x,
       model_ii <- osqp::osqp(P * factor_ii, q, A, l / factor_ii, u / factor_ii, as.list(settings_df[ii, , drop = FALSE]))
       
       # Solve
-      sol_ii <- model_ii$Solve() 
+      sol_ii <- model_ii@Solve() 
       sol_ii$x <- sol_ii$x * factor_ii  # original scale
       
       osqpEnd_display_func(osqp_output_file)
@@ -2821,7 +2847,18 @@ solve_one_osqp <- function(x,
       x <- sol$x
       type <- "osqp"
       osqp_seqno <- best_osqp
-      osqp_settings <- c(model$GetParams(), list(prior_scaling = settings_df$prior_scaling[best_osqp]))
+      osqp_settings <- c(
+        model@GetParams(), 
+        list(
+          prior_scaling = settings_df$prior_scaling[best_osqp], 
+          require_polished = settings_df$require_polished[best_osqp]
+        )
+      )
+      # Remove old `polish` setting (replaced with `polishing` since OSQP v1.0 while both `polish` and 
+      # `polishing` are returned by the `GetParams()` method...)
+      if (!is.null(osqp_settings$polishing)) {
+        osqp_settings$polish <- NULL
+      }
       osqp_info <- c(sol$info, list(prior_scaling_factor = scaling_factor))
     }
   }

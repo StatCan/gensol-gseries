@@ -1,0 +1,143 @@
+# Changements
+
+## gseries 3.0.3
+
+(*G-Séries 3.0 en R*)
+
+- Conformité de
+  [`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md)
+  avec OSQP V1.0 :
+  - Paramètre `polish` renommé à `polishing`.
+  - Modification de l’objet OSQP: d’un objet R6 de classe “osqp_model” à
+    un objet S7 de classe “OSQP_Model”.
+- Correction d’un bogue mineur dans
+  [`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md) :
+  la colonne `require_polished` était absente du *data frame* de sortie
+  `osqp_setttings_df`
+- Corrections mineures de la documentation (ex., correction de fautes de
+  frappe, reformatage du code des exemples).
+- Écusson *Awesome Official Statistics* (`README.md`, `index.md` et
+  `fr/index.md`).
+
+## gseries 3.0.2
+
+Version CRAN : 2025-06-18
+
+(*G-Séries 3.0 en R*)
+
+- Changements mineurs pour se conformer aux exigences du CRAN suite au
+  second processus de soumission :
+  - Nouveau titre pour la librarie (`DESCRIPTION`).
+  - Valeurs de retour ajoutées pour les alias de fonction (`aliases.R`).
+  - L’opérateur `<<-` a été remplacé par des affectations à un
+    environnement spécifique (pour un comportement plus prédictif).
+
+## gseries 3.0.1
+
+(*G-Séries 3.0 en R*)
+
+- Correction d’un bogue dans
+  [`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md)
+  pour éviter de modifier l’option d’erreur de la session R
+  (`getOption("error")`) après l’exécution de la fonction.
+
+- Validation des objets d’entrée de classe « data.frame » dans les
+  fonctions utilitaires (pertinentes) pour assurer la cohérence avec les
+  fonctions principales.
+
+- Mise à jour de la description des arguments des fonctions concernant
+  la classe attendue des objets d’entrée.
+
+- Changements mineurs pour se conformer aux exigences du CRAN suite au
+  processus de soumission initial.
+
+## gseries 3.0.0
+
+(*G-Séries 3.0 en R*)
+
+- Version initiale de G-Séries en R (librairie gseries).
+
+- Nouvelle fonctionnalité
+  ([`stock_benchmarking()`](https://StatCan.github.io/gensol-gseries/fr/reference/stock_benchmarking.md))
+  destinée à l’étalonnage de *séries de stocks* en utilisant une
+  approche d’interpolation par spline cubique.
+
+- Amélioration des fonctionnalités existantes :
+
+  - **Étalonnage**
+    ([`benchmarking()`](https://StatCan.github.io/gensol-gseries/fr/reference/benchmarking.md))
+    :
+    - nouvelles options permettant l’étalonnage proportionnel
+      (`lambda != 0`) en présence de valeurs négatives dans les données
+      d’entrée;
+    - l’utilisation d’une série indicatrice « plate » composée
+      *entièrement de zéros* est maintenant possible avec l’étalonnage
+      additif (`lambda = 0`).
+  - **Ratissage** (`tsrasking()`) :
+    - traitement alternatif optionnel des valeurs négatives dans les
+      données d’entrée (même traitement que
+      [`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md));
+    - fonction d’aide
+      ([`tsraking_driver()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsraking_driver.md))
+      pour simplifier la réconciliation de plusieurs périodes en un seul
+      appel de fonction.
+  - **Équilibrage**
+    ([`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md))
+    :
+    - séquence de résolution personnalisable (plusieurs tentatives de
+      résolution du problème au lieu d’une seule);
+    - amélioration du processus de validation des solutions avec plus
+      d’informations (*data frames* de sortie) disponibles pour
+      faciliter le dépannage de solutions invalides;
+    - processus optionnel de *stricte validation* des données d’entrée
+      (sans tenter de résoudre le problème, c.-a-d., résoudre les
+      éventuelles divergences).
+
+- Nouvelles fonctions utilitaires pour faciliter l’utilisation des
+  fonctions principales, par exemple ;
+
+  - pour la génération de graphiques d’étalonnage;
+  - pour la conversion des métadonnées de problèmes de réconciliation
+    (`tsrasking()` à
+    [`tsbalancing()`](https://StatCan.github.io/gensol-gseries/fr/reference/tsbalancing.md))
+    ;
+  - pour la manipulation des données de séries chronologiques (préparer
+    ou convertir les objets de données d’entrée et de sortie).
+
+## Version 2.0.0
+
+(*G-Séries 2.0 en SAS^(®)*, contactez <g-series@statcan.gc.ca>)
+
+- Nouvelle macro ***GSeriesTSBalancing***.
+
+## Version 1.4.0
+
+(*G-Séries 1.04 en SAS^(®)*, contactez <g-series@statcan.gc.ca>)
+
+- Changement de nom: *Forillon* devient *G-Séries*.
+
+- Introduction des coefficients d’altérabilité pour PROC BENCHMARKING
+  (quand `rho < 1`).
+
+- Nouvel énoncé `WITH` pour PROC BENCHMARKING.
+
+- Nouvelles options `WARNNEGRESULT|NOWARNNEGRESULT` et `TOLNEGRESULT=`
+  pour PROC BENCHMARKING and PROC TSRAKING.
+
+## Version 1.3.0
+
+(*Forillon 1.03 en SAS^(®)*, contactez <g-series@statcan.gc.ca>)
+
+- Nouveaux énoncés `VAR` et `BY` pour PROC BENCHMARKING.
+
+## Version 1.2.0
+
+(*Forillon 1.02 en SAS^(®)*, contactez <g-series@statcan.gc.ca>)
+
+- Ajout de PROC TSRAKING.
+
+## Version 1.1.0
+
+(*Forillon 1.01 en SAS^(®)*, contactez <g-series@statcan.gc.ca>)
+
+- Version initiale avec PROC BENCHMARKING.

@@ -1,6 +1,6 @@
 Package: gseries
 Title: Improve the Coherence of Your Time Series Data
-Version: 3.0.2.9000
+Version: 3.0.3
 Authors@R: c(
     person("Michel", "Ferland", email = "michel.ferland@statcan.gc.ca", 
     role = c("aut", "cre")),
@@ -26,7 +26,7 @@ Imports:
     grDevices,
     gridExtra,
     lifecycle,
-    osqp,
+    osqp (>= 1.0),
     rlang (>= 1.1.0),
     stats,
     utils,
@@ -39,5 +39,5 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 LazyData: true
+Config/roxygen2/version: 8.0.0

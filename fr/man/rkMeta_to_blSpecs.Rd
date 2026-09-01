@@ -114,9 +114,11 @@ du \emph{data frame} des métadonnées de ratissage (argument \code{metadata_df}
 }
 \examples{
 # Métadonnées de `tsraking()` pour un problème à deux dimensions (table 2 x 2)
-mes_metadonnees <- data.frame(series = c("A1", "A2", "B1", "B2"),
-                              total1 = c("totA", "totA", "totB", "totB"),
-                              total2 = c("tot1", "tot2", "tot1", "tot2"))
+mes_metadonnees <- data.frame(
+  series = c("A1", "A2", "B1", "B2"),
+  total1 = c("totA", "totA", "totB", "totB"),
+  total2 = c("tot1", "tot2", "tot1", "tot2")
+)
 mes_metadonnees
 
 
@@ -138,8 +140,12 @@ tail(rkMeta_to_blSpecs(mes_metadonnees, alterability_df = mes_coefsAlt))
 
 # N'inclure que les coefficients d'altérabilité du fichier `alterability_df` 
 # (c.-à-d. pour la colonne `B2`)
-tail(rkMeta_to_blSpecs(mes_metadonnees, alterability_df = mes_coefsAlt,
-                       alterability_df_only = TRUE))
+tail(
+  rkMeta_to_blSpecs(
+    mes_metadonnees, alterability_df = mes_coefsAlt,
+    alterability_df_only = TRUE
+  )
+)
 }
 \seealso{
 \code{\link[=tsraking]{tsraking()}} \code{\link[=tsbalancing]{tsbalancing()}}

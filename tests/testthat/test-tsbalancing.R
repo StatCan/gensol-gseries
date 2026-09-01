@@ -776,13 +776,13 @@ test_that("Default OSQP settings with `validation_tol = 0.499` => normal", {
 test_that("Default OSQP settings + forced polishing => normal", {
   expect_equal(suppressMessages(
     tsbalancing(window(test_ts, start = start(test_ts), end = start(test_ts)), test_specs, quiet = TRUE,
-                osqp_settings_df = data.frame(polish = TRUE))$osqp_settings_df$polish
+                osqp_settings_df = data.frame(polishing = TRUE))$osqp_settings_df$polishing
   ), TRUE)
 })
 test_that("Default OSQP settings + forced polishing + invalid option => normal", {
   expect_equal(suppressMessages(
     tsbalancing(window(test_ts, start = start(test_ts), end = start(test_ts)), test_specs, quiet = TRUE,
-                osqp_settings_df = data.frame(polish = TRUE, blabla = 0))$osqp_settings_df$polish
+                osqp_settings_df = data.frame(polishing = TRUE, blabla = 0))$osqp_settings_df$polishing
   ), TRUE)
 })
 
@@ -1477,12 +1477,12 @@ test_that("`tolP_temporal = NULL`", {
   ), window(res1$out_ts, end = time(test_ts)[4]))
 })
 
-test_that("add \"polish\" option when \"require_polish\" is specified", {
+test_that("add \"polishing\" option when \"require_polish\" is specified", {
   expect_equal(suppressMessages(
     tsbalancing(
       window(test_ts, end = time(test_ts)[1]),
       test_specs,
-      osqp_settings_df = default_osqp_sequence[setdiff(names(default_osqp_sequence), "polish")],
+      osqp_settings_df = default_osqp_sequence[setdiff(names(default_osqp_sequence), "polishing")],
       display_level = 0)$out_ts
   ), window(res1$out_ts, end = time(test_ts)[1])
   )
@@ -1605,16 +1605,22 @@ test_that("Valid fixed initial solution", {
   ), my_ts)
 })
 
-test_that("invalid polished osqp solution (warning: constraints not met)", {
-  expect_warning(suppressMessages(
-    tsbalancing(
-      window(test_ts, start = time(test_ts)[2], end = time(test_ts)[5]),
-      test_specs,
-      temporal_grp_periodicity = 4,
-      validation_tol = gs.min_tolerance,
-      display_level = 3)
-  ))
-})
+# => Deactivating (commenting out) this test: unable to reproduce with OSQP V1.0
+# test_that("invalid polished osqp solution (warning: constraints not met)", {
+#   expect_warning(suppressMessages(
+#     tsbalancing(
+#       window(test_ts, start = time(test_ts)[2], end = time(test_ts)[5]),
+#       #window(test_ts, start = time(test_ts)[6], end = time(test_ts)[9]),
+#       #test_ts,
+#       test_specs,
+#       temporal_grp_periodicity = 4,
+#       #validation_tol = gs.min_tolerance,
+#       validation_tol = 0,
+#       display_level = 0,
+#       quiet = TRUE)
+#   ))
+# })
+
 
 test_that("The initial solution cannot be improved with OSQP (warning: constraints not met)", {
   expect_warning(suppressMessages(

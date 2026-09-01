@@ -17,7 +17,7 @@ pour \emph{alternating direction method of multipliers}) (\emph{double})}
 \item{eps_rel}{Tolérance relative (\emph{double})}
 \item{eps_prim_inf}{Tolérance d'infaisabilité du problème primal (\emph{double})}
 \item{eps_dual_inf}{Tolérance d'infaisabilité du problème dual (\emph{double})}
-\item{polish}{Effectuer l'étape de raffinement de la solution (\emph{logical})}
+\item{polishing}{Effectuer l'étape de raffinement de la solution (\emph{logical})}
 \item{scaling}{Nombre d'itérations de mise à l'échelle (\emph{integer})}
 \item{prior_scaling}{Mise à l'échelle préalable des données, avant la résolution avec OSQP (\emph{logical})}
 \item{require_polished}{Exiger une solution raffinée (\emph{polished solution}) pour arrêter la séquence (\emph{logical})}

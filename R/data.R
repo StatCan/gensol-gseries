@@ -20,7 +20,7 @@
 #'   \item{eps_rel}{Relative tolerance (double)}
 #'   \item{eps_prim_inf}{Primal infeasibility tolerance (double)}
 #'   \item{eps_dual_inf}{Dual infeasibility tolerance (double)}
-#'   \item{polish}{Perform solution polishing (logical)}
+#'   \item{polishing}{Perform solution polishing (logical)}
 #'   \item{scaling}{ Number of scaling iterations (integer)}
 #'   \item{prior_scaling}{Scale problem data prior to solving with OSQP (logical)}
 #'   \item{require_polished}{Require a polished solution to stop the sequence (logical)}

@@ -264,34 +264,45 @@ with argument \code{metadata_df}) will generate an error message and stop the fu
 }
 \section{Comparing \code{\link[=tsraking]{tsraking()}} and \code{\link[=tsbalancing]{tsbalancing()}}}{
 \itemize{
-\item \code{\link[=tsraking]{tsraking()}} is limited to one- and two-dimensional aggregation table raking problems (with temporal total
-preservation if required) while \code{\link[=tsbalancing]{tsbalancing()}} handles more general balancing problems (e.g., higher dimensional
-raking problems, nonnegative solutions, general linear equality and inequality constraints as opposed to aggregation
-rules only, etc.).
-\item \code{\link[=tsraking]{tsraking()}} returns the generalized least squared solution of the Dagum and Cholette regression-based raking
-model (Dagum and Cholette 2006) while \code{\link[=tsbalancing]{tsbalancing()}} solves the corresponding quadratic minimization problem using
-a numerical solver. In most cases, \emph{convergence to the minimum} is achieved and the \code{\link[=tsbalancing]{tsbalancing()}} solution matches
-the (exact) \code{\link[=tsraking]{tsraking()}} least square solution. It may not be the case, however, if convergence could not be achieved
-after a reasonable number of iterations. Having said that, only in very rare occasions will the \code{\link[=tsbalancing]{tsbalancing()}}
-solution \emph{significantly} differ from the \code{\link[=tsraking]{tsraking()}} solution.
-\item \code{\link[=tsbalancing]{tsbalancing()}} is usually faster than \code{\link[=tsraking]{tsraking()}}, especially for large raking problems, but is generally more
-sensitive to the presence of (small) inconsistencies in the input data associated to the redundant constraints of
-fully specified (over-specified) raking problems. \code{\link[=tsraking]{tsraking()}} handles these inconsistencies by using the
-Moore-Penrose inverse (uniform distribution among all binding totals).
-\item \code{\link[=tsbalancing]{tsbalancing()}} accommodates the specification of sparse problems in their reduced form. This is not true in the
-case of \code{\link[=tsraking]{tsraking()}} where aggregation rules must always be fully specified since a \emph{complete data cube} without
-missing data is expected as input (every single \emph{inner-cube} component series must contribute to all dimensions of
-the cube, i.e., to every single \emph{outer-cube} marginal total series).
-\item Both tools handle negative values in the input data differently by default. While the solutions of raking problems
-obtained from \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} are identical when all input data points are positive, they will
-differ if some data points are negative (unless argument \code{Vmat_option = 2} is specified with \code{\link[=tsraking]{tsraking()}}).
-\item While both \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} allow the preservation of temporal totals, time management is not
-incorporated in \code{\link[=tsraking]{tsraking()}}. For example, the construction of the processing groups (sets of periods of each raking
-problem) is left to the user with \code{\link[=tsraking]{tsraking()}} and separate calls must be submitted for each processing group (each
-raking problem). That's where helper function \code{\link[=tsraking_driver]{tsraking_driver()}} comes in handy with \code{\link[=tsraking]{tsraking()}}.
-\item \code{\link[=tsbalancing]{tsbalancing()}} returns the same set of series as the input time series object while \code{\link[=tsraking]{tsraking()}} returns the set
-of series involved in the raking problem plus those specified with argument \code{id} (which could correspond to a subset
-of the input series).
+\item \code{\link[=tsraking]{tsraking()}} is limited to one- and two-dimensional aggregation table raking problems (with temporal
+total preservation if required) while \code{\link[=tsbalancing]{tsbalancing()}} handles more general balancing problems (e.g.,
+higher dimensional raking problems, nonnegative solutions, general linear equality and inequality
+constraints as opposed to aggregation rules only, etc.).
+\item \code{\link[=tsraking]{tsraking()}} returns the generalized least squared solution of the Dagum and Cholette regression-based
+raking model (Dagum and Cholette 2006) while \code{\link[=tsbalancing]{tsbalancing()}} solves the corresponding quadratic
+minimization problem using a numerical solver. In most cases, \emph{convergence to the minimum} is achieved
+and the \code{\link[=tsbalancing]{tsbalancing()}} solution matches the (exact) \code{\link[=tsraking]{tsraking()}} least square solution. It may not be
+the case, however, if convergence could not be achieved after a reasonable number of iterations.
+Having said that, only in very rare occasions will the \code{\link[=tsbalancing]{tsbalancing()}} solution \emph{significantly} differ
+from the \code{\link[=tsraking]{tsraking()}} solution.
+\item \code{\link[=tsbalancing]{tsbalancing()}} is usually faster than \code{\link[=tsraking]{tsraking()}}, especially for large raking problems, but is
+generally more sensitive to the presence of (small) inconsistencies in the input data associated to
+the redundant constraints of fully specified (over-specified) raking problems. \code{\link[=tsraking]{tsraking()}} handles
+these inconsistencies by using the Moore-Penrose inverse (uniform distribution among all binding totals).
+\item \code{\link[=tsbalancing]{tsbalancing()}} accommodates the specification of sparse problems in their reduced form. This is not
+true in the case of \code{\link[=tsraking]{tsraking()}} where aggregation rules must always be fully specified since a
+\emph{complete data cube} without missing data is expected as input (every single \emph{inner-cube} component
+series must contribute to all dimensions of the cube, i.e., to every single \emph{outer-cube} marginal
+total series).
+\item Both tools handle negative values in the input data differently by default. While the solutions of
+raking problems obtained from \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} are identical when all input data
+points are positive, they will differ if some data points are negative (unless argument
+\code{Vmat_option = 2} is specified with \code{\link[=tsraking]{tsraking()}}).
+\item While both \code{\link[=tsbalancing]{tsbalancing()}} and \code{\link[=tsraking]{tsraking()}} allow the preservation of temporal totals, time
+management is not incorporated in \code{\link[=tsraking]{tsraking()}}. For example, the construction of the processing groups
+(sets of periods of each raking problem) is left to the user with \code{\link[=tsraking]{tsraking()}} and separate calls must
+be submitted for each processing group (each raking problem). That's where helper function
+\code{\link[=tsraking_driver]{tsraking_driver()}} comes in handy with \code{\link[=tsraking]{tsraking()}}.
+\item The marginal totals (\emph{outer-cube} marginal total series) returned by \code{\link[=tsraking]{tsraking()}} are always
+recalculated as the sum of the relevant component series (\emph{inner-cube} component series). The output
+values of \strong{binding} marginal totals may therefore slightly differ from the input values. The
+magnitude of the differences depends on the initial inconsistencies (that end up being uniformly
+distributed by the Moore-Penrose inverse). This is not the case for \code{\link[=tsbalancing]{tsbalancing()}} where the values
+of \strong{binding} marginal totals always remain perfectly unchanged, potentially resulting in (small)
+discrepancies between the sum of the returned component series and the corresponding marginal totals.
+\item \code{\link[=tsbalancing]{tsbalancing()}} returns the same set of series as the input time series object while \code{\link[=tsraking]{tsraking()}}
+returns the set of series involved in the raking problem plus those specified with argument \code{id}
+(which could correspond to a subset of the input series).
 }
 }
 
@@ -301,8 +312,10 @@ of the input series).
 #            must sum up to the value of `total`.
 
 # Problem metadata
-my_metadata1 <- data.frame(series = c("cars", "vans"),
-                           total1 = c("total", "total"))
+my_metadata1 <- data.frame(
+  series = c("cars", "vans"),
+  total1 = c("total", "total")
+)
 my_metadata1
 
 # Problem data
@@ -332,23 +345,33 @@ all.equal(my_series1$total, out_raked1$total)
 #            displaying the function header.
 
 # Problem metadata
-my_metadata2 <- data.frame(series = c("cars_alb", "cars_sask", "cars_man",
-                                      "vans_alb", "vans_sask", "vans_man"),
-                           total1 = c(rep("cars_total", 3),
-                                      rep("vans_total", 3)),
-                           total2 = rep(c("alb_total", "sask_total", "man_total"), 2))
+my_metadata2 <- data.frame(
+  series = c(
+    "cars_alb", "cars_sask", "cars_man",
+    "vans_alb", "vans_sask", "vans_man"
+  ),
+  total1 = c(
+    rep("cars_total", 3),
+    rep("vans_total", 3)
+  ),
+  total2 = rep(c("alb_total", "sask_total", "man_total"), 2)
+)
 my_metadata2
 
 # Problem data
-my_series2 <- data.frame(cars_alb = 12, cars_sask = 14, cars_man = 13,
-                         vans_alb = 20, vans_sask = 20, vans_man = 24,
-                         alb_total = 30, sask_total = 31, man_total = 32,
-                         cars_total = 40, vans_total = 53)
+my_series2 <- data.frame(
+  cars_alb = 12, cars_sask = 14, cars_man = 13,
+  vans_alb = 20, vans_sask = 20, vans_man = 24,
+  alb_total = 30, sask_total = 31, man_total = 32,
+  cars_total = 40, vans_total = 53
+)
 
 # Reconciled data
-out_raked2 <- tsraking(my_series2, my_metadata2,
-                       alterability_df = data.frame(vans_sask = 0),
-                       quiet = TRUE)
+out_raked2 <- tsraking(
+  my_series2, my_metadata2,
+  alterability_df = data.frame(vans_sask = 0),
+  quiet = TRUE
+)
 
 # Initial data
 my_series2
@@ -357,11 +380,26 @@ my_series2
 out_raked2
 
 # Check the output cross-sectional constraints
-all.equal(rowSums(out_raked2[c("cars_alb", "cars_sask", "cars_man")]), out_raked2$cars_total)
-all.equal(rowSums(out_raked2[c("vans_alb", "vans_sask", "vans_man")]), out_raked2$vans_total)
-all.equal(rowSums(out_raked2[c("cars_alb", "vans_alb")]), out_raked2$alb_total)
-all.equal(rowSums(out_raked2[c("cars_sask", "vans_sask")]), out_raked2$sask_total)
-all.equal(rowSums(out_raked2[c("cars_man", "vans_man")]), out_raked2$man_total)
+all.equal(
+  rowSums(out_raked2[c("cars_alb", "cars_sask", "cars_man")]), 
+  out_raked2$cars_total
+)
+all.equal(
+  rowSums(out_raked2[c("vans_alb", "vans_sask", "vans_man")]), 
+  out_raked2$vans_total
+)
+all.equal(
+  rowSums(out_raked2[c("cars_alb", "vans_alb")]), 
+  out_raked2$alb_total
+)
+all.equal(
+  rowSums(out_raked2[c("cars_sask", "vans_sask")]), 
+  out_raked2$sask_total
+)
+all.equal(
+  rowSums(out_raked2[c("cars_man", "vans_man")]), 
+  out_raked2$man_total
+)
 
 # Check the control totals (fixed)
 tot_cols <- union(unique(my_metadata2$total1), unique(my_metadata2$total2))

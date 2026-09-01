@@ -273,37 +273,52 @@ l'exécution de la fonction.
 }
 \section{Comparaison de \code{\link[=tsraking]{tsraking()}} et \code{\link[=tsbalancing]{tsbalancing()}}}{
 \itemize{
-\item \code{\link[=tsraking]{tsraking()}} est limitée aux problèmes de ratissage (« \emph{raking} ») de tables d'agrégation unidimensionnelles et
-bidimensionnelles (avec préservation des totaux temporels si nécessaire) alors que \code{\link[=tsbalancing]{tsbalancing()}} traite des problèmes
-d'équilibrage plus généraux (ex., des problèmes de ratissage de plus grande dimension, solutions non négatives,
-contraintes linéaires générales d'égalité et d'inégalité par opposition à des règles d'agrégation uniquement, etc.)
-\item \code{\link[=tsraking]{tsraking()}} renvoie la solution des moindres carrés généralisés du modèle de ratissage basé sur la régression de
-Dagum et Cholette (Dagum et Cholette 2006) tandis que \code{\link[=tsbalancing]{tsbalancing()}} résout le problème de minimisation quadratique
-correspondant à l'aide d'un solveur numérique. Dans la plupart des cas, la \emph{convergence vers le minimum} est atteinte
-et la solution de \code{\link[=tsbalancing]{tsbalancing()}} correspond à la solution (exacte) des moindres carrés de \code{\link[=tsraking]{tsraking()}}. Cela peut ne
-pas être le cas, cependant, si la convergence n'a pas pu être atteinte après un nombre raisonnable d'itérations. Cela
-dit, ce n'est qu'en de très rares occasions que la solution de \code{\link[=tsbalancing]{tsbalancing()}} différera \emph{significativement} de celle
-de \code{\link[=tsraking]{tsraking()}}.
-\item \code{\link[=tsbalancing]{tsbalancing()}} est généralement plus rapide que \code{\link[=tsraking]{tsraking()}}, en particulier pour les gros problèmes de ratissage,
-mais est généralement plus sensible à la présence de (petites) incohérences dans les données d'entrée associées aux
-contraintes redondantes des problèmes de ratissage \emph{entièrement spécifiés} (ou surspécifiés). \code{\link[=tsraking]{tsraking()}} gère ces
-incohérences en utilisant l'inverse de Moore-Penrose (distribution uniforme à travers tous les totaux contraignants).
-\item \code{\link[=tsbalancing]{tsbalancing()}} permet de spécifier des problèmes épars (clairsemés) sous leur forme réduite. Ce n'est pas le cas de
-\code{\link[=tsraking]{tsraking()}} où les règles d'agrégation doivent toujours être entièrement spécifiées étant donné qu'un \emph{cube de données
-complet}, sans données manquantes, est attendu en entrée (chaque série composante de l'\emph{intérieur du cube} doit
-contribuer à toutes les dimensions du cube, c.-à-d., à chaque série totale des \emph{faces extérieures du cube}).
-\item Les deux outils traitent différemment les valeurs négatives dans les données d'entrée par défaut. Alors que les
-solutions des problèmes de ratissage obtenues avec \code{\link[=tsbalancing]{tsbalancing()}} et \code{\link[=tsraking]{tsraking()}} sont identiques lorsque tous les
-points de données d'entrée sont positifs, elles seront différentes si certains points de données sont négatifs (à
-moins que l'argument \code{Vmat_option = 2} ne soit spécifié avec \code{\link[=tsraking]{tsraking()}}).
-\item Alors que \code{\link[=tsbalancing]{tsbalancing()}} et \code{\link[=tsraking]{tsraking()}} permettent toutes les deux de préserver les totaux temporels, la gestion
-du temps n'est pas incorporée dans \code{\link[=tsraking]{tsraking()}}. Par exemple, la construction des groupes de traitement (ensembles de
-périodes de chaque problème de ratissage) est laissée à l'utilisateur avec \code{\link[=tsraking]{tsraking()}} et des appels séparés doivent
-être soumis pour chaque groupe de traitement (chaque problème de ratissage). De là l'utilité de la fonction
-d'assistance \code{\link[=tsraking_driver]{tsraking_driver()}} pour \code{\link[=tsraking]{tsraking()}}.
-\item \code{\link[=tsbalancing]{tsbalancing()}} renvoie le même ensemble de séries que l'objet d'entrée de type série chronologique (argument
-\code{in_ts}) alors que \code{\link[=tsraking]{tsraking()}} renvoie l'ensemble des séries impliquées dans le problème de ratissage plus celles
-spécifiées avec l'argument \code{id} (qui pourrait correspondre à un sous-ensemble des séries d'entrée).
+\item \code{\link[=tsraking]{tsraking()}} est limitée aux problèmes de ratissage (« \emph{raking} ») de tables d'agrégation
+unidimensionnelles et bidimensionnelles (avec préservation des totaux temporels si nécessaire) alors
+que \code{\link[=tsbalancing]{tsbalancing()}} traite des problèmes d'équilibrage plus généraux (ex., des problèmes de ratissage
+de plus grande dimension, solutions non négatives, contraintes linéaires générales d'égalité et
+d'inégalité par opposition à des règles d'agrégation uniquement, etc.)
+\item \code{\link[=tsraking]{tsraking()}} renvoie la solution des moindres carrés généralisés du modèle de ratissage basé sur la
+régression de Dagum et Cholette (Dagum et Cholette 2006) tandis que \code{\link[=tsbalancing]{tsbalancing()}} résout le problème
+de minimisation quadratique correspondant à l'aide d'un solveur numérique. Dans la plupart des cas,
+la \emph{convergence vers le minimum} est atteinte et la solution de \code{\link[=tsbalancing]{tsbalancing()}} correspond à la
+solution (exacte) des moindres carrés de \code{\link[=tsraking]{tsraking()}}. Cela peut ne pas être le cas, cependant, si la
+convergence n'a pas pu être atteinte après un nombre raisonnable d'itérations. Cela dit, ce n'est
+qu'en de très rares occasions que la solution de \code{\link[=tsbalancing]{tsbalancing()}} différera \emph{significativement} de
+celle de \code{\link[=tsraking]{tsraking()}}.
+\item \code{\link[=tsbalancing]{tsbalancing()}} est généralement plus rapide que \code{\link[=tsraking]{tsraking()}}, en particulier pour les gros problèmes
+de ratissage, mais est généralement plus sensible à la présence de (petites) incohérences dans les
+données d'entrée associées aux contraintes redondantes des problèmes de ratissage \emph{entièrement
+spécifiés} (ou surspécifiés). \code{\link[=tsraking]{tsraking()}} gère ces incohérences en utilisant l'inverse de
+Moore-Penrose (distribution uniforme à travers tous les totaux contraignants).
+\item \code{\link[=tsbalancing]{tsbalancing()}} permet de spécifier des problèmes épars (clairsemés) sous leur forme réduite. Ce
+n'est pas le cas de \code{\link[=tsraking]{tsraking()}} où les règles d'agrégation doivent toujours être entièrement
+spécifiées étant donné qu'un \emph{cube de données complet}, sans données manquantes, est attendu en entrée
+(chaque série composante de l'\emph{intérieur du cube} doit contribuer à toutes les dimensions du cube,
+c.-à-d., à chaque série totale des \emph{faces extérieures du cube}).
+\item Les deux outils traitent différemment les valeurs négatives dans les données d'entrée par défaut.
+Alors que les solutions des problèmes de ratissage obtenues avec \code{\link[=tsbalancing]{tsbalancing()}} et \code{\link[=tsraking]{tsraking()}} sont
+identiques lorsque tous les points de données d'entrée sont positifs, elles seront différentes si
+certains points de données sont négatifs (à moins que l'argument \code{Vmat_option = 2} ne soit spécifié
+avec \code{\link[=tsraking]{tsraking()}}).
+\item Alors que \code{\link[=tsbalancing]{tsbalancing()}} et \code{\link[=tsraking]{tsraking()}} permettent toutes les deux de préserver les totaux
+temporels, la gestion du temps n'est pas incorporée dans \code{\link[=tsraking]{tsraking()}}. Par exemple, la construction
+des groupes de traitement (ensembles de périodes de chaque problème de ratissage) est laissée à
+l'utilisateur avec \code{\link[=tsraking]{tsraking()}} et des appels séparés doivent être soumis pour chaque groupe de
+traitement (chaque problème de ratissage). De là l'utilité de la fonction d'assistance
+\code{\link[=tsraking_driver]{tsraking_driver()}} pour \code{\link[=tsraking]{tsraking()}}.
+\item Les totaux marginaux (séries des faces extérieures du cube de données) renvoyés par \code{\link[=tsraking]{tsraking()}}
+sont toujours recalculés comme la somme des séries composantes pertinentes (séries de l'intérieur du
+cube). Les valeurs de sortie des totaux marginaux \strong{contraignants} peuvent donc légèrement différer
+des valeurs d’entrée. L’ampleur des différences dépend des incohérences initiales (qui sont
+uniformément distribuées par l’inverse de Moore-Penrose). Ce n’est pas le cas de \code{\link[=tsbalancing]{tsbalancing()}} où
+les totaux marginaux \strong{contraignants} restent toujours parfaitement inchangés, ce qui peut se traduire
+par des (petits) écarts en sortie entre la somme des séries composantes et le total marginal
+correspondant.
+\item \code{\link[=tsbalancing]{tsbalancing()}} renvoie le même ensemble de séries que l'objet d'entrée de type série chronologique
+(argument \code{in_ts}) alors que \code{\link[=tsraking]{tsraking()}} renvoie l'ensemble des séries impliquées dans le problème
+de ratissage plus celles spécifiées avec l'argument \code{id} (qui pourrait correspondre à un sous-ensemble
+des séries d'entrée).
 }
 }
 
@@ -313,8 +328,10 @@ spécifiées avec l'argument \code{id} (qui pourrait correspondre à un sous-ens
 #             `autos` et des `camions` doivent être égales à la valeur du `total`.
 
 # Métadonnées du problème
-mes_meta1 <- data.frame(series = c("autos", "camions"),
-                        total1 = c("total", "total"))
+mes_meta1 <- data.frame(
+  series = c("autos", "camions"),
+  total1 = c("total", "total")
+)
 mes_meta1
 
 # Données du problème
@@ -344,22 +361,32 @@ all.equal(mes_series1$total, res_ratis1$total)
 #             pour éviter l'affichage de l'en-tête de la fonction.
 
 # Métadonnées du problème
-mes_meta2 <- data.frame(series = c("autos_alb", "autos_sask", "autos_man",
-                                   "camions_alb", "camions_sask", "camions_man"),
-                        total1 = c(rep("total_autos", 3),
-                                   rep("total_camions", 3)),
-                        total2 = rep(c("total_alb", "total_sask", "total_man"), 2))
+mes_meta2 <- data.frame(
+  series = c(
+    "autos_alb", "autos_sask", "autos_man",
+    "camions_alb", "camions_sask", "camions_man"
+  ),
+  total1 = c(
+    rep("total_autos", 3),
+    rep("total_camions", 3)
+  ),
+  total2 = rep(c("total_alb", "total_sask", "total_man"), 2)
+)
 
 # Données du problème
-mes_series2 <- data.frame(autos_alb = 12, autos_sask = 14, autos_man = 13,
-                          camions_alb = 20, camions_sask = 20, camions_man = 24,
-                          total_alb = 30, total_sask = 31, total_man = 32,
-                          total_autos = 40, total_camions = 53)
+mes_series2 <- data.frame(
+  autos_alb = 12, autos_sask = 14, autos_man = 13,
+  camions_alb = 20, camions_sask = 20, camions_man = 24,
+  total_alb = 30, total_sask = 31, total_man = 32,
+  total_autos = 40, total_camions = 53
+)
 
 # Réconcilier les données
-res_ratis2 <- tsraking(mes_series2, mes_meta2,
-                       alterability_df = data.frame(camions_sask = 0),
-                       quiet = TRUE)
+res_ratis2 <- tsraking(
+  mes_series2, mes_meta2,
+  alterability_df = data.frame(camions_sask = 0),
+  quiet = TRUE
+)
 
 # Données initiales
 mes_series2
@@ -368,11 +395,26 @@ mes_series2
 res_ratis2
 
 # Vérifier les contraintes transversales en sortie
-all.equal(rowSums(res_ratis2[c("autos_alb", "autos_sask", "autos_man")]), res_ratis2$total_autos)
-all.equal(rowSums(res_ratis2[c("camions_alb", "camions_sask", "camions_man")]), res_ratis2$total_camions)
-all.equal(rowSums(res_ratis2[c("autos_alb", "camions_alb")]), res_ratis2$total_alb)
-all.equal(rowSums(res_ratis2[c("autos_sask", "camions_sask")]), res_ratis2$total_sask)
-all.equal(rowSums(res_ratis2[c("autos_man", "camions_man")]), res_ratis2$total_man)
+all.equal(
+  rowSums(res_ratis2[c("autos_alb", "autos_sask", "autos_man")]), 
+  res_ratis2$total_autos
+)
+all.equal(
+  rowSums(res_ratis2[c("camions_alb", "camions_sask", "camions_man")]), 
+  res_ratis2$total_camions
+)
+all.equal(
+  rowSums(res_ratis2[c("autos_alb", "camions_alb")]), 
+  res_ratis2$total_alb
+)
+all.equal(
+  rowSums(res_ratis2[c("autos_sask", "camions_sask")]), 
+  res_ratis2$total_sask
+)
+all.equal(
+  rowSums(res_ratis2[c("autos_man", "camions_man")]), 
+  res_ratis2$total_man
+)
 
 # Vérifier le total de contrôle (fixe)
 cols_tot <- union(unique(mes_meta2$total1), unique(mes_meta2$total2))

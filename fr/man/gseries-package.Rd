@@ -20,6 +20,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Michel Ferland \email{michel.ferland@statcan.gc.ca}
 
+Authors:
+\itemize{
+  \item Michel Ferland \email{michel.ferland@statcan.gc.ca}
+}
+
 Other contributors:
 \itemize{
   \item Statistics Canada [copyright holder, funder]

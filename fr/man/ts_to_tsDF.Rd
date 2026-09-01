@@ -70,9 +70,10 @@ ts_to_tsDF(ma_sc, val_cName = "ser_val")
 
 # Séries chronologiques multiples: argument `val_cName` ignoré
 # (les noms de colonnes de l'object « mts » sont toujours utilisés)
-ts_to_tsDF(ts.union(ser1 = ma_sc,
-                    ser2 = ma_sc / 10),
-            val_cName = "nom_de_colonne_inutile")
+ts_to_tsDF(
+  ts.union(ser1 = ma_sc, ser2 = ma_sc / 10),
+  val_cName = "nom_de_colonne_inutile"
+)
 }
 \seealso{
 \code{\link[=tsDF_to_ts]{tsDF_to_ts()}} \code{\link[=ts_to_bmkDF]{ts_to_bmkDF()}} \code{\link[=stack_tsDF]{stack_tsDF()}} \code{\link[=benchmarking]{benchmarking()}} \code{\link[=stock_benchmarking]{stock_benchmarking()}} \link{time_values_conv}

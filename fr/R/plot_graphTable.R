@@ -601,7 +601,8 @@ plot_graphTable <- function(graphTable,
 #'     plot.title = ggtext::element_markdown(hjust = 0.5),
 #'     plot.subtitle = ggtext::element_markdown(hjust = 0.5),
 #'     legend.position = "bottom",
-#'     plot.margin = ggplot2::margin(t = 1.5, r = 1.5, b = 1.5, l = 1.5, unit = "cm"))
+#'     plot.margin = ggplot2::margin(t = 1.5, r = 1.5, b = 1.5, l = 1.5, unit = "cm")
+#'   )
 #'   ```
 #'
 #'

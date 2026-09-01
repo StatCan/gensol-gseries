@@ -68,9 +68,10 @@ ts_to_tsDF(my_ts, val_cName = "ser_val")
 
 # Multiple time series: argument `val_cName` ignored
 # (the "mts" object column names are always used)
-ts_to_tsDF(ts.union(ser1 = my_ts,
-                    ser2 = my_ts / 10),
-            val_cName = "useless_column_name")
+ts_to_tsDF(
+  ts.union(ser1 = my_ts, ser2 = my_ts / 10),
+  val_cName = "useless_column_name"
+)
 }
 \seealso{
 \code{\link[=tsDF_to_ts]{tsDF_to_ts()}} \code{\link[=ts_to_bmkDF]{ts_to_bmkDF()}} \code{\link[=stack_tsDF]{stack_tsDF()}} \code{\link[=benchmarking]{benchmarking()}} \code{\link[=stock_benchmarking]{stock_benchmarking()}} \link{time_values_conv}

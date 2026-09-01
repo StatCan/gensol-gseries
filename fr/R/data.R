@@ -19,7 +19,7 @@
 #'   \item{eps_rel}{Tolérance relative (*double*)}
 #'   \item{eps_prim_inf}{Tolérance d'infaisabilité du problème primal (*double*)}
 #'   \item{eps_dual_inf}{Tolérance d'infaisabilité du problème dual (*double*)}
-#'   \item{polish}{Effectuer l'étape de raffinement de la solution (*logical*)}
+#'   \item{polishing}{Effectuer l'étape de raffinement de la solution (*logical*)}
 #'   \item{scaling}{Nombre d'itérations de mise à l'échelle (*integer*)}
 #'   \item{prior_scaling}{Mise à l'échelle préalable des données, avant la résolution avec OSQP (*logical*)}
 #'   \item{require_polished}{Exiger une solution raffinée (_polished solution_) pour arrêter la séquence (*logical*)}

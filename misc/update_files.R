@@ -50,7 +50,7 @@ update_html_files <- function() {
   #        "du paquetage"
   #      with
   #        "de la librairie"
-  my_gsub_file("du paquetage", 
+  my_gsub_file("du paquet", 
                "de la librairie", 
                "docs/fr/reference/index.html")
   

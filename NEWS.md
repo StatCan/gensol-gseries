@@ -1,4 +1,6 @@
-# gseries (development version)
+# gseries 3.0.3
+
+(*G-Series 3.0 in R*)
 
 <!-- Display a link to the French `NEWS.md' file (only when rendering an HTML document)
      
@@ -15,7 +17,11 @@
 
 </div>
 
-* Minor corrections to the documentation (e.g., fixing typos).
+* Compliance of `tsbalancing()` with OSQP V1.0:
+  * Setting `polish` renamed to `polishing`.
+  * Change of OSQP object: from a R6 object of class "osqp_model" to a S7 object of class "OSQP_Model".
+* Correction of a minor bug in `tsbalancing()`: column `require_polished` was missing in output data frame `osqp_setttings_df`
+* Minor corrections to the documentation (e.g., fixing typos, reformatting the code in the examples).
 * *Awesome Official Statistics* badge (`README.md`, `index.md` and `fr/index.md`).
 
 
@@ -33,9 +39,11 @@
 
 (*G-Series 3.0 in R*)
 
-* Bug fix in `tsbalancing()` to avoid altering the R session's error option (`getOption("error")`) after execution.
+* Bug fix in `tsbalancing()` to avoid altering the R session's error option (`getOption("error")`) after 
+execution.
 
-* Validation of class "data.frame" input objects in (relevant) utility functions for coherence with the core functions.
+* Validation of class "data.frame" input objects in (relevant) utility functions for coherence with the 
+core functions.
 
 * Updated description of the function arguments regarding the expected class of input objects.
 

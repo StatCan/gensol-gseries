@@ -113,9 +113,11 @@ returned \code{\link[=tsbalancing]{tsbalancing()}} problem specs data frame.
 }
 \examples{
 # `tsraking()` metadata for a 2-dimensional raking problem (2 x 2 table)
-my_metadata <- data.frame(series = c("A1", "A2", "B1", "B2"),
-                          total1 = c("totA", "totA", "totB", "totB"),
-                          total2 = c("tot1", "tot2", "tot1", "tot2"))
+my_metadata <- data.frame(
+  series = c("A1", "A2", "B1", "B2"),
+  total1 = c("totA", "totA", "totB", "totB"),
+  total2 = c("tot1", "tot2", "tot1", "tot2")
+)
 my_metadata
 
 
@@ -136,8 +138,12 @@ tail(rkMeta_to_blSpecs(my_metadata, alterability_df = my_alter))
 
 # Only include the alterability coefficients from `alterability_df` 
 # (i.e., for column `B2` only)
-tail(rkMeta_to_blSpecs(my_metadata, alterability_df = my_alter,
-                       alterability_df_only = TRUE))
+tail(
+  rkMeta_to_blSpecs(
+    my_metadata, alterability_df = my_alter, 
+    alterability_df_only = TRUE
+  )
+)
 }
 \seealso{
 \code{\link[=tsraking]{tsraking()}} \code{\link[=tsbalancing]{tsbalancing()}}
