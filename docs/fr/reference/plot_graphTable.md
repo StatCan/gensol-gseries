@@ -340,7 +340,7 @@ plot_graphTable(res_eta$graphTable, "graphes_etalonnage.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\graphes_etalonnage.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\graphes_etalonnage.pdf
 
 # Utiliser temporairement `theme_bw()` de ggplot2 pour les graphiques
 library(ggplot2)
@@ -351,7 +351,7 @@ plot_graphTable(res_eta$graphTable, "graphes_etalonnage_bw.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\graphes_etalonnage_bw.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\graphes_etalonnage_bw.pdf
 theme_set(theme_ini)
 
 # Generer les 4 types de graphiques (incluant le tableau des taux de croissance)
@@ -360,7 +360,7 @@ plot_graphTable(res_eta$graphTable, "graphes_etalonnage_avec_tableauTC.pdf",
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\graphes_etalonnage_avec_tableauTC.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\graphes_etalonnage_avec_tableauTC.pdf
 
 # Réduire le temps d'exécution en désactivant les deux types de graphiques 
 # des taux de croissance
@@ -369,7 +369,7 @@ plot_graphTable(res_eta$graphTable, "graphes_etalonnage_sans_TC.pdf",
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\graphes_etalonnage_sans_TC.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\graphes_etalonnage_sans_TC.pdf
 
 
 # Réinitialiser le répertoire de travail à son emplacement initial

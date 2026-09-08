@@ -1349,9 +1349,9 @@ res_equi1 <- tsbalancing(
 #>             scaling: off, scaled_termination: off
 #>             warm starting: on, polishing: on, 
 #>   iter  objective    prim res   dual res   gap        rel kkt    rho         time
-#>      1  -1.3898e+00   7.94e-01   8.11e+01  -6.04e+01   8.11e+01   1.00e-01    6.15e-05s
-#>     50  -1.9200e+00   9.38e-11   5.19e-10  -4.56e-10   5.19e-10   1.00e-01    1.22e-04s
-#>   plsh  -1.9200e+00   1.11e-16   2.22e-16   1.67e-16   2.22e-16  ---------    1.86e-04s
+#>      1  -1.3898e+00   7.94e-01   8.11e+01  -6.04e+01   8.11e+01   1.00e-01    5.67e-05s
+#>     50  -1.9200e+00   9.38e-11   5.19e-10  -4.56e-10   5.19e-10   1.00e-01    1.16e-04s
+#>   plsh  -1.9200e+00   1.11e-16   2.22e-16   1.67e-16   2.22e-16  ---------    1.74e-04s
 #>   
 #>   status:               solved
 #>   solution polishing:   successful
@@ -1360,7 +1360,7 @@ res_equi1 <- tsbalancing(
 #>   dual objective:       -1.9200
 #>   duality gap:          1.6653e-16
 #>   primal-dual integral: 6.0431e+01
-#>   run time:             1.86e-04s
+#>   run time:             1.74e-04s
 #>   optimal rho estimate: 5.49e-02
 #>   
 #>   OSQP iteration 1:
@@ -1417,9 +1417,9 @@ res_equi1 <- tsbalancing(
 #>             scaling: off, scaled_termination: off
 #>             warm starting: on, polishing: on, 
 #>   iter  objective    prim res   dual res   gap        rel kkt    rho         time
-#>      1  -1.2816e+00   1.57e-01   1.77e+01   2.81e-01   1.77e+01   1.00e-01    5.12e-05s
-#>     50  -1.8750e+00   1.33e-11   1.11e-10  -4.76e-11   1.11e-10   1.00e-01    1.10e-04s
-#>   plsh  -1.8750e+00   2.78e-17   1.11e-16  -1.39e-16   1.11e-16  ---------    1.71e-04s
+#>      1  -1.2816e+00   1.57e-01   1.77e+01   2.81e-01   1.77e+01   1.00e-01    4.98e-05s
+#>     50  -1.8750e+00   1.33e-11   1.11e-10  -4.76e-11   1.11e-10   1.00e-01    1.05e-04s
+#>   plsh  -1.8750e+00   2.78e-17   1.11e-16  -1.39e-16   1.11e-16  ---------    1.64e-04s
 #>   
 #>   status:               solved
 #>   solution polishing:   successful
@@ -1428,7 +1428,7 @@ res_equi1 <- tsbalancing(
 #>   dual objective:       -1.8750
 #>   duality gap:          -1.3878e-16
 #>   primal-dual integral: 2.8069e-01
-#>   run time:             1.71e-04s
+#>   run time:             1.64e-04s
 #>   optimal rho estimate: 5.47e-02
 #>   
 #>   OSQP iteration 1:
@@ -1485,9 +1485,9 @@ res_equi1 <- tsbalancing(
 #>             scaling: off, scaled_termination: off
 #>             warm starting: on, polishing: on, 
 #>   iter  objective    prim res   dual res   gap        rel kkt    rho         time
-#>      1  -1.4512e+00   2.00e-02   3.05e+00   3.15e+00   3.15e+00   1.00e-01    4.42e-05s
-#>     50  -1.9998e+00   1.70e-12   1.29e-11  -2.60e-13   1.29e-11   1.00e-01    1.04e-04s
-#>   plsh  -1.9998e+00   1.73e-17   1.73e-17  -4.41e-17   1.73e-17  ---------    1.65e-04s
+#>      1  -1.4512e+00   2.00e-02   3.05e+00   3.15e+00   3.15e+00   1.00e-01    3.82e-05s
+#>     50  -1.9998e+00   1.70e-12   1.29e-11  -2.60e-13   1.29e-11   1.00e-01    9.40e-05s
+#>   plsh  -1.9998e+00   1.73e-17   1.73e-17  -4.41e-17   1.73e-17  ---------    1.52e-04s
 #>   
 #>   status:               solved
 #>   solution polishing:   successful
@@ -1496,7 +1496,7 @@ res_equi1 <- tsbalancing(
 #>   dual objective:       -1.9998
 #>   duality gap:          -4.4073e-17
 #>   primal-dual integral: 3.1527e+00
-#>   run time:             1.65e-04s
+#>   run time:             1.52e-04s
 #>   optimal rho estimate: 5.13e-02
 #>   
 #>   OSQP iteration 1:
@@ -1553,9 +1553,9 @@ res_equi1 <- tsbalancing(
 #>             scaling: off, scaled_termination: off
 #>             warm starting: on, polishing: on, 
 #>   iter  objective    prim res   dual res   gap        rel kkt    rho         time
-#>      1  -1.3898e+00   6.04e-03   1.05e+00   3.09e+00   3.09e+00   1.00e-01    3.92e-05s
-#>     25  -1.9200e+00   5.09e-08   5.35e-07   3.64e-07   5.35e-07   1.00e-01    9.41e-05s
-#>   plsh  -1.9200e+00   0.00e+00   1.11e-16   0.00e+00   1.11e-16  ---------    1.52e-04s
+#>      1  -1.3898e+00   6.04e-03   1.05e+00   3.09e+00   3.09e+00   1.00e-01    3.99e-05s
+#>     25  -1.9200e+00   5.09e-08   5.35e-07   3.64e-07   5.35e-07   1.00e-01    9.92e-05s
+#>   plsh  -1.9200e+00   0.00e+00   1.11e-16   0.00e+00   1.11e-16  ---------    1.56e-04s
 #>   
 #>   status:               solved
 #>   solution polishing:   successful
@@ -1564,7 +1564,7 @@ res_equi1 <- tsbalancing(
 #>   dual objective:       -1.9200
 #>   duality gap:          0.0000e+00
 #>   primal-dual integral: 3.0853e+00
-#>   run time:             1.52e-04s
+#>   run time:             1.56e-04s
 #>   optimal rho estimate: 4.88e-02
 #>   
 #>   OSQP iteration 1:
@@ -1621,9 +1621,9 @@ res_equi1 <- tsbalancing(
 #>             scaling: off, scaled_termination: off
 #>             warm starting: on, polishing: on, 
 #>   iter  objective    prim res   dual res   gap        rel kkt    rho         time
-#>      1  -6.1701e-02   1.19e+00   1.21e+02  -1.46e+02   1.21e+02   1.00e-01    5.01e-05s
-#>     50  -9.5062e-01   1.37e-10   1.41e-10  -1.43e-10   1.41e-10   1.00e-01    1.33e-04s
-#>   plsh  -9.5062e-01   0.00e+00   0.00e+00  -1.11e-16   0.00e+00  ---------    1.92e-04s
+#>      1  -6.1701e-02   1.19e+00   1.21e+02  -1.46e+02   1.21e+02   1.00e-01    3.72e-05s
+#>     50  -9.5062e-01   1.37e-10   1.41e-10  -1.43e-10   1.41e-10   1.00e-01    9.23e-05s
+#>   plsh  -9.5062e-01   0.00e+00   0.00e+00  -1.11e-16   0.00e+00  ---------    1.49e-04s
 #>   
 #>   status:               solved
 #>   solution polishing:   successful
@@ -1632,7 +1632,7 @@ res_equi1 <- tsbalancing(
 #>   dual objective:       -0.9506
 #>   duality gap:          -1.1102e-16
 #>   primal-dual integral: 1.4561e+02
-#>   run time:             1.92e-04s
+#>   run time:             1.49e-04s
 #>   optimal rho estimate: 1.39e-01
 #>   
 #>   OSQP iteration 1:

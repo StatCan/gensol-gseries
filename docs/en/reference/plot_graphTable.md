@@ -324,7 +324,7 @@ plot_graphTable(out_bench$graphTable, "bench_graphs.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\bench_graphs.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\bench_graphs.pdf
 
 # Temporarily use ggplot2 `theme_bw()` for the plots
 library(ggplot2)
@@ -335,7 +335,7 @@ plot_graphTable(out_bench$graphTable, "bench_graphs_bw.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\bench_graphs_bw.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\bench_graphs_bw.pdf
 theme_set(ini_theme)
 
 # Generate all 4 types of graphics (including the growth rates table)
@@ -344,7 +344,7 @@ plot_graphTable(out_bench$graphTable, "bench_graphs_with_GRTable.pdf",
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\bench_graphs_with_GRTable.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\bench_graphs_with_GRTable.pdf
 
 # Reduce execution time by disabling both types of growth rates graphics
 plot_graphTable(out_bench$graphTable, "bench_graphs_no_GR.pdf",
@@ -352,7 +352,7 @@ plot_graphTable(out_bench$graphTable, "bench_graphs_no_GR.pdf",
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 2 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\bench_graphs_no_GR.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\bench_graphs_no_GR.pdf
 
 
 # Reset the working directory to its initial location

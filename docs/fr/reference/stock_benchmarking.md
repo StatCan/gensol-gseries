@@ -934,12 +934,12 @@ plot_graphTable(res_PB2$graphTable, file.path(tempdir(), "Stock_ind_plat_PB.pdf"
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\Stock_ind_plat_PB.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\Stock_ind_plat_PB.pdf
 plot_graphTable(res_SB2$graphTable, file.path(tempdir(), "Stock_ind_plat_SB.pdf"))
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\Stock_ind_plat_SB.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\Stock_ind_plat_SB.pdf
 
 
 # Illustrer l'approximation d'une spline cubique naturelle aux nœuds d'extrémité originaux 
