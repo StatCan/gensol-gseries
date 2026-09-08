@@ -2,6 +2,8 @@
 
 ## gseries 3.0.3
 
+CRAN release: 2026-09-01
+
 (*G-Series 3.0 in R*)
 
 - Compliance of

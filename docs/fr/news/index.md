@@ -2,6 +2,8 @@
 
 ## gseries 3.0.3
 
+Version CRAN : 2026-09-01
+
 (*G-Séries 3.0 en R*)
 
 - Conformité de

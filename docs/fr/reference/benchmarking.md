@@ -840,7 +840,7 @@ plot_graphTable(res_eta1$graphTable, "Graphs_ex1.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\Graphs_ex1.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\Graphs_ex1.pdf
 
 
 ###########
@@ -989,7 +989,7 @@ plot_graphTable(res_eta2$graphTable, "Graphs_ex2.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 4 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\Graphs_ex2.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\Graphs_ex2.pdf
 
 # Vérifier la valeur des ventes de camionnettes pour 2012 T1 et T2 
 # dans le groupe A (valeurs fixes)
@@ -1074,7 +1074,7 @@ plot_graphTable(res_eta3$graphTable, "Graphs_ex3.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 4 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\RtmpAn0YpJ\Graphs_ex3.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp4MB8Hw\Graphs_ex3.pdf
 
 # Convertir le « data frame » `res_eta3$series` en un objet « mts »
 ventes_tri2_eta <- tsDF_to_ts(unstack_tsDF(res_eta3$series), frequency = 4)

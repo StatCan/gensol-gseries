@@ -793,7 +793,7 @@ plot_graphTable(out_bench1$graphTable, "Ex1_graphs.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\Ex1_graphs.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\Ex1_graphs.pdf
 
 
 ###########
@@ -941,7 +941,7 @@ plot_graphTable(out_bench2$graphTable, "Ex2_graphs.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 4 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\Ex2_graphs.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\Ex2_graphs.pdf
 
 # Check the value of van sales for 2012 Q1 and Q2 in group A (fixed values)
 all.equal(my_series2$van_sales[c(5,6)], out_bench2$series$van_sales[c(5,6)])
@@ -1026,7 +1026,7 @@ plot_graphTable(out_bench3$graphTable, "Ex3_graphs.pdf")
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 4 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\Ex3_graphs.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\Ex3_graphs.pdf
 
 # Convert data frame `out_bench3$series` to a "mts" object
 qtr_sales2_bmked <- tsDF_to_ts(unstack_tsDF(out_bench3$series), frequency = 4)

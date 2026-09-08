@@ -893,12 +893,12 @@ plot_graphTable(out_PB2$graphTable, file.path(tempdir(), "PB_stock_flat_ind.pdf"
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\PB_stock_flat_ind.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\PB_stock_flat_ind.pdf
 plot_graphTable(out_SB2$graphTable, file.path(tempdir(), "SB_stock_flat_ind.pdf"))
 #> 
 #> Generating the benchmarking graphics. Please be patient...
 #> Benchmarking graphics generated for 1 series in the following PDF file:
-#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp0gPwkQ\SB_stock_flat_ind.pdf
+#>   C:\Users\ferlmic\AppData\Local\Temp\Rtmp82Yc2t\SB_stock_flat_ind.pdf
 
 
 # Illustrate approximating a natural cubic spline at the original end knots (first and 
