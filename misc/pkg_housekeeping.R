@@ -324,7 +324,7 @@ setwd("fr"); pkgdown::build_home_index(pkg = "."); setwd("..")
 file.copy(md_list, "misc"); unlink(md_list); pkgdown::build_home("."); file.copy(md_list2, "."); unlink(md_list2)
 setwd("fr"); pkgdown::build_home(pkg = "."); setwd("..")
 
-# Update the pkgdown News/Changelog page
+# Update the pkgdown News dropdown menu (Release links and/or Changelog page)
 pkgdown::build_news(pkg = ".")
 setwd("fr"); pkgdown::build_news(pkg = "."); setwd("..")
 
